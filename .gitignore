@@ -1,0 +1,48 @@
+# ------------------------------------------------------------------------------
+# general
+
+# Python
+*.pyc
+__pycache__/
+.ipynb_checkpoints
+
+# Word, Excel backups
+*.xlk
+*.wbk
+
+# MATLAB
+*.m~
+._*
+~$*
+
+# Mac thing
+**/.DS_Store
+
+# Other
+Thumbs.db
+#.git*
+
+# ------------------------------------------------------------------------------
+# specific
+
+# Binary files
+bin/*
+obj/*
+
+# Output files
+out/*
+
+# References/documents, some of which probably shouldn't be distributed without permission
+ref/*
+
+# big files
+img/swarm_movies.zip
+img/swarm_movie_dance.gif
+
+# brusselator "exact" solution
+**/brus-sol
+
+# Makefile configuration
+config.mk
+
+!**/.keep
