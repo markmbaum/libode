@@ -89,7 +89,7 @@ class OdeBaseRK(OdeBase):
                         if snaps == None, no output is returned"""
 
         #check timing
-        assert tend >= self.t, "tend must be greater than or equal to t, can't integrate backward"
+        assert tend > self.t, "tend must be greater than t, can't integrate backward"
         #check extra arguments
         assert type(args) is tuple, "args must be a tuple of extra arguments for odefunk"
 
@@ -124,7 +124,6 @@ class OdeBaseRK(OdeBase):
             tout[i] = self.t
             solout[i,:] = self.sol
 
-            print(tout[-1], solout[-1,:])
             return(tout, solout)
 
         elif type(snaps) is int:

@@ -13,10 +13,10 @@
     overflow: scroll;
 }
 
-#back-to-top {
+#go-to-top {
     position: fixed;
     right: 0;
-    bottom: 0;
+    top: 0;
     padding: 3px;
     margin: 0;
     background-color: inherit;
@@ -24,8 +24,24 @@
     font-family: "Open Sans", sans-serif;
     font-size: 11pt;
     text-decoration: none;
-    border-top: 1px solid #505050;
+    border-bottom: 1px solid #505050;
     border-left: 1px solid #505050;
+}
+
+#up-module {
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 3px;
+    margin: 0;
+    background-color: inherit;
+    color: #828997;
+    font-family: "Open Sans", sans-serif;
+    font-size: 11pt;
+    text-decoration: none;
+    border-bottom: 1px solid #505050;
+    border-right: 1px solid #505050;
+    z-index: 100;
 }
 
 #mod-docstr {
@@ -341,6 +357,7 @@ function arrange(){
     var nav = document.getElementById('nav');
     var main = document.getElementById('main');
     var body = document.body;
+    var back = document.getElementById('up-module')
 
     var w_nav = nav.offsetWidth + 1;
     var m = w_nav.toString() + 'px';
@@ -353,7 +370,6 @@ function arrange(){
     main.style.width = w;
 
     console.log('arrange')
-
 };
 
 function toggleSource(obj){
@@ -381,7 +397,10 @@ function toggleSource(obj){
         <body onresize="arrange()" onload="arrange()">
 
             <!--Back to Top Button-->
-            <a id="back-to-top" href="#">back to top</a>
+            <a id="go-to-top" href="#">go to top</a>
+
+            <!--Up Module Button-->
+            
 
             <!--Navigation Sidebar-->
             <div id="nav-wrapper">
@@ -1092,8 +1111,5 @@ implicit  [12 rows x 5 columns]</pre>
             </div>
 
         </body>
-
-
-
     </html>
     
