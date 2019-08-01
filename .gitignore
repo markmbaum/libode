@@ -25,6 +25,9 @@ Thumbs.db
 # ------------------------------------------------------------------------------
 # specific
 
+# Archive
+arch/*
+
 # Binary files
 bin/*
 obj/*
@@ -34,13 +37,6 @@ out/*
 
 # References/documents, some of which probably shouldn't be distributed without permission
 ref/*
-
-# big files
-img/swarm_movies.zip
-img/swarm_movie_dance.gif
-
-# brusselator "exact" solution
-**/brus-sol
 
 # Makefile configuration
 config.mk

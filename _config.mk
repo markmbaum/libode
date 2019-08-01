@@ -11,17 +11,17 @@ cxx=g++ # <--- GNU C++ compiler
 #choose compilation flags
 
 #compilation flags
-cflags=-std=c++11 -Wall -Wextra -pedantic -O3 # <--- GNU compiler flags
-#cflags=-std=c++11 -Wall -O3 # <--- Intel compiler flags
+flags=-Wall -Wextra -pedantic -O3 # <--- GNU compiler flags
+#flags=-Wall -O3 # <--- Intel compiler flags
 
 #-------------------------------------------------------------------------------
 #provide directory names (these probably shouldn't be changed)
 
 #source code directory
-dirs=src
+ds=src
 #test code directory
-dirt=test/cpp
+dt=test
 #compiled object directory
-diro=obj
+do=obj
 #compiled executable directory
-dirb=bin
+db=bin

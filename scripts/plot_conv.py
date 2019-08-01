@@ -12,7 +12,7 @@ x = np.sort(h)
 
 fig, ax = plt.subplots(1,1)
 
-for i in range(1,9):
+for i in range(1,10):
     hh = np.logspace(np.log10(min(h)), np.log10(max(h)), 2500)
     b = np.log10(L2err[0]/(10**(i*np.log10(h[0]))))
     y = 10**(i*np.log10(hh) + b)

@@ -1,0 +1,11 @@
+issues to address
+
+* Adaptive step sizing for implicit methods is crucial.
+
+* Handling non-convergence of Newton's method(s) with implicit methods. The Newton solver can return a code indicating success/failure. If failure, take smaller steps?
+
+* Initial guess of k values for nonlinear solves in implicit methods.
+
+* Implement an L-stable Rosenbrock method.
+
+* Look into extra steps taken when snapping in an adaptive solves.
