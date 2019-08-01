@@ -42,8 +42,6 @@ To use a C++ solver, a new class must be created to inherit from one of the solv
 
 For flexibility, the derived class can be a template, so that the solver/method can be chosen when the class is constructed. Other than defining the system of equations and setting initial conditions, the derived class can store whatever information and implement whatever other methods are necessary. This could be something simple like an extra function for setting initial conditions. It could, however, comprise any other system that needs to run on top of an ODE solver, like the spatial discretization of a big PDE solver.
 
-Some simple systems of two ODEs, which have been used to test convergence and accuracy, are implemented [here](test/cpp/ode_explicit_test_systems.hpp) if examples are useful. A template class is also provided [here](TemplateSolver.cpp) with a `main` function to drive it.
-
 Each solver has a `step` method that can be used to integrate a single step with a specified step size. Each solver class also has a `solve_fixed` method and, if it's an adaptive class, a `solve_adaptive` method. These functions return nothing and both have the same four call signatures:
 
 1. `void solve_fixed (double tint, double dt)`
