@@ -1,7 +1,3 @@
-/*
-This class implements the error analysis and time step step selection for embedded RK methods
-*/
-
 #ifndef ODE_EMBEDDED_H_
 #define ODE_EMBEDDED_H_
 
@@ -10,53 +6,71 @@ This class implements the error analysis and time step step selection for embedd
 #include "ode_util.h"
 #include "ode_adaptive.h"
 
+/*!
+Implements the error analysis and time step step selection for embedded RK methods
+*/
 class OdeEmbedded : public OdeAdaptive {
 
     public:
-        //constructor
-        OdeEmbedded (unsigned long neq, bool need_jac, int lowerrord);
-        //destructor
+        //!constructs
+        /*!
+        \param[in] neq size of ODE system
+        \param[in] need_jac flag signaling whether the Jacobian of the system is needed
+        \param[in] lowerord the order of the lower order embedded method (assumed to be one less than the higher order one)
+        */
+        OdeEmbedded (unsigned long neq, bool need_jac, int lowerord);
+        //!destructs
         ~OdeEmbedded ();
 
         //-------------------
         //getters and setters
 
+        //!gets safety factor applied to time step selection
         double get_facsafe () { return(facsafe_); }
+        //!gets minimum allowable fraction change in time step
         double get_facmin () { return(facmin_); }
+        //!gets maximum allowable fraction change in time step
         double get_facmax () { return(facmax_); }
 
+        //!sets safety factor applied to time step selection
         void set_facsafe (double facsafe) { facsafe_ = facsafe; }
+        //!sets minimum allowable fraction change in time step
         void set_facmin (double facmin) { facmin_ = facmin; }
+        //!sets maximum allowable fraction change in time step
         void set_facmax (double facmax) { facmax_ = facmax; }
 
     protected:
-        //fractions for time step selection
-        double facsafe_, facmin_, facmax_;
 
-        //array for the lower order solution for error estimation
-        //the higher order solution is assumed to go straight into sol
-        double *solemb_; //embedded solution
-        //calculates error estimate with lower and higher order solutions
+        //!safety factor applied to time step selection
+        double facsafe_;
+        //!minimum allowable fraction change in time step
+        double facmin_;
+        //!maximum allowable fraction change in time step
+        double facmax_;
+
+        //!embedded solution array
+        double *solemb_;
+        //!calculates error estimate with lower and higher order solutions
         double error (double abstol, double reltol);
-        //calculates factor for "optimal" next time step
+        //!calculates factor for "optimal" next time step
         double facopt (double err);
 
         //------------------------------------------------
         //implementation of inherited methods for adapting
 
-        //does the calculations to determine isrej and dtopt
+        //!does the calculations to determine isrej and dtopt
         void adapt (double abstol, double reltol);
-        //simply returns isrej
+        //!simply returns isrej
         bool is_rejected () { return( isrej_ ); }
-        //simply returns dtopt
+        //!simply returns dtopt
         double dt_next () { return( dtopt_ ); }
 
     private:
-        //order of the LOWER order solution used for error estimation
-        int lowerrord_;
-        //flag for rejecting a step
+        //!order of the LOWER order solution used for error estimation
+        int lowerord_;
+        //!flag for rejecting a step
         bool isrej_;
-        //next time step
+        //!next time step
         double dtopt_;
 };
 

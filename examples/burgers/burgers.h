@@ -1,11 +1,9 @@
 /*
-Inviscid Burger's equation with a simple finite-volume upwinding scheme
+Viscid Burger's equation with a simple finite-volume upwinding scheme
 */
 
 #include <cmath>
 #define pi 3.1415926535897932384626433832795
-
-#include <ode_linalg.h>
 
 template<class Integrator>
 class Burgers : public Integrator {
@@ -30,17 +28,20 @@ class Burgers : public Integrator {
 
             int i;
             double *u = solin;
-            double f;
+            double f,g;
 
             //zero out fluxes before accumulating
             for (i=0; i<nx; i++) fout[i] = 0.0;
 
             //evaluate fluxes
             for (i=0; i<nx-1; i++) {
-                //upwind
+                //upwind advective flux
                 f = (u[i+1] + u[i])/2.0 < 0.0 ? u[i+1]*u[i+1]/2.0 : u[i]*u[i]/2.0;
-                fout[i]   -= f/h;
-                fout[i+1] += f/h;
+                //diffusive flux
+                g = -(u[i+1] - u[i])/(1000*h);
+                //time derivatives
+                fout[i]   -= (f + g)/h;
+                fout[i+1] += (f + g)/h;
             }
         }
 

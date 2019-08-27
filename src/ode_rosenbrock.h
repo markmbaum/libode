@@ -3,26 +3,37 @@
 
 #include "ode_linalg.h"
 
+//!Base class for Rosenbrock methods
 class OdeRosenbrock {
 
     public:
-        //constructor
+        //!constructs
+        /*!
+        \param[in] neq size of ODE sytem
+        \param[in] nk number of stages
+        */
         OdeRosenbrock (unsigned long neq, int nk);
-        //destructor
+        //!destructs
         ~OdeRosenbrock ();
 
     protected:
-        //parameter multipying Jacobian or single diagonal gamma
+        //!parameter multipying Jacobian or single diagonal gamma
         double gam;
-        //permutation array for LU factorization
+        //!permutation array for LU factorization
         int *p_;
-        //right hand side of matrix equations
+        //!right hand side of matrix equations
         double *rhs_;
-        //temporary sol vector
+        //!temporary sol vector
         double *soltemp_;
-        //stage derivatives
+        //!stage derivatives
         double **k_;
-        //do necessary arithmetic with the Jacobian then lu factor it
+        //!do necessary arithmetic with the Jacobian then lu factor it
+        /*!
+        \param[in] n size of Jacobian
+        \param[in] Jac Jacobian matrix then LU decomposed Jacobian with modifications for Rosembrock stages
+        \param[in] dt time step size
+        \param[out] p permutation array for LU decomposition
+        */
         void prep_jac (double **Jac, unsigned long n, double dt, int *p);
 
     private:

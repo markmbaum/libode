@@ -1,8 +1,3 @@
-/*
-This is a strong stability preserving method of order 3, from Shu and Osher:
-    C. W. Shu and S. Osher, Effcient implementation of essentially nonoscillatory shock-capturing schemes, J. Comput. Phys., 77, 1988, pp. 439-471.
-*/
-
 #ifndef ODE_SSP3_H_
 #define ODE_SSP3_H_
 
@@ -10,10 +5,17 @@ This is a strong stability preserving method of order 3, from Shu and Osher:
 #include "ode_rk.h"
 #include "ode_erk.h"
 
+/*!
+This is a strong stability preserving method of order 3, from Shu and Osher:
+    + C. W. Shu and S. Osher, Effcient implementation of essentially nonoscillatory shock-capturing schemes, J. Comput. Phys., 77, 1988, pp. 439-471.
+*/
 class OdeSsp3 : public OdeBase, private OdeRK, private OdeERK {
 
     public:
-        //constructor
+        //!constructs
+        /*!
+        \param[in] neq size of ODE sytem
+        */
         OdeSsp3 (unsigned long neq);
 
     private:

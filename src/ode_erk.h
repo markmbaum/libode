@@ -1,20 +1,22 @@
-/*
-This class simply provides a temporary solution array for moving through RK stages with explicit solvers
-*/
-
 #ifndef ODE_ERK_H_
 #define ODE_ERK_H_
 
+/*!
+Provides a temporary solution array for moving through RK stages with explicit solvers
+*/
 class OdeERK {
 
     public:
-        //constructor
+        //!constructs
+        /*!
+        \param[in] neq number of equations in ODE system
+        */
         OdeERK (unsigned long neq);
-        //destructor
+        //destructs
         ~OdeERK ();
 
     protected:
-        //temporary solution vector
+        //!temporary solution vector
         double *soltemp_;
 };
 

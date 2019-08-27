@@ -1,14 +1,14 @@
 # libode
 
-This repo contains a collection of C++ classes for solving systems of ordinary differential equations (ODEs) in autonomous form. All of the solvers are single-step, Runge-Kutta-like methods. There are explicit, adaptive solvers up to the ninth order. The repository also includes Rosenbrock methods, a singly-diagonal implicit Runge-Kutta (SDIRK) method, and several fully implicit Runge-Kutta methods.
+This repo contains a collection of C++ classes for solving systems of ordinary differential equations (ODEs) in autonomous form. Documentation can be found [here](https://wordsworthgroup.github.io/libode/). All of the solvers are single-step, Runge-Kutta-like methods. There are explicit, adaptive solvers up to the ninth order. The repository also includes Rosenbrock methods, a singly-diagonal implicit Runge-Kutta (SDIRK) method, and several fully implicit Runge-Kutta methods.
 
 These classes were originally styled after Chris Rycroft's [example classes](https://github.com/chr1shr/am225_examples/tree/master/1a_ode_solvers). The class structure of the solvers makes it easy to build a templated integrator on top of an arbitrary solver class and switch the solver with only a few keystrokes. Implicit methods can be given a function for the ODE system's Jacobian or, if none is provided, the Jacobian is estimated.
 
 Several of the solvers and much more detail on the methods can be found in these amazing books:
 * Hairer, E., Nørsett, S. P. & Wanner, G. Solving Ordinary Differential Equations I: Nonstiff Problems. (Springer-Verlag, 1987).
-* Hairer, E., Wanner, G. & Hairer, E. Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems. (Springer, 1996).
+* Hairer, E. & Wanner, G. Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems. (Springer, 1996).
 
-The table below lists all the solvers and gives some basic information about them. Papers and/or links to the derivation or original publication of the solvers are often copied in the source headers for the solvers. Some work still needs to be done, and a list of things to implement is in the `todo.txt` file.
+The table below lists all the solvers and gives some basic information about them. Papers and/or links to the derivation or original publication of the solvers are often copied in the source headers for the solvers and included in the documentation. Some work still needs to be done, and a list of things to implement is in the `todo.txt` file.
 
 Method | Class Name | (ex/im)plicit | adaptive? | stages | order | stability
  --- | --- | --- | --- | --- | --- | ---
@@ -33,14 +33,22 @@ Radau IIA 5th Order | `OdeRadauIIA5` | implicit | not yet | 3 | 5 | L
 Geng's Symplectic 5th Order | `OdeGeng5` | implicit | no | 3 | 5 | A?
 SDIRK 4(3) | `OdeSDIRK43` | implicit | yes | 4 | 4 | L
 
+## Compiling
+
+First, before any of the `libode` classes can be compiled, you must copy the `_config.mk` file to `config.mk` and edit that file to specify the compiler settings you'd like the Makefile to use. This shouldn't be complicated. If you are using a current version of the GNU C++ compiler (g++), no changes to the contents of the template config file are needed. There are also commented lines for use with the Intel C++ compiler (icpc), if that is available. To compile all the classes, simply run `make` in the top directory.
+
+The Makefile compiles all of the necessary code into the `obj` folder, then archives it in the `bin` directory as a file called `libode.a`. To use the solvers, you can link `libode.a` (in the `bin` directory) or the object files directly (in the `obj` directory) when compiling your derived class, in addition to the header files (in the `src` directory). There is not a single header file for the library. Linking the solver classes requires something like `-I<path>/libode/src -L<path>/libode/bin -lode` when compiling derived code, with `<path>` replaced by path elements leading to the libode directory.
+
+Test programs are compiled with `make tests` and they can all be run in sequence with the `run_all_tests.sh` script (which uses Python to plot the test results).
+
 ## Using the Solvers
 
-To use a C++ solver, a new class must be created to inherit from one of the solver classes. This new inheriting class must
+To integrate a specific system of ODEs, a new class must be created to inherit from one of the solver classes. This new inheriting class must
 1. Define the system of ODEs to be solved by implementing the `ode_fun` function. This is a virtual function in the base classes. Once it is implemented, it can be used by the stepping and solving functions.
 2. Set initial conditions in the `sol` variable, which is an array with the same length as the system of ODEs.
 3. Optionally implement the `ode_jac` function for implicit methods. This is also a virtual function in the base classes. If it's not overridden, a finite-difference estimate of the Jacobian is used.
 
-For flexibility, the derived class can be a template, so that the solver/method can be chosen when the class is constructed. Other than defining the system of equations and setting initial conditions, the derived class can store whatever information and implement whatever other methods are necessary. This could be something simple like an extra function for setting initial conditions. It could, however, comprise any other system that needs to run on top of an ODE solver, like the spatial discretization of a big PDE solver.
+For flexibility, the derived class could be a template, so that the solver/method can be chosen when the class is constructed. Other than defining the system of equations and setting initial conditions, the derived class can store whatever information and implement whatever other methods are necessary. This could be something simple like an extra function for setting initial conditions. It could, however, comprise any other system that needs to run on top of an ODE solver, like the spatial discretization of a big PDE solver.
 
 Each solver has a `step` method that can be used to integrate a single step with a specified step size. Each solver class also has a `solve_fixed` method and, if it's an adaptive class, a `solve_adaptive` method. These functions return nothing and both have the same four call signatures:
 
@@ -60,15 +68,17 @@ Each solver has a `step` method that can be used to integrate a single step with
 
    Integrates and writes snapshots at the times specified in `tsnap` into the directory `dirout`.
 
-The Makefile compiles all of the necessary code into the `obj` folder, then archives it in the `bin` directory as a file called `libode.a`. **Before compiling**, the `_config.mk` file must be copied and renamed `config.mk`. In that file, the desired compiler and other settings are indicated. After that, compiling should only require running `make` in the same directory as the makefile. Then, to use the solvers, you can include `libode.a` (in the `bin` directory) or the object files directly (in the `obj` directory) when compiling your derived class, in addition to the header files (in the `src` directory). Test programs are compiled with `make tests` and they can all be run at once with the `run_tests.sh` script (which will also use Python to plot the test results).
+## Examples
+
+Several example programs for interesting/famous systems of ODEs are in the "examples" folder. In each of the example directories, the programs can be compiled, executed, and plotted simply by running the `run.sh` script (assuming the `config.mk` file is set up for compiling). These programs are good examples of how to put everything together and use the solvers. To run all the examples in sequence and look at the plotted results, run the `run_all_examples.sh` script.
 
 ## Testing
 
-The convergence and accuracy of all the C++ solvers have been tested using a few programs with source files in the "test" directory and executables named `bin/test_*`. Python scripts to plot the output of these programs are named `scripts/plot_*`. All these tests can be compiled, run, and plotted with the `run_all_tests.sh` script. Individual tests can be run through the `test.sh` script. For example,
+The convergence and accuracy of all the solvers have been tested using a few programs with source files in the "test" directory and executables named `bin/test_*`. Python scripts to plot the output of these programs are named `scripts/plot_*`. All these tests can be compiled, run, and plotted with the `run_all_tests.sh` script. Individual tests can be run through the `test.sh` script. For example,
 ```
 ./test.sh adapt
 ```
-will compile and run the `test_adapt.exe` program, then plot the results (assuming Python and matplotlib are available). The image below shows the results of this program using the adaptive, fifth order `DoPri54` class to solve a system of two coupled oscillators. The plot was generated from the top directory with these commands:
+will compile and run the `test_adapt.exe` program, then plot the results (assuming Python and matplotlib are available). The image below shows the results of this program using the adaptive, fifth order `OdeDoPri54` class to solve a system of two coupled oscillators. The plot was generated from the top directory with these commands:
 
 ![-](img/adapt.png)
 
@@ -79,7 +89,3 @@ The `test_work` program examines how many function evaluations (the number of ti
 Another test program, `test_conv`, can be used to confirm the order of accuracy of different methods. Below are the results for the sixth order, fully-implicit Lobatto IIIC method. The black dots fall neatly along a line proportional to the sixth power of the step size until machine precision is reached for the global error, confirming the expected order of accuracy.
 
 ![-](img/conv.png)
-
-## Examples
-
-Several example programs for interesting/famous systems of ODEs are in the "examples" folder. In each of the example directories, the programs can be compiled, executed, and plotted simply by running the `run.sh` script (assuming the `config.mk` file is set up for compiling). These programs are good examples of how to put everything together and use the solvers.

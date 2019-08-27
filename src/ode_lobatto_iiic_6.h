@@ -1,7 +1,3 @@
-/*
-The sixth-order, L-stable, fully-implicit Lobatto IIIC method with 4 stages
-*/
-
 #ifndef ODE_LOBATTO_IIIC_6_H_
 #define ODE_LOBATTO_IIIC_6_H_
 
@@ -9,29 +5,46 @@ The sixth-order, L-stable, fully-implicit Lobatto IIIC method with 4 stages
 #include "ode_irk.h"
 #include "ode_newton_bridge.h"
 
+//forward declaration to set up Newton class
 class OdeLobattoIIIC6;
 
-class LobattoIIIC6Newton : public OdeNewtonIRK<OdeLobattoIIIC6> {
+//!Nonlinear system solver for Lobatto IIIC 6
+class NewtonLobattoIIIC6 : public OdeNewtonIRK<OdeLobattoIIIC6> {
     public:
-        LobattoIIIC6Newton (unsigned long neq, unsigned long nnew, OdeLobattoIIIC6 *integrator) : OdeNewtonIRK (neq, nnew, integrator) {};
+        //!constructs
+        /*!
+        \param[in] neq size of ODE system
+        \param[in] nnew size of Newton system
+        \param[in] integrator pointer to OdeLobattoIIIC6 object
+        */
+        NewtonLobattoIIIC6 (unsigned long neq, unsigned long nnew, OdeLobattoIIIC6 *integrator) : OdeNewtonIRK (neq, nnew, integrator) {};
     private:
         void f_Newton (double *x, double *y);
         void J_Newton (double *x, double **J);
 };
 
+//!The sixth-order, L-stable, fully-implicit Lobatto IIIC method with 4 stages
 class OdeLobattoIIIC6 : public OdeBase, private OdeIRK {
     //friends!
     friend class OdeNewtonBridge<OdeLobattoIIIC6>;
     friend class OdeNewtonIRK<OdeLobattoIIIC6>;
 
     public:
+        //!constructs
+        /*!
+        \param[in] neq size of ODE sytem
+        */
         OdeLobattoIIIC6 (unsigned long neq);
+        
+        //!destructs
         ~OdeLobattoIIIC6 ();
-        LobattoIIIC6Newton get_newton () { return(*newton_); }
+
+        //!returns the solver'sNewton system object
+        NewtonLobattoIIIC6 get_newton () { return(*newton_); }
     private:
         double **a;
         double *b;
-        LobattoIIIC6Newton *newton_;
+        NewtonLobattoIIIC6 *newton_;
         void step_ (double dt);
 };
 

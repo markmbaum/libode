@@ -29,9 +29,9 @@ template<class Integrator>
 class Dahl : public Integrator {
     public:
         Dahl () : Integrator (2) {
-            Integrator::set_name("Dahl");
-            Integrator::set_sol(0, 1.0);
-            Integrator::set_sol(1, 1.0);
+            this->set_name("Dahl");
+            this->set_sol(0, 1.0);
+            this->set_sol(1, 1.0);
         }
         void ode_fun (double *solin, double *fout) {
             fout[0] = -solin[0];
@@ -54,10 +54,10 @@ template<class Integrator>
 class Osc1 : public Integrator {
     public:
         Osc1 () : Integrator (3) {
-            Integrator::set_name("Osc1");
-            Integrator::set_sol(0, 1.0);
-            Integrator::set_sol(1, 0.0);
-            Integrator::set_sol(2, 0.0); //time
+            this->set_name("Osc1");
+            this->set_sol(0, 1.0);
+            this->set_sol(1, 0.0);
+            this->set_sol(2, 0.0);
         }
         void ode_fun (double *solin, double *fout) {
             double x = solin[0], y = solin[1], t = solin[2];
@@ -81,10 +81,10 @@ template<class Integrator>
 class Osc2 : public Integrator {
     public:
         Osc2 () : Integrator (3) {
-            Integrator::set_name("Osc2");
-            Integrator::set_sol(0, 1.0);
-            Integrator::set_sol(1, exp(1.0));
-            Integrator::set_sol(2, 0.0); //time
+            this->set_name("Osc2");
+            this->set_sol(0, 1.0);
+            this->set_sol(1, exp(1.0));
+            this->set_sol(2, 0.0);
         }
         void ode_fun (double *solin, double *fout) {
             solin[1] > 1e-3 ? fout[0] =  2*solin[2]*solin[0]*log(solin[1])
@@ -102,9 +102,9 @@ template<class Integrator>
 class Brus : public Integrator {
     public:
         Brus () : Integrator (2) {
-            Integrator::set_name("Brus");
-            Integrator::set_sol(0, 1.0);
-            Integrator::set_sol(1, 1.0);
+            this->set_name("Brus");
+            this->set_sol(0, 1.5);
+            this->set_sol(1, 3.0);
         }
         void ode_fun (double *solin, double *fout) {
             double x = solin[0], y = solin[1];
@@ -127,8 +127,8 @@ class Vdp : public Integrator {
         Vdp () : Integrator(2) {
             mu = 100.0;
             Integrator::set_name("Vdp");
-            Integrator::set_sol(0, 2.1);
-            Integrator::set_sol(1, 0.0);
+            this->set_sol(0, 2.1);
+            this->set_sol(1, 0.0);
         }
         void ode_fun (double *solin, double *fout) {
             //alias
@@ -153,10 +153,13 @@ class StiffCliff : public Integrator {
     public:
         StiffCliff () : Integrator(3) {
             Integrator::set_name("StiffCliff");
-            Integrator::set_sol(0, 1.0);
-            Integrator::set_sol(1, 0.0);
-            Integrator::set_sol(2, 0.0);
             fac = 1000.0;
+            this->set_sol(0, 1.0);
+            this->set_sol(1, 0.0);
+            this->set_sol(2, 0.0);
+        }
+        void initial_conditions (double *sol0) {
+
         }
         void ode_fun (double *solin, double *fout) {
             double y1 = solin[0], y2 = solin[1], x = solin[2];

@@ -1,6 +1,6 @@
 #include "ode_gauss_6.h"
 
-void Gauss6Newton::f_Newton (double *x, double *y) {
+void NewtonGauss6::f_Newton (double *x, double *y) {
 
     (void)x; //supress unused variable warning
     unsigned long i;
@@ -20,7 +20,7 @@ void Gauss6Newton::f_Newton (double *x, double *y) {
     }
 }
 
-void Gauss6Newton::J_Newton (double *x, double **J) {
+void NewtonGauss6::J_Newton (double *x, double **J) {
 
     (void)x; //supress unused variable warning
     unsigned long i,j;
@@ -72,7 +72,7 @@ OdeGauss6::OdeGauss6 (unsigned long neq) :
 
     b[0] =           5.0/18; b[1] =           4.0/9; b[2] =           5.0/18;
 
-    newton_ = new Gauss6Newton(neq, nk, this);
+    newton_ = new NewtonGauss6(neq, nk, this);
     newton_->set_modified(true);
 }
 

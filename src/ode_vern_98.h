@@ -1,8 +1,3 @@
-/*
-Jim Verner's "most efficient" 9/8 pair
-    http://people.math.sfu.ca/~jverner/
-*/
-
 #ifndef ODE_VERN98_H_
 #define ODE_VERN98_H_
 
@@ -10,10 +5,17 @@ Jim Verner's "most efficient" 9/8 pair
 #include "ode_rk.h"
 #include "ode_erk.h"
 
+/*!
+Jim Verner's "most efficient" 9/8 pair
+    +http://people.math.sfu.ca/~jverner/
+*/
 class OdeVern98 : public OdeEmbedded, private OdeRK, private OdeERK {
 
     public:
-        //constructor
+        //!constructs
+        /*!
+        \param[in] neq size of ODE sytem
+        */
         OdeVern98 (unsigned long neq);
 
     private:

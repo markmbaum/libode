@@ -1,10 +1,10 @@
 #include "ode_embedded.h"
 
-OdeEmbedded::OdeEmbedded (unsigned long neq, bool need_jac, int lowerrord) :
+OdeEmbedded::OdeEmbedded (unsigned long neq, bool need_jac, int lowerord) :
     OdeAdaptive (neq, need_jac) {
 
     //order of the LOWER order solution used for error estimation
-    lowerrord_ = lowerrord;
+    lowerord_ = lowerord;
     //variables for adaptive time stepping and step rejection
     facsafe_ = 0.9; //fraction to multiply facopt by to be cautious
     facmin_ = 1e-2; //minumum time step reduction factor
@@ -40,7 +40,7 @@ double OdeEmbedded::error (double abstol, double reltol) {
 double OdeEmbedded::facopt (double err) {
 
     //compute the "optimal" adjustment factor for the time step
-    double fac = facsafe_*pow(1.0/err, 1.0/(lowerrord_ + 1.0));
+    double fac = facsafe_*pow(1.0/err, 1.0/(lowerord_ + 1.0));
     //keep the factor within limits
     fac = ode_max2(facmin_, fac);
     fac = ode_min2(facmax_, fac);

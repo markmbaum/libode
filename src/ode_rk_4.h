@@ -1,7 +1,3 @@
-/*
-THE classic Runge-Kutta 4th order method
-*/
-
 #ifndef ODE_RK4_H_
 #define ODE_RK4_H_
 
@@ -9,10 +5,14 @@ THE classic Runge-Kutta 4th order method
 #include "ode_rk.h"
 #include "ode_erk.h"
 
+//!The classic Runge-Kutta 4th order method
 class OdeRK4 : public OdeBase, private OdeRK, private OdeERK {
 
     public:
-        //constructor
+        //!constructs
+        /*!
+        \param[in] neq size of ODE sytem
+        */
         OdeRK4 (unsigned long neq);
 
     private:

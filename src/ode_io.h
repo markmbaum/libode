@@ -1,5 +1,3 @@
-//input and output functions
-
 #ifndef ODE_IO_H_
 #define ODE_IO_H_
 
@@ -9,16 +7,18 @@
 #include <iostream>
 #include <sstream>
 
-/*check if a file can be written (opened in write mode)
-input:
-    fn - desired file name*/
+//!check if a file can be written (opened in write mode)
+/*!
+\param[in] fn desired file name
+*/
 void ode_check_write (const char *fn);
 
-/*write an array to a binary file
-inputs:
-    fn - file name or path
-    a - array of values to write
-    n - size of array or number of elements to write*/
+//!write an array to a binary file
+/*!
+\param[in] fn file name or path
+\param[in] a array of values to write
+\param[in] n size of array or number of elements to write
+*/
 template<class T>
 void ode_write (char const *fn, T *a, unsigned long n) {
     //check that the file can be written
@@ -31,12 +31,13 @@ void ode_write (char const *fn, T *a, unsigned long n) {
     fclose(ofile);
 }
 
-/*print a message and exit with failure
-input:
-    msg - the message to print before exiting the program*/
+//!print a message and exit with failure
+/*!
+\param[in] msg the message to print before exiting the program
+*/
 void ode_print_exit (const char *msg);
 
-/*convert an integer into a string*/
+//!convert an integer into a string
 std::string int_to_string (long i);
 
 #endif

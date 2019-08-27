@@ -1,6 +1,6 @@
 #include "ode_geng_5.h"
 
-void Geng5Newton::f_Newton (double *x, double *y) {
+void NewtonGeng5::f_Newton (double *x, double *y) {
 
     (void)x; //supress unused variable warning
     unsigned long i;
@@ -20,7 +20,7 @@ void Geng5Newton::f_Newton (double *x, double *y) {
     }
 }
 
-void Geng5Newton::J_Newton (double *x, double **J) {
+void NewtonGeng5::J_Newton (double *x, double **J) {
 
     (void)x; //supress unused variable warning
     unsigned long i,j;
@@ -71,7 +71,7 @@ OdeGeng5::OdeGeng5 (unsigned long neq) :
     a[2][0] =    (85 - 10*r)/180; a[2][1] =    (85 + 10*r)/180; a[2][2] =         1.0/18;
     b[0] =           (16 - r)/36; b[1] =           (16 + r)/36; b[2] =             1.0/9;
 
-    newton_ = new Geng5Newton(neq, nk, this);
+    newton_ = new NewtonGeng5(neq, nk, this);
     newton_->set_modified(true);
 }
 

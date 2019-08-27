@@ -15,7 +15,7 @@ OdeBase::OdeBase (unsigned long neq, bool need_jac) {
     //number of function evaluations
     neval_ = 0;
     //interval of solution integrity checks
-    ncheck_ = 100;
+    icheck_ = 100;
     //array of solution values for a given time
     sol_ = new double[neq];
     //store flag
@@ -108,7 +108,7 @@ void OdeBase::step (double dt) {
     //increment the counter
     nstep_++;
     //check for nans and infs
-    if (nstep_ % ncheck_ == 0) check_sol_integrity();
+    if (nstep_ % icheck_ == 0) check_sol_integrity();
     //do any extra stuff
     after_step(t_);
 }
@@ -306,9 +306,7 @@ void OdeBase::reset (double t, double *sol) {
 //------
 //extras
 
-void OdeBase::before_solve () {
-    /* virtual, left to derived class */
-}
+void OdeBase::before_solve () { /* virtual, left to derived class */ }
 
 void OdeBase::after_step (double t) {
     /* virtual, left to derived class, can only be used with solve_fixed() */
@@ -327,6 +325,4 @@ void OdeBase::after_snap (std::string dirout, long isnap, double t) {
     (void)t;
 }
 
-void OdeBase::after_solve () {
-    /* virtual, left to derived class */
-}
+void OdeBase::after_solve () { /* virtual, left to derived class */ }

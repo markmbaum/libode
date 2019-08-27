@@ -1,6 +1,6 @@
 #include "ode_backward_euler.h"
 
-void BackwardEulerNewton::f_Newton (double *x, double *y) {
+void NewtonBackwardEuler::f_Newton (double *x, double *y) {
 
     (void)x; //supress unused variable warning
     unsigned long i;
@@ -14,7 +14,7 @@ void BackwardEulerNewton::f_Newton (double *x, double *y) {
     for (i=0; i<neq_; i++) y[i] = k_[0][i] - ftemp_[i];
 }
 
-void BackwardEulerNewton::J_Newton (double *x, double **J) {
+void NewtonBackwardEuler::J_Newton (double *x, double **J) {
 
     (void)x; //supress unused variable warning
     unsigned long i,j;
@@ -45,7 +45,7 @@ OdeBackwardEuler::OdeBackwardEuler (unsigned long neq) :
 
     method_ = "BackwardEuler";
 
-    newton_ = new BackwardEulerNewton(neq, 1, this);
+    newton_ = new NewtonBackwardEuler(neq, 1, this);
     newton_->set_modified(true);
 }
 

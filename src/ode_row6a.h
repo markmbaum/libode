@@ -1,7 +1,3 @@
-/* A sixth-order, A stable Rosenbrock method from:
-    Kaps, Peter, and Gerhard Wanner. "A study of Rosenbrock-type methods of high order." Numerische Mathematik 38.2 (1981): 279-298.
-*/
-
 #ifndef ODE_ROW6A_H_
 #define ODE_ROW6A_H_
 
@@ -9,10 +5,17 @@
 #include "ode_base.h"
 #include "ode_rosenbrock.h"
 
+/*!
+A sixth-order, A stable Rosenbrock method from:
+    + Kaps, Peter, and Gerhard Wanner. "A study of Rosenbrock-type methods of high order." Numerische Mathematik 38.2 (1981): 279-298.
+*/
 class OdeROW6A : public OdeBase, private OdeRosenbrock {
 
     public:
-        //constructor
+        //!constructs
+        /*!
+        \param[in] neq size of ODE sytem
+        */
         OdeROW6A (unsigned long neq);
 
     private:

@@ -9,3 +9,5 @@ issues to address
 * Implement an L-stable Rosenbrock method.
 
 * Look into extra steps taken when snapping in an adaptive solves.
+
+* Compiler warnings with long long datatypes

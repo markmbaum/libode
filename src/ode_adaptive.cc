@@ -188,7 +188,7 @@ bool OdeAdaptive::step_adaptive_ (double dt) {
         //increment the time
         t_ += dt;
         //check for nans and infs
-        if (nstep_ % ncheck_ == 0) check_sol_integrity();
+        if (nstep_ % icheck_ == 0) check_sol_integrity();
         //do any extra stuff
         after_step(t_);
         //return success

@@ -1,9 +1,3 @@
-/*
-This class implements the 7th and 8th order method of Dormand and Prince, as reprinted in [1]. The tableau coefficients are terribly unweildy, but the solver is scary accurate.
-
-    [1] E. Hairer, S. P. Nørsett, and G. Wanner. 1993. Solving Ordinary Differential Equations I (2nd Revised. Ed.): Nonstiff Problems. Springer-Verlag, Berlin, Heidelberg.
-*/
-
 #ifndef ODE_DOPRI87_H_
 #define ODE_DOPRI87_H_
 
@@ -11,10 +5,18 @@ This class implements the 7th and 8th order method of Dormand and Prince, as rep
 #include "ode_rk.h"
 #include "ode_erk.h"
 
+/*!
+This class implements the 7th and 8th order method of Dormand and Prince, as reprinted in the paper below. The tableau coefficients are terribly unweildy, but the solver is scary accurate.
+
+    + E. Hairer, S. P. Nørsett, and G. Wanner. 1993. Solving Ordinary Differential Equations I (2nd Revised. Ed.): Nonstiff Problems. Springer-Verlag, Berlin, Heidelberg.
+*/
 class OdeDoPri87 : public OdeEmbedded, private OdeRK, private OdeERK {
 
     public:
-        //constructor
+        //!constructs
+        /*!
+        \param[in] neq size of ODE system
+        */
         OdeDoPri87 (unsigned long neq);
 
     private:

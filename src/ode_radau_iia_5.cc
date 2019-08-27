@@ -1,6 +1,6 @@
 #include "ode_radau_iia_5.h"
 
-void RadauIIA5Newton::f_Newton (double *x, double *y) {
+void NewtonRadauIIA5::f_Newton (double *x, double *y) {
 
     (void)x; //supress unused variable warning
     unsigned long i;
@@ -20,7 +20,7 @@ void RadauIIA5Newton::f_Newton (double *x, double *y) {
     }
 }
 
-void RadauIIA5Newton::J_Newton (double *x, double **J) {
+void NewtonRadauIIA5::J_Newton (double *x, double **J) {
 
     (void)x; //supress unused variable warning
     unsigned long i,j;
@@ -72,7 +72,7 @@ OdeRadauIIA5::OdeRadauIIA5 (unsigned long neq) :
 
     b[0] =           (16 - r)/36; b[1] =           (16 + r)/36; b[2] =             1.0/9;
 
-    newton_ = new RadauIIA5Newton(neq, nk, this);
+    newton_ = new NewtonRadauIIA5(neq, nk, this);
     newton_->set_modified(true);
 }
 

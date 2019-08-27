@@ -1,7 +1,3 @@
-/*
-The sixth-order, A-stable, fully-implicit Gauss-Legendre method with 3 stages
-*/
-
 #ifndef ODE_GAUSS_6_H_
 #define ODE_GAUSS_6_H_
 
@@ -9,29 +5,47 @@ The sixth-order, A-stable, fully-implicit Gauss-Legendre method with 3 stages
 #include "ode_irk.h"
 #include "ode_newton_bridge.h"
 
+//forward declaration to set up Newton class
 class OdeGauss6;
 
-class Gauss6Newton : public OdeNewtonIRK<OdeGauss6> {
+//!Nonlinear system solver for Gauss 6
+class NewtonGauss6 : public OdeNewtonIRK<OdeGauss6> {
     public:
-        Gauss6Newton (unsigned long neq, unsigned long nnew, OdeGauss6 *integrator) : OdeNewtonIRK (neq, nnew, integrator) {};
+        //!constructs
+        /*!
+        \param[in] neq size of ODE system
+        \param[in] nnew size of Newton system
+        \param[in] integrator pointer to OdeGauss6 object
+        */
+        NewtonGauss6 (unsigned long neq, unsigned long nnew, OdeGauss6 *integrator) : OdeNewtonIRK (neq, nnew, integrator) {};
     private:
         void f_Newton (double *x, double *y);
         void J_Newton (double *x, double **J);
 };
 
+//!The sixth-order, A-stable, fully-implicit Gauss-Legendre method with 3 stages
 class OdeGauss6 : public OdeBase, private OdeIRK {
     //friends!
     friend class OdeNewtonBridge<OdeGauss6>;
     friend class OdeNewtonIRK<OdeGauss6>;
 
     public:
+
+        //!constructs
+        /*!
+        \param[in] neq size of ODE system
+        */
         OdeGauss6 (unsigned long neq);
+
+        //!destructs
         ~OdeGauss6 ();
-        Gauss6Newton get_newton () { return(*newton_); }
+
+        //!returns the solver'sNewton system object
+        NewtonGauss6 get_newton () { return(*newton_); }
     private:
         double **a;
         double *b;
-        Gauss6Newton *newton_;
+        NewtonGauss6 *newton_;
         void step_ (double dt);
 };
 

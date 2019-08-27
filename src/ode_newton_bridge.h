@@ -9,12 +9,17 @@ elsewhere) and the systems required for implicit methods.
 
 #include "ode_newton.h"
 
-//general connector
+//!Base class connector
 template <class T>
 class OdeNewtonBridge : public OdeNewton {
 
     public:
-        //constructor
+        //!constructs
+        /*!
+        \param[in] neq size of ODE system
+        \param[in] nnew size of Newton system
+        \param[in] integrator pointer to integrator object
+        */
         OdeNewtonBridge (unsigned long neq, unsigned long nnew, T *integrator)
             : OdeNewton (nnew) {
 
@@ -36,35 +41,46 @@ class OdeNewtonBridge : public OdeNewton {
             //temporary solution values
             soltemp_ = new double[neq];
         }
-        //destructor
+        //!destructs
         ~OdeNewtonBridge () {
             delete [] ftemp_;
             delete [] soltemp_;
         }
 
     protected:
-        //system sizes
-        unsigned long neq_, nnew_;
-        //storage of a pointer to the solver class
+        //!ODE system size
+        unsigned long neq_;
+        //!Newton system size
+        double nnew_;
+        //!storage of a pointer to the solver class
         T *integrator_;
-        //pointer to the solver's solution vector
+        //!pointer to the solver's solution vector
         double *sol_;
-        //pointer to the solver's Jacobian matrix
+        //!pointer to the solver's Jacobian matrix
         double **Jac_;
-        //pointer to time step member
+        //!pointer to time step member
         double *dt_;
 
-        //temporary values for evaluation of Newton function
+        //!temporary values for evaluation of Newton function
         double *ftemp_;
-        //temporary solution values
+        //!temporary solution values
         double *soltemp_;
 
-        //wrappers around solver functions
+        //!wrapper around system evaluation function
+        /*!
+        \param[in] solin current value of independent variables
+        \param[in] fout evaluated system of equations
+        */
         void fun(double *solin, double *fout) { integrator_->ode_fun_(solin, fout); }
+        //!wrapper around Jacobian evaluation function
+        /*!
+        \param[in] solin current value of independent variables
+        \param[in] Jout Jacobian
+        */
         void jac(double *solin, double **Jout) { integrator_->ode_jac_(solin, Jout); }
 };
 
-/*
+/*!
 This class extends the Bridge class by storing pointers to the integrator class's
 k vectors and tableau/coefficients, which are needed for newton iterations
 */
@@ -72,6 +88,12 @@ template <class T>
 class OdeNewtonIRK : public OdeNewtonBridge<T> {
 
     public:
+        //!constructs
+        /*!
+        \param[in] neq size of system of ODEs
+        \param[in] nk number of stages
+        \param[in] integrator pointer to integrator object
+        */
         OdeNewtonIRK (unsigned long neq, int nk, T *integrator) :
             OdeNewtonBridge<T> (neq, neq*nk, integrator) {
 
@@ -85,16 +107,17 @@ class OdeNewtonIRK : public OdeNewtonBridge<T> {
         }
 
     protected:
-        //number of stages or k vectors
+        //!number of stages or k vectors
         int nk_;
-        //pointer to the stage slopes of RK methods
+        //!pointer to the stage slopes of RK methods
         double **k_;
-        //pointers to tableau coefficients
+        //!pointer to tableau coefficients
         double **a;
+        //!pointer to tableau coefficients
         double *b;
 };
 
-/*
+/*!
 This class extends the Bridge class by storing pointers to the integrator class's
 k vectors and tableau/coefficients, which are needed for newton iterations. It
 also stores an ik_ integer indicating which stage of the SDIRK scheme is being
@@ -104,6 +127,11 @@ template <class T>
 class OdeNewtonSDIRK : public OdeNewtonBridge<T> {
 
     public:
+        //!constructs
+        /*!
+        \param[in] neq size of system of ODEs
+        \param[in] integrator pointer to integrator object
+        */
         OdeNewtonSDIRK (unsigned long neq, T *integrator) :
             OdeNewtonBridge<T> (neq, neq, integrator) {
 
@@ -117,16 +145,19 @@ class OdeNewtonSDIRK : public OdeNewtonBridge<T> {
             ik_ = 0;
         }
 
+        //!sets the index of the k vector being solved for
         void set_ik (int ik) { ik_ = ik; }
 
     protected:
-        //pointer to the stage slopes of RK methods
+        //!pointer to the stage slopes of RK methods
         double **k_;
-        //pointers to tableau coefficients
+        //!diagonal tableau coefficient
         double gam;
+        //!pointer to tableau coefficients
         double **a;
+        //!pointer to tableau coefficients
         double *b;
-        //the index of the k vector being solved for
+        //!the index of the k vector being solved for
         int ik_;
 };
 

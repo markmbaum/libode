@@ -1,6 +1,3 @@
-/*
-Second order, explicit trapezoidal rule
-*/
 
 #ifndef ODE_TRAPZ_H_
 #define ODE_TRAPZ_H_
@@ -9,10 +6,16 @@ Second order, explicit trapezoidal rule
 #include "ode_rk.h"
 #include "ode_erk.h"
 
+/*!
+Second order, explicit trapezoidal rule
+*/
 class OdeTrapz : public OdeBase, private OdeRK, private OdeERK {
 
     public:
-        //constructor
+        //!constructs
+        /*!
+        \param[in] neq size of ODE sytem
+        */
         OdeTrapz (unsigned long neq);
 
     private:

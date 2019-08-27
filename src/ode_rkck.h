@@ -1,11 +1,3 @@
-/*
-This class implements a 5th order method developed by Cash and Karp [1] which includes embeddes solutions of order 1, 2, 3, and 4. It's a complete family of solutions up to order 5. The lower order solutions can be used to vary the solution's order and control the step size in sophisticated ways, canceling a step early if the error estimate is large. The fact that function evaluations are made fairly evenly through the interval of a time step is also advantageous for surveying potential trouble and controlling the step.
-
-So far, the sophisticated time stepping is not implemented, so this solver simply uses the 4th and 5th order solutions for adaptation.
-
-    [1] J. R. Cash, A. H. Karp. "A variable order Runge-Kutta method for initial value problems with rapidly varying right-hand sides", ACM Transactions on Mathematical Software 16: 201-222, 1990. doi:10.1145/79505.79507
-*/
-
 #ifndef ODE_RKCK_H_
 #define ODE_RKCK_H_
 
@@ -13,10 +5,20 @@ So far, the sophisticated time stepping is not implemented, so this solver simpl
 #include "ode_rk.h"
 #include "ode_erk.h"
 
+/*!
+This class implements a 5th order method developed by Cash and Karp (reference below) which includes embeddes solutions of order 1, 2, 3, and 4. It's a complete family of solutions up to order 5. The lower order solutions can be used to vary the solution's order and control the step size in sophisticated ways, canceling a step early if the error estimate is large. The fact that function evaluations are made fairly evenly through the interval of a time step is also advantageous for surveying potential trouble and controlling the step.
+
+So far, the sophisticated time stepping is not implemented, so this solver simply uses the 4th and 5th order solutions for adaptation.
+
+    + J. R. Cash, A. H. Karp. "A variable order Runge-Kutta method for initial value problems with rapidly varying right-hand sides", ACM Transactions on Mathematical Software 16: 201-222, 1990. doi:10.1145/79505.79507
+*/
 class OdeRKCK : public OdeEmbedded, private OdeRK, private OdeERK {
 
     public:
-        //constructor
+        //!constructs
+        /*!
+        \param[in] neq size of ODE sytem
+        */
         OdeRKCK (unsigned long neq);
 
     private:

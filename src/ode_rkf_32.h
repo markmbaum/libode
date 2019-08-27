@@ -1,7 +1,3 @@
-/*
-2nd and 3rd order solver developed by Fehlberg
-*/
-
 #ifndef ODE_RKF32_H_
 #define ODE_RKF32_H_
 
@@ -9,10 +5,14 @@
 #include "ode_rk.h"
 #include "ode_erk.h"
 
+//!2nd and 3rd order solver developed by Fehlberg
 class OdeRKF32 : public OdeEmbedded, private OdeRK, private OdeERK {
 
     public:
-        //constructor
+        //!constructs
+        /*!
+        \param[in] neq size of ODE sytem
+        */
         OdeRKF32 (unsigned long neq);
 
     private:

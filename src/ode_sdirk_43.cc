@@ -1,6 +1,6 @@
 #include "ode_sdirk_43.h"
 
-void SDIRK43Newton::f_Newton (double *x, double *y) {
+void NewtonSDIRK43::f_Newton (double *x, double *y) {
 
     (void)x;
     unsigned long i;
@@ -19,7 +19,7 @@ void SDIRK43Newton::f_Newton (double *x, double *y) {
     for (i=0; i<neq_; i++) y[i] = k_[ik_][i] - ftemp_[i];
 }
 
-void SDIRK43Newton::J_Newton (double *x, double **J) {
+void NewtonSDIRK43::J_Newton (double *x, double **J) {
 
     (void)x;
     unsigned long i,j;
@@ -69,7 +69,7 @@ OdeSDIRK43::OdeSDIRK43 (unsigned long neq) :
     b[0] =       a[4][0]; b[1] =        a[4][1]; b[2] =     a[4][2]; b[3] =     a[4][3]; b[4] = gam;
     d[0] =       59.0/48; d[1] =       -17.0/96; d[2] =    225.0/32; d[3] =    -85.0/12;
 
-    newton_ = new SDIRK43Newton(neq, this);
+    newton_ = new NewtonSDIRK43(neq, this);
     newton_->set_modified(true);
 }
 

@@ -1,6 +1,6 @@
 #include "ode_lobatto_iiic_6.h"
 
-void LobattoIIIC6Newton::f_Newton (double *x, double *y) {
+void NewtonLobattoIIIC6::f_Newton (double *x, double *y) {
 
     (void)x; //supress unused variable warning
     unsigned long i;
@@ -20,7 +20,7 @@ void LobattoIIIC6Newton::f_Newton (double *x, double *y) {
     }
 }
 
-void LobattoIIIC6Newton::J_Newton (double *x, double **J) {
+void NewtonLobattoIIIC6::J_Newton (double *x, double **J) {
 
     (void)x; //supress unused variable warning
     unsigned long i,j;
@@ -73,7 +73,7 @@ OdeLobattoIIIC6::OdeLobattoIIIC6 (unsigned long neq) :
 
     b[0] =    1.0/12; b[1] =           5.0/12; b[2] =           5.0/12; b[3] =      1.0/12;
 
-    newton_ = new LobattoIIIC6Newton(neq, nk, this);
+    newton_ = new NewtonLobattoIIIC6(neq, nk, this);
     newton_->set_modified(true);
 }
 

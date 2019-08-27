@@ -1,16 +1,3 @@
-/*
-The OdeAdaptive class is a base for any integrator that can modify its own time step as it integrates and reject steps. The class inherits from the deepest base class, ode_base. It implements three virtual functions to enable time step adaptation:
-  1) The 'adapt' function is meant to execute whatever calculations are needed
-     to subsequently assess whether the current time step should be rejected
-     and what the next time step should be.
-  2) The 'is_rejected' function simply furnishes a boolean answering the
-     question, "should the step just taken be rejected?"
-  3) The 'dt_next' function furnishes the next time step, whether the step
-     current step was rejected or not.
-These functions are used with local error tolerances to integrate with an
-efficiently adaptive time step. Specifically, they are used in the step_adaptive_ method of this class, which is called in each of the solve_adaptive methods.
-*/
-
 #ifndef ODE_ADAPTIVE_H_
 #define ODE_ADAPTIVE_H_
 
@@ -22,77 +9,129 @@ efficiently adaptive time step. Specifically, they are used in the step_adaptive
 
 #include "ode_io.h"
 #include "ode_util.h"
-
 #include "ode_base.h"
 
+//! Base class implementing solver functions with adaptive time steps
+/*!
+* The OdeAdaptive class is a base for any integrator that can modify its own time step as it integrates and reject steps. The class inherits from the deepest base class, ode_base. It implements three virtual functions to enable time step adaptation:
+*  1. The adapt function is meant to execute whatever calculations are needed
+*     to subsequently assess whether the current time step should be rejected
+*     and what the next time step should be.
+*  2. The is_rejected function simply furnishes a boolean answering the
+*     question, "should the step just taken be rejected?"
+*  3. The dt_next function furnishes the next time step, whether the step
+*     current step was rejected or not.
+*These functions are used with local error tolerances to integrate with an efficiently adaptive time step. Specifically, they are used in the step_adaptive_ method of this class, which is called in each of the solve_adaptive methods.
+*/
 class OdeAdaptive : public OdeBase {
 
     public:
-        //constructor
+        //!constructs
+        /*!
+        \param[in] neq number of equations in ODE system
+        \param[in] need_jac flag signaling whether the Jacobian of the system is needed
+        */
         OdeAdaptive (unsigned long neq, bool need_jac);
-        //destructor
+        //!destructs
         ~OdeAdaptive ();
 
         //-------------------
         //getters and setters
 
+        //!gets the count of rejected steps
         unsigned long long get_nrej () { return(nrej_); }
+        //!gets the absolute error tolerance
         double get_abstol () { return(abstol_); }
+        //!gets the relative error tolerance
         double get_reltol () { return(reltol_); }
+        //!gets the maximum allowable time step
         double get_dtmax () { return(dtmax_); }
 
+        //!sets the absolute error tolerance
         void set_abstol (double tol) { abstol_ = tol; };
+        //!sets the relative error tolerance
         void set_reltol (double tol) { reltol_ = tol; };
+        //!sets the absolute and relative error tolerance to the same value
         void set_tol (double tol) { abstol_ = tol; reltol_ = tol; };
+        //!sets the maximum allowable time step
         void set_dtmax (double dtmax) { dtmax_ = dtmax; }
 
-        //integrates with adaptive time stepping
-        //    tend - stopping time, time at end of solution
-        //    dt - time step
-        //    snaps - number of snapshots to output
-        //    dirout - relative path to preexisting directory for output
+        //---------------------------------------
+        //integration with adaptive time stepping
 
-        //no output, solves to tend and executes extras like before_solve(), ...
+        //!integrates for a specified duration of independent variable without output
+        /*!
+        \param[in] tint total integration time
+        \param[in] dt0 initial time step size
+        */
         void solve_adaptive (double tint, double dt0);
-        //lots of output, solves and stores every "inter" point along the way
+
+        //!lots of output, solves and stores every "inter" point along the way
+        /*!
+        \param[in] tint total integration time
+        \param[in] dt0 initial time step size
+        \param[in] dirout output directory (must already exist)
+        \param[in] inter interval of steps to store and output
+        */
         void solve_adaptive (double tint, double dt0, const char *dirout, int inter);
-        //some output, solves and writes evenly spaced snapshots
+
+        //!solves and writes evenly spaced snapshots
+        /*!
+        \param[in] tint total integration time
+        \param[in] dt0 initial time step size
+        \param[in] nsnap number of snapshots to output
+        \param[in] dirout output directory (must already exist)
+        */
         void solve_adaptive (double tint, double dt0, unsigned long nsnap, const char *dirout);
-        //some output, solves and writes snapshots at times in the tsnap array
+
+        //!solves and writes snapshots at times specified in the tsnap array
+        /*!
+        \param[in] dt0 initial time step size
+        \param[in] tsnap array of desired snapshot times
+        \param[in] nsnap number of snapshots (length of tsnap)
+        \param[in] dirout output directory (must already exist)
+        */
         void solve_adaptive (double dt0, double *tsnap, unsigned long nsnap, const char *dirout);
 
     protected:
-        //no output, solves to tend without before_solve(), after_solve(), ...
+
+        //!integrates without output or any counters, trackers, extra functions...
+        /*!
+        \param[in] tint total integration time
+        \param[in] dt0 initial time step size
+        */
         void solve_adaptive_ (double tint, double dt0);
 
         //------------------------
         //basic adaptive variables
 
-        //counter for rejected steps
+        //!counter for rejected steps
         unsigned long long nrej_;
-        //absolute and relative error tolerances
-        double abstol_, reltol_;
-        //maximum allowable time step
+        //!absolute error tolerance
+        double abstol_;
+        //!absolute error tolerance
+        double reltol_;
+        //!maximum allowable time step
         double dtmax_;
 
-        //executes whatever calculations need to be performed for adapting
-        //this should include a determination of whether a step is rejected
-        //and a calculation of the next time step size
+        //!executes whatever calculations need to be performed for adapting, including a determination of whether a step is rejected and a calculation of the next time step size
         virtual void adapt (double abstol, double reltol) = 0;
-        //retreives a bool determining whether a step is accepted/rejected
+        //!retreives a bool determining whether a step is accepted/rejected
         virtual bool is_rejected () = 0;
-        //retrieves the best time step for the next step
+        //!retrieves the best time step for the next step
         virtual double dt_next () = 0;
 
-        //determines whether an adaptive solve is finished
+        //!determines whether an adaptive solve is finished
         bool solve_done_adaptive (double tend);
 
         //wrappers
+        //!texecutes a single time and calls all necessary adapting functions
         bool step_adaptive_ (double dt);
+        //!wrapper around dt_next() to perform additional checks
         double dt_next_ (double tend);
 
     private:
-        //previous solution, in case a step is rejected
+        //!previous solution, in case a step is rejected
         double *solprev_;
 };
 

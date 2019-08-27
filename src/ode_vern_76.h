@@ -1,8 +1,3 @@
-/*
-Jim Verner's "most efficient" 7/6 pair
-    http://people.math.sfu.ca/~jverner/
-*/
-
 #ifndef ODE_VERN76_H_
 #define ODE_VERN76_H_
 
@@ -10,10 +5,17 @@ Jim Verner's "most efficient" 7/6 pair
 #include "ode_rk.h"
 #include "ode_erk.h"
 
+/*!
+Jim Verner's "most efficient" 7/6 pair
+    + http://people.math.sfu.ca/~jverner/
+*/
 class OdeVern76 : public OdeEmbedded, private OdeRK, private OdeERK {
 
     public:
-        //constructor
+        //!constructs
+        /*!
+        \param[in] neq size of ODE sytem
+        */
         OdeVern76 (unsigned long neq);
 
     private:

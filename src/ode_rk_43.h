@@ -1,7 +1,3 @@
-/*
-This class implements a 3rd and 4th order method with the FSAL (first same as last) property
-*/
-
 #ifndef ODE_RK43_H_
 #define ODE_RK43_H_
 
@@ -9,10 +5,14 @@ This class implements a 3rd and 4th order method with the FSAL (first same as la
 #include "ode_rk.h"
 #include "ode_erk.h"
 
+//!This class implements a 3rd and 4th order method with the FSAL (first same as last) property
 class OdeRK43 : public OdeEmbedded, private OdeRK, private OdeERK {
 
     public:
-        //constructor
+        //!constructs
+        /*!
+        \param[in] neq size of ODE sytem
+        */
         OdeRK43 (unsigned long neq);
 
     private:

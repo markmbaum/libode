@@ -1,18 +1,23 @@
 #ifndef ODE_RK_H_
 #define ODE_RK_H_
 
+//!Provides space for stage slope values
 class OdeRK {
 
     public:
-        //constructor
+        //!constructs
+        /*!
+        \param[in] neq size of ODE sytem
+        \param[out] nk number of stages
+        */
         OdeRK (unsigned long neq, int nk);
-        //destructor
+        //!destructs
         ~OdeRK ();
 
     protected:
-        //stage evaluations
+        //!stage evaluations
         double **k_;
-        //number of stages, or k vectors
+        //!number of stages, or k vectors
         int nk_;
 
 };

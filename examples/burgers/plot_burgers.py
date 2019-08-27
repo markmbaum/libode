@@ -27,9 +27,7 @@ for i in range(len(u)):
 #ax.legend()
 ax.set_xlabel('$x$')
 ax.set_ylabel('$u$')
-ax.set_title("Inviscid Burger's Equation\n$\partial_t u = -u\partial_x u$")
+ax.set_title("Viscid Burger's Equation\n$\partial_t u = -u\partial_x u - \partial_{xx}u \cdot 10^{-3}$")
 fig.tight_layout()
-
-
 
 plt.show()

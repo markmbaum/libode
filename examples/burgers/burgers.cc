@@ -7,13 +7,13 @@
 int main () {
 
     //number of spatial cells
-    int nx = 3000;
+    int nx = 2500;
     //domain length
     double L = 1.75;
     //integration time
     double tint = 3.0;
     //time step
-    double dt = tint/5e4;
+    double dt = tint/1e5;
 
     //create system
     Burgers<OdeTrapz> sys(nx, L);
