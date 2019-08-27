@@ -1,6 +1,8 @@
 #ifndef ODE_RK43_H_
 #define ODE_RK43_H_
 
+//! \file ode_rk_43.h
+
 #include "ode_embedded.h"
 #include "ode_rk.h"
 #include "ode_erk.h"

@@ -1,6 +1,8 @@
 #ifndef ODE_RADAU_IIA_5_H_
 #define ODE_RADAU_IIA_5_H_
 
+//! \file ode_radau_iia_5.h
+
 #include "ode_base.h"
 #include "ode_irk.h"
 #include "ode_newton_bridge.h"
@@ -8,7 +10,7 @@
 //forward declaration to set up Newton class
 class OdeRadauIIA5;
 
-//!Nonlinear system solver for Radau IIA 5
+//!Nonlinear system solver for OdeRadauIIA5
 class NewtonRadauIIA5 : public OdeNewtonIRK<OdeRadauIIA5> {
     public:
         //!constructs
@@ -24,6 +26,7 @@ class NewtonRadauIIA5 : public OdeNewtonIRK<OdeRadauIIA5> {
 };
 
 //!The fifth-order, L-stable, fully-implicit Radau IIA method with 3 stages
+/*! + Hairer, E. & Wanner, G. Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems. (Springer, 1996) */
 class OdeRadauIIA5 : public OdeBase, private OdeIRK {
     //friends!
     friend class OdeNewtonBridge<OdeRadauIIA5>;

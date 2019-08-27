@@ -1,11 +1,14 @@
 #ifndef ODE_EMBEDDED_H_
 #define ODE_EMBEDDED_H_
 
+//! \file ode_embedded.h
+
 #include <cmath>
 
 #include "ode_util.h"
 #include "ode_adaptive.h"
 
+//!Base clase implementing methods for embedded Runge-Kutta error estimation
 /*!
 Implements the error analysis and time step step selection for embedded RK methods
 */

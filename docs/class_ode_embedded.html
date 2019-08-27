@@ -96,6 +96,9 @@ $(document).ready(function(){initNavTree('class_ode_embedded.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>Base clase implementing methods for embedded Runge-Kutta error estimation.  
+ <a href="class_ode_embedded.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="ode__embedded_8h_source.html">ode_embedded.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for OdeEmbedded:</div>
@@ -104,14 +107,14 @@ Inheritance diagram for OdeEmbedded:</div>
   <img src="class_ode_embedded.png" usemap="#OdeEmbedded_map" alt=""/>
   <map id="OdeEmbedded_map" name="OdeEmbedded_map">
 <area href="class_ode_adaptive.html" title="Base class implementing solver functions with adaptive time steps." alt="OdeAdaptive" shape="rect" coords="0,56,95,80"/>
-<area href="class_ode_base.html" alt="OdeBase" shape="rect" coords="0,0,95,24"/>
-<area href="class_ode_do_pri54.html" alt="OdeDoPri54" shape="rect" coords="105,168,200,192"/>
-<area href="class_ode_do_pri87.html" alt="OdeDoPri87" shape="rect" coords="105,224,200,248"/>
-<area href="class_ode_g_r_k4_a.html" alt="OdeGRK4A" shape="rect" coords="105,280,200,304"/>
+<area href="class_ode_base.html" title="Lowest base class for all solvers." alt="OdeBase" shape="rect" coords="0,0,95,24"/>
+<area href="class_ode_do_pri54.html" title="Popular explicit 5/4 pair from Dormand &amp; Prince." alt="OdeDoPri54" shape="rect" coords="105,168,200,192"/>
+<area href="class_ode_do_pri87.html" title="Explicit 8/7 pair from Dormand &amp; Prince." alt="OdeDoPri87" shape="rect" coords="105,224,200,248"/>
+<area href="class_ode_g_r_k4_a.html" title="Fourth-order, A-stable, adaptive Rosenbrock method from Kaps and Rentrop." alt="OdeGRK4A" shape="rect" coords="105,280,200,304"/>
 <area href="class_ode_r_k43.html" title="This class implements a 3rd and 4th order method with the FSAL (first same as last) property." alt="OdeRK43" shape="rect" coords="105,336,200,360"/>
-<area href="class_ode_r_k_c_k.html" alt="OdeRKCK" shape="rect" coords="105,392,200,416"/>
+<area href="class_ode_r_k_c_k.html" title="Explicit 5/4 pair, also with 3rd, 2nd, and 1st order embedded methods, from Cash &amp; Karp." alt="OdeRKCK" shape="rect" coords="105,392,200,416"/>
 <area href="class_ode_r_k_f32.html" title="2nd and 3rd order solver developed by Fehlberg" alt="OdeRKF32" shape="rect" coords="105,448,200,472"/>
-<area href="class_ode_s_d_i_r_k43.html" alt="OdeSDIRK43" shape="rect" coords="105,504,200,528"/>
+<area href="class_ode_s_d_i_r_k43.html" title="L-stable 4/3 SDIRK pair." alt="OdeSDIRK43" shape="rect" coords="105,504,200,528"/>
 <area href="class_ode_vern65.html" alt="OdeVern65" shape="rect" coords="105,560,200,584"/>
 <area href="class_ode_vern76.html" alt="OdeVern76" shape="rect" coords="105,616,200,640"/>
 <area href="class_ode_vern98.html" alt="OdeVern98" shape="rect" coords="105,672,200,696"/>
@@ -480,7 +483,10 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="separator:a0fe649817eede448c6ae137fb568ddfe inherit pro_attribs_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implements the error analysis and time step step selection for embedded RK methods </p>
+<div class="textblock"><p>Base clase implementing methods for embedded Runge-Kutta error estimation. </p>
+<p>Implements the error analysis and time step step selection for embedded RK methods </p>
+
+<p class="definition">Definition at line <a class="el" href="ode__embedded_8h_source.html#l00015">15</a> of file <a class="el" href="ode__embedded_8h_source.html">ode_embedded.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a77286aeae8269058c693e879b906e7ae"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a77286aeae8269058c693e879b906e7ae">&#9670;&nbsp;</a></span>OdeEmbedded()</h2>
@@ -524,14 +530,33 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="ode__embedded_8cc_source.html#l00003">3</a> of file <a class="el" href="ode__embedded_8cc_source.html">ode_embedded.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;                                                                        :</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <a class="code" href="class_ode_adaptive.html#a72db5e9f515eab0bd70954fc17f32711">OdeAdaptive</a> (neq, need_jac) {</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="comment">//order of the LOWER order solution used for error estimation</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    lowerord_ = lowerord;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="comment">//variables for adaptive time stepping and step rejection</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="class_ode_embedded.html#afe10f1f47fff99086612872bf3e7da1b">facsafe_</a> = 0.9; <span class="comment">//fraction to multiply facopt by to be cautious</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="class_ode_embedded.html#afe835876258e48950acaf2b007af17a6">facmin_</a> = 1e-2; <span class="comment">//minumum time step reduction factor</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_ode_embedded.html#a0d36a0a4ec988e8e64e6f4fb94229510">facmax_</a> = 1e1; <span class="comment">//maximum time step increase factor</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="comment">//lower order solution</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="class_ode_embedded.html#a6da8dbb1149e7a4a016f5b30ace47be0">solemb_</a> = <span class="keyword">new</span> <span class="keywordtype">double</span>[neq];</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="ode__embedded_8h_source.html">ode_embedded.h</a></li>
-<li>src/ode_embedded.cc</li>
+<li>src/<a class="el" href="ode__embedded_8cc_source.html">ode_embedded.cc</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_ode_embedded_html_a0d36a0a4ec988e8e64e6f4fb94229510"><div class="ttname"><a href="class_ode_embedded.html#a0d36a0a4ec988e8e64e6f4fb94229510">OdeEmbedded::facmax_</a></div><div class="ttdeci">double facmax_</div><div class="ttdoc">maximum allowable fraction change in time step</div><div class="ttdef"><b>Definition:</b> <a href="ode__embedded_8h_source.html#l00052">ode_embedded.h:52</a></div></div>
+<div class="ttc" id="aclass_ode_embedded_html_afe835876258e48950acaf2b007af17a6"><div class="ttname"><a href="class_ode_embedded.html#afe835876258e48950acaf2b007af17a6">OdeEmbedded::facmin_</a></div><div class="ttdeci">double facmin_</div><div class="ttdoc">minimum allowable fraction change in time step</div><div class="ttdef"><b>Definition:</b> <a href="ode__embedded_8h_source.html#l00050">ode_embedded.h:50</a></div></div>
+<div class="ttc" id="aclass_ode_adaptive_html_a72db5e9f515eab0bd70954fc17f32711"><div class="ttname"><a href="class_ode_adaptive.html#a72db5e9f515eab0bd70954fc17f32711">OdeAdaptive::OdeAdaptive</a></div><div class="ttdeci">OdeAdaptive(unsigned long neq, bool need_jac)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__adaptive_8cc_source.html#l00003">ode_adaptive.cc:3</a></div></div>
+<div class="ttc" id="aclass_ode_embedded_html_a6da8dbb1149e7a4a016f5b30ace47be0"><div class="ttname"><a href="class_ode_embedded.html#a6da8dbb1149e7a4a016f5b30ace47be0">OdeEmbedded::solemb_</a></div><div class="ttdeci">double * solemb_</div><div class="ttdoc">embedded solution array</div><div class="ttdef"><b>Definition:</b> <a href="ode__embedded_8h_source.html#l00055">ode_embedded.h:55</a></div></div>
+<div class="ttc" id="aclass_ode_embedded_html_afe10f1f47fff99086612872bf3e7da1b"><div class="ttname"><a href="class_ode_embedded.html#afe10f1f47fff99086612872bf3e7da1b">OdeEmbedded::facsafe_</a></div><div class="ttdeci">double facsafe_</div><div class="ttdoc">safety factor applied to time step selection</div><div class="ttdef"><b>Definition:</b> <a href="ode__embedded_8h_source.html#l00048">ode_embedded.h:48</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

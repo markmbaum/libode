@@ -105,7 +105,7 @@ Inheritance diagram for OdeBackwardEuler:</div>
  <div class="center">
   <img src="class_ode_backward_euler.png" usemap="#OdeBackwardEuler_map" alt=""/>
   <map id="OdeBackwardEuler_map" name="OdeBackwardEuler_map">
-<area href="class_ode_base.html" alt="OdeBase" shape="rect" coords="0,0,122,24"/>
+<area href="class_ode_base.html" title="Lowest base class for all solvers." alt="OdeBase" shape="rect" coords="0,0,122,24"/>
 <area href="class_ode_i_r_k.html" title="Provides a large vector containing the slope values of all stages with pointers to each of the indivi..." alt="OdeIRK" shape="rect" coords="132,0,254,24"/>
   </map>
 </div></div>
@@ -335,6 +335,11 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Backward Euler's method, unconditionally stable but relatively inaccurate. </p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Backward_Euler_method">https://en.wikipedia.org/wiki/Backward_Euler_method</a> </li>
+</ul>
+
+<p class="definition">Definition at line <a class="el" href="ode__backward__euler_8h_source.html#l00030">30</a> of file <a class="el" href="ode__backward__euler_8h_source.html">ode_backward_euler.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aeba15618f6f8870c29fe9dbe9f9ab03d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeba15618f6f8870c29fe9dbe9f9ab03d">&#9670;&nbsp;</a></span>OdeBackwardEuler()</h2>
@@ -360,14 +365,30 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="ode__backward__euler_8cc_source.html#l00042">42</a> of file <a class="el" href="ode__backward__euler_8cc_source.html">ode_backward_euler.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                                                     :</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="class_ode_base.html#aacdf86d5554b13574f5a7fe4cb6b7ccb">OdeBase</a> (neq, <span class="keyword">true</span>),</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="class_ode_i_r_k.html#a8a95b733d4402bb5996fb72ee0ffcaa7">OdeIRK</a> (neq, 1) {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="class_ode_base.html#a97664b1b92f1bd516c0966a920032d74">method_</a> = <span class="stringliteral">&quot;BackwardEuler&quot;</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    newton_ = <span class="keyword">new</span> <a class="code" href="class_newton_backward_euler.html">NewtonBackwardEuler</a>(neq, 1, <span class="keyword">this</span>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    newton_-&gt;<a class="code" href="class_ode_newton.html#ad10c7b0715dd3ddb442c132a9037dab2">set_modified</a>(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="ode__backward__euler_8h_source.html">ode_backward_euler.h</a></li>
-<li>src/ode_backward_euler.cc</li>
+<li>src/<a class="el" href="ode__backward__euler_8cc_source.html">ode_backward_euler.cc</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_ode_base_html_a97664b1b92f1bd516c0966a920032d74"><div class="ttname"><a href="class_ode_base.html#a97664b1b92f1bd516c0966a920032d74">OdeBase::method_</a></div><div class="ttdeci">std::string method_</div><div class="ttdoc">the &quot;name&quot; of the solver/method, as in &quot;Euler&quot; or &quot;RK4&quot;</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8h_source.html#l00173">ode_base.h:173</a></div></div>
+<div class="ttc" id="aclass_ode_newton_html_ad10c7b0715dd3ddb442c132a9037dab2"><div class="ttname"><a href="class_ode_newton.html#ad10c7b0715dd3ddb442c132a9037dab2">OdeNewton::set_modified</a></div><div class="ttdeci">void set_modified(bool modified)</div><div class="ttdoc">sets whether modified Newtion's is being used</div><div class="ttdef"><b>Definition:</b> <a href="ode__newton_8h_source.html#l00054">ode_newton.h:54</a></div></div>
+<div class="ttc" id="aclass_ode_base_html_aacdf86d5554b13574f5a7fe4cb6b7ccb"><div class="ttname"><a href="class_ode_base.html#aacdf86d5554b13574f5a7fe4cb6b7ccb">OdeBase::OdeBase</a></div><div class="ttdeci">OdeBase(unsigned long neq, bool need_jac)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8cc_source.html#l00003">ode_base.cc:3</a></div></div>
+<div class="ttc" id="aclass_ode_i_r_k_html_a8a95b733d4402bb5996fb72ee0ffcaa7"><div class="ttname"><a href="class_ode_i_r_k.html#a8a95b733d4402bb5996fb72ee0ffcaa7">OdeIRK::OdeIRK</a></div><div class="ttdeci">OdeIRK(unsigned long neq, int nk)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__irk_8cc_source.html#l00003">ode_irk.cc:3</a></div></div>
+<div class="ttc" id="aclass_newton_backward_euler_html"><div class="ttname"><a href="class_newton_backward_euler.html">NewtonBackwardEuler</a></div><div class="ttdoc">Nonlinear system solver for OdeBackwardEuler.</div><div class="ttdef"><b>Definition:</b> <a href="ode__backward__euler_8h_source.html#l00014">ode_backward_euler.h:14</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -47,9 +47,9 @@ var hierarchy =
       [ "OdeRadauIIA5", "class_ode_radau_i_i_a5.html", null ]
     ] ],
     [ "OdeNewton", "class_ode_newton.html", [
-      [ "OdeNewtonBridge< T >", "class_ode_newton_bridge.html", [
-        [ "OdeNewtonIRK< T >", "class_ode_newton_i_r_k.html", null ],
-        [ "OdeNewtonSDIRK< T >", "class_ode_newton_s_d_i_r_k.html", null ]
+      [ "OdeNewtonBridge< Integrator >", "class_ode_newton_bridge.html", [
+        [ "OdeNewtonIRK< Integrator >", "class_ode_newton_i_r_k.html", null ],
+        [ "OdeNewtonSDIRK< Integrator >", "class_ode_newton_s_d_i_r_k.html", null ]
       ] ],
       [ "OdeNewtonBridge< OdeBackwardEuler >", "class_ode_newton_bridge.html", [
         [ "OdeNewtonIRK< OdeBackwardEuler >", "class_ode_newton_i_r_k.html", [

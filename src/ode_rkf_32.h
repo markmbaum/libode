@@ -1,6 +1,8 @@
 #ifndef ODE_RKF32_H_
 #define ODE_RKF32_H_
 
+//! \file ode_rkf_32.h
+
 #include "ode_embedded.h"
 #include "ode_rk.h"
 #include "ode_erk.h"

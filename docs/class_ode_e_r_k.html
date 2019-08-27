@@ -95,6 +95,9 @@ $(document).ready(function(){initNavTree('class_ode_e_r_k.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>Base class with space for temporary solutions moving through RK stages.  
+ <a href="class_ode_e_r_k.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="ode__erk_8h_source.html">ode_erk.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for OdeERK:</div>
@@ -102,11 +105,11 @@ Inheritance diagram for OdeERK:</div>
  <div class="center">
   <img src="class_ode_e_r_k.png" usemap="#OdeERK_map" alt=""/>
   <map id="OdeERK_map" name="OdeERK_map">
-<area href="class_ode_do_pri54.html" alt="OdeDoPri54" shape="rect" coords="92,56,174,80"/>
-<area href="class_ode_do_pri87.html" alt="OdeDoPri87" shape="rect" coords="92,112,174,136"/>
+<area href="class_ode_do_pri54.html" title="Popular explicit 5/4 pair from Dormand &amp; Prince." alt="OdeDoPri54" shape="rect" coords="92,56,174,80"/>
+<area href="class_ode_do_pri87.html" title="Explicit 8/7 pair from Dormand &amp; Prince." alt="OdeDoPri87" shape="rect" coords="92,112,174,136"/>
 <area href="class_ode_r_k4.html" title="The classic Runge-Kutta 4th order method." alt="OdeRK4" shape="rect" coords="92,168,174,192"/>
 <area href="class_ode_r_k43.html" title="This class implements a 3rd and 4th order method with the FSAL (first same as last) property." alt="OdeRK43" shape="rect" coords="92,224,174,248"/>
-<area href="class_ode_r_k_c_k.html" alt="OdeRKCK" shape="rect" coords="92,280,174,304"/>
+<area href="class_ode_r_k_c_k.html" title="Explicit 5/4 pair, also with 3rd, 2nd, and 1st order embedded methods, from Cash &amp; Karp." alt="OdeRKCK" shape="rect" coords="92,280,174,304"/>
 <area href="class_ode_r_k_f32.html" title="2nd and 3rd order solver developed by Fehlberg" alt="OdeRKF32" shape="rect" coords="92,336,174,360"/>
 <area href="class_ode_ssp3.html" alt="OdeSsp3" shape="rect" coords="92,392,174,416"/>
 <area href="class_ode_trapz.html" alt="OdeTrapz" shape="rect" coords="92,448,174,472"/>
@@ -130,7 +133,10 @@ double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <tr class="separator:a45ef6771abf1a450ff880138d3d38439"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Provides a temporary solution array for moving through RK stages with explicit solvers </p>
+<div class="textblock"><p>Base class with space for temporary solutions moving through RK stages. </p>
+<p>Provides a temporary solution array for moving through RK stages with explicit solvers </p>
+
+<p class="definition">Definition at line <a class="el" href="ode__erk_8h_source.html#l00010">10</a> of file <a class="el" href="ode__erk_8h_source.html">ode_erk.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6fae4438aa2060aed71da362ed404b6f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6fae4438aa2060aed71da362ed404b6f">&#9670;&nbsp;</a></span>OdeERK()</h2>
@@ -156,14 +162,22 @@ double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="ode__erk_8cc_source.html#l00003">3</a> of file <a class="el" href="ode__erk_8cc_source.html">ode_erk.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;                                 {</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <span class="comment">//temporary solution vector</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a> = <span class="keyword">new</span> <span class="keywordtype">double</span>[neq];</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="ode__erk_8h_source.html">ode_erk.h</a></li>
-<li>src/ode_erk.cc</li>
+<li>src/<a class="el" href="ode__erk_8cc_source.html">ode_erk.cc</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_ode_e_r_k_html_a45ef6771abf1a450ff880138d3d38439"><div class="ttname"><a href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">OdeERK::soltemp_</a></div><div class="ttdeci">double * soltemp_</div><div class="ttdoc">temporary solution vector</div><div class="ttdef"><b>Definition:</b> <a href="ode__erk_8h_source.html#l00023">ode_erk.h:23</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -1,12 +1,15 @@
 #ifndef ODE_NEWTON_H_
 #define ODE_NEWTON_H_
 
+//! \file ode_newton.h
+
 #include <cmath>
 #include <cstdio>
 #include <cstdlib>
 
 #include "ode_linalg.h"
 
+//!Newton's method for nonlinear systems of equations
 /*!
 This class implements Newton's method for nonlinear systems of equations. The virtual functions F_Newton and Jac_Newton allow a derived class to implement the system of equations and its Jacobian matrix.
 */

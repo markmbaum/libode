@@ -90,47 +90,52 @@ $(document).ready(function(){initNavTree('ode__grk4a_8h_source.html','');});
 <div class="title">ode_grk4a.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ODE_GRK4A_H_</span></div>
+<a href="ode__grk4a_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ODE_GRK4A_H_</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ODE_GRK4A_H_</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;ode_linalg.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;ode_embedded.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;ode_rosenbrock.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_ode_g_r_k4_a.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_ode_g_r_k4_a.html">OdeGRK4A</a> : <span class="keyword">public</span> <a class="code" href="class_ode_embedded.html">OdeEmbedded</a>, <span class="keyword">private</span> <a class="code" href="class_ode_rosenbrock.html">OdeRosenbrock</a> {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ode__linalg_8h.html">ode_linalg.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ode__embedded_8h.html">ode_embedded.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ode__rosenbrock_8h.html">ode_rosenbrock.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_ode_g_r_k4_a.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_ode_g_r_k4_a.html">OdeGRK4A</a> : <span class="keyword">public</span> <a class="code" href="class_ode_embedded.html">OdeEmbedded</a>, <span class="keyword">private</span> <a class="code" href="class_ode_rosenbrock.html">OdeRosenbrock</a> {</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="class_ode_g_r_k4_a.html#a562defbd4c725cd371e4b0c8c84cdb2f">OdeGRK4A</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> neq);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="comment">//function for taking a single step</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">void</span> step_ (<span class="keywordtype">double</span> dt);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="comment">//coefficients</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">double</span> gam21,</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;               gam31, gam32,</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;               gam41, gam42, gam43;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">double</span> g21,</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;               g31, g32,</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;               g41, g42, g43;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">double</span> alp21,</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;               alp31, alp32;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">double</span> b1, b2, b3, b4,</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;               d1, d2, d3;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="class_ode_g_r_k4_a.html#a562defbd4c725cd371e4b0c8c84cdb2f">OdeGRK4A</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> neq);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="comment">//function for taking a single step</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">void</span> step_ (<span class="keywordtype">double</span> dt);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="comment">//coefficients</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">double</span> gam21,</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;               gam31, gam32,</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;               gam41, gam42, gam43;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">double</span> g21,</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;               g31, g32,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;               g41, g42, g43;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordtype">double</span> alp21,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;               alp31, alp32;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordtype">double</span> b1, b2, b3, b4,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;               d1, d2, d3;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_ode_g_r_k4_a_html"><div class="ttname"><a href="class_ode_g_r_k4_a.html">OdeGRK4A</a></div><div class="ttdef"><b>Definition:</b> ode_grk4a.h:12</div></div>
-<div class="ttc" id="aclass_ode_rosenbrock_html"><div class="ttname"><a href="class_ode_rosenbrock.html">OdeRosenbrock</a></div><div class="ttdoc">Base class for Rosenbrock methods.</div><div class="ttdef"><b>Definition:</b> ode_rosenbrock.h:7</div></div>
-<div class="ttc" id="aclass_ode_g_r_k4_a_html_a562defbd4c725cd371e4b0c8c84cdb2f"><div class="ttname"><a href="class_ode_g_r_k4_a.html#a562defbd4c725cd371e4b0c8c84cdb2f">OdeGRK4A::OdeGRK4A</a></div><div class="ttdeci">OdeGRK4A(unsigned long neq)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> ode_grk4a.cc:3</div></div>
-<div class="ttc" id="aclass_ode_embedded_html"><div class="ttname"><a href="class_ode_embedded.html">OdeEmbedded</a></div><div class="ttdef"><b>Definition:</b> ode_embedded.h:12</div></div>
+<div class="ttc" id="aclass_ode_g_r_k4_a_html"><div class="ttname"><a href="class_ode_g_r_k4_a.html">OdeGRK4A</a></div><div class="ttdoc">Fourth-order, A-stable, adaptive Rosenbrock method from Kaps and Rentrop.</div><div class="ttdef"><b>Definition:</b> <a href="ode__grk4a_8h_source.html#l00015">ode_grk4a.h:15</a></div></div>
+<div class="ttc" id="aclass_ode_rosenbrock_html"><div class="ttname"><a href="class_ode_rosenbrock.html">OdeRosenbrock</a></div><div class="ttdoc">Base class for Rosenbrock methods.</div><div class="ttdef"><b>Definition:</b> <a href="ode__rosenbrock_8h_source.html#l00009">ode_rosenbrock.h:9</a></div></div>
+<div class="ttc" id="aclass_ode_g_r_k4_a_html_a562defbd4c725cd371e4b0c8c84cdb2f"><div class="ttname"><a href="class_ode_g_r_k4_a.html#a562defbd4c725cd371e4b0c8c84cdb2f">OdeGRK4A::OdeGRK4A</a></div><div class="ttdeci">OdeGRK4A(unsigned long neq)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__grk4a_8cc_source.html#l00003">ode_grk4a.cc:3</a></div></div>
+<div class="ttc" id="aode__rosenbrock_8h_html"><div class="ttname"><a href="ode__rosenbrock_8h.html">ode_rosenbrock.h</a></div></div>
+<div class="ttc" id="aclass_ode_embedded_html"><div class="ttname"><a href="class_ode_embedded.html">OdeEmbedded</a></div><div class="ttdoc">Base clase implementing methods for embedded Runge-Kutta error estimation.</div><div class="ttdef"><b>Definition:</b> <a href="ode__embedded_8h_source.html#l00015">ode_embedded.h:15</a></div></div>
+<div class="ttc" id="aode__linalg_8h_html"><div class="ttname"><a href="ode__linalg_8h.html">ode_linalg.h</a></div></div>
+<div class="ttc" id="aode__embedded_8h_html"><div class="ttname"><a href="ode__embedded_8h.html">ode_embedded.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>ode_grk4a.h</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="ode__grk4a_8h.html">ode_grk4a.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>

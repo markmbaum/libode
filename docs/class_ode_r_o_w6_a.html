@@ -94,6 +94,9 @@ $(document).ready(function(){initNavTree('class_ode_r_o_w6_a.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>6th order, A-stable Rosenbrock method  
+ <a href="class_ode_r_o_w6_a.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="ode__row6a_8h_source.html">ode_row6a.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for OdeROW6A:</div>
@@ -101,7 +104,7 @@ Inheritance diagram for OdeROW6A:</div>
  <div class="center">
   <img src="class_ode_r_o_w6_a.png" usemap="#OdeROW6A_map" alt=""/>
   <map id="OdeROW6A_map" name="OdeROW6A_map">
-<area href="class_ode_base.html" alt="OdeBase" shape="rect" coords="0,0,103,24"/>
+<area href="class_ode_base.html" title="Lowest base class for all solvers." alt="OdeBase" shape="rect" coords="0,0,103,24"/>
 <area href="class_ode_rosenbrock.html" title="Base class for Rosenbrock methods." alt="OdeRosenbrock" shape="rect" coords="113,0,216,24"/>
   </map>
 </div></div>
@@ -313,9 +316,12 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="separator:a0fe649817eede448c6ae137fb568ddfe inherit pro_attribs_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A sixth-order, A stable Rosenbrock method from:</p><ul>
+<div class="textblock"><p>6th order, A-stable Rosenbrock method </p>
+<p>A sixth-order, A stable Rosenbrock method from:</p><ul>
 <li>Kaps, Peter, and Gerhard Wanner. "A study of Rosenbrock-type methods of high order." Numerische Mathematik 38.2 (1981): 279-298. </li>
 </ul>
+
+<p class="definition">Definition at line <a class="el" href="ode__row6a_8h_source.html#l00015">15</a> of file <a class="el" href="ode__row6a_8h_source.html">ode_row6a.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aee387dc1fb9572870a807e96c03b7c1f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aee387dc1fb9572870a807e96c03b7c1f">&#9670;&nbsp;</a></span>OdeROW6A()</h2>
@@ -341,14 +347,42 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="ode__row6a_8cc_source.html#l00003">3</a> of file <a class="el" href="ode__row6a_8cc_source.html">ode_row6a.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;                                     :</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <a class="code" href="class_ode_base.html#aacdf86d5554b13574f5a7fe4cb6b7ccb">OdeBase</a> (neq, <span class="keyword">true</span>),</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <a class="code" href="class_ode_rosenbrock.html#a05cd62632806a05966f3f136ca83aefe">OdeRosenbrock</a> (neq, 6) {</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <a class="code" href="class_ode_base.html#a97664b1b92f1bd516c0966a920032d74">method_</a> = <span class="stringliteral">&quot;ROW6A&quot;</span>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="comment">//main diagonal, gam_ii</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="class_ode_rosenbrock.html#a78e6ee3df94411faa3f2001cd67af153">gam</a> = 0.33414236706805043;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    a21 =  0.66828473413610087;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    a31 =   0.5852480389573658; a32 = -0.048594008221492802;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    a41 = -0.61719233202999775; a42 =  -0.83995264476522158; a43 =   0.62641917900148600;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    a51 =   3.5406887484552165; a52 =   0.65991497772646308; a53 =  -0.63661180895697222; a54 = -1.1945984675295562;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    a61 =  0.80783664328582613; a62 =   0.10194631616818569; a63 = -0.078396778850607012; a64 = -0.044341977375427388; a65 = 0.013074732797453325;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    c21 = -5.8308828523185086;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    c31 = -4.0175939515896193; c32 =  0.43970131925236112;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    c41 =  7.7228006257490299; c42 =   4.3368108251435758; c43 = -2.8219574578033366;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    c51 = -1.0516225114542007; c52 = -0.58853585181331353; c53 =  2.0433794587212771; c54 = 5.0098631723809151;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    c61 = -6.7357785372199458; c62 = -0.53593889506199845; c63 = 0.38622517020810987; c64 = 0.21066472713931598; c65 = -0.053546655670373728;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    m1 = 11.358660043232931; m2 = -6.9896898855829058; m3 = -4.5967580421042947; m4 = -3.7220984696531517; m5 = 0.96012685868421520; m6 = 12.953396234292936;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="ode__row6a_8h_source.html">ode_row6a.h</a></li>
-<li>src/ode_row6a.cc</li>
+<li>src/<a class="el" href="ode__row6a_8cc_source.html">ode_row6a.cc</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_ode_base_html_a97664b1b92f1bd516c0966a920032d74"><div class="ttname"><a href="class_ode_base.html#a97664b1b92f1bd516c0966a920032d74">OdeBase::method_</a></div><div class="ttdeci">std::string method_</div><div class="ttdoc">the &quot;name&quot; of the solver/method, as in &quot;Euler&quot; or &quot;RK4&quot;</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8h_source.html#l00173">ode_base.h:173</a></div></div>
+<div class="ttc" id="aclass_ode_rosenbrock_html_a05cd62632806a05966f3f136ca83aefe"><div class="ttname"><a href="class_ode_rosenbrock.html#a05cd62632806a05966f3f136ca83aefe">OdeRosenbrock::OdeRosenbrock</a></div><div class="ttdeci">OdeRosenbrock(unsigned long neq, int nk)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__rosenbrock_8cc_source.html#l00003">ode_rosenbrock.cc:3</a></div></div>
+<div class="ttc" id="aclass_ode_base_html_aacdf86d5554b13574f5a7fe4cb6b7ccb"><div class="ttname"><a href="class_ode_base.html#aacdf86d5554b13574f5a7fe4cb6b7ccb">OdeBase::OdeBase</a></div><div class="ttdeci">OdeBase(unsigned long neq, bool need_jac)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8cc_source.html#l00003">ode_base.cc:3</a></div></div>
+<div class="ttc" id="aclass_ode_rosenbrock_html_a78e6ee3df94411faa3f2001cd67af153"><div class="ttname"><a href="class_ode_rosenbrock.html#a78e6ee3df94411faa3f2001cd67af153">OdeRosenbrock::gam</a></div><div class="ttdeci">double gam</div><div class="ttdoc">parameter multipying Jacobian or single diagonal gamma</div><div class="ttdef"><b>Definition:</b> <a href="ode__rosenbrock_8h_source.html#l00023">ode_rosenbrock.h:23</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

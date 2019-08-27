@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['gam_25',['gam',['../class_ode_newton_s_d_i_r_k.html#a9f7b1c127cd44110700328aa45dcee5e',1,'OdeNewtonSDIRK::gam()'],['../class_ode_rosenbrock.html#a78e6ee3df94411faa3f2001cd67af153',1,'OdeRosenbrock::gam()']]],
+  ['gam_25',['gam',['../class_ode_newton_s_d_i_r_k.html#aa2892e034d3b9b426c66f68cff34e082',1,'OdeNewtonSDIRK::gam()'],['../class_ode_rosenbrock.html#a78e6ee3df94411faa3f2001cd67af153',1,'OdeRosenbrock::gam()']]],
   ['get_5fabstol_26',['get_abstol',['../class_ode_adaptive.html#aa5e27507ec849b99787dee60672d669b',1,'OdeAdaptive']]],
   ['get_5fdt_27',['get_dt',['../class_ode_base.html#a737e037f4c000a4c774a179187bc21f7',1,'OdeBase']]],
   ['get_5fdtmax_28',['get_dtmax',['../class_ode_adaptive.html#ac43581a0c4b7dd149d8c071172bd5ee3',1,'OdeAdaptive']]],

@@ -1,6 +1,8 @@
 #ifndef ODE_VERN65_H_
 #define ODE_VERN65_H_
 
+//! \file ode_vern_65.h
+
 #include "ode_embedded.h"
 #include "ode_rk.h"
 #include "ode_erk.h"

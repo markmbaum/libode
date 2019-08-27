@@ -1,6 +1,8 @@
 #ifndef ODE_SSP3_H_
 #define ODE_SSP3_H_
 
+//! \file ode_ssp_3.h
+
 #include "ode_base.h"
 #include "ode_rk.h"
 #include "ode_erk.h"

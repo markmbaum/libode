@@ -1,6 +1,8 @@
 #ifndef ODE_RK_H_
 #define ODE_RK_H_
 
+//! \file ode_rk.h
+
 //!Provides space for stage slope values
 class OdeRK {
 

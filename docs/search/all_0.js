@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['a_0',['a',['../class_ode_newton_i_r_k.html#a0b7653ad5c7052efc2aea38d0d52060b',1,'OdeNewtonIRK::a()'],['../class_ode_newton_s_d_i_r_k.html#aed5442f311e5611f902f23225b61d158',1,'OdeNewtonSDIRK::a()']]],
+  ['a_0',['a',['../class_ode_newton_i_r_k.html#af44da1ab7d8d7a71395387bc9dd53123',1,'OdeNewtonIRK::a()'],['../class_ode_newton_s_d_i_r_k.html#aa53aa711d0eb506fd4cfae91a4f57206',1,'OdeNewtonSDIRK::a()']]],
   ['absjacdel_5f_1',['absjacdel_',['../class_ode_base.html#a8861a0f06527ba07bc4f1981cc99fe3b',1,'OdeBase']]],
   ['abstol_5f_2',['abstol_',['../class_ode_adaptive.html#ae43301e99d8380ae1a2931421302c5f6',1,'OdeAdaptive']]],
   ['adapt_3',['adapt',['../class_ode_adaptive.html#ad220853a35387884ea168f3cf5f65e20',1,'OdeAdaptive::adapt()'],['../class_ode_embedded.html#a7754829a40bf5240bcb1ce2f618feb64',1,'OdeEmbedded::adapt()']]],

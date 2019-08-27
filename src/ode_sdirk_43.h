@@ -1,6 +1,8 @@
 #ifndef ODE_SDIRK_43_H_
 #define ODE_SDIRK_43_H_
 
+//! \file ode_sdirk_43.h
+
 #include "ode_embedded.h"
 #include "ode_rk.h"
 #include "ode_newton_bridge.h"
@@ -8,7 +10,7 @@
 //forward declaration to set up Newton class
 class OdeSDIRK43;
 
-//!Nonlinear system solver for Backward Euler's method
+//!Nonlinear system solver for OdeSDIRK43
 class NewtonSDIRK43 : public OdeNewtonSDIRK<OdeSDIRK43> {
     public:
         //!constructs
@@ -22,6 +24,7 @@ class NewtonSDIRK43 : public OdeNewtonSDIRK<OdeSDIRK43> {
         void J_Newton (double *x, double **J);
 };
 
+//!L-stable 4/3 SDIRK pair
 /*!
 L-stable 4/3 SDIRK pair from section IV.6 of:
     + Wanner, Gerhard, and Ernst Hairer. Solving ordinary differential equations II. Springer Berlin Heidelberg, 1996.

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['b_355',['b',['../class_ode_newton_i_r_k.html#a95de770d1570558bd8891cc143202589',1,'OdeNewtonIRK::b()'],['../class_ode_newton_s_d_i_r_k.html#a336629441e72d991590b320450bb5d27',1,'OdeNewtonSDIRK::b()']]]
+  ['b_443',['b',['../class_ode_newton_i_r_k.html#a332b75a056b38be2f6447a9cd5f355dd',1,'OdeNewtonIRK::b()'],['../class_ode_newton_s_d_i_r_k.html#aef5b896dc7890cf5c1fdfeb2d9f78ab4',1,'OdeNewtonSDIRK::b()']]]
 ];

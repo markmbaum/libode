@@ -90,35 +90,41 @@ $(document).ready(function(){initNavTree('ode__linalg_8h_source.html','');});
 <div class="title">ode_linalg.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ODE_LINALG_H_</span></div>
+<a href="ode__linalg_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ODE_LINALG_H_</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ODE_LINALG_H_</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;cstdio&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;cstdio&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">void</span> ode_crout_forw_sub (<span class="keywordtype">double</span> **L, <span class="keywordtype">double</span> *b, <span class="keywordtype">int</span> *p, <span class="keywordtype">int</span> n, <span class="keywordtype">double</span> *out);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> <a class="code" href="ode__linalg_8h.html#a8c3ece3d06a9a409508ce0f2463a7336">ode_crout_forw_sub</a> (<span class="keywordtype">double</span> **L, <span class="keywordtype">double</span> *b, <span class="keywordtype">int</span> *p, <span class="keywordtype">int</span> n, <span class="keywordtype">double</span> *out);</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> ode_back_sub (<span class="keywordtype">double</span> **U, <span class="keywordtype">double</span> *b, <span class="keywordtype">int</span> n, <span class="keywordtype">double</span> *out);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">void</span> <a class="code" href="ode__linalg_8h.html#ac52a9d2fe1e82e03f6a5d9b2a56a4cc6">ode_back_sub</a> (<span class="keywordtype">double</span> **U, <span class="keywordtype">double</span> *b, <span class="keywordtype">int</span> n, <span class="keywordtype">double</span> *out);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">void</span> ode_crout_LU (<span class="keywordtype">double</span> **A, <span class="keywordtype">int</span> n, <span class="keywordtype">int</span> *p);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">void</span> ode_solve_LU (<span class="keywordtype">double</span> **LU, <span class="keywordtype">int</span> *p, <span class="keywordtype">double</span> *b, <span class="keywordtype">int</span> n, <span class="keywordtype">double</span> *out);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keywordtype">void</span> ode_solve_A (<span class="keywordtype">double</span> **A, <span class="keywordtype">double</span> *b, <span class="keywordtype">int</span> n, <span class="keywordtype">double</span> *out);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">void</span> <a class="code" href="ode__linalg_8h.html#a8b99761e7b8b0d26146922ed3a7ef002">ode_crout_LU</a> (<span class="keywordtype">double</span> **A, <span class="keywordtype">int</span> n, <span class="keywordtype">int</span> *p);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keywordtype">void</span> <a class="code" href="ode__linalg_8h.html#af48d8987b88fac1e47ecdb41e3f4b793">ode_solve_LU</a> (<span class="keywordtype">double</span> **LU, <span class="keywordtype">int</span> *p, <span class="keywordtype">double</span> *b, <span class="keywordtype">int</span> n, <span class="keywordtype">double</span> *out);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordtype">void</span> <a class="code" href="ode__linalg_8h.html#a4336ca95c528c705866581e1a5137da7">ode_solve_A</a> (<span class="keywordtype">double</span> **A, <span class="keywordtype">double</span> *b, <span class="keywordtype">int</span> n, <span class="keywordtype">double</span> *out);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aode__linalg_8h_html_af48d8987b88fac1e47ecdb41e3f4b793"><div class="ttname"><a href="ode__linalg_8h.html#af48d8987b88fac1e47ecdb41e3f4b793">ode_solve_LU</a></div><div class="ttdeci">void ode_solve_LU(double **LU, int *p, double *b, int n, double *out)</div><div class="ttdoc">Solves a matrix equation where the matrix has already be crout LU decomposed.</div><div class="ttdef"><b>Definition:</b> <a href="ode__linalg_8cc_source.html#l00072">ode_linalg.cc:72</a></div></div>
+<div class="ttc" id="aode__linalg_8h_html_a4336ca95c528c705866581e1a5137da7"><div class="ttname"><a href="ode__linalg_8h.html#a4336ca95c528c705866581e1a5137da7">ode_solve_A</a></div><div class="ttdeci">void ode_solve_A(double **A, double *b, int n, double *out)</div><div class="ttdoc">solves a matrix equation A x = b with crout LU decomposition</div><div class="ttdef"><b>Definition:</b> <a href="ode__linalg_8cc_source.html#l00080">ode_linalg.cc:80</a></div></div>
+<div class="ttc" id="aode__linalg_8h_html_ac52a9d2fe1e82e03f6a5d9b2a56a4cc6"><div class="ttname"><a href="ode__linalg_8h.html#ac52a9d2fe1e82e03f6a5d9b2a56a4cc6">ode_back_sub</a></div><div class="ttdeci">void ode_back_sub(double **U, double *b, int n, double *out)</div><div class="ttdoc">Backward substitution.</div><div class="ttdef"><b>Definition:</b> <a href="ode__linalg_8cc_source.html#l00014">ode_linalg.cc:14</a></div></div>
+<div class="ttc" id="aode__linalg_8h_html_a8b99761e7b8b0d26146922ed3a7ef002"><div class="ttname"><a href="ode__linalg_8h.html#a8b99761e7b8b0d26146922ed3a7ef002">ode_crout_LU</a></div><div class="ttdeci">void ode_crout_LU(double **A, int n, int *p)</div><div class="ttdoc">Crout LU decomposition.</div><div class="ttdef"><b>Definition:</b> <a href="ode__linalg_8cc_source.html#l00025">ode_linalg.cc:25</a></div></div>
+<div class="ttc" id="aode__linalg_8h_html_a8c3ece3d06a9a409508ce0f2463a7336"><div class="ttname"><a href="ode__linalg_8h.html#a8c3ece3d06a9a409508ce0f2463a7336">ode_crout_forw_sub</a></div><div class="ttdeci">void ode_crout_forw_sub(double **L, double *b, int *p, int n, double *out)</div><div class="ttdoc">Crout forward substitution.</div><div class="ttdef"><b>Definition:</b> <a href="ode__linalg_8cc_source.html#l00003">ode_linalg.cc:3</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>ode_linalg.h</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="ode__linalg_8h.html">ode_linalg.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>

@@ -1,6 +1,8 @@
 #ifndef ODE_BACKWARD_EULER_H_
 #define ODE_BACKWARD_EULER_H_
 
+//! \file ode_backward_euler.h
+
 #include "ode_base.h"
 #include "ode_irk.h"
 #include "ode_newton_bridge.h"
@@ -8,7 +10,7 @@
 //forward declaration to set up Newton class
 class OdeBackwardEuler;
 
-//!Nonlinear system solver for Backward Euler's method
+//!Nonlinear system solver for OdeBackwardEuler
 class NewtonBackwardEuler : public OdeNewtonIRK<OdeBackwardEuler> {
     public:
         //!constructs
@@ -24,6 +26,7 @@ class NewtonBackwardEuler : public OdeNewtonIRK<OdeBackwardEuler> {
 };
 
 //!Backward Euler's method, unconditionally stable but relatively inaccurate
+/*! + https://en.wikipedia.org/wiki/Backward_Euler_method */
 class OdeBackwardEuler : public OdeBase, private OdeIRK {
     //friends!
     friend class OdeNewtonBridge<OdeBackwardEuler>;

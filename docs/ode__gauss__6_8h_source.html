@@ -90,64 +90,69 @@ $(document).ready(function(){initNavTree('ode__gauss__6_8h_source.html','');});
 <div class="title">ode_gauss_6.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ODE_GAUSS_6_H_</span></div>
+<a href="ode__gauss__6_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ODE_GAUSS_6_H_</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ODE_GAUSS_6_H_</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;ode_base.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;ode_irk.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;ode_newton_bridge.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//forward declaration to set up Newton class</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">class </span><a class="code" href="class_ode_gauss6.html">OdeGauss6</a>;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_newton_gauss6.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_newton_gauss6.html">NewtonGauss6</a> : <span class="keyword">public</span> <a class="code" href="class_ode_newton_i_r_k.html">OdeNewtonIRK</a>&lt;OdeGauss6&gt; {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_newton_gauss6.html#a0a814370b895a4e14dd47b49e1184ac3">   20</a></span>&#160;        <a class="code" href="class_newton_gauss6.html#a0a814370b895a4e14dd47b49e1184ac3">NewtonGauss6</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> neq, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> nnew, <a class="code" href="class_ode_gauss6.html">OdeGauss6</a> *integrator) : <a class="code" href="class_ode_newton_i_r_k.html">OdeNewtonIRK</a> (neq, nnew, integrator) {};</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">void</span> f_Newton (<span class="keywordtype">double</span> *x, <span class="keywordtype">double</span> *y);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">void</span> J_Newton (<span class="keywordtype">double</span> *x, <span class="keywordtype">double</span> **J);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_ode_gauss6.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_ode_gauss6.html">OdeGauss6</a> : <span class="keyword">public</span> <a class="code" href="class_ode_base.html">OdeBase</a>, <span class="keyword">private</span> <a class="code" href="class_ode_i_r_k.html">OdeIRK</a> {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">//friends!</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_ode_newton_bridge.html">OdeNewtonBridge</a>&lt;<a class="code" href="class_ode_gauss6.html">OdeGauss6</a>&gt;;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_ode_newton_i_r_k.html">OdeNewtonIRK</a>&lt;<a class="code" href="class_ode_gauss6.html">OdeGauss6</a>&gt;;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="class_ode_gauss6.html#aad6731921a5c9e9a1a184dfab24520ae">OdeGauss6</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> neq);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="class_ode_gauss6.html#a28bd3fbcc80127409b98fb007b1c580b">~OdeGauss6</a> ();</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ode__base_8h.html">ode_base.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ode__irk_8h.html">ode_irk.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ode__newton__bridge_8h.html">ode_newton_bridge.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//forward declaration to set up Newton class</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">class </span><a class="code" href="class_ode_gauss6.html">OdeGauss6</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_newton_gauss6.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_newton_gauss6.html">NewtonGauss6</a> : <span class="keyword">public</span> <a class="code" href="class_ode_newton_i_r_k.html">OdeNewtonIRK</a>&lt;OdeGauss6&gt; {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_newton_gauss6.html#a0a814370b895a4e14dd47b49e1184ac3">   22</a></span>&#160;        <a class="code" href="class_newton_gauss6.html#a0a814370b895a4e14dd47b49e1184ac3">NewtonGauss6</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> neq, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> nnew, <a class="code" href="class_ode_gauss6.html">OdeGauss6</a> *integrator) : <a class="code" href="class_ode_newton_i_r_k.html">OdeNewtonIRK</a> (neq, nnew, integrator) {};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">void</span> f_Newton (<span class="keywordtype">double</span> *x, <span class="keywordtype">double</span> *y);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">void</span> J_Newton (<span class="keywordtype">double</span> *x, <span class="keywordtype">double</span> **J);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_ode_gauss6.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_ode_gauss6.html">OdeGauss6</a> : <span class="keyword">public</span> <a class="code" href="class_ode_base.html">OdeBase</a>, <span class="keyword">private</span> <a class="code" href="class_ode_i_r_k.html">OdeIRK</a> {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">//friends!</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_ode_newton_bridge.html">OdeNewtonBridge</a>&lt;<a class="code" href="class_ode_gauss6.html">OdeGauss6</a>&gt;;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_ode_newton_i_r_k.html">OdeNewtonIRK</a>&lt;<a class="code" href="class_ode_gauss6.html">OdeGauss6</a>&gt;;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="class_ode_gauss6.html#aad6731921a5c9e9a1a184dfab24520ae">OdeGauss6</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> neq);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_ode_gauss6.html#ac7849ca1fe72571e5f39313a3b99ba8c">   44</a></span>&#160;        <a class="code" href="class_newton_gauss6.html">NewtonGauss6</a> <a class="code" href="class_ode_gauss6.html#ac7849ca1fe72571e5f39313a3b99ba8c">get_newton</a> () { <span class="keywordflow">return</span>(*newton_); }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordtype">double</span> **<a class="code" href="class_ode_newton_i_r_k.html#a0b7653ad5c7052efc2aea38d0d52060b">a</a>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordtype">double</span> *<a class="code" href="class_ode_newton_i_r_k.html#a95de770d1570558bd8891cc143202589">b</a>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="class_newton_gauss6.html">NewtonGauss6</a> *newton_;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">void</span> step_ (<span class="keywordtype">double</span> dt);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="class_ode_gauss6.html#a28bd3fbcc80127409b98fb007b1c580b">~OdeGauss6</a> ();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_ode_gauss6.html#ac7849ca1fe72571e5f39313a3b99ba8c">   47</a></span>&#160;        <a class="code" href="class_newton_gauss6.html">NewtonGauss6</a> <a class="code" href="class_ode_gauss6.html#ac7849ca1fe72571e5f39313a3b99ba8c">get_newton</a> () { <span class="keywordflow">return</span>(*newton_); }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">double</span> **<a class="code" href="class_ode_newton_i_r_k.html#af44da1ab7d8d7a71395387bc9dd53123">a</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordtype">double</span> *<a class="code" href="class_ode_newton_i_r_k.html#a332b75a056b38be2f6447a9cd5f355dd">b</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="class_newton_gauss6.html">NewtonGauss6</a> *newton_;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">void</span> step_ (<span class="keywordtype">double</span> dt);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_ode_newton_i_r_k_html"><div class="ttname"><a href="class_ode_newton_i_r_k.html">OdeNewtonIRK</a></div><div class="ttdef"><b>Definition:</b> ode_newton_bridge.h:88</div></div>
-<div class="ttc" id="aclass_ode_i_r_k_html"><div class="ttname"><a href="class_ode_i_r_k.html">OdeIRK</a></div><div class="ttdoc">Provides a large vector containing the slope values of all stages with pointers to each of the indivi...</div><div class="ttdef"><b>Definition:</b> ode_irk.h:5</div></div>
-<div class="ttc" id="aclass_ode_newton_bridge_html"><div class="ttname"><a href="class_ode_newton_bridge.html">OdeNewtonBridge</a></div><div class="ttdoc">Base class connector.</div><div class="ttdef"><b>Definition:</b> ode_newton_bridge.h:14</div></div>
-<div class="ttc" id="aclass_ode_gauss6_html_aad6731921a5c9e9a1a184dfab24520ae"><div class="ttname"><a href="class_ode_gauss6.html#aad6731921a5c9e9a1a184dfab24520ae">OdeGauss6::OdeGauss6</a></div><div class="ttdeci">OdeGauss6(unsigned long neq)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> ode_gauss_6.cc:56</div></div>
-<div class="ttc" id="aclass_ode_base_html"><div class="ttname"><a href="class_ode_base.html">OdeBase</a></div><div class="ttdef"><b>Definition:</b> ode_base.h:60</div></div>
-<div class="ttc" id="aclass_ode_gauss6_html"><div class="ttname"><a href="class_ode_gauss6.html">OdeGauss6</a></div><div class="ttdoc">The sixth-order, A-stable, fully-implicit Gauss-Legendre method with 3 stages.</div><div class="ttdef"><b>Definition:</b> ode_gauss_6.h:27</div></div>
-<div class="ttc" id="aclass_ode_gauss6_html_a28bd3fbcc80127409b98fb007b1c580b"><div class="ttname"><a href="class_ode_gauss6.html#a28bd3fbcc80127409b98fb007b1c580b">OdeGauss6::~OdeGauss6</a></div><div class="ttdeci">~OdeGauss6()</div><div class="ttdoc">destructs</div><div class="ttdef"><b>Definition:</b> ode_gauss_6.cc:79</div></div>
-<div class="ttc" id="aclass_ode_newton_i_r_k_html_a0b7653ad5c7052efc2aea38d0d52060b"><div class="ttname"><a href="class_ode_newton_i_r_k.html#a0b7653ad5c7052efc2aea38d0d52060b">OdeNewtonIRK::a</a></div><div class="ttdeci">double ** a</div><div class="ttdoc">pointer to tableau coefficients</div><div class="ttdef"><b>Definition:</b> ode_newton_bridge.h:115</div></div>
-<div class="ttc" id="aclass_newton_gauss6_html"><div class="ttname"><a href="class_newton_gauss6.html">NewtonGauss6</a></div><div class="ttdoc">Nonlinear system solver for Gauss 6.</div><div class="ttdef"><b>Definition:</b> ode_gauss_6.h:12</div></div>
-<div class="ttc" id="aclass_ode_gauss6_html_ac7849ca1fe72571e5f39313a3b99ba8c"><div class="ttname"><a href="class_ode_gauss6.html#ac7849ca1fe72571e5f39313a3b99ba8c">OdeGauss6::get_newton</a></div><div class="ttdeci">NewtonGauss6 get_newton()</div><div class="ttdoc">returns the solver'sNewton system object</div><div class="ttdef"><b>Definition:</b> ode_gauss_6.h:44</div></div>
-<div class="ttc" id="aclass_newton_gauss6_html_a0a814370b895a4e14dd47b49e1184ac3"><div class="ttname"><a href="class_newton_gauss6.html#a0a814370b895a4e14dd47b49e1184ac3">NewtonGauss6::NewtonGauss6</a></div><div class="ttdeci">NewtonGauss6(unsigned long neq, unsigned long nnew, OdeGauss6 *integrator)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> ode_gauss_6.h:20</div></div>
-<div class="ttc" id="aclass_ode_newton_i_r_k_html_a95de770d1570558bd8891cc143202589"><div class="ttname"><a href="class_ode_newton_i_r_k.html#a95de770d1570558bd8891cc143202589">OdeNewtonIRK::b</a></div><div class="ttdeci">double * b</div><div class="ttdoc">pointer to tableau coefficients</div><div class="ttdef"><b>Definition:</b> ode_newton_bridge.h:117</div></div>
+<div class="ttc" id="aclass_ode_newton_i_r_k_html"><div class="ttname"><a href="class_ode_newton_i_r_k.html">OdeNewtonIRK</a></div><div class="ttdoc">Extension of OdeNewtonBridge class for fully implicit methods.</div><div class="ttdef"><b>Definition:</b> <a href="ode__newton__bridge_8h_source.html#l00091">ode_newton_bridge.h:91</a></div></div>
+<div class="ttc" id="aclass_ode_i_r_k_html"><div class="ttname"><a href="class_ode_i_r_k.html">OdeIRK</a></div><div class="ttdoc">Provides a large vector containing the slope values of all stages with pointers to each of the indivi...</div><div class="ttdef"><b>Definition:</b> <a href="ode__irk_8h_source.html#l00007">ode_irk.h:7</a></div></div>
+<div class="ttc" id="aode__newton__bridge_8h_html"><div class="ttname"><a href="ode__newton__bridge_8h.html">ode_newton_bridge.h</a></div></div>
+<div class="ttc" id="aclass_ode_newton_i_r_k_html_af44da1ab7d8d7a71395387bc9dd53123"><div class="ttname"><a href="class_ode_newton_i_r_k.html#af44da1ab7d8d7a71395387bc9dd53123">OdeNewtonIRK::a</a></div><div class="ttdeci">double ** a</div><div class="ttdoc">pointer to tableau coefficients</div><div class="ttdef"><b>Definition:</b> <a href="ode__newton__bridge_8h_source.html#l00119">ode_newton_bridge.h:119</a></div></div>
+<div class="ttc" id="aclass_ode_newton_bridge_html"><div class="ttname"><a href="class_ode_newton_bridge.html">OdeNewtonBridge</a></div><div class="ttdoc">Templated base class connecting solver objects and OdeNewton objects.</div><div class="ttdef"><b>Definition:</b> <a href="ode__newton__bridge_8h_source.html#l00015">ode_newton_bridge.h:15</a></div></div>
+<div class="ttc" id="aclass_ode_gauss6_html_aad6731921a5c9e9a1a184dfab24520ae"><div class="ttname"><a href="class_ode_gauss6.html#aad6731921a5c9e9a1a184dfab24520ae">OdeGauss6::OdeGauss6</a></div><div class="ttdeci">OdeGauss6(unsigned long neq)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__gauss__6_8cc_source.html#l00056">ode_gauss_6.cc:56</a></div></div>
+<div class="ttc" id="aclass_ode_base_html"><div class="ttname"><a href="class_ode_base.html">OdeBase</a></div><div class="ttdoc">Lowest base class for all solvers.</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8h_source.html#l00062">ode_base.h:62</a></div></div>
+<div class="ttc" id="aclass_ode_gauss6_html"><div class="ttname"><a href="class_ode_gauss6.html">OdeGauss6</a></div><div class="ttdoc">The sixth-order, A-stable, fully-implicit Gauss-Legendre method with 3 stages.</div><div class="ttdef"><b>Definition:</b> <a href="ode__gauss__6_8h_source.html#l00030">ode_gauss_6.h:30</a></div></div>
+<div class="ttc" id="aclass_ode_gauss6_html_a28bd3fbcc80127409b98fb007b1c580b"><div class="ttname"><a href="class_ode_gauss6.html#a28bd3fbcc80127409b98fb007b1c580b">OdeGauss6::~OdeGauss6</a></div><div class="ttdeci">~OdeGauss6()</div><div class="ttdoc">destructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__gauss__6_8cc_source.html#l00079">ode_gauss_6.cc:79</a></div></div>
+<div class="ttc" id="aclass_ode_newton_i_r_k_html_a332b75a056b38be2f6447a9cd5f355dd"><div class="ttname"><a href="class_ode_newton_i_r_k.html#a332b75a056b38be2f6447a9cd5f355dd">OdeNewtonIRK::b</a></div><div class="ttdeci">double * b</div><div class="ttdoc">pointer to tableau coefficients</div><div class="ttdef"><b>Definition:</b> <a href="ode__newton__bridge_8h_source.html#l00121">ode_newton_bridge.h:121</a></div></div>
+<div class="ttc" id="aode__irk_8h_html"><div class="ttname"><a href="ode__irk_8h.html">ode_irk.h</a></div></div>
+<div class="ttc" id="aclass_newton_gauss6_html"><div class="ttname"><a href="class_newton_gauss6.html">NewtonGauss6</a></div><div class="ttdoc">Nonlinear system solver for OdeGauss6.</div><div class="ttdef"><b>Definition:</b> <a href="ode__gauss__6_8h_source.html#l00014">ode_gauss_6.h:14</a></div></div>
+<div class="ttc" id="aode__base_8h_html"><div class="ttname"><a href="ode__base_8h.html">ode_base.h</a></div></div>
+<div class="ttc" id="aclass_ode_gauss6_html_ac7849ca1fe72571e5f39313a3b99ba8c"><div class="ttname"><a href="class_ode_gauss6.html#ac7849ca1fe72571e5f39313a3b99ba8c">OdeGauss6::get_newton</a></div><div class="ttdeci">NewtonGauss6 get_newton()</div><div class="ttdoc">returns the solver'sNewton system object</div><div class="ttdef"><b>Definition:</b> <a href="ode__gauss__6_8h_source.html#l00047">ode_gauss_6.h:47</a></div></div>
+<div class="ttc" id="aclass_newton_gauss6_html_a0a814370b895a4e14dd47b49e1184ac3"><div class="ttname"><a href="class_newton_gauss6.html#a0a814370b895a4e14dd47b49e1184ac3">NewtonGauss6::NewtonGauss6</a></div><div class="ttdeci">NewtonGauss6(unsigned long neq, unsigned long nnew, OdeGauss6 *integrator)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__gauss__6_8h_source.html#l00022">ode_gauss_6.h:22</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>ode_gauss_6.h</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="ode__gauss__6_8h.html">ode_gauss_6.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>

@@ -101,9 +101,9 @@ Inheritance diagram for OdeSsp3:</div>
  <div class="center">
   <img src="class_ode_ssp3.png" usemap="#OdeSsp3_map" alt=""/>
   <map id="OdeSsp3_map" name="OdeSsp3_map">
-<area href="class_ode_base.html" alt="OdeBase" shape="rect" coords="0,0,64,24"/>
+<area href="class_ode_base.html" title="Lowest base class for all solvers." alt="OdeBase" shape="rect" coords="0,0,64,24"/>
 <area href="class_ode_r_k.html" title="Provides space for stage slope values." alt="OdeRK" shape="rect" coords="74,0,138,24"/>
-<area href="class_ode_e_r_k.html" alt="OdeERK" shape="rect" coords="148,0,212,24"/>
+<area href="class_ode_e_r_k.html" title="Base class with space for temporary solutions moving through RK stages." alt="OdeERK" shape="rect" coords="148,0,212,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -317,6 +317,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <div class="textblock"><p>This is a strong stability preserving method of order 3, from Shu and Osher:</p><ul>
 <li>C. W. Shu and S. Osher, Effcient implementation of essentially nonoscillatory shock-capturing schemes, J. Comput. Phys., 77, 1988, pp. 439-471. </li>
 </ul>
+
+<p class="definition">Definition at line <a class="el" href="ode__ssp__3_8h_source.html#l00014">14</a> of file <a class="el" href="ode__ssp__3_8h_source.html">ode_ssp_3.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acf646125b5fd3458c4df546939853d83"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acf646125b5fd3458c4df546939853d83">&#9670;&nbsp;</a></span>OdeSsp3()</h2>
@@ -342,14 +344,31 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="ode__ssp__3_8cc_source.html#l00003">3</a> of file <a class="el" href="ode__ssp__3_8cc_source.html">ode_ssp_3.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;                                   :</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <a class="code" href="class_ode_base.html#aacdf86d5554b13574f5a7fe4cb6b7ccb">OdeBase</a> (neq, <span class="keyword">false</span>),</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <a class="code" href="class_ode_r_k.html#a15e77484455484fc55eacb02e7391691">OdeRK</a> (neq, 3),</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <a class="code" href="class_ode_e_r_k.html#a6fae4438aa2060aed71da362ed404b6f">OdeERK</a> (neq) {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_ode_base.html#a97664b1b92f1bd516c0966a920032d74">method_</a> = <span class="stringliteral">&quot;Ssp3&quot;</span>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="comment">//tableau of coefficients</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    c2 =   1.0; a21 =    c2;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    c3 = 1.0/2; a31 = 1.0/4; a32 = 1.0/4;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;                 b1 = 1.0/6; b2 =  1.0/6; b3 = 2.0/3;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="ode__ssp__3_8h_source.html">ode_ssp_3.h</a></li>
-<li>src/ode_ssp_3.cc</li>
+<li>src/<a class="el" href="ode__ssp__3_8cc_source.html">ode_ssp_3.cc</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_ode_base_html_a97664b1b92f1bd516c0966a920032d74"><div class="ttname"><a href="class_ode_base.html#a97664b1b92f1bd516c0966a920032d74">OdeBase::method_</a></div><div class="ttdeci">std::string method_</div><div class="ttdoc">the &quot;name&quot; of the solver/method, as in &quot;Euler&quot; or &quot;RK4&quot;</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8h_source.html#l00173">ode_base.h:173</a></div></div>
+<div class="ttc" id="aclass_ode_r_k_html_a15e77484455484fc55eacb02e7391691"><div class="ttname"><a href="class_ode_r_k.html#a15e77484455484fc55eacb02e7391691">OdeRK::OdeRK</a></div><div class="ttdeci">OdeRK(unsigned long neq, int nk)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__rk_8cc_source.html#l00003">ode_rk.cc:3</a></div></div>
+<div class="ttc" id="aclass_ode_e_r_k_html_a6fae4438aa2060aed71da362ed404b6f"><div class="ttname"><a href="class_ode_e_r_k.html#a6fae4438aa2060aed71da362ed404b6f">OdeERK::OdeERK</a></div><div class="ttdeci">OdeERK(unsigned long neq)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__erk_8cc_source.html#l00003">ode_erk.cc:3</a></div></div>
+<div class="ttc" id="aclass_ode_base_html_aacdf86d5554b13574f5a7fe4cb6b7ccb"><div class="ttname"><a href="class_ode_base.html#aacdf86d5554b13574f5a7fe4cb6b7ccb">OdeBase::OdeBase</a></div><div class="ttdeci">OdeBase(unsigned long neq, bool need_jac)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8cc_source.html#l00003">ode_base.cc:3</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

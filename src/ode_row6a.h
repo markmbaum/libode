@@ -1,10 +1,13 @@
 #ifndef ODE_ROW6A_H_
 #define ODE_ROW6A_H_
 
+//! \file ode_row6a.h
+
 #include "ode_linalg.h"
 #include "ode_base.h"
 #include "ode_rosenbrock.h"
 
+//!6th order, A-stable Rosenbrock method
 /*!
 A sixth-order, A stable Rosenbrock method from:
     + Kaps, Peter, and Gerhard Wanner. "A study of Rosenbrock-type methods of high order." Numerische Mathematik 38.2 (1981): 279-298.

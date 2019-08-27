@@ -1,6 +1,8 @@
 #ifndef ODE_IRK_H_
 #define ODE_IRK_H_
 
+//! \file ode_irk.h
+
 //!Provides a large vector containing the slope values of all stages with pointers to each of the individual stages.
 class OdeIRK {
     public:
@@ -17,7 +19,7 @@ class OdeIRK {
         int nk_;
         //!pointer to single array storing all stage k values
         double *kall_;
-        //!individual k arrays for each stage 
+        //!individual k arrays for each stage
         double **k_;
 };
 

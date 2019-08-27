@@ -1,3 +1,4 @@
+//! \file ode_base.h
 /*!
 \mainpage libode
 
@@ -11,7 +12,7 @@ Several of the solvers and much more detail on the methods can be found in these
 
 First, before any of the `libode` classes can be compiled, you must copy the `_config.mk` file to `config.mk` and edit that file to specify the compiler settings you'd like the Makefile to use. This shouldn't be complicated. If you are using a current version of the GNU C++ compiler (g++), no changes to the contents of the template config file are needed. There are also commented lines for use with the Intel C++ compiler (icpc), if that is available. To compile all the classes, simply run `make` in the top directory.
 
-The Makefile compiles all of the necessary code into the `obj` folder, then archives it in the `bin` directory as a file called `libode.a`. To use the solvers, you can link `libode.a` (in the `bin` directory) or the object files directly (in the `obj` directory) when compiling your derived class, in addition to the header files (in the `src` directory). There is not a single header file for the library. Linking the solver classes require something like `-I<path>/libode/src -L<path>/libode/bin -lode` when when compiling derived code, with `<path>` replaced by path elements leading to the libode directory.
+The Makefile compiles all of the necessary code into the `obj` folder, then archives it in the `bin` directory as a file called `libode.a`. To use the solvers, you can link `libode.a` (in the `bin` directory) or the object files directly (in the `obj` directory) when compiling your derived class. You must also the the header files in the `src` directory, as there is not a single header file for the library. All of the classes have their header file name displayed in the documentation. Linking the solver classes requires something like `-I<path>/libode/src -L<path>/libode/bin -lode` when compiling derived code, with `<path>` replaced by path elements leading to the libode directory.
 
 Test programs are compiled with `make tests` and they can all be run in sequence with the `run_all_tests.sh` script (which uses Python to plot the test results).
 
@@ -24,7 +25,7 @@ To integrate a specific system of ODEs, a new class must be created to inherit f
 
 For flexibility, the derived class could be a template, so that the solver/method can be chosen when the class is constructed. Other than defining the system of equations and setting initial conditions, the derived class can store whatever information and implement whatever other methods are necessary. This could be something simple like an extra function for setting initial conditions. It could, however, comprise any other system that needs to run on top of an ODE solver, like the spatial discretization of a big PDE solver.
 
-Each solver has a `step` method that can be used to integrate a single step with a specified step size. Each solver class also has a `solve_fixed` method and, if it's an adaptive class, a `solve_adaptive` method. These functions return nothing and both have the same four call signatures:
+Each solver has a `step` method that can be used to integrate a single step with a specified step size. Each solver class also has a `solve_fixed()` method and, if it's an adaptive class, a `solve_adaptive()` method. These functions return nothing and both have the same four call signatures:
 
 1. `void solve_fixed (double tint, double dt)`
 
@@ -54,6 +55,7 @@ Each solver has a `step` method that can be used to integrate a single step with
 #include "ode_io.h"
 #include "ode_util.h"
 
+//!Lowest base class for all solvers
 /*!
 This is the deepest base class, upon which all integrators and other base classes are built. It provides basic variables like the solution array, the independent variable, and a string defining the integrator's name. It implements the solve_fixed function for integrating with a fixed time step. When constructing, it will allocate space for a Jacobian matrix if the need_jac flag is true.
 */
@@ -106,11 +108,11 @@ class OdeBase {
         //!sets the number of steps after which the solution is checked for integrity
         void set_icheck (unsigned long icheck) { icheck_ = icheck; }
 
-        //!increments the step counter and the time, checks the solution integrity if needed, stores the time step in the object, and executes after_step()
-        void step (double dt);
-
         //----------------
         //solver functions
+
+        //!increments the step counter and the time, checks the solution integrity if needed, stores the time step in the object, and executes after_step()
+        void step (double dt);
 
         //!integrates for a specified duration of independent variable without output
         /*!
@@ -245,6 +247,7 @@ class OdeBase {
         \param[in] t current value of ODE system's independent variable
         */
         virtual void after_snap (std::string dirout, long isnap, double t);
+
         //!does any extra stuff after completing a solve
         virtual void after_solve ();
 

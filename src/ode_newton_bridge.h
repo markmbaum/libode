@@ -1,4 +1,5 @@
-/*
+//! \file ode_newton_bridge.h
+/*!
 These classes provides some variables of convenience when connecting the
 Newton base (which is left as a generic Newton solver for potential reuse
 elsewhere) and the systems required for implicit methods.
@@ -9,8 +10,8 @@ elsewhere) and the systems required for implicit methods.
 
 #include "ode_newton.h"
 
-//!Base class connector
-template <class T>
+//!Templated base class connecting solver objects and OdeNewton objects
+template <class Integrator>
 class OdeNewtonBridge : public OdeNewton {
 
     public:
@@ -20,7 +21,7 @@ class OdeNewtonBridge : public OdeNewton {
         \param[in] nnew size of Newton system
         \param[in] integrator pointer to integrator object
         */
-        OdeNewtonBridge (unsigned long neq, unsigned long nnew, T *integrator)
+        OdeNewtonBridge (unsigned long neq, unsigned long nnew, Integrator *integrator)
             : OdeNewton (nnew) {
 
             //make the Newton iteration limit quite high
@@ -48,12 +49,13 @@ class OdeNewtonBridge : public OdeNewton {
         }
 
     protected:
+
         //!ODE system size
         unsigned long neq_;
         //!Newton system size
         double nnew_;
         //!storage of a pointer to the solver class
-        T *integrator_;
+        Integrator *integrator_;
         //!pointer to the solver's solution vector
         double *sol_;
         //!pointer to the solver's Jacobian matrix
@@ -80,12 +82,13 @@ class OdeNewtonBridge : public OdeNewton {
         void jac(double *solin, double **Jout) { integrator_->ode_jac_(solin, Jout); }
 };
 
+//!Extension of OdeNewtonBridge class for fully implicit methods
 /*!
-This class extends the Bridge class by storing pointers to the integrator class's
+This class extends the bridge class by storing pointers to the integrator class's
 k vectors and tableau/coefficients, which are needed for newton iterations
 */
-template <class T>
-class OdeNewtonIRK : public OdeNewtonBridge<T> {
+template <class Integrator>
+class OdeNewtonIRK : public OdeNewtonBridge<Integrator> {
 
     public:
         //!constructs
@@ -94,8 +97,8 @@ class OdeNewtonIRK : public OdeNewtonBridge<T> {
         \param[in] nk number of stages
         \param[in] integrator pointer to integrator object
         */
-        OdeNewtonIRK (unsigned long neq, int nk, T *integrator) :
-            OdeNewtonBridge<T> (neq, neq*nk, integrator) {
+        OdeNewtonIRK (unsigned long neq, int nk, Integrator *integrator) :
+            OdeNewtonBridge<Integrator> (neq, neq*nk, integrator) {
 
             //number of stages or k vectors
             nk_ = nk;
@@ -107,6 +110,7 @@ class OdeNewtonIRK : public OdeNewtonBridge<T> {
         }
 
     protected:
+
         //!number of stages or k vectors
         int nk_;
         //!pointer to the stage slopes of RK methods
@@ -117,14 +121,15 @@ class OdeNewtonIRK : public OdeNewtonBridge<T> {
         double *b;
 };
 
+//!Extension of OdeNewtonBridge class for fully SDIRK methods
 /*!
 This class extends the Bridge class by storing pointers to the integrator class's
 k vectors and tableau/coefficients, which are needed for newton iterations. It
 also stores an ik_ integer indicating which stage of the SDIRK scheme is being
 solved for and the gamma value of the scheme (the diagonal of the a matrix).
 */
-template <class T>
-class OdeNewtonSDIRK : public OdeNewtonBridge<T> {
+template <class Integrator>
+class OdeNewtonSDIRK : public OdeNewtonBridge<Integrator> {
 
     public:
         //!constructs
@@ -132,8 +137,8 @@ class OdeNewtonSDIRK : public OdeNewtonBridge<T> {
         \param[in] neq size of system of ODEs
         \param[in] integrator pointer to integrator object
         */
-        OdeNewtonSDIRK (unsigned long neq, T *integrator) :
-            OdeNewtonBridge<T> (neq, neq, integrator) {
+        OdeNewtonSDIRK (unsigned long neq, Integrator *integrator) :
+            OdeNewtonBridge<Integrator> (neq, neq, integrator) {
 
             //pointer to stage k values
             k_ = integrator->k_;
@@ -149,6 +154,7 @@ class OdeNewtonSDIRK : public OdeNewtonBridge<T> {
         void set_ik (int ik) { ik_ = ik; }
 
     protected:
+
         //!pointer to the stage slopes of RK methods
         double **k_;
         //!diagonal tableau coefficient

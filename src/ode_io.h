@@ -1,6 +1,8 @@
 #ifndef ODE_IO_H_
 #define ODE_IO_H_
 
+//! \file ode_io.h
+
 #include <cstdio>
 #include <cstdlib>
 #include <string>

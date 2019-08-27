@@ -1,13 +1,17 @@
 #ifndef ODE_DOPRI54_H_
 #define ODE_DOPRI54_H_
 
+//! \file ode_dopri_54.h
+
 #include "ode_embedded.h"
 #include "ode_rk.h"
 #include "ode_erk.h"
 
+//!Popular explicit 5/4 pair from Dormand & Prince
 /*!
-Famous 5/4 pair from Dormand & Prince, also supposedly implemented as ode45 in MATLAB
+Famous 5/4 pair from Dormand & Prince, also supposedly implemented as [ode45](https://www.mathworks.com/help/matlab/ref/ode45.html) in MATLAB
     + Dormand, John R., and Peter J. Prince. "A family of embedded Runge-Kutta formulae." Journal of computational and applied mathematics 6.1 (1980): 19-26.
+    + https://en.wikipedia.org/wiki/Dormand%E2%80%93Prince_method
 */
 class OdeDoPri54 : public OdeEmbedded, private OdeRK, private OdeERK {
 

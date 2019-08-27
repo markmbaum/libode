@@ -105,14 +105,14 @@ Inheritance diagram for OdeRK:</div>
  <div class="center">
   <img src="class_ode_r_k.png" usemap="#OdeRK_map" alt=""/>
   <map id="OdeRK_map" name="OdeRK_map">
-<area href="class_ode_do_pri54.html" alt="OdeDoPri54" shape="rect" coords="96,56,182,80"/>
-<area href="class_ode_do_pri87.html" alt="OdeDoPri87" shape="rect" coords="96,112,182,136"/>
+<area href="class_ode_do_pri54.html" title="Popular explicit 5/4 pair from Dormand &amp; Prince." alt="OdeDoPri54" shape="rect" coords="96,56,182,80"/>
+<area href="class_ode_do_pri87.html" title="Explicit 8/7 pair from Dormand &amp; Prince." alt="OdeDoPri87" shape="rect" coords="96,112,182,136"/>
 <area href="class_ode_euler.html" title="The simplest runge kutta method, forward Euler&#39;s." alt="OdeEuler" shape="rect" coords="96,168,182,192"/>
 <area href="class_ode_r_k4.html" title="The classic Runge-Kutta 4th order method." alt="OdeRK4" shape="rect" coords="96,224,182,248"/>
 <area href="class_ode_r_k43.html" title="This class implements a 3rd and 4th order method with the FSAL (first same as last) property." alt="OdeRK43" shape="rect" coords="96,280,182,304"/>
-<area href="class_ode_r_k_c_k.html" alt="OdeRKCK" shape="rect" coords="96,336,182,360"/>
+<area href="class_ode_r_k_c_k.html" title="Explicit 5/4 pair, also with 3rd, 2nd, and 1st order embedded methods, from Cash &amp; Karp." alt="OdeRKCK" shape="rect" coords="96,336,182,360"/>
 <area href="class_ode_r_k_f32.html" title="2nd and 3rd order solver developed by Fehlberg" alt="OdeRKF32" shape="rect" coords="96,392,182,416"/>
-<area href="class_ode_s_d_i_r_k43.html" alt="OdeSDIRK43" shape="rect" coords="96,448,182,472"/>
+<area href="class_ode_s_d_i_r_k43.html" title="L-stable 4/3 SDIRK pair." alt="OdeSDIRK43" shape="rect" coords="96,448,182,472"/>
 <area href="class_ode_ssp3.html" alt="OdeSsp3" shape="rect" coords="96,504,182,528"/>
 <area href="class_ode_trapz.html" alt="OdeTrapz" shape="rect" coords="96,560,182,584"/>
 <area href="class_ode_vern65.html" alt="OdeVern65" shape="rect" coords="96,616,182,640"/>
@@ -144,6 +144,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Provides space for stage slope values. </p>
+
+<p class="definition">Definition at line <a class="el" href="ode__rk_8h_source.html#l00007">7</a> of file <a class="el" href="ode__rk_8h_source.html">ode_rk.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a15e77484455484fc55eacb02e7391691"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a15e77484455484fc55eacb02e7391691">&#9670;&nbsp;</a></span>OdeRK()</h2>
@@ -180,14 +182,26 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="ode__rk_8cc_source.html#l00003">3</a> of file <a class="el" href="ode__rk_8cc_source.html">ode_rk.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;                                       {</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <span class="comment">//store number of stages</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <a class="code" href="class_ode_r_k.html#ae38440c50819dd472ec68d7f8cf8a0b5">nk_</a> = nk;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="comment">//storage for k values of stages</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a> = <span class="keyword">new</span> <span class="keywordtype">double</span>*[nk];</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;nk; i++) <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[i] = <span class="keyword">new</span> <span class="keywordtype">double</span>[neq];</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="ode__rk_8h_source.html">ode_rk.h</a></li>
-<li>src/ode_rk.cc</li>
+<li>src/<a class="el" href="ode__rk_8cc_source.html">ode_rk.cc</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_ode_r_k_html_ae38440c50819dd472ec68d7f8cf8a0b5"><div class="ttname"><a href="class_ode_r_k.html#ae38440c50819dd472ec68d7f8cf8a0b5">OdeRK::nk_</a></div><div class="ttdeci">int nk_</div><div class="ttdoc">number of stages, or k vectors</div><div class="ttdef"><b>Definition:</b> <a href="ode__rk_8h_source.html#l00023">ode_rk.h:23</a></div></div>
+<div class="ttc" id="aclass_ode_r_k_html_ade9e4b6ab6212add6dd1ba2e95691fae"><div class="ttname"><a href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">OdeRK::k_</a></div><div class="ttdeci">double ** k_</div><div class="ttdoc">stage evaluations</div><div class="ttdef"><b>Definition:</b> <a href="ode__rk_8h_source.html#l00021">ode_rk.h:21</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -1,6 +1,8 @@
 #ifndef ODE_GAUSS_6_H_
 #define ODE_GAUSS_6_H_
 
+//! \file ode_gauss_6.h
+
 #include "ode_base.h"
 #include "ode_irk.h"
 #include "ode_newton_bridge.h"
@@ -8,7 +10,7 @@
 //forward declaration to set up Newton class
 class OdeGauss6;
 
-//!Nonlinear system solver for Gauss 6
+//!Nonlinear system solver for OdeGauss6
 class NewtonGauss6 : public OdeNewtonIRK<OdeGauss6> {
     public:
         //!constructs
@@ -24,6 +26,7 @@ class NewtonGauss6 : public OdeNewtonIRK<OdeGauss6> {
 };
 
 //!The sixth-order, A-stable, fully-implicit Gauss-Legendre method with 3 stages
+/*! + https://en.wikipedia.org/wiki/Gauss%E2%80%93Legendre_method */
 class OdeGauss6 : public OdeBase, private OdeIRK {
     //friends!
     friend class OdeNewtonBridge<OdeGauss6>;

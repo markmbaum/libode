@@ -1,6 +1,8 @@
 #ifndef ODE_LINALG_H_
 #define ODE_LINALG_H_
 
+//! \file ode_linalg.h
+
 #include <cmath>
 #include <cstdio>
 #include <cstdlib>
@@ -34,9 +36,8 @@ void ode_back_sub (double **U, double *b, int n, double *out);
 performs LU decomposition with partial pivoting on the matrix A and sets
 permutation indices in the array p, following the outline in the book:
     + Demmel, James W. Applied numerical linear algebra. Vol. 56. Siam, 1997.
-\param[in] A matrix of size n to decompose (overwritten)
+\param A matrix of size n to decompose (overwritten)
 \param[in] n size of square matrix
-\param[out] A the factorized matrix overwrites the input matrix A
 \param[out] p integer array loaded with permutation indices
 */
 void ode_crout_LU (double **A, int n, int *p);

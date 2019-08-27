@@ -95,6 +95,9 @@ $(document).ready(function(){initNavTree('class_ode_newton.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>Newton's method for nonlinear systems of equations.  
+ <a href="class_ode_newton.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="ode__newton_8h_source.html">ode_newton.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for OdeNewton:</div>
@@ -102,15 +105,15 @@ Inheritance diagram for OdeNewton:</div>
  <div class="center">
   <img src="class_ode_newton.png" usemap="#OdeNewton_map" alt=""/>
   <map id="OdeNewton_map" name="OdeNewton_map">
-<area href="class_ode_newton_bridge.html" title="Base class connector." alt="OdeNewtonBridge&lt; T &gt;" shape="rect" coords="0,56,249,80"/>
+<area href="class_ode_newton_bridge.html" title="Templated base class connecting solver objects and OdeNewton objects." alt="OdeNewtonBridge&lt; Integrator &gt;" shape="rect" coords="0,56,249,80"/>
 <area href="class_ode_newton_bridge.html" alt="OdeNewtonBridge&lt; OdeBackwardEuler &gt;" shape="rect" coords="518,56,767,80"/>
 <area href="class_ode_newton_bridge.html" alt="OdeNewtonBridge&lt; OdeGauss6 &gt;" shape="rect" coords="777,56,1026,80"/>
 <area href="class_ode_newton_bridge.html" alt="OdeNewtonBridge&lt; OdeGeng5 &gt;" shape="rect" coords="1036,56,1285,80"/>
 <area href="class_ode_newton_bridge.html" alt="OdeNewtonBridge&lt; OdeLobattoIIIC6 &gt;" shape="rect" coords="1295,56,1544,80"/>
 <area href="class_ode_newton_bridge.html" alt="OdeNewtonBridge&lt; OdeRadauIIA5 &gt;" shape="rect" coords="1554,56,1803,80"/>
 <area href="class_ode_newton_bridge.html" alt="OdeNewtonBridge&lt; OdeSDIRK43 &gt;" shape="rect" coords="1813,56,2062,80"/>
-<area href="class_ode_newton_i_r_k.html" alt="OdeNewtonIRK&lt; T &gt;" shape="rect" coords="259,112,508,136"/>
-<area href="class_ode_newton_s_d_i_r_k.html" alt="OdeNewtonSDIRK&lt; T &gt;" shape="rect" coords="259,168,508,192"/>
+<area href="class_ode_newton_i_r_k.html" title="Extension of OdeNewtonBridge class for fully implicit methods." alt="OdeNewtonIRK&lt; Integrator &gt;" shape="rect" coords="259,112,508,136"/>
+<area href="class_ode_newton_s_d_i_r_k.html" title="Extension of OdeNewtonBridge class for fully SDIRK methods." alt="OdeNewtonSDIRK&lt; Integrator &gt;" shape="rect" coords="259,168,508,192"/>
 <area href="class_ode_newton_i_r_k.html" alt="OdeNewtonIRK&lt; OdeBackwardEuler &gt;" shape="rect" coords="518,112,767,136"/>
 <area href="class_ode_newton_i_r_k.html" alt="OdeNewtonIRK&lt; OdeGauss6 &gt;" shape="rect" coords="777,112,1026,136"/>
 <area href="class_ode_newton_i_r_k.html" alt="OdeNewtonIRK&lt; OdeGeng5 &gt;" shape="rect" coords="1036,112,1285,136"/>
@@ -195,7 +198,10 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a7b9f5d055fb20aa383b26a01dee14193"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class implements Newton's method for nonlinear systems of equations. The virtual functions F_Newton and Jac_Newton allow a derived class to implement the system of equations and its Jacobian matrix. </p>
+<div class="textblock"><p>Newton's method for nonlinear systems of equations. </p>
+<p>This class implements Newton's method for nonlinear systems of equations. The virtual functions F_Newton and Jac_Newton allow a derived class to implement the system of equations and its Jacobian matrix. </p>
+
+<p class="definition">Definition at line <a class="el" href="ode__newton_8h_source.html#l00016">16</a> of file <a class="el" href="ode__newton_8h_source.html">ode_newton.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4aa742c401122d70a99ca7f4ef50f808"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4aa742c401122d70a99ca7f4ef50f808">&#9670;&nbsp;</a></span>OdeNewton()</h2>
@@ -221,6 +227,38 @@ Protected Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="ode__newton_8cc_source.html#l00003">3</a> of file <a class="el" href="ode__newton_8cc_source.html">ode_newton.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;                                     {</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <span class="comment">//size of system</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    n_ = n;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="comment">//allocate an array for evaluating F</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    f_ = <span class="keyword">new</span> <span class="keywordtype">double</span>[n];</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="comment">//allocate 2D array for evaluating J</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    J_ = <span class="keyword">new</span> <span class="keywordtype">double</span>*[n];</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> i=0; i&lt;n; i++) J_[i] = <span class="keyword">new</span> <span class="keywordtype">double</span>[n];</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="comment">//update array</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    delx_ = <span class="keyword">new</span> <span class="keywordtype">double</span>[n];</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment">//permutation array</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    p_ = <span class="keyword">new</span> <span class="keywordtype">int</span>[n];</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="comment">//error tolerance</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    tol_Newton_ = 1e-8;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">//iteration limit</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    iter_Newton_ = 250;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment">//Jacobian update interval</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    iJLU_ = 1;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">//JLU counter</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    nJLU_ = 0;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">//number of times the LU decomposed matrix is used to solve a matrix eq</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    n_solve_LU_ = 0;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">//iteration interval for checking solution integrity</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    icheck_ = 2;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">//whether to use only a single evaluation and LU decomposition of Jac</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    modified_ = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">//whether to do no Jac evaluations and LU decomposition at all</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    ignore_JLU_ = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -344,14 +382,59 @@ Protected Member Functions</h2></td></tr>
 </ol>
 </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="ode__newton_8cc_source.html#l00080">80</a> of file <a class="el" href="ode__newton_8cc_source.html">ode_newton.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                                      {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> i, iter;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">int</span> suc; <span class="comment">//success (or failure) code, which is zero for success</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">double</span> errx, errf;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="comment">//initialize the update vector</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;n_; i++) delx_[i] = INFINITY;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">//initialize the error estimates</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    err(&amp;errx, &amp;errf);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">//if modified Newton&#39;s, use only a single evaluation and LU decomposition of J</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">if</span> ( modified_ &amp;&amp; (!ignore_JLU_) ) JLU(x);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="comment">//iterate</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    iter = 0;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">while</span> ( (errx &gt; tol_Newton_) || (errf &gt; tol_Newton_) ) {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="comment">//evaluate and LU decompose the Jacobian</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">if</span> ( (!ignore_JLU_) &amp;&amp; (!modified_) &amp;&amp; (iter % iJLU_ == 0) ) JLU(x);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="comment">//evaluate the function</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <a class="code" href="class_ode_newton.html#a6d9f58342c10ed59b6c5b2d44e82b232">f_Newton</a>(x, f_);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="comment">//swap the sign of y</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">for</span> (i=0; i&lt;n_; i++) f_[i] = -f_[i];</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="comment">//solve the matrix equation</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        solve_LU_(J_, p_, f_, n_, delx_);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="comment">//update x</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">for</span> (i=0; i&lt;n_; i++) x[i] += delx_[i];</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="comment">//update the error estimate</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        err(&amp;errx, &amp;errf);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="comment">//increment the counter</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        iter++;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="comment">//check iteration limits</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">if</span> ( iter &gt; iter_Newton_ ) <span class="keywordflow">return</span>(1);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="comment">//check for nans and infs</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">if</span> ( iter % icheck_ == 0 ) {</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            suc = check_integrity(x);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keywordflow">if</span> ( suc != 0 ) <span class="keywordflow">return</span>(suc);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">return</span>(0);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="ode__newton_8h_source.html">ode_newton.h</a></li>
-<li>src/ode_newton.cc</li>
+<li>src/<a class="el" href="ode__newton_8cc_source.html">ode_newton.cc</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_ode_newton_html_a6d9f58342c10ed59b6c5b2d44e82b232"><div class="ttname"><a href="class_ode_newton.html#a6d9f58342c10ed59b6c5b2d44e82b232">OdeNewton::f_Newton</a></div><div class="ttdeci">virtual void f_Newton(double *x, double *f)=0</div><div class="ttdoc">evaluates the function being zeroed</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

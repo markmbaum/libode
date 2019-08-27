@@ -95,6 +95,9 @@ $(document).ready(function(){initNavTree('class_ode_s_d_i_r_k43.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>L-stable 4/3 SDIRK pair.  
+ <a href="class_ode_s_d_i_r_k43.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="ode__sdirk__43_8h_source.html">ode_sdirk_43.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for OdeSDIRK43:</div>
@@ -102,10 +105,10 @@ Inheritance diagram for OdeSDIRK43:</div>
  <div class="center">
   <img src="class_ode_s_d_i_r_k43.png" usemap="#OdeSDIRK43_map" alt=""/>
   <map id="OdeSDIRK43_map" name="OdeSDIRK43_map">
-<area href="class_ode_embedded.html" alt="OdeEmbedded" shape="rect" coords="0,112,95,136"/>
+<area href="class_ode_embedded.html" title="Base clase implementing methods for embedded Runge-Kutta error estimation." alt="OdeEmbedded" shape="rect" coords="0,112,95,136"/>
 <area href="class_ode_r_k.html" title="Provides space for stage slope values." alt="OdeRK" shape="rect" coords="105,112,200,136"/>
 <area href="class_ode_adaptive.html" title="Base class implementing solver functions with adaptive time steps." alt="OdeAdaptive" shape="rect" coords="0,56,95,80"/>
-<area href="class_ode_base.html" alt="OdeBase" shape="rect" coords="0,0,95,24"/>
+<area href="class_ode_base.html" title="Lowest base class for all solvers." alt="OdeBase" shape="rect" coords="0,0,95,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -488,9 +491,12 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="separator:a0fe649817eede448c6ae137fb568ddfe inherit pro_attribs_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>L-stable 4/3 SDIRK pair from section IV.6 of:</p><ul>
+<div class="textblock"><p>L-stable 4/3 SDIRK pair. </p>
+<p>L-stable 4/3 SDIRK pair from section IV.6 of:</p><ul>
 <li>Wanner, Gerhard, and Ernst Hairer. Solving ordinary differential equations II. Springer Berlin Heidelberg, 1996. </li>
 </ul>
+
+<p class="definition">Definition at line <a class="el" href="ode__sdirk__43_8h_source.html#l00032">32</a> of file <a class="el" href="ode__sdirk__43_8h_source.html">ode_sdirk_43.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae4064476d75633edb6a254282caded39"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae4064476d75633edb6a254282caded39">&#9670;&nbsp;</a></span>OdeSDIRK43()</h2>
@@ -516,14 +522,46 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="ode__sdirk__43_8cc_source.html#l00050">50</a> of file <a class="el" href="ode__sdirk__43_8cc_source.html">ode_sdirk_43.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                                         :</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="class_ode_embedded.html#a77286aeae8269058c693e879b906e7ae">OdeEmbedded</a> (neq, <span class="keyword">true</span>, 3),</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="class_ode_r_k.html#a15e77484455484fc55eacb02e7391691">OdeRK</a> (neq, 5) {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="class_ode_base.html#a97664b1b92f1bd516c0966a920032d74">method_</a> = <span class="stringliteral">&quot;SDIRK43&quot;</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">int</span> nk = 5;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    a = <span class="keyword">new</span> <span class="keywordtype">double</span>*[nk];</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;nk; i++) a[i] = <span class="keyword">new</span> <span class="keywordtype">double</span>[nk];</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    b = <span class="keyword">new</span> <span class="keywordtype">double</span>[nk];</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    d = <span class="keyword">new</span> <span class="keywordtype">double</span>[nk];</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    gam = 1.0/4;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    a[1][0] =      1.0/2;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    a[2][0] =    17.0/50; a[2][1] =     -1.0/25;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    a[3][0] = 371.0/1360; a[3][1] = -137.0/2720; a[3][2] = 15.0/544;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    a[4][0] =    25.0/24; a[4][1] =    -49.0/48; a[4][2] = 125.0/16; a[4][3] = -85.0/12;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    b[0] =       a[4][0]; b[1] =        a[4][1]; b[2] =     a[4][2]; b[3] =     a[4][3]; b[4] = gam;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    d[0] =       59.0/48; d[1] =       -17.0/96; d[2] =    225.0/32; d[3] =    -85.0/12;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    newton_ = <span class="keyword">new</span> <a class="code" href="class_newton_s_d_i_r_k43.html">NewtonSDIRK43</a>(neq, <span class="keyword">this</span>);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    newton_-&gt;<a class="code" href="class_ode_newton.html#ad10c7b0715dd3ddb442c132a9037dab2">set_modified</a>(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="ode__sdirk__43_8h_source.html">ode_sdirk_43.h</a></li>
-<li>src/ode_sdirk_43.cc</li>
+<li>src/<a class="el" href="ode__sdirk__43_8cc_source.html">ode_sdirk_43.cc</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_ode_base_html_a97664b1b92f1bd516c0966a920032d74"><div class="ttname"><a href="class_ode_base.html#a97664b1b92f1bd516c0966a920032d74">OdeBase::method_</a></div><div class="ttdeci">std::string method_</div><div class="ttdoc">the &quot;name&quot; of the solver/method, as in &quot;Euler&quot; or &quot;RK4&quot;</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8h_source.html#l00173">ode_base.h:173</a></div></div>
+<div class="ttc" id="aclass_ode_newton_html_ad10c7b0715dd3ddb442c132a9037dab2"><div class="ttname"><a href="class_ode_newton.html#ad10c7b0715dd3ddb442c132a9037dab2">OdeNewton::set_modified</a></div><div class="ttdeci">void set_modified(bool modified)</div><div class="ttdoc">sets whether modified Newtion's is being used</div><div class="ttdef"><b>Definition:</b> <a href="ode__newton_8h_source.html#l00054">ode_newton.h:54</a></div></div>
+<div class="ttc" id="aclass_ode_r_k_html_a15e77484455484fc55eacb02e7391691"><div class="ttname"><a href="class_ode_r_k.html#a15e77484455484fc55eacb02e7391691">OdeRK::OdeRK</a></div><div class="ttdeci">OdeRK(unsigned long neq, int nk)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__rk_8cc_source.html#l00003">ode_rk.cc:3</a></div></div>
+<div class="ttc" id="aclass_newton_s_d_i_r_k43_html"><div class="ttname"><a href="class_newton_s_d_i_r_k43.html">NewtonSDIRK43</a></div><div class="ttdoc">Nonlinear system solver for OdeSDIRK43.</div><div class="ttdef"><b>Definition:</b> <a href="ode__sdirk__43_8h_source.html#l00014">ode_sdirk_43.h:14</a></div></div>
+<div class="ttc" id="aclass_ode_embedded_html_a77286aeae8269058c693e879b906e7ae"><div class="ttname"><a href="class_ode_embedded.html#a77286aeae8269058c693e879b906e7ae">OdeEmbedded::OdeEmbedded</a></div><div class="ttdeci">OdeEmbedded(unsigned long neq, bool need_jac, int lowerord)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__embedded_8cc_source.html#l00003">ode_embedded.cc:3</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

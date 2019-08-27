@@ -1,6 +1,6 @@
 #include <cstdio>
 
-#include "ode_dopri_54.h"
+#include "ode_row6a.h"
 #include "lorentz.h"
 
 int main () {
@@ -10,7 +10,7 @@ int main () {
     double dt = tend/10000;
 
     //construct the system and integrator
-    Lorentz<OdeDoPri54> sys;
+    Lorentz<OdeROW6A> sys;
     sys.set_name("lorentz");
     sys.sigma = 10.0;
     sys.beta = 8.0/3;
@@ -21,7 +21,7 @@ int main () {
     sys.set_sol(2, 1.0);
 
     //integrate and write results into the "out" directory
-    printf("solving...\n");
+    printf("solving with '%s' method...\n", sys.get_method());
     sys.solve_fixed(tend, dt, "out", 1);
 
     printf("%llu function evaluations, %llu steps\n", sys.get_neval(), sys.get_nstep());

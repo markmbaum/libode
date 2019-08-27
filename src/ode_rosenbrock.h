@@ -1,6 +1,8 @@
 #ifndef ODE_ROSENBROCK_H_
 #define ODE_ROSENBROCK_H_
 
+//! \file ode_rosenbrock.h
+
 #include "ode_linalg.h"
 
 //!Base class for Rosenbrock methods

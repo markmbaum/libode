@@ -1,11 +1,14 @@
 #ifndef ODE_RK4_H_
 #define ODE_RK4_H_
 
+//! \file ode_rk_4.h
+
 #include "ode_base.h"
 #include "ode_rk.h"
 #include "ode_erk.h"
 
 //!The classic Runge-Kutta 4th order method
+/*! + http://mathworld.wolfram.com/Runge-KuttaMethod.html */
 class OdeRK4 : public OdeBase, private OdeRK, private OdeERK {
 
     public:

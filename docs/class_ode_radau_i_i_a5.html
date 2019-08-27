@@ -105,7 +105,7 @@ Inheritance diagram for OdeRadauIIA5:</div>
  <div class="center">
   <img src="class_ode_radau_i_i_a5.png" usemap="#OdeRadauIIA5_map" alt=""/>
   <map id="OdeRadauIIA5_map" name="OdeRadauIIA5_map">
-<area href="class_ode_base.html" alt="OdeBase" shape="rect" coords="0,0,94,24"/>
+<area href="class_ode_base.html" title="Lowest base class for all solvers." alt="OdeBase" shape="rect" coords="0,0,94,24"/>
 <area href="class_ode_i_r_k.html" title="Provides a large vector containing the slope values of all stages with pointers to each of the indivi..." alt="OdeIRK" shape="rect" coords="104,0,198,24"/>
   </map>
 </div></div>
@@ -335,6 +335,11 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The fifth-order, L-stable, fully-implicit Radau IIA method with 3 stages. </p>
+<ul>
+<li>Hairer, E. &amp; Wanner, G. Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems. (Springer, 1996) </li>
+</ul>
+
+<p class="definition">Definition at line <a class="el" href="ode__radau__iia__5_8h_source.html#l00030">30</a> of file <a class="el" href="ode__radau__iia__5_8h_source.html">ode_radau_iia_5.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad3dc30823fa1f5b3cb6ddd0d3d846730"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad3dc30823fa1f5b3cb6ddd0d3d846730">&#9670;&nbsp;</a></span>OdeRadauIIA5()</h2>
@@ -360,14 +365,43 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="ode__radau__iia__5_8cc_source.html#l00056">56</a> of file <a class="el" href="ode__radau__iia__5_8cc_source.html">ode_radau_iia_5.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                                             :</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="class_ode_base.html#aacdf86d5554b13574f5a7fe4cb6b7ccb">OdeBase</a> (neq, <span class="keyword">true</span>),</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="class_ode_i_r_k.html#a8a95b733d4402bb5996fb72ee0ffcaa7">OdeIRK</a> (neq, 3) {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="class_ode_base.html#a97664b1b92f1bd516c0966a920032d74">method_</a> = <span class="stringliteral">&quot;RadauIIA5&quot;</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">int</span> nk = 3;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    a = <span class="keyword">new</span> <span class="keywordtype">double</span>*[nk];</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;nk; i++) a[i] = <span class="keyword">new</span> <span class="keywordtype">double</span>[nk];</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    b = <span class="keyword">new</span> <span class="keywordtype">double</span>[nk];</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">double</span> r = sqrt(6.0);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    a[0][0] =     (88 - 7*r)/360; a[0][1] = (296 - 169*r)/1800; a[0][2] = (-2 + 3*r)/225;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    a[1][0] = (296 + 169*r)/1800; a[1][1] =     (88 + 7*r)/360; a[1][2] = (-2 - 3*r)/225;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    a[2][0] =        (16 - r)/36; a[2][1] =        (16 + r)/36; a[2][2] =          1.0/9;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    b[0] =           (16 - r)/36; b[1] =           (16 + r)/36; b[2] =             1.0/9;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    newton_ = <span class="keyword">new</span> <a class="code" href="class_newton_radau_i_i_a5.html">NewtonRadauIIA5</a>(neq, nk, <span class="keyword">this</span>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    newton_-&gt;<a class="code" href="class_ode_newton.html#ad10c7b0715dd3ddb442c132a9037dab2">set_modified</a>(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="ode__radau__iia__5_8h_source.html">ode_radau_iia_5.h</a></li>
-<li>src/ode_radau_iia_5.cc</li>
+<li>src/<a class="el" href="ode__radau__iia__5_8cc_source.html">ode_radau_iia_5.cc</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_newton_radau_i_i_a5_html"><div class="ttname"><a href="class_newton_radau_i_i_a5.html">NewtonRadauIIA5</a></div><div class="ttdoc">Nonlinear system solver for OdeRadauIIA5.</div><div class="ttdef"><b>Definition:</b> <a href="ode__radau__iia__5_8h_source.html#l00014">ode_radau_iia_5.h:14</a></div></div>
+<div class="ttc" id="aclass_ode_base_html_a97664b1b92f1bd516c0966a920032d74"><div class="ttname"><a href="class_ode_base.html#a97664b1b92f1bd516c0966a920032d74">OdeBase::method_</a></div><div class="ttdeci">std::string method_</div><div class="ttdoc">the &quot;name&quot; of the solver/method, as in &quot;Euler&quot; or &quot;RK4&quot;</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8h_source.html#l00173">ode_base.h:173</a></div></div>
+<div class="ttc" id="aclass_ode_newton_html_ad10c7b0715dd3ddb442c132a9037dab2"><div class="ttname"><a href="class_ode_newton.html#ad10c7b0715dd3ddb442c132a9037dab2">OdeNewton::set_modified</a></div><div class="ttdeci">void set_modified(bool modified)</div><div class="ttdoc">sets whether modified Newtion's is being used</div><div class="ttdef"><b>Definition:</b> <a href="ode__newton_8h_source.html#l00054">ode_newton.h:54</a></div></div>
+<div class="ttc" id="aclass_ode_base_html_aacdf86d5554b13574f5a7fe4cb6b7ccb"><div class="ttname"><a href="class_ode_base.html#aacdf86d5554b13574f5a7fe4cb6b7ccb">OdeBase::OdeBase</a></div><div class="ttdeci">OdeBase(unsigned long neq, bool need_jac)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8cc_source.html#l00003">ode_base.cc:3</a></div></div>
+<div class="ttc" id="aclass_ode_i_r_k_html_a8a95b733d4402bb5996fb72ee0ffcaa7"><div class="ttname"><a href="class_ode_i_r_k.html#a8a95b733d4402bb5996fb72ee0ffcaa7">OdeIRK::OdeIRK</a></div><div class="ttdeci">OdeIRK(unsigned long neq, int nk)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__irk_8cc_source.html#l00003">ode_irk.cc:3</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

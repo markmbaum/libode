@@ -1,6 +1,8 @@
 #ifndef ODE_GENG_5_H_
 #define ODE_GENG_5_H_
 
+//! \file ode_geng_5.h
+
 #include "ode_base.h"
 #include "ode_irk.h"
 #include "ode_newton_bridge.h"
@@ -8,7 +10,7 @@
 //forward declaration to set up Newton class
 class OdeGeng5;
 
-//!Nonlinear system solver for Geng 5
+//!Nonlinear system solver for OdeGeng5
 class NewtonGeng5 : public OdeNewtonIRK<OdeGeng5> {
     public:
         //!constructs

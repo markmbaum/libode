@@ -94,6 +94,9 @@ $(document).ready(function(){initNavTree('class_ode_r_k_c_k.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>Explicit 5/4 pair, also with 3rd, 2nd, and 1st order embedded methods, from Cash &amp; Karp.  
+ <a href="class_ode_r_k_c_k.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="ode__rkck_8h_source.html">ode_rkck.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for OdeRKCK:</div>
@@ -101,11 +104,11 @@ Inheritance diagram for OdeRKCK:</div>
  <div class="center">
   <img src="class_ode_r_k_c_k.png" usemap="#OdeRKCK_map" alt=""/>
   <map id="OdeRKCK_map" name="OdeRKCK_map">
-<area href="class_ode_embedded.html" alt="OdeEmbedded" shape="rect" coords="0,112,95,136"/>
+<area href="class_ode_embedded.html" title="Base clase implementing methods for embedded Runge-Kutta error estimation." alt="OdeEmbedded" shape="rect" coords="0,112,95,136"/>
 <area href="class_ode_r_k.html" title="Provides space for stage slope values." alt="OdeRK" shape="rect" coords="105,112,200,136"/>
-<area href="class_ode_e_r_k.html" alt="OdeERK" shape="rect" coords="210,112,305,136"/>
+<area href="class_ode_e_r_k.html" title="Base class with space for temporary solutions moving through RK stages." alt="OdeERK" shape="rect" coords="210,112,305,136"/>
 <area href="class_ode_adaptive.html" title="Base class implementing solver functions with adaptive time steps." alt="OdeAdaptive" shape="rect" coords="0,56,95,80"/>
-<area href="class_ode_base.html" alt="OdeBase" shape="rect" coords="0,0,95,24"/>
+<area href="class_ode_base.html" title="Lowest base class for all solvers." alt="OdeBase" shape="rect" coords="0,0,95,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -471,9 +474,13 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="separator:a0fe649817eede448c6ae137fb568ddfe inherit pro_attribs_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class implements a 5th order method developed by Cash and Karp (reference below) which includes embeddes solutions of order 1, 2, 3, and 4. It's a complete family of solutions up to order 5. The lower order solutions can be used to vary the solution's order and control the step size in sophisticated ways, canceling a step early if the error estimate is large. The fact that function evaluations are made fairly evenly through the interval of a time step is also advantageous for surveying potential trouble and controlling the step.</p>
+<div class="textblock"><p>Explicit 5/4 pair, also with 3rd, 2nd, and 1st order embedded methods, from Cash &amp; Karp. </p>
+<p>This class implements a 5th order method developed by Cash and Karp (reference below) which includes embeddes solutions of order 1, 2, 3, and 4. It's a complete family of solutions up to order 5. The lower order solutions can be used to vary the solution's order and control the step size in sophisticated ways, canceling a step early if the error estimate is large. The fact that function evaluations are made fairly evenly through the interval of a time step is also advantageous for surveying potential trouble and controlling the step.</p>
 <p>So far, the sophisticated time stepping is not implemented, so this solver simply uses the 4th and 5th order solutions for adaptation. </p><pre class="fragment">+ J. R. Cash, A. H. Karp. "A variable order Runge-Kutta method for initial value problems with rapidly varying right-hand sides", ACM Transactions on Mathematical Software 16: 201-222, 1990. doi:10.1145/79505.79507
-</pre> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
++ https://en.wikipedia.org/wiki/Cash%E2%80%93Karp_method
+</pre> 
+<p class="definition">Definition at line <a class="el" href="ode__rkck_8h_source.html#l00019">19</a> of file <a class="el" href="ode__rkck_8h_source.html">ode_rkck.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8e91ed657bcbc48d9c715e602eda5fb0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8e91ed657bcbc48d9c715e602eda5fb0">&#9670;&nbsp;</a></span>OdeRKCK()</h2>
 
@@ -498,14 +505,38 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="ode__rkck_8cc_source.html#l00003">3</a> of file <a class="el" href="ode__rkck_8cc_source.html">ode_rkck.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;                                   :</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <a class="code" href="class_ode_embedded.html#a77286aeae8269058c693e879b906e7ae">OdeEmbedded</a> (neq, <span class="keyword">false</span>, 4),</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <a class="code" href="class_ode_r_k.html#a15e77484455484fc55eacb02e7391691">OdeRK</a> (neq, 6),</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <a class="code" href="class_ode_e_r_k.html#a6fae4438aa2060aed71da362ed404b6f">OdeERK</a> (neq) {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_ode_base.html#a97664b1b92f1bd516c0966a920032d74">method_</a> = <span class="stringliteral">&quot;RKCK&quot;</span>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="comment">//coefficents of tableau</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    c2 =  1.0/5; a21 =        1.0/5;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    c3 = 3.0/10; a31 =       3.0/40; a32 =    9.0/40;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    c4 =  3.0/5; a41 =       3.0/10; a42 =   -9.0/10; a43 =        6.0/5;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    c5 =    1.0; a51 =     -11.0/54; a52 =     5.0/2; a53 =     -70.0/27; a54 = 35.0/27;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    c6 =  7.0/8; a61 = 1631.0/55296; a62 = 175.0/512; a63 =  575.0/13824; a64 = 44275.0/110592; a65 = 253.0/4096;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                  b1 =     37.0/378;                  b3 =     250.0/621; b4  =      125.0/594;                   b6 = 512.0/1771;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                  d1 = 2825.0/27648;                  d3 = 18575.0/48384; d4 =   13525.0/55296; d5 = 277.0/14336; d6 = 1.0/4;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                  e1 =      19.0/54;                  e3 =      -10.0/27; e4 =         55.0/54;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                  f1 =       -3.0/2; f2 =      5.0/2;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                  g1 =          1.0;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="ode__rkck_8h_source.html">ode_rkck.h</a></li>
-<li>src/ode_rkck.cc</li>
+<li>src/<a class="el" href="ode__rkck_8cc_source.html">ode_rkck.cc</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_ode_base_html_a97664b1b92f1bd516c0966a920032d74"><div class="ttname"><a href="class_ode_base.html#a97664b1b92f1bd516c0966a920032d74">OdeBase::method_</a></div><div class="ttdeci">std::string method_</div><div class="ttdoc">the &quot;name&quot; of the solver/method, as in &quot;Euler&quot; or &quot;RK4&quot;</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8h_source.html#l00173">ode_base.h:173</a></div></div>
+<div class="ttc" id="aclass_ode_r_k_html_a15e77484455484fc55eacb02e7391691"><div class="ttname"><a href="class_ode_r_k.html#a15e77484455484fc55eacb02e7391691">OdeRK::OdeRK</a></div><div class="ttdeci">OdeRK(unsigned long neq, int nk)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__rk_8cc_source.html#l00003">ode_rk.cc:3</a></div></div>
+<div class="ttc" id="aclass_ode_e_r_k_html_a6fae4438aa2060aed71da362ed404b6f"><div class="ttname"><a href="class_ode_e_r_k.html#a6fae4438aa2060aed71da362ed404b6f">OdeERK::OdeERK</a></div><div class="ttdeci">OdeERK(unsigned long neq)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__erk_8cc_source.html#l00003">ode_erk.cc:3</a></div></div>
+<div class="ttc" id="aclass_ode_embedded_html_a77286aeae8269058c693e879b906e7ae"><div class="ttname"><a href="class_ode_embedded.html#a77286aeae8269058c693e879b906e7ae">OdeEmbedded::OdeEmbedded</a></div><div class="ttdeci">OdeEmbedded(unsigned long neq, bool need_jac, int lowerord)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__embedded_8cc_source.html#l00003">ode_embedded.cc:3</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

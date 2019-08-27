@@ -104,11 +104,11 @@ Inheritance diagram for OdeRKF32:</div>
  <div class="center">
   <img src="class_ode_r_k_f32.png" usemap="#OdeRKF32_map" alt=""/>
   <map id="OdeRKF32_map" name="OdeRKF32_map">
-<area href="class_ode_embedded.html" alt="OdeEmbedded" shape="rect" coords="0,112,95,136"/>
+<area href="class_ode_embedded.html" title="Base clase implementing methods for embedded Runge-Kutta error estimation." alt="OdeEmbedded" shape="rect" coords="0,112,95,136"/>
 <area href="class_ode_r_k.html" title="Provides space for stage slope values." alt="OdeRK" shape="rect" coords="105,112,200,136"/>
-<area href="class_ode_e_r_k.html" alt="OdeERK" shape="rect" coords="210,112,305,136"/>
+<area href="class_ode_e_r_k.html" title="Base class with space for temporary solutions moving through RK stages." alt="OdeERK" shape="rect" coords="210,112,305,136"/>
 <area href="class_ode_adaptive.html" title="Base class implementing solver functions with adaptive time steps." alt="OdeAdaptive" shape="rect" coords="0,56,95,80"/>
-<area href="class_ode_base.html" alt="OdeBase" shape="rect" coords="0,0,95,24"/>
+<area href="class_ode_base.html" title="Lowest base class for all solvers." alt="OdeBase" shape="rect" coords="0,0,95,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -475,6 +475,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>2nd and 3rd order solver developed by Fehlberg </p>
+
+<p class="definition">Definition at line <a class="el" href="ode__rkf__32_8h_source.html#l00011">11</a> of file <a class="el" href="ode__rkf__32_8h_source.html">ode_rkf_32.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9691990b617ab392e6130c77ee8bac71"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9691990b617ab392e6130c77ee8bac71">&#9670;&nbsp;</a></span>OdeRKF32()</h2>
@@ -500,14 +502,32 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="ode__rkf__32_8cc_source.html#l00003">3</a> of file <a class="el" href="ode__rkf__32_8cc_source.html">ode_rkf_32.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;                                     :</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <a class="code" href="class_ode_embedded.html#a77286aeae8269058c693e879b906e7ae">OdeEmbedded</a> (neq, <span class="keyword">false</span>, 2),</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <a class="code" href="class_ode_r_k.html#a15e77484455484fc55eacb02e7391691">OdeRK</a> (neq, 3),</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <a class="code" href="class_ode_e_r_k.html#a6fae4438aa2060aed71da362ed404b6f">OdeERK</a> (neq) {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_ode_base.html#a97664b1b92f1bd516c0966a920032d74">method_</a> = <span class="stringliteral">&quot;RKF32&quot;</span>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="comment">//tableau of coefficients</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    c2 =   1.0; a21 = 1.0;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    c3 = 1.0/2; a31 = 1.0/4; a32 = 1.0/4;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;                b1 =  1.0/2; b2  = 1.0/2;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                d1 =  1.0/6; d2 =  1.0/6; d3  = 4.0/6;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="ode__rkf__32_8h_source.html">ode_rkf_32.h</a></li>
-<li>src/ode_rkf_32.cc</li>
+<li>src/<a class="el" href="ode__rkf__32_8cc_source.html">ode_rkf_32.cc</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_ode_base_html_a97664b1b92f1bd516c0966a920032d74"><div class="ttname"><a href="class_ode_base.html#a97664b1b92f1bd516c0966a920032d74">OdeBase::method_</a></div><div class="ttdeci">std::string method_</div><div class="ttdoc">the &quot;name&quot; of the solver/method, as in &quot;Euler&quot; or &quot;RK4&quot;</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8h_source.html#l00173">ode_base.h:173</a></div></div>
+<div class="ttc" id="aclass_ode_r_k_html_a15e77484455484fc55eacb02e7391691"><div class="ttname"><a href="class_ode_r_k.html#a15e77484455484fc55eacb02e7391691">OdeRK::OdeRK</a></div><div class="ttdeci">OdeRK(unsigned long neq, int nk)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__rk_8cc_source.html#l00003">ode_rk.cc:3</a></div></div>
+<div class="ttc" id="aclass_ode_e_r_k_html_a6fae4438aa2060aed71da362ed404b6f"><div class="ttname"><a href="class_ode_e_r_k.html#a6fae4438aa2060aed71da362ed404b6f">OdeERK::OdeERK</a></div><div class="ttdeci">OdeERK(unsigned long neq)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__erk_8cc_source.html#l00003">ode_erk.cc:3</a></div></div>
+<div class="ttc" id="aclass_ode_embedded_html_a77286aeae8269058c693e879b906e7ae"><div class="ttname"><a href="class_ode_embedded.html#a77286aeae8269058c693e879b906e7ae">OdeEmbedded::OdeEmbedded</a></div><div class="ttdeci">OdeEmbedded(unsigned long neq, bool need_jac, int lowerord)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__embedded_8cc_source.html#l00003">ode_embedded.cc:3</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

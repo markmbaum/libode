@@ -94,6 +94,9 @@ $(document).ready(function(){initNavTree('class_ode_do_pri54.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>Popular explicit 5/4 pair from Dormand &amp; Prince.  
+ <a href="class_ode_do_pri54.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="ode__dopri__54_8h_source.html">ode_dopri_54.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for OdeDoPri54:</div>
@@ -101,11 +104,11 @@ Inheritance diagram for OdeDoPri54:</div>
  <div class="center">
   <img src="class_ode_do_pri54.png" usemap="#OdeDoPri54_map" alt=""/>
   <map id="OdeDoPri54_map" name="OdeDoPri54_map">
-<area href="class_ode_embedded.html" alt="OdeEmbedded" shape="rect" coords="0,112,95,136"/>
+<area href="class_ode_embedded.html" title="Base clase implementing methods for embedded Runge-Kutta error estimation." alt="OdeEmbedded" shape="rect" coords="0,112,95,136"/>
 <area href="class_ode_r_k.html" title="Provides space for stage slope values." alt="OdeRK" shape="rect" coords="105,112,200,136"/>
-<area href="class_ode_e_r_k.html" alt="OdeERK" shape="rect" coords="210,112,305,136"/>
+<area href="class_ode_e_r_k.html" title="Base class with space for temporary solutions moving through RK stages." alt="OdeERK" shape="rect" coords="210,112,305,136"/>
 <area href="class_ode_adaptive.html" title="Base class implementing solver functions with adaptive time steps." alt="OdeAdaptive" shape="rect" coords="0,56,95,80"/>
-<area href="class_ode_base.html" alt="OdeBase" shape="rect" coords="0,0,95,24"/>
+<area href="class_ode_base.html" title="Lowest base class for all solvers." alt="OdeBase" shape="rect" coords="0,0,95,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -471,9 +474,13 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="separator:a0fe649817eede448c6ae137fb568ddfe inherit pro_attribs_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Famous 5/4 pair from Dormand &amp; Prince, also supposedly implemented as ode45 in MATLAB</p><ul>
-<li>Dormand, John R., and Peter J. Prince. "A family of embedded Runge-Kutta formulae." Journal of computational and applied mathematics 6.1 (1980): 19-26. </li>
+<div class="textblock"><p>Popular explicit 5/4 pair from Dormand &amp; Prince. </p>
+<p>Famous 5/4 pair from Dormand &amp; Prince, also supposedly implemented as <a href="https://www.mathworks.com/help/matlab/ref/ode45.html">ode45</a> in MATLAB</p><ul>
+<li>Dormand, John R., and Peter J. Prince. "A family of embedded Runge-Kutta formulae." Journal of computational and applied mathematics 6.1 (1980): 19-26.</li>
+<li><a href="https://en.wikipedia.org/wiki/Dormand%E2%80%93Prince_method">https://en.wikipedia.org/wiki/Dormand%E2%80%93Prince_method</a> </li>
 </ul>
+
+<p class="definition">Definition at line <a class="el" href="ode__dopri__54_8h_source.html#l00016">16</a> of file <a class="el" href="ode__dopri__54_8h_source.html">ode_dopri_54.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab25dd6926c51674a8b4a50009aec5184"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab25dd6926c51674a8b4a50009aec5184">&#9670;&nbsp;</a></span>OdeDoPri54()</h2>
@@ -499,14 +506,36 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="ode__dopri__54_8cc_source.html#l00003">3</a> of file <a class="el" href="ode__dopri__54_8cc_source.html">ode_dopri_54.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;                                         :</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <a class="code" href="class_ode_embedded.html#a77286aeae8269058c693e879b906e7ae">OdeEmbedded</a> (neq, <span class="keyword">false</span>, 4),</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <a class="code" href="class_ode_r_k.html#a15e77484455484fc55eacb02e7391691">OdeRK</a> (neq, 7),</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <a class="code" href="class_ode_e_r_k.html#a6fae4438aa2060aed71da362ed404b6f">OdeERK</a> (neq) {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_ode_base.html#a97664b1b92f1bd516c0966a920032d74">method_</a> = <span class="stringliteral">&quot;DoPri54&quot;</span>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="comment">//tableau of coefficents</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    c2 =  1.0/5; a21 =        1.0/5;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    c3 = 3.0/10; a31 =       3.0/40; a32 =        9.0/40;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    c4 =  4.0/5; a41 =      44.0/45; a42 =      -56.0/15; a43 = 32.0/9;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    c5 =  8.0/9; a51 = 19372.0/6561; a52 = -25360.0/2187; a53 = 64448.0/6561; a54 = -212.0/729;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    c6 =    1.0; a61 =  9017.0/3168; a62 =     -355.0/33; a63 = 46732.0/5247; a64 =   49.0/176; a65 =   -5103.0/18656;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    c7 =    1.0; a71 =     35.0/384; a72 =           0.0; a73 =   500.0/1113; a74 =  125.0/192; a75 =    -2187.0/6784; a76 =    11.0/84;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                  b1 =     35.0/384; b2  =           0.0; b3  =   500.0/1113; b4  =  125.0/192; b5  =    -2187.0/6784;  b6 =    11.0/84;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                  d1 = 5179.0/57600; d2  =           0.0; d3  = 7571.0/16695; d4 =   393.0/640; d5  = -92097.0/339200;  d6 = 187.0/2100; d7 = 1.0/40;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="ode__dopri__54_8h_source.html">ode_dopri_54.h</a></li>
-<li>src/ode_dopri_54.cc</li>
+<li>src/<a class="el" href="ode__dopri__54_8cc_source.html">ode_dopri_54.cc</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_ode_base_html_a97664b1b92f1bd516c0966a920032d74"><div class="ttname"><a href="class_ode_base.html#a97664b1b92f1bd516c0966a920032d74">OdeBase::method_</a></div><div class="ttdeci">std::string method_</div><div class="ttdoc">the &quot;name&quot; of the solver/method, as in &quot;Euler&quot; or &quot;RK4&quot;</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8h_source.html#l00173">ode_base.h:173</a></div></div>
+<div class="ttc" id="aclass_ode_r_k_html_a15e77484455484fc55eacb02e7391691"><div class="ttname"><a href="class_ode_r_k.html#a15e77484455484fc55eacb02e7391691">OdeRK::OdeRK</a></div><div class="ttdeci">OdeRK(unsigned long neq, int nk)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__rk_8cc_source.html#l00003">ode_rk.cc:3</a></div></div>
+<div class="ttc" id="aclass_ode_e_r_k_html_a6fae4438aa2060aed71da362ed404b6f"><div class="ttname"><a href="class_ode_e_r_k.html#a6fae4438aa2060aed71da362ed404b6f">OdeERK::OdeERK</a></div><div class="ttdeci">OdeERK(unsigned long neq)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__erk_8cc_source.html#l00003">ode_erk.cc:3</a></div></div>
+<div class="ttc" id="aclass_ode_embedded_html_a77286aeae8269058c693e879b906e7ae"><div class="ttname"><a href="class_ode_embedded.html#a77286aeae8269058c693e879b906e7ae">OdeEmbedded::OdeEmbedded</a></div><div class="ttdeci">OdeEmbedded(unsigned long neq, bool need_jac, int lowerord)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__embedded_8cc_source.html#l00003">ode_embedded.cc:3</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

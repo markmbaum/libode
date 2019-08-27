@@ -94,6 +94,9 @@ $(document).ready(function(){initNavTree('class_ode_g_r_k4_a.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>Fourth-order, A-stable, adaptive Rosenbrock method from Kaps and Rentrop.  
+ <a href="class_ode_g_r_k4_a.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="ode__grk4a_8h_source.html">ode_grk4a.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for OdeGRK4A:</div>
@@ -101,10 +104,10 @@ Inheritance diagram for OdeGRK4A:</div>
  <div class="center">
   <img src="class_ode_g_r_k4_a.png" usemap="#OdeGRK4A_map" alt=""/>
   <map id="OdeGRK4A_map" name="OdeGRK4A_map">
-<area href="class_ode_embedded.html" alt="OdeEmbedded" shape="rect" coords="0,112,103,136"/>
+<area href="class_ode_embedded.html" title="Base clase implementing methods for embedded Runge-Kutta error estimation." alt="OdeEmbedded" shape="rect" coords="0,112,103,136"/>
 <area href="class_ode_rosenbrock.html" title="Base class for Rosenbrock methods." alt="OdeRosenbrock" shape="rect" coords="113,112,216,136"/>
 <area href="class_ode_adaptive.html" title="Base class implementing solver functions with adaptive time steps." alt="OdeAdaptive" shape="rect" coords="0,56,103,80"/>
-<area href="class_ode_base.html" alt="OdeBase" shape="rect" coords="0,0,103,24"/>
+<area href="class_ode_base.html" title="Lowest base class for all solvers." alt="OdeBase" shape="rect" coords="0,0,103,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -470,9 +473,12 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="separator:a0fe649817eede448c6ae137fb568ddfe inherit pro_attribs_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Fourth-order, A-stable, adaptive Rosenbrock method from Kaps and Rentrop</p><ul>
+<div class="textblock"><p>Fourth-order, A-stable, adaptive Rosenbrock method from Kaps and Rentrop. </p>
+<p>Fourth-order, A-stable, adaptive Rosenbrock method from Kaps and Rentrop</p><ul>
 <li>Kaps, Peter, and Peter Rentrop. "Generalized Runge-Kutta methods of order four with stepsize control for stiff ordinary differential equations." Numerische Mathematik 33.1 (1979): 55-68. </li>
 </ul>
+
+<p class="definition">Definition at line <a class="el" href="ode__grk4a_8h_source.html#l00015">15</a> of file <a class="el" href="ode__grk4a_8h_source.html">ode_grk4a.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a562defbd4c725cd371e4b0c8c84cdb2f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a562defbd4c725cd371e4b0c8c84cdb2f">&#9670;&nbsp;</a></span>OdeGRK4A()</h2>
@@ -498,14 +504,43 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="ode__grk4a_8cc_source.html#l00003">3</a> of file <a class="el" href="ode__grk4a_8cc_source.html">ode_grk4a.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;                                     :</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <a class="code" href="class_ode_embedded.html#a77286aeae8269058c693e879b906e7ae">OdeEmbedded</a> (neq, <span class="keyword">true</span>, 3),</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <a class="code" href="class_ode_rosenbrock.html#a05cd62632806a05966f3f136ca83aefe">OdeRosenbrock</a> (neq, 4) {</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <a class="code" href="class_ode_base.html#a97664b1b92f1bd516c0966a920032d74">method_</a> = <span class="stringliteral">&quot;GRK4A&quot;</span>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="comment">//main diagonal, gam_ii</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="class_ode_rosenbrock.html#a78e6ee3df94411faa3f2001cd67af153">gam</a> = 0.395;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="comment">//all other gamma values</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    gam21 = -0.767672395484;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    gam31 = -0.851675323742; gam32 =  0.522967289188;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    gam41 =  0.288463109545; gam42 = 0.0880214273381; gam43 = -0.337389840627;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment">//reduced gamma values</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    g21 = gam21/<a class="code" href="class_ode_rosenbrock.html#a78e6ee3df94411faa3f2001cd67af153">gam</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    g31 = gam31/<a class="code" href="class_ode_rosenbrock.html#a78e6ee3df94411faa3f2001cd67af153">gam</a>; g32 = gam32/<a class="code" href="class_ode_rosenbrock.html#a78e6ee3df94411faa3f2001cd67af153">gam</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    g41 = gam41/<a class="code" href="class_ode_rosenbrock.html#a78e6ee3df94411faa3f2001cd67af153">gam</a>; g42 = gam42/<a class="code" href="class_ode_rosenbrock.html#a78e6ee3df94411faa3f2001cd67af153">gam</a>; g43 = gam43/<a class="code" href="class_ode_rosenbrock.html#a78e6ee3df94411faa3f2001cd67af153">gam</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">//alpha values</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    alp21 = 0.438;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    alp31 = 0.796920457938; alp32 = 0.0730795420615;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">//k weights for 4th and 3rd order solutions</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    b1 = 0.199293275701; b2 = 0.482645235674; b3 = 0.0680614886256; b4 = 0.25;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    d1 = 0.346325833758; d2 = 0.285693175712; d3 =  0.367980990530;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="ode__grk4a_8h_source.html">ode_grk4a.h</a></li>
-<li>src/ode_grk4a.cc</li>
+<li>src/<a class="el" href="ode__grk4a_8cc_source.html">ode_grk4a.cc</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_ode_base_html_a97664b1b92f1bd516c0966a920032d74"><div class="ttname"><a href="class_ode_base.html#a97664b1b92f1bd516c0966a920032d74">OdeBase::method_</a></div><div class="ttdeci">std::string method_</div><div class="ttdoc">the &quot;name&quot; of the solver/method, as in &quot;Euler&quot; or &quot;RK4&quot;</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8h_source.html#l00173">ode_base.h:173</a></div></div>
+<div class="ttc" id="aclass_ode_rosenbrock_html_a05cd62632806a05966f3f136ca83aefe"><div class="ttname"><a href="class_ode_rosenbrock.html#a05cd62632806a05966f3f136ca83aefe">OdeRosenbrock::OdeRosenbrock</a></div><div class="ttdeci">OdeRosenbrock(unsigned long neq, int nk)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__rosenbrock_8cc_source.html#l00003">ode_rosenbrock.cc:3</a></div></div>
+<div class="ttc" id="aclass_ode_embedded_html_a77286aeae8269058c693e879b906e7ae"><div class="ttname"><a href="class_ode_embedded.html#a77286aeae8269058c693e879b906e7ae">OdeEmbedded::OdeEmbedded</a></div><div class="ttdeci">OdeEmbedded(unsigned long neq, bool need_jac, int lowerord)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__embedded_8cc_source.html#l00003">ode_embedded.cc:3</a></div></div>
+<div class="ttc" id="aclass_ode_rosenbrock_html_a78e6ee3df94411faa3f2001cd67af153"><div class="ttname"><a href="class_ode_rosenbrock.html#a78e6ee3df94411faa3f2001cd67af153">OdeRosenbrock::gam</a></div><div class="ttdeci">double gam</div><div class="ttdoc">parameter multipying Jacobian or single diagonal gamma</div><div class="ttdef"><b>Definition:</b> <a href="ode__rosenbrock_8h_source.html#l00023">ode_rosenbrock.h:23</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

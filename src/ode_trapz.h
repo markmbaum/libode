@@ -1,6 +1,7 @@
-
 #ifndef ODE_TRAPZ_H_
 #define ODE_TRAPZ_H_
+
+//! \file ode_trapz.h
 
 #include "ode_base.h"
 #include "ode_rk.h"

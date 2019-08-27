@@ -101,11 +101,11 @@ Inheritance diagram for OdeVern98:</div>
  <div class="center">
   <img src="class_ode_vern98.png" usemap="#OdeVern98_map" alt=""/>
   <map id="OdeVern98_map" name="OdeVern98_map">
-<area href="class_ode_embedded.html" alt="OdeEmbedded" shape="rect" coords="0,112,95,136"/>
+<area href="class_ode_embedded.html" title="Base clase implementing methods for embedded Runge-Kutta error estimation." alt="OdeEmbedded" shape="rect" coords="0,112,95,136"/>
 <area href="class_ode_r_k.html" title="Provides space for stage slope values." alt="OdeRK" shape="rect" coords="105,112,200,136"/>
-<area href="class_ode_e_r_k.html" alt="OdeERK" shape="rect" coords="210,112,305,136"/>
+<area href="class_ode_e_r_k.html" title="Base class with space for temporary solutions moving through RK stages." alt="OdeERK" shape="rect" coords="210,112,305,136"/>
 <area href="class_ode_adaptive.html" title="Base class implementing solver functions with adaptive time steps." alt="OdeAdaptive" shape="rect" coords="0,56,95,80"/>
-<area href="class_ode_base.html" alt="OdeBase" shape="rect" coords="0,0,95,24"/>
+<area href="class_ode_base.html" title="Lowest base class for all solvers." alt="OdeBase" shape="rect" coords="0,0,95,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -471,7 +471,11 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="separator:a0fe649817eede448c6ae137fb568ddfe inherit pro_attribs_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Jim Verner's "most efficient" 9/8 pair +<a href="http://people.math.sfu.ca/~jverner/">http://people.math.sfu.ca/~jverner/</a> </p>
+<div class="textblock"><p>Jim Verner's "most efficient" 9/8 pair</p><ul>
+<li><a href="http://people.math.sfu.ca/~jverner/">http://people.math.sfu.ca/~jverner/</a> </li>
+</ul>
+
+<p class="definition">Definition at line <a class="el" href="ode__vern__98_8h_source.html#l00014">14</a> of file <a class="el" href="ode__vern__98_8h_source.html">ode_vern_98.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a78bc4169f784f806b399a3dddc564853"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a78bc4169f784f806b399a3dddc564853">&#9670;&nbsp;</a></span>OdeVern98()</h2>
@@ -497,14 +501,159 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="ode__vern__98_8cc_source.html#l00003">3</a> of file <a class="el" href="ode__vern__98_8cc_source.html">ode_vern_98.cc</a>.</p>
+<div class="fragment"><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;                                       :</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <a class="code" href="class_ode_embedded.html#a77286aeae8269058c693e879b906e7ae">OdeEmbedded</a> (neq, <span class="keyword">false</span>, 8),</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <a class="code" href="class_ode_r_k.html#a15e77484455484fc55eacb02e7391691">OdeRK</a> (neq, 16),</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <a class="code" href="class_ode_e_r_k.html#a6fae4438aa2060aed71da362ed404b6f">OdeERK</a> (neq) {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_ode_base.html#a97664b1b92f1bd516c0966a920032d74">method_</a> = <span class="stringliteral">&quot;Vern98&quot;</span>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">    coefficients copied from:</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">        http://people.math.sfu.ca/~jverner/</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">        http://people.math.sfu.ca/~jverner/RKV98.IIa.Efficient.000000349.081209.CoeffsOnlyFLOAT6040</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">    */</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    c2 =  0.03462;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    c3 =  0.09702435063878044594828361677100617517633;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    c4 =  0.1455365259581706689224254251565092627645;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    c5 =  0.561;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    c6 =  0.2290079115904850126662751771814700052182;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    c7 =  0.5449920884095149873337248228185299947818;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    c8 =  0.645;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    c9 =  0.48375;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    c10 = 0.06757;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    c11 = 0.2500;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    c12 = 0.6590650618730998549405331618649220295334;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    c13 = 0.8206;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    c14 = 0.9012;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    c15 = 1.0;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    c16 = 1.0;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    a21 = c2;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    a31 = -0.0389335438857287327017042687229284478532;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    a32 = 0.1359578945245091786499878854939346230295;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    a41 =  0.03638413148954266723060635628912731569111;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    a43 =  0.1091523944686280016918190688673819470733;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    a51 =  2.025763914393969636805657604282571047511;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    a53 = -7.638023836496292020387602153091964592952;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    a54 =  6.173259922102322383581944548809393545442;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    a61 =  0.05112275589406060872792270881648288397197;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    a64 =  0.1770823794555021537929910813839068684087;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    a65 =  0.00080277624092225014536138698108025283759;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    a71 =  0.1316006357975216279279871693164256985334;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    a74 = -0.2957276252669636417685183174672273730699;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    a75 =  0.0878137803564295237421124704053886667082;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    a76 =  0.62130529752252747743214350056394300261;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    a81 =  0.07166666666666666666666666666666666666667;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    a86 =  0.3305533578915319409260346730051472207728;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    a87 =  0.2427799754418013924072986603281861125606;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    a91 =  0.071806640625;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    a96 =  0.3294380283228177160744825466257672816401;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    a97 =  0.1165190029271822839255174533742327183599;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    a98 = -0.034013671875;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    a101 =  0.04836757646340646986611287718844085773549;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    a106 =  0.03928989925676163974333190042057047002852;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    a107 =  0.1054740945890344608263649267140088017604;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    a108 = -0.02143865284648312665982642293830533996214;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    a109 = -0.1041229174627194437759832813847147895623;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    a111 = -0.02664561487201478635337289243849737340534;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    a116 =  0.03333333333333333333333333333333333333333;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    a117 = -0.1631072244872467239162704487554706387141;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    a118 =  0.03396081684127761199487954930015522928244;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    a119 =  0.1572319413814626097110769806810024118077;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    a1110 =  0.2152267478031879552303534778794770376960;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    a121 =  0.03689009248708622334786359863227633989718;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    a126 = -0.1465181576725542928653609891758501156785;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    a127 =  0.2242577768172024345345469822625833796001;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    a128 =  0.02294405717066072637090897902753790803034;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    a129 = -0.0035850052905728761357394424889330334334;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    a1210 =  0.08669223316444385506869203619044453906053;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    a1211 =  0.4383840651968337846196219974168630120572;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    a131 = -0.4866012215113340846662212357570395295088;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    a136 = -6.304602650282852990657772792012007122988;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    a137 = -0.281245618289472564778284183790118418111;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    a138 = -2.679019236219849057687906597489223155566;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    a139 =  0.518815663924157511565311164615012522024;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    a1310 =  1.365353187603341710683633635235238678626;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    a1311 =  5.885091088503946585721274891680604830712;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    a1312 =  2.802808786272062889819965117517532194812;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    a141 =  0.4185367457753471441471025246471931649633;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    a146 =  6.724547581906459363100870806514855026676;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    a147 = -0.425444280164611790606983409697113064616;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    a148 =  3.343279153001265577811816947557982637749;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    a149 =  0.617081663117537759528421117507709784737;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    a1410 = -0.929966123939932833937749523988800852013;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    a1411 = -6.099948804751010722472962837945508844846;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    a1412 = -3.002206187889399044804158084895173690015;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    a1413 =  0.2553202529443445472336424602988558373637;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    a151 = -0.779374086122884664644623040843840506343;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    a156 = -13.93734253810777678786523664804936051203;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    a157 =  1.252048853379357320949735183924200895136;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    a158 = -14.69150040801686878191527989293072091588;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    a159 = -0.494705058533141685655191992136962873577;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    a1510 =  2.242974909146236657906984549543692874755;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    a1511 =  13.36789380382864375813864978592679139881;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    a1512 =  14.39665048665068644512236935340272139005;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    a1513 = -0.7975813331776800379127866056663258667437;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    a1514 =  0.4409353709534277758753793068298041158235;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    a161 =  2.058051337466886442151242368989994043993;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    a166 =  22.35793772796803295519317565842520212899;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    a167 =  0.90949810997556332745009198137971890783;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    a168 =  35.89110098240264104710550686568482456493;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    a169 = -3.442515027624453437985000403608480262211;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    a1610 = -4.865481358036368826566013387928704014496;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    a1611 = -18.90980381354342625688427480879773032857;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    a1612 = -34.26354448030451782929251177395134170515;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    a1613 =  1.264756521695642578827783499806516664686;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    b1 =  0.01461197685842315252051541915018784713459;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    b8 = -0.3915211862331339089410228267288242030810;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    b9 =  0.2310932500289506415909675644868993669908;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    b10 =  0.1274766769992852382560589467488989175618;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    b11 =  0.2246434176204157731566981937082069688984;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    b12 =  0.5684352689748512932705226972873692126743;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    b13 =  0.05825871557215827200814768021863420902155;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    b14 =  0.1364317403482215641609022744494239843327;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    b15 =  0.03057013983082797397721005067920369646664;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    d1 =  0.01996996514886773085518508418098868756464;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    d8 =  2.191499304949330054530747099310837524864;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    d9 =  0.08857071848208438030833722031786358862953;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    d10 =  0.1140560234865965622484956605091432032674;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    d11 =  0.2533163805345107065564577734569651977347;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    d12 = -2.056564386240941011158999594595981300493;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    d13 =  0.3408096799013119935160094894224543812830;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    d16 =  0.04834231373823958314376726739772871714902;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="ode__vern__98_8h_source.html">ode_vern_98.h</a></li>
-<li>src/ode_vern_98.cc</li>
+<li>src/<a class="el" href="ode__vern__98_8cc_source.html">ode_vern_98.cc</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_ode_base_html_a97664b1b92f1bd516c0966a920032d74"><div class="ttname"><a href="class_ode_base.html#a97664b1b92f1bd516c0966a920032d74">OdeBase::method_</a></div><div class="ttdeci">std::string method_</div><div class="ttdoc">the &quot;name&quot; of the solver/method, as in &quot;Euler&quot; or &quot;RK4&quot;</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8h_source.html#l00173">ode_base.h:173</a></div></div>
+<div class="ttc" id="aclass_ode_r_k_html_a15e77484455484fc55eacb02e7391691"><div class="ttname"><a href="class_ode_r_k.html#a15e77484455484fc55eacb02e7391691">OdeRK::OdeRK</a></div><div class="ttdeci">OdeRK(unsigned long neq, int nk)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__rk_8cc_source.html#l00003">ode_rk.cc:3</a></div></div>
+<div class="ttc" id="aclass_ode_e_r_k_html_a6fae4438aa2060aed71da362ed404b6f"><div class="ttname"><a href="class_ode_e_r_k.html#a6fae4438aa2060aed71da362ed404b6f">OdeERK::OdeERK</a></div><div class="ttdeci">OdeERK(unsigned long neq)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__erk_8cc_source.html#l00003">ode_erk.cc:3</a></div></div>
+<div class="ttc" id="aclass_ode_embedded_html_a77286aeae8269058c693e879b906e7ae"><div class="ttname"><a href="class_ode_embedded.html#a77286aeae8269058c693e879b906e7ae">OdeEmbedded::OdeEmbedded</a></div><div class="ttdeci">OdeEmbedded(unsigned long neq, bool need_jac, int lowerord)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__embedded_8cc_source.html#l00003">ode_embedded.cc:3</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

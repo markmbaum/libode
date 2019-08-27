@@ -1,6 +1,9 @@
 #ifndef ODE_ERK_H_
 #define ODE_ERK_H_
 
+//! \file ode_erk.h
+
+//!Base class with space for temporary solutions moving through RK stages
 /*!
 Provides a temporary solution array for moving through RK stages with explicit solvers
 */

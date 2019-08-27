@@ -1,6 +1,8 @@
 #ifndef ODE_ADAPTIVE_H_
 #define ODE_ADAPTIVE_H_
 
+//! \file ode_adaptive.h
+
 #include <cstdio>
 #include <cmath>
 #include <vector>

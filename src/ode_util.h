@@ -1,7 +1,7 @@
-//miscellaneous useful functions
-
 #ifndef ODE_UTIL_H_
 #define ODE_UTIL_H_
+
+//! \file ode_util.h
 
 #include <cmath>
 
