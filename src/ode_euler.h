@@ -7,7 +7,9 @@
 #include "ode_rk.h"
 
 //!The simplest runge kutta method, forward Euler's
-/*! + https://en.wikipedia.org/wiki/Euler_method */
+/*!
+    + https://en.wikipedia.org/wiki/Euler_method
+*/
 class OdeEuler : public OdeBase, public OdeRK {
     public:
         //!constructs

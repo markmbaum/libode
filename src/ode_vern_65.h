@@ -7,8 +7,8 @@
 #include "ode_rk.h"
 #include "ode_erk.h"
 
+//!Jim Verner's "most efficient" 6/5 pair
 /*!
-Jim Verner's "most efficient" 6/5 pair
     + http://people.math.sfu.ca/~jverner/
 */
 class OdeVern65 : public OdeEmbedded, private OdeRK, private OdeERK {

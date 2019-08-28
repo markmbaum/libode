@@ -9,7 +9,6 @@
 
 //!Fourth-order, A-stable, adaptive Rosenbrock method from Kaps and Rentrop
 /*!
-Fourth-order, A-stable, adaptive Rosenbrock method from Kaps and Rentrop
     + Kaps, Peter, and Peter Rentrop. "Generalized Runge-Kutta methods of order four with stepsize control for stiff ordinary differential equations." Numerische Mathematik 33.1 (1979): 55-68.
 */
 class OdeGRK4A : public OdeEmbedded, private OdeRosenbrock {

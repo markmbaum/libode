@@ -4,9 +4,6 @@
 //! \file ode_erk.h
 
 //!Base class with space for temporary solutions moving through RK stages
-/*!
-Provides a temporary solution array for moving through RK stages with explicit solvers
-*/
 class OdeERK {
 
     public:

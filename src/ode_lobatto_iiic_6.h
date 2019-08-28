@@ -26,7 +26,9 @@ class NewtonLobattoIIIC6 : public OdeNewtonIRK<OdeLobattoIIIC6> {
 };
 
 //!The sixth-order, L-stable, fully-implicit Lobatto IIIC method with 4 stages
-/*! + Hairer, E. & Wanner, G. Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems. (Springer, 1996) */
+/*!
+    + Hairer, E. & Wanner, G. Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems. (Springer, 1996)
+*/
 class OdeLobattoIIIC6 : public OdeBase, private OdeIRK {
     //friends!
     friend class OdeNewtonBridge<OdeLobattoIIIC6>;

@@ -9,9 +9,6 @@
 #include "ode_adaptive.h"
 
 //!Base clase implementing methods for embedded Runge-Kutta error estimation
-/*!
-Implements the error analysis and time step step selection for embedded RK methods
-*/
 class OdeEmbedded : public OdeAdaptive {
 
     public:

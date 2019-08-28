@@ -98,31 +98,31 @@ $(document).ready(function(){initNavTree('ode__trapz_8h_source.html','');});
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ode__rk_8h.html">ode_rk.h</a>&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ode__erk_8h.html">ode_erk.h</a>&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_ode_trapz.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_ode_trapz.html">OdeTrapz</a> : <span class="keyword">public</span> <a class="code" href="class_ode_base.html">OdeBase</a>, <span class="keyword">private</span> <a class="code" href="class_ode_r_k.html">OdeRK</a>, <span class="keyword">private</span> <a class="code" href="class_ode_e_r_k.html">OdeERK</a> {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="class_ode_trapz.html#a5ab18f5a5c646f08b0b445b3237a3bf8">OdeTrapz</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> neq);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="comment">//function for taking a single time step</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">void</span> step_ (<span class="keywordtype">double</span> dt);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="comment">//coefficents of tableau</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">double</span> c2, a21,</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                    b1, b2;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_ode_trapz.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_ode_trapz.html">OdeTrapz</a> : <span class="keyword">public</span> <a class="code" href="class_ode_base.html">OdeBase</a>, <span class="keyword">private</span> <a class="code" href="class_ode_r_k.html">OdeRK</a>, <span class="keyword">private</span> <a class="code" href="class_ode_e_r_k.html">OdeERK</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <a class="code" href="class_ode_trapz.html#a5ab18f5a5c646f08b0b445b3237a3bf8">OdeTrapz</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> neq);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="comment">//function for taking a single time step</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">void</span> step_ (<span class="keywordtype">double</span> dt);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="comment">//coefficents of tableau</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">double</span> c2, a21,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                    b1, b2;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_ode_base_html"><div class="ttname"><a href="class_ode_base.html">OdeBase</a></div><div class="ttdoc">Lowest base class for all solvers.</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8h_source.html#l00062">ode_base.h:62</a></div></div>
-<div class="ttc" id="aclass_ode_e_r_k_html"><div class="ttname"><a href="class_ode_e_r_k.html">OdeERK</a></div><div class="ttdoc">Base class with space for temporary solutions moving through RK stages.</div><div class="ttdef"><b>Definition:</b> <a href="ode__erk_8h_source.html#l00010">ode_erk.h:10</a></div></div>
+<div class="ttc" id="aclass_ode_base_html"><div class="ttname"><a href="class_ode_base.html">OdeBase</a></div><div class="ttdoc">Lowest base class for all solvers.</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8h_source.html#l00068">ode_base.h:68</a></div></div>
+<div class="ttc" id="aclass_ode_e_r_k_html"><div class="ttname"><a href="class_ode_e_r_k.html">OdeERK</a></div><div class="ttdoc">Base class with space for temporary solutions moving through RK stages.</div><div class="ttdef"><b>Definition:</b> <a href="ode__erk_8h_source.html#l00007">ode_erk.h:7</a></div></div>
 <div class="ttc" id="aode__rk_8h_html"><div class="ttname"><a href="ode__rk_8h.html">ode_rk.h</a></div></div>
 <div class="ttc" id="aclass_ode_r_k_html"><div class="ttname"><a href="class_ode_r_k.html">OdeRK</a></div><div class="ttdoc">Provides space for stage slope values.</div><div class="ttdef"><b>Definition:</b> <a href="ode__rk_8h_source.html#l00007">ode_rk.h:7</a></div></div>
 <div class="ttc" id="aode__base_8h_html"><div class="ttname"><a href="ode__base_8h.html">ode_base.h</a></div></div>
 <div class="ttc" id="aode__erk_8h_html"><div class="ttname"><a href="ode__erk_8h.html">ode_erk.h</a></div></div>
 <div class="ttc" id="aclass_ode_trapz_html_a5ab18f5a5c646f08b0b445b3237a3bf8"><div class="ttname"><a href="class_ode_trapz.html#a5ab18f5a5c646f08b0b445b3237a3bf8">OdeTrapz::OdeTrapz</a></div><div class="ttdeci">OdeTrapz(unsigned long neq)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__trapz_8cc_source.html#l00003">ode_trapz.cc:3</a></div></div>
-<div class="ttc" id="aclass_ode_trapz_html"><div class="ttname"><a href="class_ode_trapz.html">OdeTrapz</a></div><div class="ttdef"><b>Definition:</b> <a href="ode__trapz_8h_source.html#l00013">ode_trapz.h:13</a></div></div>
+<div class="ttc" id="aclass_ode_trapz_html"><div class="ttname"><a href="class_ode_trapz.html">OdeTrapz</a></div><div class="ttdoc">Second order, explicit trapezoidal rule.</div><div class="ttdef"><b>Definition:</b> <a href="ode__trapz_8h_source.html#l00011">ode_trapz.h:11</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

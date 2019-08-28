@@ -8,7 +8,9 @@
 #include "ode_erk.h"
 
 //!The classic Runge-Kutta 4th order method
-/*! + http://mathworld.wolfram.com/Runge-KuttaMethod.html */
+/*!
+    + http://mathworld.wolfram.com/Runge-KuttaMethod.html
+*/
 class OdeRK4 : public OdeBase, private OdeRK, private OdeERK {
 
     public:

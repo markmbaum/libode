@@ -26,7 +26,6 @@ class NewtonSDIRK43 : public OdeNewtonSDIRK<OdeSDIRK43> {
 
 //!L-stable 4/3 SDIRK pair
 /*!
-L-stable 4/3 SDIRK pair from section IV.6 of:
     + Wanner, Gerhard, and Ernst Hairer. Solving ordinary differential equations II. Springer Berlin Heidelberg, 1996.
 */
 class OdeSDIRK43 : public OdeEmbedded, private OdeRK {

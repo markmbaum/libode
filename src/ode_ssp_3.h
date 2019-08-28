@@ -7,8 +7,8 @@
 #include "ode_rk.h"
 #include "ode_erk.h"
 
+//!Strong stability preserving method of order 3
 /*!
-This is a strong stability preserving method of order 3, from Shu and Osher:
     + C. W. Shu and S. Osher, Effcient implementation of essentially nonoscillatory shock-capturing schemes, J. Comput. Phys., 77, 1988, pp. 439-471.
 */
 class OdeSsp3 : public OdeBase, private OdeRK, private OdeERK {

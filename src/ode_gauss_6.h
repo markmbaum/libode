@@ -26,7 +26,9 @@ class NewtonGauss6 : public OdeNewtonIRK<OdeGauss6> {
 };
 
 //!The sixth-order, A-stable, fully-implicit Gauss-Legendre method with 3 stages
-/*! + https://en.wikipedia.org/wiki/Gauss%E2%80%93Legendre_method */
+/*!
+    + https://en.wikipedia.org/wiki/Gauss%E2%80%93Legendre_method
+*/
 class OdeGauss6 : public OdeBase, private OdeIRK {
     //friends!
     friend class OdeNewtonBridge<OdeGauss6>;

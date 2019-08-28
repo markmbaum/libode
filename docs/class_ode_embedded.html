@@ -115,9 +115,9 @@ Inheritance diagram for OdeEmbedded:</div>
 <area href="class_ode_r_k_c_k.html" title="Explicit 5/4 pair, also with 3rd, 2nd, and 1st order embedded methods, from Cash &amp; Karp." alt="OdeRKCK" shape="rect" coords="105,392,200,416"/>
 <area href="class_ode_r_k_f32.html" title="2nd and 3rd order solver developed by Fehlberg" alt="OdeRKF32" shape="rect" coords="105,448,200,472"/>
 <area href="class_ode_s_d_i_r_k43.html" title="L-stable 4/3 SDIRK pair." alt="OdeSDIRK43" shape="rect" coords="105,504,200,528"/>
-<area href="class_ode_vern65.html" alt="OdeVern65" shape="rect" coords="105,560,200,584"/>
-<area href="class_ode_vern76.html" alt="OdeVern76" shape="rect" coords="105,616,200,640"/>
-<area href="class_ode_vern98.html" alt="OdeVern98" shape="rect" coords="105,672,200,696"/>
+<area href="class_ode_vern65.html" title="Jim Verner&#39;s &quot;most efficient&quot; 6/5 pair." alt="OdeVern65" shape="rect" coords="105,560,200,584"/>
+<area href="class_ode_vern76.html" title="Jim Verner&#39;s &quot;most efficient&quot; 7/6 pair." alt="OdeVern76" shape="rect" coords="105,616,200,640"/>
+<area href="class_ode_vern98.html" title="Jim Verner&#39;s &quot;most efficient&quot; 9/8 pair." alt="OdeVern98" shape="rect" coords="105,672,200,696"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -484,9 +484,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base clase implementing methods for embedded Runge-Kutta error estimation. </p>
-<p>Implements the error analysis and time step step selection for embedded RK methods </p>
 
-<p class="definition">Definition at line <a class="el" href="ode__embedded_8h_source.html#l00015">15</a> of file <a class="el" href="ode__embedded_8h_source.html">ode_embedded.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ode__embedded_8h_source.html#l00012">12</a> of file <a class="el" href="ode__embedded_8h_source.html">ode_embedded.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a77286aeae8269058c693e879b906e7ae"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a77286aeae8269058c693e879b906e7ae">&#9670;&nbsp;</a></span>OdeEmbedded()</h2>
@@ -552,11 +551,11 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_ode_embedded_html_a0d36a0a4ec988e8e64e6f4fb94229510"><div class="ttname"><a href="class_ode_embedded.html#a0d36a0a4ec988e8e64e6f4fb94229510">OdeEmbedded::facmax_</a></div><div class="ttdeci">double facmax_</div><div class="ttdoc">maximum allowable fraction change in time step</div><div class="ttdef"><b>Definition:</b> <a href="ode__embedded_8h_source.html#l00052">ode_embedded.h:52</a></div></div>
-<div class="ttc" id="aclass_ode_embedded_html_afe835876258e48950acaf2b007af17a6"><div class="ttname"><a href="class_ode_embedded.html#afe835876258e48950acaf2b007af17a6">OdeEmbedded::facmin_</a></div><div class="ttdeci">double facmin_</div><div class="ttdoc">minimum allowable fraction change in time step</div><div class="ttdef"><b>Definition:</b> <a href="ode__embedded_8h_source.html#l00050">ode_embedded.h:50</a></div></div>
+<div class="ttc" id="aclass_ode_embedded_html_a0d36a0a4ec988e8e64e6f4fb94229510"><div class="ttname"><a href="class_ode_embedded.html#a0d36a0a4ec988e8e64e6f4fb94229510">OdeEmbedded::facmax_</a></div><div class="ttdeci">double facmax_</div><div class="ttdoc">maximum allowable fraction change in time step</div><div class="ttdef"><b>Definition:</b> <a href="ode__embedded_8h_source.html#l00049">ode_embedded.h:49</a></div></div>
+<div class="ttc" id="aclass_ode_embedded_html_afe835876258e48950acaf2b007af17a6"><div class="ttname"><a href="class_ode_embedded.html#afe835876258e48950acaf2b007af17a6">OdeEmbedded::facmin_</a></div><div class="ttdeci">double facmin_</div><div class="ttdoc">minimum allowable fraction change in time step</div><div class="ttdef"><b>Definition:</b> <a href="ode__embedded_8h_source.html#l00047">ode_embedded.h:47</a></div></div>
 <div class="ttc" id="aclass_ode_adaptive_html_a72db5e9f515eab0bd70954fc17f32711"><div class="ttname"><a href="class_ode_adaptive.html#a72db5e9f515eab0bd70954fc17f32711">OdeAdaptive::OdeAdaptive</a></div><div class="ttdeci">OdeAdaptive(unsigned long neq, bool need_jac)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__adaptive_8cc_source.html#l00003">ode_adaptive.cc:3</a></div></div>
-<div class="ttc" id="aclass_ode_embedded_html_a6da8dbb1149e7a4a016f5b30ace47be0"><div class="ttname"><a href="class_ode_embedded.html#a6da8dbb1149e7a4a016f5b30ace47be0">OdeEmbedded::solemb_</a></div><div class="ttdeci">double * solemb_</div><div class="ttdoc">embedded solution array</div><div class="ttdef"><b>Definition:</b> <a href="ode__embedded_8h_source.html#l00055">ode_embedded.h:55</a></div></div>
-<div class="ttc" id="aclass_ode_embedded_html_afe10f1f47fff99086612872bf3e7da1b"><div class="ttname"><a href="class_ode_embedded.html#afe10f1f47fff99086612872bf3e7da1b">OdeEmbedded::facsafe_</a></div><div class="ttdeci">double facsafe_</div><div class="ttdoc">safety factor applied to time step selection</div><div class="ttdef"><b>Definition:</b> <a href="ode__embedded_8h_source.html#l00048">ode_embedded.h:48</a></div></div>
+<div class="ttc" id="aclass_ode_embedded_html_a6da8dbb1149e7a4a016f5b30ace47be0"><div class="ttname"><a href="class_ode_embedded.html#a6da8dbb1149e7a4a016f5b30ace47be0">OdeEmbedded::solemb_</a></div><div class="ttdeci">double * solemb_</div><div class="ttdoc">embedded solution array</div><div class="ttdef"><b>Definition:</b> <a href="ode__embedded_8h_source.html#l00052">ode_embedded.h:52</a></div></div>
+<div class="ttc" id="aclass_ode_embedded_html_afe10f1f47fff99086612872bf3e7da1b"><div class="ttname"><a href="class_ode_embedded.html#afe10f1f47fff99086612872bf3e7da1b">OdeEmbedded::facsafe_</a></div><div class="ttdeci">double facsafe_</div><div class="ttdoc">safety factor applied to time step selection</div><div class="ttdef"><b>Definition:</b> <a href="ode__embedded_8h_source.html#l00045">ode_embedded.h:45</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

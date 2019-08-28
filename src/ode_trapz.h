@@ -7,9 +7,7 @@
 #include "ode_rk.h"
 #include "ode_erk.h"
 
-/*!
-Second order, explicit trapezoidal rule
-*/
+//!Second order, explicit trapezoidal rule
 class OdeTrapz : public OdeBase, private OdeRK, private OdeERK {
 
     public:

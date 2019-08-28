@@ -26,7 +26,9 @@ class NewtonRadauIIA5 : public OdeNewtonIRK<OdeRadauIIA5> {
 };
 
 //!The fifth-order, L-stable, fully-implicit Radau IIA method with 3 stages
-/*! + Hairer, E. & Wanner, G. Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems. (Springer, 1996) */
+/*!
+    + Hairer, E. & Wanner, G. Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems. (Springer, 1996)
+*/
 class OdeRadauIIA5 : public OdeBase, private OdeIRK {
     //friends!
     friend class OdeNewtonBridge<OdeRadauIIA5>;
