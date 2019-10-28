@@ -1,3 +1,5 @@
+//! \file ode_irk.cc
+
 #include "ode_irk.h"
 
 OdeIRK::OdeIRK (unsigned long neq, int nk) {

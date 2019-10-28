@@ -90,33 +90,34 @@ $(document).ready(function(){initNavTree('ode__rk_8cc_source.html','');});
 <div class="title">ode_rk.cc</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ode__rk_8h.html">ode_rk.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="class_ode_r_k.html#a15e77484455484fc55eacb02e7391691">    3</a></span>&#160;<a class="code" href="class_ode_r_k.html#a15e77484455484fc55eacb02e7391691">OdeRK::OdeRK</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> neq, <span class="keywordtype">int</span> nk) {</div>
+<a href="ode__rk_8cc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ode__rk_8h.html">ode_rk.h</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <span class="comment">//store number of stages</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <a class="code" href="class_ode_r_k.html#ae38440c50819dd472ec68d7f8cf8a0b5">nk_</a> = nk;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="comment">//storage for k values of stages</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a> = <span class="keyword">new</span> <span class="keywordtype">double</span>*[nk];</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;nk; i++) <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[i] = <span class="keyword">new</span> <span class="keywordtype">double</span>[neq];</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//destructor</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_ode_r_k.html#a8069507bb782475a8cad7946b7c7d252">   13</a></span>&#160;<a class="code" href="class_ode_r_k.html#a8069507bb782475a8cad7946b7c7d252">OdeRK::~OdeRK</a> () {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="class_ode_r_k.html#ae38440c50819dd472ec68d7f8cf8a0b5">nk_</a>; i++) <span class="keyword">delete</span> [] <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[i];</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">delete</span> [] <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="class_ode_r_k.html#a15e77484455484fc55eacb02e7391691">    5</a></span>&#160;<a class="code" href="class_ode_r_k.html#a15e77484455484fc55eacb02e7391691">OdeRK::OdeRK</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> neq, <span class="keywordtype">int</span> nk) {</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="comment">//store number of stages</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_ode_r_k.html#ae38440c50819dd472ec68d7f8cf8a0b5">nk_</a> = nk;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="comment">//storage for k values of stages</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a> = <span class="keyword">new</span> <span class="keywordtype">double</span>*[nk];</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;nk; i++) <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[i] = <span class="keyword">new</span> <span class="keywordtype">double</span>[neq];</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">//destructor</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_ode_r_k.html#a8069507bb782475a8cad7946b7c7d252">   15</a></span>&#160;<a class="code" href="class_ode_r_k.html#a8069507bb782475a8cad7946b7c7d252">OdeRK::~OdeRK</a> () {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="class_ode_r_k.html#ae38440c50819dd472ec68d7f8cf8a0b5">nk_</a>; i++) <span class="keyword">delete</span> [] <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[i];</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">delete</span> [] <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_ode_r_k_html_a8069507bb782475a8cad7946b7c7d252"><div class="ttname"><a href="class_ode_r_k.html#a8069507bb782475a8cad7946b7c7d252">OdeRK::~OdeRK</a></div><div class="ttdeci">~OdeRK()</div><div class="ttdoc">destructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__rk_8cc_source.html#l00013">ode_rk.cc:13</a></div></div>
-<div class="ttc" id="aclass_ode_r_k_html_a15e77484455484fc55eacb02e7391691"><div class="ttname"><a href="class_ode_r_k.html#a15e77484455484fc55eacb02e7391691">OdeRK::OdeRK</a></div><div class="ttdeci">OdeRK(unsigned long neq, int nk)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__rk_8cc_source.html#l00003">ode_rk.cc:3</a></div></div>
+<div class="ttc" id="aclass_ode_r_k_html_a8069507bb782475a8cad7946b7c7d252"><div class="ttname"><a href="class_ode_r_k.html#a8069507bb782475a8cad7946b7c7d252">OdeRK::~OdeRK</a></div><div class="ttdeci">~OdeRK()</div><div class="ttdoc">destructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__rk_8cc_source.html#l00015">ode_rk.cc:15</a></div></div>
+<div class="ttc" id="aclass_ode_r_k_html_a15e77484455484fc55eacb02e7391691"><div class="ttname"><a href="class_ode_r_k.html#a15e77484455484fc55eacb02e7391691">OdeRK::OdeRK</a></div><div class="ttdeci">OdeRK(unsigned long neq, int nk)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__rk_8cc_source.html#l00005">ode_rk.cc:5</a></div></div>
 <div class="ttc" id="aode__rk_8h_html"><div class="ttname"><a href="ode__rk_8h.html">ode_rk.h</a></div></div>
 <div class="ttc" id="aclass_ode_r_k_html_ae38440c50819dd472ec68d7f8cf8a0b5"><div class="ttname"><a href="class_ode_r_k.html#ae38440c50819dd472ec68d7f8cf8a0b5">OdeRK::nk_</a></div><div class="ttdeci">int nk_</div><div class="ttdoc">number of stages, or k vectors</div><div class="ttdef"><b>Definition:</b> <a href="ode__rk_8h_source.html#l00023">ode_rk.h:23</a></div></div>
 <div class="ttc" id="aclass_ode_r_k_html_ade9e4b6ab6212add6dd1ba2e95691fae"><div class="ttname"><a href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">OdeRK::k_</a></div><div class="ttdeci">double ** k_</div><div class="ttdoc">stage evaluations</div><div class="ttdef"><b>Definition:</b> <a href="ode__rk_8h_source.html#l00021">ode_rk.h:21</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>ode_rk.cc</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="ode__rk_8cc.html">ode_rk.cc</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>

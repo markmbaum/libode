@@ -1,3 +1,5 @@
+//! \file ode_linalg.cc
+
 #include "ode_linalg.h"
 
 void ode_crout_forw_sub (double **L, double *b, int *p, int n, double *out) {
@@ -89,4 +91,24 @@ void ode_solve_A (double **A, double *b, int n, double *out) {
     ode_back_sub(A, out, n, out); //solution is now in "out"
     //clear p
     delete [] p;
+}
+
+void ode_solve_tridiag (double **T, double *r, double *temp, int n, double *out) {
+
+    //set pointers to each row of values representing the diagonals
+    double *a = T[2];
+    double *b = T[1];
+    double *c = T[0] + 1;
+    //temporary number
+    double z;
+    //decomposition and forward substitution
+    z = b[0];
+    out[0] = r[0]/z;
+    for (int i=1; i<n; i++) {
+        temp[i] = c[i-1]/z;
+        z = b[i] - a[i-1]*temp[i];
+        out[i] = (r[i] - a[i-1]*out[i-1])/z;
+    }
+    for (int i=n-2; i>=0; i--)
+        out[i] -= temp[i+1]*out[i+1];
 }

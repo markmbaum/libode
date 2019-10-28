@@ -1,3 +1,5 @@
+//! \file ode_euler.cc
+
 #include "ode_euler.h"
 
 OdeEuler::OdeEuler (unsigned long neq) :

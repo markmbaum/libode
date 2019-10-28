@@ -1,3 +1,5 @@
+//! \file ode_newton.cc
+
 #include "ode_newton.h"
 
 OdeNewton::OdeNewton (unsigned long n) {

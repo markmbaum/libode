@@ -178,18 +178,8 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ode__irk_8cc_source.html#l00003">3</a> of file <a class="el" href="ode__irk_8cc_source.html">ode_irk.cc</a>.</p>
-<div class="fragment"><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;                                         {</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <span class="comment">//store nk</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <a class="code" href="class_ode_i_r_k.html#a66da41605b7c6794f4cd82c4a7f1da33">nk_</a> = nk;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="comment">//make a single large vector for k values</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_ode_i_r_k.html#a99c65d6aa8ac4409e320209eef52cb27">kall_</a> = <span class="keyword">new</span> <span class="keywordtype">double</span>[neq*nk];</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="comment">//assign the k_ values along the kall_ array</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="class_ode_i_r_k.html#a4198c3239c732fc7546ba05957e6840e">k_</a> = <span class="keyword">new</span> <span class="keywordtype">double</span>*[nk];</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;nk; i++) <a class="code" href="class_ode_i_r_k.html#a4198c3239c732fc7546ba05957e6840e">k_</a>[i] = <a class="code" href="class_ode_i_r_k.html#a99c65d6aa8ac4409e320209eef52cb27">kall_</a> + i*neq;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
-</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="ode__irk_8cc_source.html#l00005">5</a> of file <a class="el" href="ode__irk_8cc_source.html">ode_irk.cc</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -198,9 +188,6 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_ode_i_r_k_html_a66da41605b7c6794f4cd82c4a7f1da33"><div class="ttname"><a href="class_ode_i_r_k.html#a66da41605b7c6794f4cd82c4a7f1da33">OdeIRK::nk_</a></div><div class="ttdeci">int nk_</div><div class="ttdoc">number of RK stages</div><div class="ttdef"><b>Definition:</b> <a href="ode__irk_8h_source.html#l00019">ode_irk.h:19</a></div></div>
-<div class="ttc" id="aclass_ode_i_r_k_html_a99c65d6aa8ac4409e320209eef52cb27"><div class="ttname"><a href="class_ode_i_r_k.html#a99c65d6aa8ac4409e320209eef52cb27">OdeIRK::kall_</a></div><div class="ttdeci">double * kall_</div><div class="ttdoc">pointer to single array storing all stage k values</div><div class="ttdef"><b>Definition:</b> <a href="ode__irk_8h_source.html#l00021">ode_irk.h:21</a></div></div>
-<div class="ttc" id="aclass_ode_i_r_k_html_a4198c3239c732fc7546ba05957e6840e"><div class="ttname"><a href="class_ode_i_r_k.html#a4198c3239c732fc7546ba05957e6840e">OdeIRK::k_</a></div><div class="ttdeci">double ** k_</div><div class="ttdoc">individual k arrays for each stage</div><div class="ttdef"><b>Definition:</b> <a href="ode__irk_8h_source.html#l00023">ode_irk.h:23</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -1,3 +1,5 @@
+//! \file ode_row6a.cc
+
 #include "ode_row6a.h"
 
 OdeROW6A::OdeROW6A (unsigned long neq) :

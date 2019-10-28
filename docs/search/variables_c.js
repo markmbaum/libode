@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['sol_5f_470',['sol_',['../class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb',1,'OdeBase::sol_()'],['../class_ode_newton_bridge.html#ad437e33bf4c2149a752df20bc57cd5fe',1,'OdeNewtonBridge::sol_()']]],
-  ['solemb_5f_471',['solemb_',['../class_ode_embedded.html#a6da8dbb1149e7a4a016f5b30ace47be0',1,'OdeEmbedded']]],
-  ['soltemp_5f_472',['soltemp_',['../class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439',1,'OdeERK::soltemp_()'],['../class_ode_newton_bridge.html#ae056613b9e59355e95ca019252f11438',1,'OdeNewtonBridge::soltemp_()'],['../class_ode_rosenbrock.html#a0a0ba7505c3c5c399da0fd94ba4d0cc3',1,'OdeRosenbrock::soltemp_()']]]
+  ['reljacdel_5f_549',['reljacdel_',['../class_ode_base.html#a0fe649817eede448c6ae137fb568ddfe',1,'OdeBase']]],
+  ['reltol_5f_550',['reltol_',['../class_ode_adaptive.html#a47b3f3f1dc7c3d082794937c2d3398b3',1,'OdeAdaptive']]],
+  ['rhs_5f_551',['rhs_',['../class_ode_rosenbrock.html#a2ff2276f2b498a81a497d1614bd8542a',1,'OdeRosenbrock']]]
 ];

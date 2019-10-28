@@ -1,3 +1,5 @@
+//! \file ode_ssp_3.cc
+
 #include "ode_ssp_3.h"
 
 OdeSsp3::OdeSsp3 (unsigned long neq) :

@@ -1,5 +1,7 @@
 """
-This is a short script to remove compiled objects, executables, grid files, and model output. It will remove all non-hidden files in the 'obj', 'bin', and 'out' directories. To specify which of these folders to target, use folder names at the command line.
+This is a short script to remove compiled objects and executables.
+It removes all non-hidden files in the 'obj', 'bin', and 'out' directories.
+To specify which of these folders to target, use folder names at the command line.
 """
 
 import os

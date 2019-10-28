@@ -1,3 +1,5 @@
+//! \file ode_dopri_87.cc
+
 #include "ode_dopri_87.h"
 
 OdeDoPri87::OdeDoPri87 (unsigned long neq) :

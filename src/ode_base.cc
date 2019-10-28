@@ -1,9 +1,15 @@
+//! \file ode_base.cc
+
 #include "ode_base.h"
 
 OdeBase::OdeBase (unsigned long neq, bool need_jac) {
 
     //default system name
     name_ = "ode";
+    //whether stuff should be printed during a solve
+    quiet_ = false;
+    //boolean determining if prescribed adapting is on
+    prescribe_adapt_ = false;
     //number of equations/variables in ode system
     neq_ = neq;
     //time starts at zero unless modified
@@ -30,7 +36,6 @@ OdeBase::OdeBase (unsigned long neq, bool need_jac) {
         //arrays for numerical Jacobian
         f_ = new double[neq];
         g_ = new double[neq];
-        soljac_ = new double[neq];
         //adjustment factors for numerical jacobian
         absjacdel_ = 1e-8;
         reljacdel_ = 1e-8;
@@ -44,7 +49,6 @@ OdeBase::~OdeBase () {
         delete [] Jac_;
         delete [] f_;
         delete [] g_;
-        delete [] soljac_;
     }
 }
 
@@ -123,7 +127,7 @@ void OdeBase::snap (std::string dirout, long isnap, double tsnap) {
     //write output
     ode_write(fnout.data(), sol_, neq_);
     //progress report
-    printf("    snap %li written\n", isnap);
+    if (!quiet_) printf("    snap %li written\n", isnap);
     //do any extra snapping stuff
     after_snap(dirout, isnap, tsnap);
 }
@@ -174,7 +178,11 @@ void OdeBase::solve_fixed_ (double tint, double dt) {
     //stopping time
     double tend = t_ + tint;
     //solve to within a time step of tend
-    while ( !solve_done(dt, tend) ) step(dt);
+    while ( !solve_done(dt, tend) ) {
+        step(dt);
+        //get a new time step if it is prescribed
+        if (prescribe_adapt_) dt = prescribe_adapt_dt();
+    }
     //solve a fractional time step to finish
     step(tend - t_);
 }
@@ -202,7 +210,8 @@ void OdeBase::solve_fixed (double tint, double dt, const char* dirout, int inter
     //indices
     unsigned long i, j, sto;
     //output file strings
-    std::string fnout, dirout_ = dirout;
+    std::string fnout;
+    dirout_ = dirout;
     //stopping time
     double tend = t_ + tint;
     //number of steps to be taken
@@ -223,6 +232,8 @@ void OdeBase::solve_fixed (double tint, double dt, const char* dirout, int inter
     for (j=1; j<nste-1; j++) {
         //take a step
         step(dt);
+        //get a new time step if it is prescribed
+        if (prescribe_adapt_) dt = prescribe_adapt_dt();
         //capture values
         if ( j % inter == 0 ) {
             after_capture(t_);
@@ -251,6 +262,9 @@ void OdeBase::solve_fixed (double tint, double dt, const char* dirout, int inter
     //free up the output arrays
     delete [] tout;
     delete [] solout;
+
+    //clear output directory
+    dirout_ = "";
 }
 
 void OdeBase::solve_fixed (double tint, double dt, unsigned long nsnap, const char *dirout) {
@@ -276,8 +290,8 @@ void OdeBase::solve_fixed (double dt, double *tsnap, unsigned long nsnap, const 
     check_pre_snaps(dt, tsnap, nsnap);
     //index
     unsigned long i;
-    //make a string out of the output directory
-    std::string dirout_ = dirout;
+    //store the output directory
+    dirout_ = dirout;
 
     //extra initial things (to be overridden in derived class)
     before_solve();
@@ -292,6 +306,9 @@ void OdeBase::solve_fixed (double dt, double *tsnap, unsigned long nsnap, const 
 
     //extra completion things
     after_solve();
+
+    //clear output directory
+    dirout_ = "";
 }
 
 //-----
@@ -305,6 +322,11 @@ void OdeBase::reset (double t, double *sol) {
 
 //------
 //extras
+
+double OdeBase::prescribe_adapt_dt () {
+    ode_print_exit("the prescribe_adapt_dt() function wasn't overridden, so it can't be used.");
+    return(NAN);
+}
 
 void OdeBase::before_solve () { /* virtual, left to derived class */ }
 

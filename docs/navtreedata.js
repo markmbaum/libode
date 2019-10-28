@@ -24,13 +24,17 @@ var NAVTREE =
 [
   [ "libode", "index.html", [
     [ "Compiling", "index.html#sec_compiling", null ],
-    [ "Using the Solvers", "index.html#sec_usage", null ],
+    [ "Using the Solvers", "index.html#sec_usage", [
+      [ "Define a Class", "index.html#subsec_classes", null ],
+      [ "Call an Integration Function", "index.html#subsec_integrate", null ],
+      [ "Flexibly Adapt the Time Step", "index.html#subsec_padapt", null ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ]
       ] ]
@@ -48,7 +52,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"functions_vars.html"
+"class_ode_vern76.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

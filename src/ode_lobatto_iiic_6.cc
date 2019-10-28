@@ -1,3 +1,5 @@
+//! \file ode_lobatto_iiic_6.cc
+
 #include "ode_lobatto_iiic_6.h"
 
 void NewtonLobattoIIIC6::f_Newton (double *x, double *y) {

@@ -1,4 +1,4 @@
-issues to address
+things to immediately address, given the time...
 
 * Adaptive step sizing for implicit methods is crucial.
 
@@ -6,8 +6,10 @@ issues to address
 
 * Initial guess of k values for nonlinear solves in implicit methods.
 
-* Implement an L-stable Rosenbrock method.
+* L-stable Rosenbrock method.
 
 * Look into extra steps taken when snapping in an adaptive solves.
 
-* Compiler warnings with long long datatypes
+* Compiler warnings with long long datatypes with old g++ versions
+
+* Tridiagonal matrix support

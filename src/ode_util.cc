@@ -1,3 +1,5 @@
+//! \file ode_util.cc
+
 #include "ode_util.h"
 
 double ode_max2 (double a, double b) {

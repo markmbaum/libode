@@ -190,22 +190,8 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ode__rosenbrock_8cc_source.html#l00003">3</a> of file <a class="el" href="ode__rosenbrock_8cc_source.html">ode_rosenbrock.cc</a>.</p>
-<div class="fragment"><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;                                                       {</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <span class="comment">//stage count</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    nk_ = nk;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="comment">//set up stage derivatives</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_ode_rosenbrock.html#ad955e89231dabb19f9393aab76372dc1">k_</a> = <span class="keyword">new</span> <span class="keywordtype">double</span>*[nk];</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;nk; i++) <a class="code" href="class_ode_rosenbrock.html#ad955e89231dabb19f9393aab76372dc1">k_</a>[i] = <span class="keyword">new</span> <span class="keywordtype">double</span>[neq];</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="comment">//allocate permutation array</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_ode_rosenbrock.html#a993a1fa061e48040fd361154107bf86b">p_</a> = <span class="keyword">new</span> <span class="keywordtype">int</span>[neq];</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="comment">//right hand side of matrix equations</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="class_ode_rosenbrock.html#a2ff2276f2b498a81a497d1614bd8542a">rhs_</a> = <span class="keyword">new</span> <span class="keywordtype">double</span>[neq];</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment">//temporary sol vector</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_ode_rosenbrock.html#a0a0ba7505c3c5c399da0fd94ba4d0cc3">soltemp_</a> = <span class="keyword">new</span> <span class="keywordtype">double</span>[neq];</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
-</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="ode__rosenbrock_8cc_source.html#l00005">5</a> of file <a class="el" href="ode__rosenbrock_8cc_source.html">ode_rosenbrock.cc</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -266,20 +252,8 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ode__rosenbrock_8cc_source.html#l00026">26</a> of file <a class="el" href="ode__rosenbrock_8cc_source.html">ode_rosenbrock.cc</a>.</p>
-<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                                                                              {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> i,j;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;n; i++) {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="comment">//flip the sign of the Jacobian across the row and multiply by gam*dt</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">for</span> (j=0; j&lt;n; j++) Jac[i][j] = -Jac[i][j]*<a class="code" href="class_ode_rosenbrock.html#a78e6ee3df94411faa3f2001cd67af153">gam</a>*dt;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="comment">//subtract it from the identity matrix</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        Jac[i][i] += 1.0;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="ode__linalg_8h.html#a8b99761e7b8b0d26146922ed3a7ef002">ode_crout_LU</a>(Jac, n, p);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
-</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="ode__rosenbrock_8cc_source.html#l00028">28</a> of file <a class="el" href="ode__rosenbrock_8cc_source.html">ode_rosenbrock.cc</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -288,12 +262,6 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_ode_rosenbrock_html_a0a0ba7505c3c5c399da0fd94ba4d0cc3"><div class="ttname"><a href="class_ode_rosenbrock.html#a0a0ba7505c3c5c399da0fd94ba4d0cc3">OdeRosenbrock::soltemp_</a></div><div class="ttdeci">double * soltemp_</div><div class="ttdoc">temporary sol vector</div><div class="ttdef"><b>Definition:</b> <a href="ode__rosenbrock_8h_source.html#l00029">ode_rosenbrock.h:29</a></div></div>
-<div class="ttc" id="aclass_ode_rosenbrock_html_a993a1fa061e48040fd361154107bf86b"><div class="ttname"><a href="class_ode_rosenbrock.html#a993a1fa061e48040fd361154107bf86b">OdeRosenbrock::p_</a></div><div class="ttdeci">int * p_</div><div class="ttdoc">permutation array for LU factorization</div><div class="ttdef"><b>Definition:</b> <a href="ode__rosenbrock_8h_source.html#l00025">ode_rosenbrock.h:25</a></div></div>
-<div class="ttc" id="aode__linalg_8h_html_a8b99761e7b8b0d26146922ed3a7ef002"><div class="ttname"><a href="ode__linalg_8h.html#a8b99761e7b8b0d26146922ed3a7ef002">ode_crout_LU</a></div><div class="ttdeci">void ode_crout_LU(double **A, int n, int *p)</div><div class="ttdoc">Crout LU decomposition.</div><div class="ttdef"><b>Definition:</b> <a href="ode__linalg_8cc_source.html#l00025">ode_linalg.cc:25</a></div></div>
-<div class="ttc" id="aclass_ode_rosenbrock_html_a2ff2276f2b498a81a497d1614bd8542a"><div class="ttname"><a href="class_ode_rosenbrock.html#a2ff2276f2b498a81a497d1614bd8542a">OdeRosenbrock::rhs_</a></div><div class="ttdeci">double * rhs_</div><div class="ttdoc">right hand side of matrix equations</div><div class="ttdef"><b>Definition:</b> <a href="ode__rosenbrock_8h_source.html#l00027">ode_rosenbrock.h:27</a></div></div>
-<div class="ttc" id="aclass_ode_rosenbrock_html_ad955e89231dabb19f9393aab76372dc1"><div class="ttname"><a href="class_ode_rosenbrock.html#ad955e89231dabb19f9393aab76372dc1">OdeRosenbrock::k_</a></div><div class="ttdeci">double ** k_</div><div class="ttdoc">stage derivatives</div><div class="ttdef"><b>Definition:</b> <a href="ode__rosenbrock_8h_source.html#l00031">ode_rosenbrock.h:31</a></div></div>
-<div class="ttc" id="aclass_ode_rosenbrock_html_a78e6ee3df94411faa3f2001cd67af153"><div class="ttname"><a href="class_ode_rosenbrock.html#a78e6ee3df94411faa3f2001cd67af153">OdeRosenbrock::gam</a></div><div class="ttdeci">double gam</div><div class="ttdoc">parameter multipying Jacobian or single diagonal gamma</div><div class="ttdef"><b>Definition:</b> <a href="ode__rosenbrock_8h_source.html#l00023">ode_rosenbrock.h:23</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

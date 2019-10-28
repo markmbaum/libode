@@ -90,168 +90,169 @@ $(document).ready(function(){initNavTree('ode__vern__65_8cc_source.html','');});
 <div class="title">ode_vern_65.cc</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ode__vern__65_8h.html">ode_vern_65.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="class_ode_vern65.html#aa6d4054daeeac3adfcbda991acf0d84e">    3</a></span>&#160;<a class="code" href="class_ode_vern65.html#aa6d4054daeeac3adfcbda991acf0d84e">OdeVern65::OdeVern65</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> neq) :</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <a class="code" href="class_ode_embedded.html">OdeEmbedded</a> (neq, false, 5),</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <a class="code" href="class_ode_r_k.html">OdeRK</a> (neq, 9),</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <a class="code" href="class_ode_e_r_k.html">OdeERK</a> (neq) {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_ode_base.html#a97664b1b92f1bd516c0966a920032d74">method_</a> = <span class="stringliteral">&quot;Vern65&quot;</span>;</div>
+<a href="ode__vern__65_8cc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ode__vern__65_8h.html">ode_vern_65.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="class_ode_vern65.html#aa6d4054daeeac3adfcbda991acf0d84e">    5</a></span>&#160;<a class="code" href="class_ode_vern65.html#aa6d4054daeeac3adfcbda991acf0d84e">OdeVern65::OdeVern65</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> neq) :</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <a class="code" href="class_ode_embedded.html">OdeEmbedded</a> (neq, false, 5),</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <a class="code" href="class_ode_r_k.html">OdeRK</a> (neq, 9),</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_ode_e_r_k.html">OdeERK</a> (neq) {</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">    coefficients copied from:</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">        http://people.math.sfu.ca/~jverner/</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">        http://people.math.sfu.ca/~jverner/RKV65.IIIXb.Efficient.00000144617.081204.CoeffsOnlyFLOAT</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">    */</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    c2 = 0.06;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    c3 = 0.09593333333333333333333333333333333333333;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    c4 = 0.1439;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    c5 = 0.4973;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    c6 = 0.9725;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    c7 = 0.9995;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    c8 = 1.0;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    c9 = 1.0;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    a21 =  c2;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="class_ode_base.html#a97664b1b92f1bd516c0966a920032d74">method_</a> = <span class="stringliteral">&quot;Vern65&quot;</span>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">    coefficients copied from:</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">        http://people.math.sfu.ca/~jverner/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">        http://people.math.sfu.ca/~jverner/RKV65.IIIXb.Efficient.00000144617.081204.CoeffsOnlyFLOAT</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">    */</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    c2 = 0.06;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    c3 = 0.09593333333333333333333333333333333333333;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    c4 = 0.1439;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    c5 = 0.4973;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    c6 = 0.9725;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    c7 = 0.9995;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    c8 = 1.0;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    c9 = 1.0;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    a31 =  0.01923996296296296296296296296296296296296;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    a32 =  0.07669337037037037037037037037037037037037;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    a41 =  0.035975;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    a43 =  0.107925;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    a51 =  1.318683415233148260919747276431735612861;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    a53 = -5.042058063628562225427761634715637693344;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    a54 =  4.220674648395413964508014358283902080483;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    a61 = -41.87259166432751461803757780644346812905;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    a63 =  159.4325621631374917700365669070346830453;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    a64 = -122.1192135650100309202516203389242140663;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    a65 =  5.531743066200053768252631238332999150076;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    a71 = -54.43015693531650433250642051294142461271;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    a73 =  207.0672513650184644273657173866509835987;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    a74 = -158.6108137845899991828742424365058599469;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    a75 =  6.991816585950242321992597280791793907096;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    a76 = -0.01859723106220323397765171799549294623692;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    a81 = -54.66374178728197680241215648050386959351;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    a83 =  207.9528062553893734515824816699834244238;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    a84 = -159.2889574744995071508959805871426654216;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    a85 =  7.018743740796944434698170760964252490817;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    a86 = -0.01833878590504572306472782005141738268361;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    a87 = -0.0005119484997882099077875432497245168395840;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    a91 =  0.03438957868357036009278820124728322386520;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    a94 =  0.2582624555633503404659558098586120858767;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    a95 =  0.4209371189673537150642551514069801967032;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    a96 =  4.405396469669310170148836816197095664891;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    a97 = -176.4831190242986576151740942499002125029;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    a98 =  172.3641334014150730294022582711902413315;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    b1 =  0.03438957868357036009278820124728322386520;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    b4 =  0.2582624555633503404659558098586120858767;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    b5 =  0.4209371189673537150642551514069801967032;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    b6 =  4.405396469669310170148836816197095664891;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    b7 = -176.4831190242986576151740942499002125029;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    b8 =  172.3641334014150730294022582711902413315;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    d1 =  0.04909967648382489730906854927971225836479;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    d4 =  0.2251112229516524153401395320539875329485;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    d5 =  0.4694682253029562039431948525047387412553;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    d6 =  0.8065792249988867707634161808995217981443;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    d8 = -0.6071194891777959797672951465256217122488;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    d9 =  0.05686113944047569241147603178766138153594;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordtype">void</span> OdeVern65::step_ (<span class="keywordtype">double</span> dt) {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    a21 =  c2;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    a31 =  0.01923996296296296296296296296296296296296;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    a32 =  0.07669337037037037037037037037037037037037;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    a41 =  0.035975;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    a43 =  0.107925;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    a51 =  1.318683415233148260919747276431735612861;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    a53 = -5.042058063628562225427761634715637693344;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    a54 =  4.220674648395413964508014358283902080483;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    a61 = -41.87259166432751461803757780644346812905;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    a63 =  159.4325621631374917700365669070346830453;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    a64 = -122.1192135650100309202516203389242140663;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    a65 =  5.531743066200053768252631238332999150076;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    a71 = -54.43015693531650433250642051294142461271;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    a73 =  207.0672513650184644273657173866509835987;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    a74 = -158.6108137845899991828742424365058599469;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    a75 =  6.991816585950242321992597280791793907096;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    a76 = -0.01859723106220323397765171799549294623692;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    a81 = -54.66374178728197680241215648050386959351;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    a83 =  207.9528062553893734515824816699834244238;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    a84 = -159.2889574744995071508959805871426654216;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    a85 =  7.018743740796944434698170760964252490817;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    a86 = -0.01833878590504572306472782005141738268361;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    a87 = -0.0005119484997882099077875432497245168395840;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    a91 =  0.03438957868357036009278820124728322386520;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    a94 =  0.2582624555633503404659558098586120858767;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    a95 =  0.4209371189673537150642551514069801967032;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    a96 =  4.405396469669310170148836816197095664891;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    a97 = -176.4831190242986576151740942499002125029;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    a98 =  172.3641334014150730294022582711902413315;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    b1 =  0.03438957868357036009278820124728322386520;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    b4 =  0.2582624555633503404659558098586120858767;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    b5 =  0.4209371189673537150642551514069801967032;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    b6 =  4.405396469669310170148836816197095664891;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    b7 = -176.4831190242986576151740942499002125029;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    b8 =  172.3641334014150730294022582711902413315;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    d1 =  0.04909967648382489730906854927971225836479;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    d4 =  0.2251112229516524153401395320539875329485;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    d5 =  0.4694682253029562039431948525047387412553;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    d6 =  0.8065792249988867707634161808995217981443;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    d8 = -0.6071194891777959797672951465256217122488;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    d9 =  0.05686113944047569241147603178766138153594;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> i;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keywordtype">void</span> OdeVern65::step_ (<span class="keywordtype">double</span> dt) {</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="comment">//------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="class_ode_base.html#aa8091c31642f638d0662af8c721f1a56">ode_fun_</a>(<a class="code" href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">sol_</a>, <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[0]);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">//------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;<a class="code" href="class_ode_base.html#abfccb98490968e31a0659e41cbc3a0cc">neq_</a>; i++) <a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>[i] = <a class="code" href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">sol_</a>[i] + dt*a21*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[0][i];</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="class_ode_base.html#aa8091c31642f638d0662af8c721f1a56">ode_fun_</a>(<a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>, <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[1]);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">//------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;<a class="code" href="class_ode_base.html#abfccb98490968e31a0659e41cbc3a0cc">neq_</a>; i++) <a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>[i] = <a class="code" href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">sol_</a>[i] + dt*(a31*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[0][i]</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                                                     + a32*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[1][i]);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <a class="code" href="class_ode_base.html#aa8091c31642f638d0662af8c721f1a56">ode_fun_</a>(<a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>, <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[2]);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="comment">//------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;<a class="code" href="class_ode_base.html#abfccb98490968e31a0659e41cbc3a0cc">neq_</a>; i++) <a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>[i] = <a class="code" href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">sol_</a>[i] + dt*(a41*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[0][i]</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                                                     + a43*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[2][i]);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <a class="code" href="class_ode_base.html#aa8091c31642f638d0662af8c721f1a56">ode_fun_</a>(<a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>, <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[3]);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="comment">//------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;<a class="code" href="class_ode_base.html#abfccb98490968e31a0659e41cbc3a0cc">neq_</a>; i++) <a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>[i] = <a class="code" href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">sol_</a>[i] + dt*(a51*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[0][i]</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                                                     + a53*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[2][i]</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                                                     + a54*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[3][i]);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="class_ode_base.html#aa8091c31642f638d0662af8c721f1a56">ode_fun_</a>(<a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>, <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[4]);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="comment">//------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;<a class="code" href="class_ode_base.html#abfccb98490968e31a0659e41cbc3a0cc">neq_</a>; i++) <a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>[i] = <a class="code" href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">sol_</a>[i] + dt*(a61*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[0][i]</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                                                     + a63*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[2][i]</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                                                     + a64*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[3][i]</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                                                     + a65*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[4][i]);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <a class="code" href="class_ode_base.html#aa8091c31642f638d0662af8c721f1a56">ode_fun_</a>(<a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>, <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[5]);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="comment">//------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;<a class="code" href="class_ode_base.html#abfccb98490968e31a0659e41cbc3a0cc">neq_</a>; i++) <a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>[i] = <a class="code" href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">sol_</a>[i] + dt*(a71*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[0][i]</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                                                     + a73*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[2][i]</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                                                     + a74*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[3][i]</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                                                     + a75*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[4][i]</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                                                     + a76*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[5][i]);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <a class="code" href="class_ode_base.html#aa8091c31642f638d0662af8c721f1a56">ode_fun_</a>(<a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>, <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[6]);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="comment">//------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;<a class="code" href="class_ode_base.html#abfccb98490968e31a0659e41cbc3a0cc">neq_</a>; i++) <a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>[i] = <a class="code" href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">sol_</a>[i] + dt*(a81*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[0][i]</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                                                     + a83*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[2][i]</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                                                     + a84*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[3][i]</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                                                     + a85*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[4][i]</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                                                     + a86*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[5][i]</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                                                     + a87*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[6][i]);</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <a class="code" href="class_ode_base.html#aa8091c31642f638d0662af8c721f1a56">ode_fun_</a>(<a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>, <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[7]);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="comment">//------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;<a class="code" href="class_ode_base.html#abfccb98490968e31a0659e41cbc3a0cc">neq_</a>; i++) <a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>[i] = <a class="code" href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">sol_</a>[i] + dt*(a91*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[0][i]</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                                                     + a94*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[3][i]</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                                                     + a95*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[4][i]</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                                                     + a96*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[5][i]</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                                                     + a97*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[6][i]</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                                                     + a98*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[7][i]);</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <a class="code" href="class_ode_base.html#aa8091c31642f638d0662af8c721f1a56">ode_fun_</a>(<a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>, <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[8]);</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="comment">//------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;<a class="code" href="class_ode_base.html#abfccb98490968e31a0659e41cbc3a0cc">neq_</a>; i++) {</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <a class="code" href="class_ode_embedded.html#a6da8dbb1149e7a4a016f5b30ace47be0">solemb_</a>[i] = <a class="code" href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">sol_</a>[i] + dt*(d1*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[0][i]</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                                 + d4*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[3][i]</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                                 + d5*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[4][i]</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                                 + d6*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[5][i]</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                                 + d8*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[7][i]</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                                 + d9*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[8][i]);</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <a class="code" href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">sol_</a>[i] = <a class="code" href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">sol_</a>[i] + dt*(b1*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[0][i]</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                              + b4*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[3][i]</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                              + b5*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[4][i]</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                              + b6*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[5][i]</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                              + b7*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[6][i]</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                              + b8*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[7][i]);</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    }</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;}</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> i;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">//------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="class_ode_base.html#aa8091c31642f638d0662af8c721f1a56">ode_fun_</a>(<a class="code" href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">sol_</a>, <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[0]);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="comment">//------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;<a class="code" href="class_ode_base.html#abfccb98490968e31a0659e41cbc3a0cc">neq_</a>; i++) <a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>[i] = <a class="code" href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">sol_</a>[i] + dt*a21*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[0][i];</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="class_ode_base.html#aa8091c31642f638d0662af8c721f1a56">ode_fun_</a>(<a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>, <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[1]);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">//------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;<a class="code" href="class_ode_base.html#abfccb98490968e31a0659e41cbc3a0cc">neq_</a>; i++) <a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>[i] = <a class="code" href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">sol_</a>[i] + dt*(a31*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[0][i]</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                                                     + a32*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[1][i]);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <a class="code" href="class_ode_base.html#aa8091c31642f638d0662af8c721f1a56">ode_fun_</a>(<a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>, <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[2]);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="comment">//------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;<a class="code" href="class_ode_base.html#abfccb98490968e31a0659e41cbc3a0cc">neq_</a>; i++) <a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>[i] = <a class="code" href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">sol_</a>[i] + dt*(a41*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[0][i]</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                                                     + a43*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[2][i]);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <a class="code" href="class_ode_base.html#aa8091c31642f638d0662af8c721f1a56">ode_fun_</a>(<a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>, <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[3]);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment">//------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;<a class="code" href="class_ode_base.html#abfccb98490968e31a0659e41cbc3a0cc">neq_</a>; i++) <a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>[i] = <a class="code" href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">sol_</a>[i] + dt*(a51*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[0][i]</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                                                     + a53*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[2][i]</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                                                     + a54*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[3][i]);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <a class="code" href="class_ode_base.html#aa8091c31642f638d0662af8c721f1a56">ode_fun_</a>(<a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>, <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[4]);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="comment">//------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;<a class="code" href="class_ode_base.html#abfccb98490968e31a0659e41cbc3a0cc">neq_</a>; i++) <a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>[i] = <a class="code" href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">sol_</a>[i] + dt*(a61*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[0][i]</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                                                     + a63*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[2][i]</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                                                     + a64*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[3][i]</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                                                     + a65*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[4][i]);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <a class="code" href="class_ode_base.html#aa8091c31642f638d0662af8c721f1a56">ode_fun_</a>(<a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>, <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[5]);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="comment">//------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;<a class="code" href="class_ode_base.html#abfccb98490968e31a0659e41cbc3a0cc">neq_</a>; i++) <a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>[i] = <a class="code" href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">sol_</a>[i] + dt*(a71*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[0][i]</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                                                     + a73*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[2][i]</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                                                     + a74*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[3][i]</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                                                     + a75*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[4][i]</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                                                     + a76*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[5][i]);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <a class="code" href="class_ode_base.html#aa8091c31642f638d0662af8c721f1a56">ode_fun_</a>(<a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>, <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[6]);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="comment">//------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;<a class="code" href="class_ode_base.html#abfccb98490968e31a0659e41cbc3a0cc">neq_</a>; i++) <a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>[i] = <a class="code" href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">sol_</a>[i] + dt*(a81*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[0][i]</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                                                     + a83*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[2][i]</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                                                     + a84*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[3][i]</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                                                     + a85*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[4][i]</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                                                     + a86*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[5][i]</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                                                     + a87*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[6][i]);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <a class="code" href="class_ode_base.html#aa8091c31642f638d0662af8c721f1a56">ode_fun_</a>(<a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>, <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[7]);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="comment">//------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;<a class="code" href="class_ode_base.html#abfccb98490968e31a0659e41cbc3a0cc">neq_</a>; i++) <a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>[i] = <a class="code" href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">sol_</a>[i] + dt*(a91*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[0][i]</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                                                     + a94*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[3][i]</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                                                     + a95*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[4][i]</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                                                     + a96*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[5][i]</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                                                     + a97*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[6][i]</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                                                     + a98*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[7][i]);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <a class="code" href="class_ode_base.html#aa8091c31642f638d0662af8c721f1a56">ode_fun_</a>(<a class="code" href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">soltemp_</a>, <a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[8]);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="comment">//------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;<a class="code" href="class_ode_base.html#abfccb98490968e31a0659e41cbc3a0cc">neq_</a>; i++) {</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        <a class="code" href="class_ode_embedded.html#a6da8dbb1149e7a4a016f5b30ace47be0">solemb_</a>[i] = <a class="code" href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">sol_</a>[i] + dt*(d1*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[0][i]</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                                 + d4*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[3][i]</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                                 + d5*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[4][i]</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                                 + d6*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[5][i]</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                                 + d8*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[7][i]</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                                 + d9*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[8][i]);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <a class="code" href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">sol_</a>[i] = <a class="code" href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">sol_</a>[i] + dt*(b1*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[0][i]</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                              + b4*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[3][i]</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                              + b5*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[4][i]</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                              + b6*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[5][i]</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                              + b7*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[6][i]</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                              + b8*<a class="code" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a>[7][i]);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    }</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_ode_base_html_af60cb3aa4f84aeb69e4119b511d7fcbb"><div class="ttname"><a href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">OdeBase::sol_</a></div><div class="ttdeci">double * sol_</div><div class="ttdoc">array for the solution, changing over time</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8h_source.html#l00187">ode_base.h:187</a></div></div>
-<div class="ttc" id="aclass_ode_base_html_abfccb98490968e31a0659e41cbc3a0cc"><div class="ttname"><a href="class_ode_base.html#abfccb98490968e31a0659e41cbc3a0cc">OdeBase::neq_</a></div><div class="ttdeci">unsigned long neq_</div><div class="ttdoc">number of equations in the system of ODEs</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8h_source.html#l00181">ode_base.h:181</a></div></div>
-<div class="ttc" id="aclass_ode_base_html_a97664b1b92f1bd516c0966a920032d74"><div class="ttname"><a href="class_ode_base.html#a97664b1b92f1bd516c0966a920032d74">OdeBase::method_</a></div><div class="ttdeci">std::string method_</div><div class="ttdoc">the &quot;name&quot; of the solver/method, as in &quot;Euler&quot; or &quot;RK4&quot;</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8h_source.html#l00179">ode_base.h:179</a></div></div>
+<div class="ttc" id="aclass_ode_base_html_af60cb3aa4f84aeb69e4119b511d7fcbb"><div class="ttname"><a href="class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb">OdeBase::sol_</a></div><div class="ttdeci">double * sol_</div><div class="ttdoc">array for the solution, changing over time</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8h_source.html#l00220">ode_base.h:220</a></div></div>
+<div class="ttc" id="aclass_ode_base_html_abfccb98490968e31a0659e41cbc3a0cc"><div class="ttname"><a href="class_ode_base.html#abfccb98490968e31a0659e41cbc3a0cc">OdeBase::neq_</a></div><div class="ttdeci">unsigned long neq_</div><div class="ttdoc">number of equations in the system of ODEs</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8h_source.html#l00214">ode_base.h:214</a></div></div>
+<div class="ttc" id="aclass_ode_base_html_a97664b1b92f1bd516c0966a920032d74"><div class="ttname"><a href="class_ode_base.html#a97664b1b92f1bd516c0966a920032d74">OdeBase::method_</a></div><div class="ttdeci">std::string method_</div><div class="ttdoc">the &quot;name&quot; of the solver/method, as in &quot;Euler&quot; or &quot;RK4&quot;</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8h_source.html#l00206">ode_base.h:206</a></div></div>
 <div class="ttc" id="aclass_ode_e_r_k_html_a45ef6771abf1a450ff880138d3d38439"><div class="ttname"><a href="class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439">OdeERK::soltemp_</a></div><div class="ttdeci">double * soltemp_</div><div class="ttdoc">temporary solution vector</div><div class="ttdef"><b>Definition:</b> <a href="ode__erk_8h_source.html#l00020">ode_erk.h:20</a></div></div>
-<div class="ttc" id="aclass_ode_base_html_aa8091c31642f638d0662af8c721f1a56"><div class="ttname"><a href="class_ode_base.html#aa8091c31642f638d0662af8c721f1a56">OdeBase::ode_fun_</a></div><div class="ttdeci">void ode_fun_(double *solin, double *fout)</div><div class="ttdoc">wrapper, calls ode_fun() and increases the neval counter by one</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8cc_source.html#l00084">ode_base.cc:84</a></div></div>
+<div class="ttc" id="aclass_ode_base_html_aa8091c31642f638d0662af8c721f1a56"><div class="ttname"><a href="class_ode_base.html#aa8091c31642f638d0662af8c721f1a56">OdeBase::ode_fun_</a></div><div class="ttdeci">void ode_fun_(double *solin, double *fout)</div><div class="ttdoc">wrapper, calls ode_fun() and increases the neval counter by one</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8cc_source.html#l00088">ode_base.cc:88</a></div></div>
 <div class="ttc" id="aclass_ode_e_r_k_html"><div class="ttname"><a href="class_ode_e_r_k.html">OdeERK</a></div><div class="ttdoc">Base class with space for temporary solutions moving through RK stages.</div><div class="ttdef"><b>Definition:</b> <a href="ode__erk_8h_source.html#l00007">ode_erk.h:7</a></div></div>
 <div class="ttc" id="aode__vern__65_8h_html"><div class="ttname"><a href="ode__vern__65_8h.html">ode_vern_65.h</a></div></div>
-<div class="ttc" id="aclass_ode_vern65_html_aa6d4054daeeac3adfcbda991acf0d84e"><div class="ttname"><a href="class_ode_vern65.html#aa6d4054daeeac3adfcbda991acf0d84e">OdeVern65::OdeVern65</a></div><div class="ttdeci">OdeVern65(unsigned long neq)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__vern__65_8cc_source.html#l00003">ode_vern_65.cc:3</a></div></div>
+<div class="ttc" id="aclass_ode_vern65_html_aa6d4054daeeac3adfcbda991acf0d84e"><div class="ttname"><a href="class_ode_vern65.html#aa6d4054daeeac3adfcbda991acf0d84e">OdeVern65::OdeVern65</a></div><div class="ttdeci">OdeVern65(unsigned long neq)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__vern__65_8cc_source.html#l00005">ode_vern_65.cc:5</a></div></div>
 <div class="ttc" id="aclass_ode_r_k_html"><div class="ttname"><a href="class_ode_r_k.html">OdeRK</a></div><div class="ttdoc">Provides space for stage slope values.</div><div class="ttdef"><b>Definition:</b> <a href="ode__rk_8h_source.html#l00007">ode_rk.h:7</a></div></div>
 <div class="ttc" id="aclass_ode_embedded_html"><div class="ttname"><a href="class_ode_embedded.html">OdeEmbedded</a></div><div class="ttdoc">Base clase implementing methods for embedded Runge-Kutta error estimation.</div><div class="ttdef"><b>Definition:</b> <a href="ode__embedded_8h_source.html#l00012">ode_embedded.h:12</a></div></div>
 <div class="ttc" id="aclass_ode_embedded_html_a6da8dbb1149e7a4a016f5b30ace47be0"><div class="ttname"><a href="class_ode_embedded.html#a6da8dbb1149e7a4a016f5b30ace47be0">OdeEmbedded::solemb_</a></div><div class="ttdeci">double * solemb_</div><div class="ttdoc">embedded solution array</div><div class="ttdef"><b>Definition:</b> <a href="ode__embedded_8h_source.html#l00052">ode_embedded.h:52</a></div></div>
@@ -259,7 +260,7 @@ $(document).ready(function(){initNavTree('ode__vern__65_8cc_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>ode_vern_65.cc</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="ode__vern__65_8cc.html">ode_vern_65.cc</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>

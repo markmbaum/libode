@@ -3,7 +3,7 @@ var class_ode_embedded =
     [ "OdeEmbedded", "class_ode_embedded.html#a77286aeae8269058c693e879b906e7ae", null ],
     [ "~OdeEmbedded", "class_ode_embedded.html#a3ff05c9ed42ac71c208bba70594beef9", null ],
     [ "adapt", "class_ode_embedded.html#a7754829a40bf5240bcb1ce2f618feb64", null ],
-    [ "dt_next", "class_ode_embedded.html#a73ab9c5453d8006c35111a23666a21c7", null ],
+    [ "dt_adapt", "class_ode_embedded.html#a8d382767b46fe444f53fa170fd143dfc", null ],
     [ "error", "class_ode_embedded.html#a37e8a26a02a8835a3093f0e3d208decc", null ],
     [ "facopt", "class_ode_embedded.html#a682295206b25f0cbc24f792e1cf5a591", null ],
     [ "get_facmax", "class_ode_embedded.html#aa0028520aaa9e8a2ee0472c8048c7a56", null ],

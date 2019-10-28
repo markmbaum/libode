@@ -1,3 +1,5 @@
+//! \file ode_io.cc
+
 #include "ode_io.h"
 
 void ode_check_write (const char *fn) {

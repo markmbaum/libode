@@ -90,42 +90,43 @@ $(document).ready(function(){initNavTree('ode__util_8cc_source.html','');});
 <div class="title">ode_util.cc</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ode__util_8h.html">ode_util.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="ode__util_8h.html#a744ca025c8440d3569164d6d94d80655">    3</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="ode__util_8h.html#a744ca025c8440d3569164d6d94d80655">ode_max2</a> (<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b) {</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <span class="keywordflow">if</span> (a &gt; b) <span class="keywordflow">return</span>(a);</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <span class="keywordflow">return</span>(b);</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;}</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="ode__util_8h.html#a6bace5547ab90756780e363f4dfe6d38">    8</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="ode__util_8h.html#a6bace5547ab90756780e363f4dfe6d38">ode_min2</a> (<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b) {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keywordflow">if</span> (a &lt; b) <span class="keywordflow">return</span>(a);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordflow">return</span>(b);</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="ode__util_8h.html#a912c0393a91a5825cb612ca9d7770356">   13</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="ode__util_8h.html#a912c0393a91a5825cb612ca9d7770356">ode_is_close</a> (<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b, <span class="keywordtype">double</span> thresh) {</div>
+<a href="ode__util_8cc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ode__util_8h.html">ode_util.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="ode__util_8h.html#a744ca025c8440d3569164d6d94d80655">    5</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="ode__util_8cc.html#a744ca025c8440d3569164d6d94d80655">ode_max2</a> (<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b) {</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="keywordflow">if</span> (a &gt; b) <span class="keywordflow">return</span>(a);</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keywordflow">return</span>(b);</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;}</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="ode__util_8h.html#a6bace5547ab90756780e363f4dfe6d38">   10</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="ode__util_8cc.html#a6bace5547ab90756780e363f4dfe6d38">ode_min2</a> (<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b) {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordflow">if</span> (a &lt; b) <span class="keywordflow">return</span>(a);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordflow">return</span>(b);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="comment">//check equality</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">if</span> (a == b) <span class="keywordflow">return</span>(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="comment">//get magnitudes</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">double</span> absa = fabs(a);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">double</span> absb = fabs(b);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">double</span> absd = fabs(a - b);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">//check relative differnence against a threshold</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">if</span> ((absd/absa &lt; thresh) &amp;&amp; (absd/absb &lt; thresh))</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">return</span>(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">//otherwise the numbers aren&#39;t close</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">return</span>(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="ode__util_8h.html#a912c0393a91a5825cb612ca9d7770356">   15</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="ode__util_8cc.html#a912c0393a91a5825cb612ca9d7770356">ode_is_close</a> (<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b, <span class="keywordtype">double</span> thresh) {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="comment">//check equality</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">if</span> (a == b) <span class="keywordflow">return</span>(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">//get magnitudes</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">double</span> absa = fabs(a);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">double</span> absb = fabs(b);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">double</span> absd = fabs(a - b);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">//check relative differnence against a threshold</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">if</span> ((absd/absa &lt; thresh) &amp;&amp; (absd/absb &lt; thresh))</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">return</span>(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">//otherwise the numbers aren&#39;t close</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">return</span>(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aode__util_8h_html_a6bace5547ab90756780e363f4dfe6d38"><div class="ttname"><a href="ode__util_8h.html#a6bace5547ab90756780e363f4dfe6d38">ode_min2</a></div><div class="ttdeci">double ode_min2(double a, double b)</div><div class="ttdoc">simple minimum of two doubles</div><div class="ttdef"><b>Definition:</b> <a href="ode__util_8cc_source.html#l00008">ode_util.cc:8</a></div></div>
+<div class="ttc" id="aode__util_8cc_html_a912c0393a91a5825cb612ca9d7770356"><div class="ttname"><a href="ode__util_8cc.html#a912c0393a91a5825cb612ca9d7770356">ode_is_close</a></div><div class="ttdeci">bool ode_is_close(double a, double b, double thresh)</div><div class="ttdoc">Checks if two numbers are very close to each other.</div><div class="ttdef"><b>Definition:</b> <a href="ode__util_8cc_source.html#l00015">ode_util.cc:15</a></div></div>
+<div class="ttc" id="aode__util_8cc_html_a744ca025c8440d3569164d6d94d80655"><div class="ttname"><a href="ode__util_8cc.html#a744ca025c8440d3569164d6d94d80655">ode_max2</a></div><div class="ttdeci">double ode_max2(double a, double b)</div><div class="ttdoc">Simple maximum of two doubles.</div><div class="ttdef"><b>Definition:</b> <a href="ode__util_8cc_source.html#l00005">ode_util.cc:5</a></div></div>
 <div class="ttc" id="aode__util_8h_html"><div class="ttname"><a href="ode__util_8h.html">ode_util.h</a></div></div>
-<div class="ttc" id="aode__util_8h_html_a912c0393a91a5825cb612ca9d7770356"><div class="ttname"><a href="ode__util_8h.html#a912c0393a91a5825cb612ca9d7770356">ode_is_close</a></div><div class="ttdeci">bool ode_is_close(double a, double b, double thresh)</div><div class="ttdoc">checks if two numbers are very close to each other</div><div class="ttdef"><b>Definition:</b> <a href="ode__util_8cc_source.html#l00013">ode_util.cc:13</a></div></div>
-<div class="ttc" id="aode__util_8h_html_a744ca025c8440d3569164d6d94d80655"><div class="ttname"><a href="ode__util_8h.html#a744ca025c8440d3569164d6d94d80655">ode_max2</a></div><div class="ttdeci">double ode_max2(double a, double b)</div><div class="ttdoc">simple maximum of two doubles</div><div class="ttdef"><b>Definition:</b> <a href="ode__util_8cc_source.html#l00003">ode_util.cc:3</a></div></div>
+<div class="ttc" id="aode__util_8cc_html_a6bace5547ab90756780e363f4dfe6d38"><div class="ttname"><a href="ode__util_8cc.html#a6bace5547ab90756780e363f4dfe6d38">ode_min2</a></div><div class="ttdeci">double ode_min2(double a, double b)</div><div class="ttdoc">Simple minimum of two doubles.</div><div class="ttdef"><b>Definition:</b> <a href="ode__util_8cc_source.html#l00010">ode_util.cc:10</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>ode_util.cc</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="ode__util_8cc.html">ode_util.cc</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>

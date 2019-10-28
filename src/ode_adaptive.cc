@@ -1,3 +1,5 @@
+//! \file ode_adaptive.cc
+
 #include "ode_adaptive.h"
 
 OdeAdaptive::OdeAdaptive (unsigned long neq, bool need_jac) :
@@ -31,7 +33,7 @@ void OdeAdaptive::solve_adaptive_ (double tint, double dt0) {
         //take a step, which might be rejected
         step_adaptive_(dt);
         //compute a new time step
-        dt = dt_next_(tend);
+        dt = dt_adapt_(tend);
     }
 }
 
@@ -57,7 +59,8 @@ void OdeAdaptive::solve_adaptive (double tint, double dt0, const char *dirout, i
     //indices
     unsigned long i, j;
     //output file strings
-    std::string fnout, dirout_ = dirout;
+    std::string fnout;
+    dirout_ = dirout;
     //output vectors
     std::vector<double> tout;
     std::vector<double> *solout = new std::vector<double>[neq_];
@@ -78,7 +81,7 @@ void OdeAdaptive::solve_adaptive (double tint, double dt0, const char *dirout, i
         //take a step
         suc = step_adaptive_(dt);
         //compute a new time step
-        dt = dt_next_(tend);
+        dt = dt_adapt_(tend);
         //if the step was successful, see if values should be stored
         if (suc) {
             //count another successful step
@@ -111,6 +114,9 @@ void OdeAdaptive::solve_adaptive (double tint, double dt0, const char *dirout, i
 
     //free the array of output vectors
     delete [] solout;
+
+    //clear output directory
+    dirout_ = "";
 }
 
 void OdeAdaptive::solve_adaptive (double tint, double dt0, unsigned long nsnap, const char *dirout) {
@@ -134,8 +140,8 @@ void OdeAdaptive::solve_adaptive(double dt0, double *tsnap, unsigned long nsnap,
     check_pre_snaps(dt0, tsnap, nsnap);
     //index
     unsigned long i;
-    //make a string out of the output directory
-    std::string dirout_ = dirout;
+    //store the output directory
+    dirout_ = dirout;
 
     //extra initial things (to be overridden in derived class)
     before_solve();
@@ -148,13 +154,16 @@ void OdeAdaptive::solve_adaptive(double dt0, double *tsnap, unsigned long nsnap,
         //write the current solution to file
         snap(dirout, i, t_);
         //store the estimate for the current best time step
-        dt = dt_next_(INFINITY);
+        dt = dt_adapt_(INFINITY);
     }
     //write the snap times
     ode_write((dirout_ + "/" + name_ + "_snap_t").data(), tsnap, nsnap);
 
     //extra completion things (to be overridden in derived class)
     after_solve();
+
+    //clear output directory
+    dirout_ = "";
 }
 
 bool OdeAdaptive::solve_done_adaptive (double tend) {
@@ -196,10 +205,10 @@ bool OdeAdaptive::step_adaptive_ (double dt) {
     }
 }
 
-double OdeAdaptive::dt_next_ (double tend) {
+double OdeAdaptive::dt_adapt_ (double tend) {
 
     //get next time step from virtual function
-    double dt = dt_next();
+    double dt = dt_adapt();
     //make sure the new dt doesn't exceed the stopping time
     if ( tend < t_ + dt*1.01 ) dt = tend - t_;
     //make sure the new dt is not larger than the maximum time step

@@ -113,8 +113,11 @@ Functions</h2></td></tr>
 <tr class="memdesc:af48d8987b88fac1e47ecdb41e3f4b793"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solves a matrix equation where the matrix has already be crout LU decomposed.  <a href="ode__linalg_8h.html#af48d8987b88fac1e47ecdb41e3f4b793">More...</a><br /></td></tr>
 <tr class="separator:af48d8987b88fac1e47ecdb41e3f4b793"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4336ca95c528c705866581e1a5137da7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ode__linalg_8h.html#a4336ca95c528c705866581e1a5137da7">ode_solve_A</a> (double **A, double *b, int n, double *out)</td></tr>
-<tr class="memdesc:a4336ca95c528c705866581e1a5137da7"><td class="mdescLeft">&#160;</td><td class="mdescRight">solves a matrix equation A x = b with crout LU decomposition  <a href="ode__linalg_8h.html#a4336ca95c528c705866581e1a5137da7">More...</a><br /></td></tr>
+<tr class="memdesc:a4336ca95c528c705866581e1a5137da7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solves a matrix equation A x = b with crout LU decomposition.  <a href="ode__linalg_8h.html#a4336ca95c528c705866581e1a5137da7">More...</a><br /></td></tr>
 <tr class="separator:a4336ca95c528c705866581e1a5137da7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd7ccc07e6012b55308631a3661d8a1e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ode__linalg_8h.html#afd7ccc07e6012b55308631a3661d8a1e">ode_solve_tridiag</a> (double **T, double *r, double *temp, int n, double *out)</td></tr>
+<tr class="memdesc:afd7ccc07e6012b55308631a3661d8a1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solves a tridiagonal matrix equation.  <a href="ode__linalg_8h.html#afd7ccc07e6012b55308631a3661d8a1e">More...</a><br /></td></tr>
+<tr class="separator:afd7ccc07e6012b55308631a3661d8a1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ac52a9d2fe1e82e03f6a5d9b2a56a4cc6"></a>
@@ -166,18 +169,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ode__linalg_8cc_source.html#l00014">14</a> of file <a class="el" href="ode__linalg_8cc_source.html">ode_linalg.cc</a>.</p>
-<div class="fragment"><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                                                              {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=n-1; i&gt;=0; i--) {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        out[i] = b[i];</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=i+1; j&lt;n; j++) {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            out[i] -= U[i][j]*out[j];</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        }</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        out[i] /= U[i][i];</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
-</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="ode__linalg_8cc_source.html#l00016">16</a> of file <a class="el" href="ode__linalg_8cc_source.html">ode_linalg.cc</a>.</p>
+
 </div>
 </div>
 <a id="a8c3ece3d06a9a409508ce0f2463a7336"></a>
@@ -225,7 +218,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Crout forward substitution. </p>
-<p>Performs forward substitution to solve a lower triangular matrix equation where the elements on the main diagonal of the lower triangular matrix are \ assumed to all be 1 </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Performs forward substitution to solve a lower triangular matrix equation where the elements on the main diagonal of the lower triangular matrix are assumed to all be 1. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">L</td><td>n by n lower triangular matrix </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>right hand side of matrix equation U*out = b </td></tr>
@@ -236,18 +229,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ode__linalg_8cc_source.html#l00003">3</a> of file <a class="el" href="ode__linalg_8cc_source.html">ode_linalg.cc</a>.</p>
-<div class="fragment"><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;                                                                            {</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;n; i++) {</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;        out[i] = b[p[i]]; <span class="comment">//the permutation is handled here</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;i; j++) {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;            out[i] -= L[i][j]*out[j];</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        }</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <span class="comment">//element on the diagonal is 1 for crout LU decomposed matrices</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    }</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
-</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="ode__linalg_8cc_source.html#l00005">5</a> of file <a class="el" href="ode__linalg_8cc_source.html">ode_linalg.cc</a>.</p>
+
 </div>
 </div>
 <a id="a8b99761e7b8b0d26146922ed3a7ef002"></a>
@@ -295,54 +278,8 @@ Functions</h2></td></tr>
 </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="ode__linalg_8cc_source.html#l00025">25</a> of file <a class="el" href="ode__linalg_8cc_source.html">ode_linalg.cc</a>.</p>
-<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                                              {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">int</span> i, j, k, idx, ti;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">double</span> m, td;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">//initialize the permutation array</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;n; i++) p[i] = i;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">//move through the matrix</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">for</span> (i=0; i&lt;n; i++) {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="comment">//find the largest element in the column beneath A[i][i]</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        m = 0.0;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        idx = i;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">for</span> (j=i; j&lt;n; j++) {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            td = fabs(A[j][i]);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">if</span> ( td &gt; m ) {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                m = td;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                idx = j;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="comment">//if all elements are zero, the matrix is singular</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">if</span> ( m == 0.0 ) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            printf(<span class="stringliteral">&quot;\nLINALG FAILURE: the matrix is singular\n\n&quot;</span>);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            exit(EXIT_FAILURE);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">//if the largest element isn&#39;t on the diagonal, pivot</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">if</span> ( idx != i ) {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="comment">//swap rows</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">for</span> (j=0; j&lt;n; j++) {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                td = A[i][j];</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                A[i][j] = A[idx][j];</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                A[idx][j] = td;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="comment">//swap permutation indices</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            ti = p[i];</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            p[i] = p[idx];</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            p[idx] = ti;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="comment">//continue with the decomposition</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">for</span> (j=i+1; j&lt;n; j++)</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            A[j][i] /= A[i][i];</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">for</span> (j=i+1; j&lt;n; j++)</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">for</span> (k=i+1; k&lt;n; k++)</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                A[j][k] -= A[j][i]*A[i][k];</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
-</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="ode__linalg_8cc_source.html#l00027">27</a> of file <a class="el" href="ode__linalg_8cc_source.html">ode_linalg.cc</a>.</p>
+
 </div>
 </div>
 <a id="a4336ca95c528c705866581e1a5137da7"></a>
@@ -383,7 +320,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>solves a matrix equation A x = b with crout LU decomposition </p>
+<p>Solves a matrix equation A x = b with crout LU decomposition. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">A</td><td>matrix, is overwritten </td></tr>
@@ -394,21 +331,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ode__linalg_8cc_source.html#l00080">80</a> of file <a class="el" href="ode__linalg_8cc_source.html">ode_linalg.cc</a>.</p>
-<div class="fragment"><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                                                             {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">//make room for permutation array</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">int</span> *p = <span class="keyword">new</span> <span class="keywordtype">int</span>[n];</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">//decompose the matrix</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="ode__linalg_8h.html#a8b99761e7b8b0d26146922ed3a7ef002">ode_crout_LU</a>(A, n, p);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="comment">//run forward substitution, handling the permutation along the way</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="ode__linalg_8h.html#a8c3ece3d06a9a409508ce0f2463a7336">ode_crout_forw_sub</a>(A, b, p, n, out);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">//run backward substitution, overwriting &quot;out&quot; along the way</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="ode__linalg_8h.html#ac52a9d2fe1e82e03f6a5d9b2a56a4cc6">ode_back_sub</a>(A, out, n, out); <span class="comment">//solution is now in &quot;out&quot;</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">//clear p</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">delete</span> [] p;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
-</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="ode__linalg_8cc_source.html#l00082">82</a> of file <a class="el" href="ode__linalg_8cc_source.html">ode_linalg.cc</a>.</p>
+
 </div>
 </div>
 <a id="af48d8987b88fac1e47ecdb41e3f4b793"></a>
@@ -467,22 +391,80 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ode__linalg_8cc_source.html#l00072">72</a> of file <a class="el" href="ode__linalg_8cc_source.html">ode_linalg.cc</a>.</p>
-<div class="fragment"><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                                                                       {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">//run forward substitution, handling the permutation along the way</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="ode__linalg_8h.html#a8c3ece3d06a9a409508ce0f2463a7336">ode_crout_forw_sub</a>(LU, b, p, n, out);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">//run backward substitution, overwriting &quot;out&quot; along the way</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="ode__linalg_8h.html#ac52a9d2fe1e82e03f6a5d9b2a56a4cc6">ode_back_sub</a>(LU, out, n, out); <span class="comment">//solution is now in &quot;out&quot;</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
-</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="ode__linalg_8cc_source.html#l00074">74</a> of file <a class="el" href="ode__linalg_8cc_source.html">ode_linalg.cc</a>.</p>
+
+</div>
+</div>
+<a id="afd7ccc07e6012b55308631a3661d8a1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd7ccc07e6012b55308631a3661d8a1e">&#9670;&nbsp;</a></span>ode_solve_tridiag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ode_solve_tridiag </td>
+          <td>(</td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>temp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>out</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Solves a tridiagonal matrix equation. </p>
+<p>The input matrix <code>T</code> must be in banded storage. This means that the diagonals are placed on rows so that the trigiagonal matrix <code>A</code> </p><pre class="fragment">A = | a00  a01   0    0  |
+    | a10  a11  a12   0  |
+    |  0   a21  a22  a23 |
+    |  0    0   a32  a33 |
+</pre><p>is stored in banded form as the array <code>T</code> </p><pre class="fragment">T = |  *   a01  a12  a23 |
+    | a00  a11  a22  a33 |
+    | a10  a21  a31   *  |
+</pre><p>and the value of the asterisk elements doesn't matter.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">T</td><td>tridiagonal matrix in banded storage form </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>right-hand side of matrix equation </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">temp</td><td>temporary array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>size of matrix and arrays </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td>solution to linear system </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="ode__linalg_8cc_source.html#l00096">96</a> of file <a class="el" href="ode__linalg_8cc_source.html">ode_linalg.cc</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aode__linalg_8h_html_ac52a9d2fe1e82e03f6a5d9b2a56a4cc6"><div class="ttname"><a href="ode__linalg_8h.html#ac52a9d2fe1e82e03f6a5d9b2a56a4cc6">ode_back_sub</a></div><div class="ttdeci">void ode_back_sub(double **U, double *b, int n, double *out)</div><div class="ttdoc">Backward substitution.</div><div class="ttdef"><b>Definition:</b> <a href="ode__linalg_8cc_source.html#l00014">ode_linalg.cc:14</a></div></div>
-<div class="ttc" id="aode__linalg_8h_html_a8b99761e7b8b0d26146922ed3a7ef002"><div class="ttname"><a href="ode__linalg_8h.html#a8b99761e7b8b0d26146922ed3a7ef002">ode_crout_LU</a></div><div class="ttdeci">void ode_crout_LU(double **A, int n, int *p)</div><div class="ttdoc">Crout LU decomposition.</div><div class="ttdef"><b>Definition:</b> <a href="ode__linalg_8cc_source.html#l00025">ode_linalg.cc:25</a></div></div>
-<div class="ttc" id="aode__linalg_8h_html_a8c3ece3d06a9a409508ce0f2463a7336"><div class="ttname"><a href="ode__linalg_8h.html#a8c3ece3d06a9a409508ce0f2463a7336">ode_crout_forw_sub</a></div><div class="ttdeci">void ode_crout_forw_sub(double **L, double *b, int *p, int n, double *out)</div><div class="ttdoc">Crout forward substitution.</div><div class="ttdef"><b>Definition:</b> <a href="ode__linalg_8cc_source.html#l00003">ode_linalg.cc:3</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

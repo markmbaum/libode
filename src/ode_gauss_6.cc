@@ -1,3 +1,5 @@
+//! \file ode_gauss_6.cc
+
 #include "ode_gauss_6.h"
 
 void NewtonGauss6::f_Newton (double *x, double *y) {

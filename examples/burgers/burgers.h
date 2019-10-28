@@ -3,7 +3,6 @@ Viscid Burger's equation with a simple finite-volume upwinding scheme
 */
 
 #include <cmath>
-#define pi 3.1415926535897932384626433832795
 
 template<class Integrator>
 class Burgers : public Integrator {
@@ -44,5 +43,4 @@ class Burgers : public Integrator {
                 fout[i+1] += (f + g)/h;
             }
         }
-
 };

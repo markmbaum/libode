@@ -105,12 +105,16 @@ Compiling</h1>
 <p>Test programs are compiled with <code>make tests</code> and they can all be run in sequence with the <code>run_all_tests.sh</code> script (which uses Python to plot the test results).</p>
 <h1><a class="anchor" id="sec_usage"></a>
 Using the Solvers</h1>
+<h2><a class="anchor" id="subsec_classes"></a>
+Define a Class</h2>
 <p>To integrate a specific system of ODEs, a new class must be created to inherit from one of the solver classes. This new inheriting class must</p><ol type="1">
 <li>Define the system of ODEs to be solved by implementing the <code>ode_fun()</code> function. This is a virtual function in the base classes. Once it is implemented, it can be used by the stepping and solving functions.</li>
 <li>Set initial conditions using the <code>set_sol()</code> function.</li>
 <li>Optionally implement the <code>ode_jac()</code> function for implicit methods. This is also a virtual function in the base classes. If it's not overridden, a finite-difference estimate of the Jacobian is used.</li>
 </ol>
 <p>For flexibility, the derived class could be a template, so that the solver/method can be chosen when the class is constructed. Other than defining the system of equations and setting initial conditions, the derived class can store whatever information and implement whatever other methods are necessary. This could be something simple like an extra function for setting initial conditions. It could, however, comprise any other system that needs to run on top of an ODE solver, like the spatial discretization of a big PDE solver.</p>
+<h2><a class="anchor" id="subsec_integrate"></a>
+Call an Integration Function</h2>
 <p>Each solver has a <code>step</code> method that can be used to integrate a single step with a specified step size. Each solver class also has a <code>solve_fixed()</code> method and, if it's an adaptive class, a <code>solve_adaptive()</code> method. These functions return nothing and both have the same four call signatures:</p>
 <ol type="1">
 <li><p class="startli"><code>void solve_fixed (double tint, double dt)</code></p>
@@ -123,9 +127,13 @@ Using the Solvers</h1>
 <p class="startli">Integrates and writes <code>nsnap</code> even spaced snapshots of the solution into the directory <code>dirout</code>.</p>
 </li>
 <li><p class="startli"><code>void solve_fixed (double dt, double *tsnap, unsigned long nsnap, const char *dirout)</code></p>
-<p class="startli">Integrates and writes snapshots at the times specified in <code>tsnap</code> into the directory <code>dirout</code>. </p>
+<p class="startli">Integrates and writes snapshots at the times specified in <code>tsnap</code> into the directory <code>dirout</code>.</p>
 </li>
 </ol>
+<h2><a class="anchor" id="subsec_padapt"></a>
+Flexibly Adapt the Time Step</h2>
+<p>The adaptive solvers automatically choose time steps by comparing the solution for a single step with that of an embedded, lower order solution for the step and computing an error estimate. The algorithm for this is well described in the books referenced above. If, however, there is another way that the time step should be chosen for a system, a new selection method can be used with any of the solvers. If the <code>prescribe_adapt</code> flag for an integrator class is <code>true</code>, each of the <code>solve_fixed()</code> functions will request a new time step from the virtual <code>prescribe_adapt_dt()</code> function. This function must be implemented by the integrator class.</p>
+<p>Such flexibility might be useful in lots of cases, considering it allows the step size to be chosen by any method at all. Specifically though, it has been used to set the time step based on the stability threshold of PDE discretizations. The time step of explicit methods for PDEs might be limited by the CFL condition for advection or the von Neumann condition for simple diffusion schemes. Prescribing the adaptive time step based on these conditions could provide huge speed boosts. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->

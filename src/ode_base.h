@@ -24,12 +24,16 @@ Test programs are compiled with `make tests` and they can all be run in sequence
 
 \section sec_usage Using the Solvers
 
+\subsection subsec_classes Define a Class
+
 To integrate a specific system of ODEs, a new class must be created to inherit from one of the solver classes. This new inheriting class must
 1. Define the system of ODEs to be solved by implementing the `ode_fun()` function. This is a virtual function in the base classes. Once it is implemented, it can be used by the stepping and solving functions.
 2. Set initial conditions using the `set_sol()` function.
 3. Optionally implement the `ode_jac()` function for implicit methods. This is also a virtual function in the base classes. If it's not overridden, a finite-difference estimate of the Jacobian is used.
 
 For flexibility, the derived class could be a template, so that the solver/method can be chosen when the class is constructed. Other than defining the system of equations and setting initial conditions, the derived class can store whatever information and implement whatever other methods are necessary. This could be something simple like an extra function for setting initial conditions. It could, however, comprise any other system that needs to run on top of an ODE solver, like the spatial discretization of a big PDE solver.
+
+\subsection subsec_integrate Call an Integration Function
 
 Each solver has a `step` method that can be used to integrate a single step with a specified step size. Each solver class also has a `solve_fixed()` method and, if it's an adaptive class, a `solve_adaptive()` method. These functions return nothing and both have the same four call signatures:
 
@@ -48,6 +52,13 @@ Each solver has a `step` method that can be used to integrate a single step with
 4. `void solve_fixed (double dt, double *tsnap, unsigned long nsnap, const char *dirout)`
 
    Integrates and writes snapshots at the times specified in `tsnap` into the directory `dirout`.
+
+\subsection subsec_padapt Flexibly Adapt the Time Step
+
+The adaptive solvers automatically choose time steps by comparing the solution for a single step with that of an embedded, lower order solution for the step and computing an error estimate. The algorithm for this is well described in the books referenced above. If, however, there is another way that the time step should be chosen for a system, a new selection method can be used with any of the solvers. If the `prescribe_adapt` flag for an integrator class is `true`, each of the `solve_fixed()` functions will request a new time step from the virtual `prescribe_adapt_dt()` function. This function must be implemented by the integrator class.
+
+Such flexibility might be useful in lots of cases, considering it allows the step size to be chosen by any method at all. Specifically though, it has been used to set the time step based on the stability threshold of PDE discretizations. The time step of explicit methods for PDEs might be limited by the CFL condition for advection or the von Neumann condition for simple diffusion schemes. Prescribing the adaptive time step based on these conditions could provide huge speed boosts.
+
 */
 
 #ifndef ODE_BASE_H_
@@ -84,6 +95,12 @@ class OdeBase {
         const char *get_name () { return(name_.c_str()); }
         //!gets the name of the solver/method
         const char *get_method () { return(method_.c_str()); }
+        //!gets output directory string if one has been set
+        const char *get_dirout () { return(dirout_.c_str()); }
+        //!gets the boolean determining if updates are printed during solves
+        bool get_quiet () { return(quiet_); }
+        //!gets the boolean determining if prescribed adapting is on
+        bool get_prescribe_adapt () { return(prescribe_adapt_); }
         //!gets the size of the ODE system
         unsigned long get_neq () { return(neq_); }
         //!gets the current value of the independent variable
@@ -111,6 +128,10 @@ class OdeBase {
         void set_name (std::string name) { name_ = name; }
         //!sets the name of the ODE system
         void set_name (const char *name) { name_ = name; }
+        //!sets the boolean determining if updates are printed during solves
+        void set_quiet (bool quiet) { quiet_ = quiet; }
+        //!sets the boolean determining if prescribed adapting is on
+        void set_prescribe_adapt (bool prescribe_adapt) { prescribe_adapt_ = prescribe_adapt; }
         //!sets the number of steps after which the solution is checked for integrity
         void set_icheck (unsigned long icheck) { icheck_ = icheck; }
 
@@ -161,6 +182,12 @@ class OdeBase {
         */
         void reset (double t, double *sol);
 
+        //!computes the next time step for prescribed adaptive fixed solving
+        /*!
+        \return dt the next time step size to use
+        */
+        virtual double prescribe_adapt_dt ();
+
     protected:
 
         //!integrates without output or any counters, trackers, extra functions...
@@ -177,6 +204,12 @@ class OdeBase {
         std::string name_;
         //!the "name" of the solver/method, as in "Euler" or "RK4"
         std::string method_;
+        //!output directory if one is being used by a solver
+        std::string dirout_;
+        //!whether stuff should be printed during a solve
+        bool quiet_;
+        //!boolean determining if prescribed adapting is on
+        bool prescribe_adapt_;
         //!number of equations in the system of ODEs
         unsigned long neq_;
         //!time, initialized to zero
@@ -205,21 +238,24 @@ class OdeBase {
 
         //!evaluates the system of ODEs in autonomous form and must be defined by a derived class
         /*!
-        \param[in] solin current solution array
-        \param[out] fout evaluation of system of ordinary differential equations
+        The incoming `solin` vector contains the current values of all solution variables and has length `neq`. The output vector should be filled with the time derivatives for each variable in `solin`. All elements of `fout` should be set, even if they're zero, because the `fout` array isn't cleared before it's reused.
+            \param[in] solin current solution array
+            \param[out] fout evaluation of system of ordinary differential equations
         */
         virtual void ode_fun (double *solin, double *fout) = 0;
 
         //!evaluates the system's Jacobian matrix, also in autonomous form, and can either be defined in a derived class or left to numerical approximation
         /*!
-        \param[in] solin current solution array
-        \param[out] Jout Jacobian of ode_fun
+        The incoming `solin` vector contains the current values of all solution variables and has length `neq`. The output array `Jout` is a 2D array with size `neq` x `neq`. All elements of `Jout` should be set, even if they're zero, because the `Jout` array isn't cleared before it's reused. If the Jacobian is needed and there is no overriding definition of this function, a finite differences approximation is used.
+            \param[in] solin current solution array
+            \param[out] Jout Jacobian of ode_fun
         */
         virtual void ode_jac (double *solin, double **Jout);
 
         //!advances a single time step (without changing counters or the time) and must be defined in the derived class implementing the solver/method
         /*!
-        \param[in] dt time step size
+        This is a virtual function overridden by the class which implements the stepping algorightm. It should never be used outside of the wrapper step() function, and this wrapper should always be used instead.
+            \param[in] dt time step size
         */
         virtual void step_ (double dt) = 0;
 
@@ -227,8 +263,18 @@ class OdeBase {
         //wrappers of essential virtual functions
 
         //!wrapper, calls ode_fun() and increases the neval counter by one
+        /*!
+        This function should never be called by a top-level integrating class
+            \param[in] solin current solution array
+            \param[out] fout Jacobian of ode_fun
+        */
         void ode_fun_ (double *solin, double *fout);
         //!wrapper, calls ode_jac() and increments nJac;
+        /*!
+        This function should never be called by a top-level integrating class
+            \param[in] solin current solution array
+            \param[out] Jout Jacobian of ode_fun
+        */
         void ode_jac_ (double *solin, double **Jout);
 
         //------
@@ -299,7 +345,7 @@ class OdeBase {
         //flag for whether the Jacobian is being used
         bool need_jac_;
         //arrays for evaluating numerical jacobian
-        double *f_, *g_, *soljac_;
+        double *f_, *g_;
 };
 
 #endif

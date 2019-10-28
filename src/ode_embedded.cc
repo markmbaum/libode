@@ -1,3 +1,5 @@
+//! \file ode_embedded.cc
+
 #include "ode_embedded.h"
 
 OdeEmbedded::OdeEmbedded (unsigned long neq, bool need_jac, int lowerord) :

@@ -35,7 +35,7 @@ SDIRK 4(3) | `OdeSDIRK43` | implicit | yes | 4 | 4 | L
 
 ## Compiling
 
-`libode` was written to provide easy access to class-based ODE solvers without dependencies or specialized compiling processes. There is only one step to take before compiling. Consequently, the library is slim on features and doesn't provide access to things like sparse matrices. For many systems of ODEs, though, `libode` should make it easy to build an integrator and enjoy the speed of C++ and [openmp](https://en.wikipedia.org/wiki/OpenMP) without the headaches of large, complex packages.
+`libode` is meant to provide simple and easy access to class-based ODE solvers without dependencies or specialized compiling processes. The library is free-standing and there is only one step to take before compiling. Consequently, the library is also slim on features and doesn't provide things like sparse matrices and dense output. For many systems of ODEs, though, `libode` should make it easy to build an integrator and enjoy the speed of C++ and [openmp](https://en.wikipedia.org/wiki/OpenMP) without the headaches of large, complex packages.
 
 First, before any of the `libode` classes can be compiled, you must copy the `_config.mk` file to `config.mk` and edit that file to specify the compiler settings you'd like the Makefile to use. This shouldn't be complicated. If you are using a current version of the GNU C++ compiler (g++), the contents of the template config file can likely be used without modification. There are also commented lines for use with the Intel C++ compiler (icpc), if that is available. To compile all the classes, simply run `make` in the top directory.
 
@@ -49,12 +49,16 @@ Test programs are compiled with `make tests` and they can all be run in sequence
 
 ## Using the Solvers
 
+### Define a Class
+
 To integrate a specific system of ODEs, a new class must be created to inherit from one of the solver classes. This new inheriting class must
 1. Define the system of ODEs to be solved by implementing the `ode_fun()` function. This is a virtual function in the base classes. Once it is implemented, it can be used by the stepping and solving functions.
 2. Set initial conditions using the `set_sol()` function.
 3. Optionally implement the `ode_jac()` function for implicit methods. This is also a virtual function in the base classes. If it's not overridden, a finite-difference estimate of the Jacobian is used.
 
 For flexibility, the derived class could be a template, so that the solver/method can be chosen when the class is constructed. Other than defining the system of equations and setting initial conditions, the derived class can store whatever information and implement whatever other methods are necessary. This could be something simple like an extra function for setting initial conditions. It could, however, comprise any other system that needs to run on top of an ODE solver, like the spatial discretization of a big PDE solver.
+
+### Call an Integration Function
 
 Each solver has a `step()` method that can be used to integrate a single step with a specified step size. Each solver class also has a `solve_fixed()` method and, if it's an adaptive class, a `solve_adaptive()` method. These functions return nothing and both have the same four call signatures:
 
@@ -73,6 +77,12 @@ Each solver has a `step()` method that can be used to integrate a single step wi
 4. `void solve_fixed (double dt, double *tsnap, unsigned long nsnap, const char *dirout)`
 
    Integrates and writes snapshots at the times specified in `tsnap` into the directory `dirout`.
+
+### Flexibly Adapt the Time Step
+
+The adaptive solvers choose time steps by comparing the solution for a single step with that of an embedded, lower order solution for the step. The algorithm for this is well described in the books referenced above. If, however, there is another way that the time step should be chosen, a new selection method can be used with any of the solvers. If the `prescribed_adaptive` flag for an integrator class is `true`, each of the `solve_fixed()` functions will request a new time step from the virtual `prescribed_adaptive_dt()` function. This function must be implemented by the integrator class.
+
+Such flexibility might be useful in lots of cases, considering it allows the step size to be chosen by any method at all. Specifically though, it has been used to set the time step based on the stability threshold of PDE discretizations. The time step of explicit methods for PDEs might be limited by the CFL condition for advection or the von Neumann condition for simple diffusion schemes. Prescribing the adaptive time step based on these conditions could provide huge speed boosts. The `nonlinear-diffusion` example integrator provides an example of this.
 
 ## Examples
 

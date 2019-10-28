@@ -63,7 +63,7 @@ class OdeEmbedded : public OdeAdaptive {
         //!simply returns isrej
         bool is_rejected () { return( isrej_ ); }
         //!simply returns dtopt
-        double dt_next () { return( dtopt_ ); }
+        double dt_adapt () { return( dtopt_ ); }
 
     private:
         //!order of the LOWER order solution used for error estimation

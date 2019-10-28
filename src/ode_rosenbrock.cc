@@ -1,3 +1,5 @@
+//! \file ode_rosenbrock.cc
+
 #include "ode_rosenbrock.h"
 
 OdeRosenbrock::OdeRosenbrock (unsigned long neq, int nk) {

@@ -1,3 +1,5 @@
+//! \file ode_sdirk_43.cc
+
 #include "ode_sdirk_43.h"
 
 void NewtonSDIRK43::f_Newton (double *x, double *y) {

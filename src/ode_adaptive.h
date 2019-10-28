@@ -21,7 +21,7 @@
 *     and what the next time step should be.
 *  2. The is_rejected function simply furnishes a boolean answering the
 *     question, "should the step just taken be rejected?"
-*  3. The dt_next function furnishes the next time step, whether the step
+*  3. The dt_adapt function furnishes the next time step, whether the step
 *     current step was rejected or not.
 *These functions are used with local error tolerances to integrate with an efficiently adaptive time step. Specifically, they are used in the step_adaptive_ method of this class, which is called in each of the solve_adaptive methods.
 */
@@ -121,7 +121,7 @@ class OdeAdaptive : public OdeBase {
         //!retreives a bool determining whether a step is accepted/rejected
         virtual bool is_rejected () = 0;
         //!retrieves the best time step for the next step
-        virtual double dt_next () = 0;
+        virtual double dt_adapt () = 0;
 
         //!determines whether an adaptive solve is finished
         bool solve_done_adaptive (double tend);
@@ -129,8 +129,8 @@ class OdeAdaptive : public OdeBase {
         //wrappers
         //!texecutes a single time and calls all necessary adapting functions
         bool step_adaptive_ (double dt);
-        //!wrapper around dt_next() to perform additional checks
-        double dt_next_ (double tend);
+        //!wrapper around dt_adapt() to perform additional checks
+        double dt_adapt_ (double tend);
 
     private:
         //!previous solution, in case a step is rejected

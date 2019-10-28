@@ -1,3 +1,5 @@
+//! \file ode_erk.cc
+
 #include "ode_erk.h"
 
 OdeERK::OdeERK (unsigned long neq) {

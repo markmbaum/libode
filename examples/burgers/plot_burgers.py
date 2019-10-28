@@ -2,7 +2,6 @@ from os import listdir
 from os.path import join
 from numpy import fromfile
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
 
 #read the output files
 fns = [fn for fn in listdir('out') if ('_t' not in fn and fn != 'x')]
@@ -27,7 +26,7 @@ for i in range(len(u)):
 #ax.legend()
 ax.set_xlabel('$x$')
 ax.set_ylabel('$u$')
-ax.set_title("Viscid Burger's Equation\n$\partial_t u = -u\partial_x u - \partial_{xx}u \cdot 10^{-3}$")
+ax.set_title("Viscid Burger's Equation\n$\partial_t u = -u\partial_x u + \partial_{xx}u \cdot 10^{-3}$")
 fig.tight_layout()
 
 plt.show()

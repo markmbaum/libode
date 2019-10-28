@@ -1,3 +1,5 @@
+//! \file ode_trapz.cc
+
 #include "ode_trapz.h"
 
 OdeTrapz::OdeTrapz (unsigned long neq) :
