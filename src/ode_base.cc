@@ -311,7 +311,8 @@ void OdeBase::solve_fixed (double dt, double *tsnap, unsigned long nsnap, const 
         snap(dirout, i, t_);
     }
     //write the snap times
-    ode_write((dirout_ + "/" + name_ + "_snap_t").data(), tsnap, nsnap);
+    if ( !silent_snap_ )
+        ode_write((dirout_ + "/" + name_ + "_snap_t").data(), tsnap, nsnap);
 
     //extra completion things
     after_solve();
