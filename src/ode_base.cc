@@ -131,7 +131,7 @@ void OdeBase::snap (std::string dirout, long isnap, double tsnap) {
         after_snap(dirout, isnap, tsnap);
     } else {
         //output filename
-        std::string fnout = dirout + "/" + name_ + "_snap_" + int_to_string(isnap);
+        std::string fnout = dirout + "/" + name_ + "_snap_" + ode_int_to_string(isnap);
         //write output
         ode_write(fnout.data(), sol_, neq_);
         //progress report
@@ -259,7 +259,7 @@ void OdeBase::solve_fixed (double tint, double dt, const char* dirout, int inter
 
     //write output
     for (i=0; i<neq_; i++) {
-        fnout = dirout_ + "/" + name_ + "_" + int_to_string(i);
+        fnout = dirout_ + "/" + name_ + "_" + ode_int_to_string(i);
         ode_write(fnout.data(), solout + i*nsto, nsto);
     }
     fnout = dirout_ + "/" + name_ + "_t";

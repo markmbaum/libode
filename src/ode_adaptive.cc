@@ -103,7 +103,7 @@ void OdeAdaptive::solve_adaptive (double tint, double dt0, const char *dirout, i
 
     //write output
     for (i=0; i<neq_; i++) {
-        fnout = dirout_ + "/" + name_ + "_" + int_to_string(i);
+        fnout = dirout_ + "/" + name_ + "_" + ode_int_to_string(i);
         ode_write(fnout.data(), solout[i].data(), solout[i].size());
     }
     fnout = dirout_ + "/" + name_ + "_t";

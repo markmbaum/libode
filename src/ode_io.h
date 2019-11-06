@@ -39,7 +39,7 @@ void ode_write (char const *fn, T *a, unsigned long n) {
 */
 void ode_print_exit (const char *msg);
 
-//!convert an integer into a string
-std::string int_to_string (long i);
+//!converts an integer into a string
+std::string ode_int_to_string (long i);
 
 #endif

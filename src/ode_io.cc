@@ -20,7 +20,7 @@ void ode_print_exit (const char *msg) {
     exit(EXIT_FAILURE);
 }
 
-std::string int_to_string (long i) {
+std::string ode_int_to_string (long i) {
 
     // https://www.geeksforgeeks.org/converting-string-to-number-and-vice-versa-in-c/
     std::ostringstream str;
