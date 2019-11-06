@@ -99,6 +99,8 @@ class OdeBase {
         const char *get_dirout () { return(dirout_.c_str()); }
         //!gets the boolean determining if updates are printed during solves
         bool get_quiet () { return(quiet_); }
+        //!gets whether to skip writing the solution vector to file when snapping
+        bool get_silent_snap () { return(silent_snap_); }
         //!gets the boolean determining if prescribed adapting is on
         bool get_prescribe_adapt () { return(prescribe_adapt_); }
         //!gets the size of the ODE system
@@ -130,6 +132,8 @@ class OdeBase {
         void set_name (const char *name) { name_ = name; }
         //!sets the boolean determining if updates are printed during solves
         void set_quiet (bool quiet) { quiet_ = quiet; }
+        //!sets whether to skip writing the solution vector to file when snapping
+        void set_silent_snap (bool silent_snap) { silent_snap_ = silent_snap; }
         //!sets the boolean determining if prescribed adapting is on
         void set_prescribe_adapt (bool prescribe_adapt) { prescribe_adapt_ = prescribe_adapt; }
         //!sets the number of steps after which the solution is checked for integrity
@@ -208,6 +212,8 @@ class OdeBase {
         std::string dirout_;
         //!whether stuff should be printed during a solve
         bool quiet_;
+        //!whether to skip writing the solution vector to file when snapping
+        bool silent_snap_;
         //!boolean determining if prescribed adapting is on
         bool prescribe_adapt_;
         //!number of equations in the system of ODEs
@@ -326,14 +332,14 @@ class OdeBase {
         void check_sol_integrity ();
 
         //!checks that a solve can be performed with given tend and dt values
-        /*
+        /*!
         \param[in] tint duration of integration
         \param[in] dt time step size
         */
         void check_pre_solve (double tint, double dt);
 
         //!checks that snap times are monotonically increasing and > current time
-        /*
+        /*!
         \param[in] dt time step size
         \param[in] tsnap array of snapshot times during integration
         \param[in] nsnap number of snapshots (length of tsnap)

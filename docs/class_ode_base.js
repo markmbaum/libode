@@ -21,6 +21,7 @@ var class_ode_base =
     [ "get_nstep", "class_ode_base.html#a2febba8aa6d15d94d46248d7183b7739", null ],
     [ "get_prescribe_adapt", "class_ode_base.html#af1153cb69f77ee8999d61d471aec685a", null ],
     [ "get_quiet", "class_ode_base.html#af183c2ce27bd99a225169a3e4ef889b3", null ],
+    [ "get_silent_snap", "class_ode_base.html#a375db3b3aa6ba11532c9bf0c61388623", null ],
     [ "get_sol", "class_ode_base.html#aa9d029250df8648b6752c0569691bfbf", null ],
     [ "get_sol", "class_ode_base.html#a85ff6a18002b05dfec03ec87579af6ca", null ],
     [ "get_t", "class_ode_base.html#aa72bd44eb4be0cc7af954ebc620fb2ed", null ],
@@ -35,6 +36,7 @@ var class_ode_base =
     [ "set_name", "class_ode_base.html#a67e61dfc10290c1064aa9bb1cfcc4837", null ],
     [ "set_prescribe_adapt", "class_ode_base.html#a0664d6924e6df97f94c3c045884351d1", null ],
     [ "set_quiet", "class_ode_base.html#aaf33a13d353c9fbc0bc55f203ae91099", null ],
+    [ "set_silent_snap", "class_ode_base.html#a0b971f7335b7a0a7b200caa552ff34e8", null ],
     [ "set_sol", "class_ode_base.html#a4e9069884313afbbc0d6af7aec7da257", null ],
     [ "set_sol", "class_ode_base.html#a452938fbe76c69cdd07aadf5c6620560", null ],
     [ "snap", "class_ode_base.html#a802c9bcfb6b4a61dc6e38ddb424a6124", null ],
@@ -60,6 +62,7 @@ var class_ode_base =
     [ "prescribe_adapt_", "class_ode_base.html#a7cfad357aaf61f0feb3abc0a15980a8d", null ],
     [ "quiet_", "class_ode_base.html#acca84b60b6e58424d194917874eb11ef", null ],
     [ "reljacdel_", "class_ode_base.html#a0fe649817eede448c6ae137fb568ddfe", null ],
+    [ "silent_snap_", "class_ode_base.html#a84cd80762ea8f22c72768ec3a2eb8a55", null ],
     [ "sol_", "class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb", null ],
     [ "t_", "class_ode_base.html#a5a3db5119d918aab9162cb1f37f3205f", null ]
 ];

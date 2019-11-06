@@ -139,6 +139,10 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#af183c2ce27bd99a225169a3e4ef889b3">get_quiet</a> ()</td></tr>
 <tr class="memdesc:af183c2ce27bd99a225169a3e4ef889b3 inherit pub_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the boolean determining if updates are printed during solves <br /></td></tr>
 <tr class="separator:af183c2ce27bd99a225169a3e4ef889b3 inherit pub_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a375db3b3aa6ba11532c9bf0c61388623 inherit pub_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top"><a id="a375db3b3aa6ba11532c9bf0c61388623"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a375db3b3aa6ba11532c9bf0c61388623">get_silent_snap</a> ()</td></tr>
+<tr class="memdesc:a375db3b3aa6ba11532c9bf0c61388623 inherit pub_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets whether to skip writing the solution vector to file when snapping <br /></td></tr>
+<tr class="separator:a375db3b3aa6ba11532c9bf0c61388623 inherit pub_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1153cb69f77ee8999d61d471aec685a inherit pub_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top"><a id="af1153cb69f77ee8999d61d471aec685a"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#af1153cb69f77ee8999d61d471aec685a">get_prescribe_adapt</a> ()</td></tr>
 <tr class="memdesc:af1153cb69f77ee8999d61d471aec685a inherit pub_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the boolean determining if prescribed adapting is on <br /></td></tr>
@@ -199,6 +203,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#aaf33a13d353c9fbc0bc55f203ae91099">set_quiet</a> (bool quiet)</td></tr>
 <tr class="memdesc:aaf33a13d353c9fbc0bc55f203ae91099 inherit pub_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the boolean determining if updates are printed during solves <br /></td></tr>
 <tr class="separator:aaf33a13d353c9fbc0bc55f203ae91099 inherit pub_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b971f7335b7a0a7b200caa552ff34e8 inherit pub_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top"><a id="a0b971f7335b7a0a7b200caa552ff34e8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a0b971f7335b7a0a7b200caa552ff34e8">set_silent_snap</a> (bool silent_snap)</td></tr>
+<tr class="memdesc:a0b971f7335b7a0a7b200caa552ff34e8 inherit pub_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets whether to skip writing the solution vector to file when snapping <br /></td></tr>
+<tr class="separator:a0b971f7335b7a0a7b200caa552ff34e8 inherit pub_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0664d6924e6df97f94c3c045884351d1 inherit pub_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top"><a id="a0664d6924e6df97f94c3c045884351d1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a0664d6924e6df97f94c3c045884351d1">set_prescribe_adapt</a> (bool prescribe_adapt)</td></tr>
 <tr class="memdesc:a0664d6924e6df97f94c3c045884351d1 inherit pub_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the boolean determining if prescribed adapting is on <br /></td></tr>
@@ -275,13 +283,11 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a09b5ccd1d1db89a26bf53ad10a33f26f">check_sol_integrity</a> ()</td></tr>
 <tr class="memdesc:a09b5ccd1d1db89a26bf53ad10a33f26f inherit pro_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks solution for nans and infs, exiting the program if they're found <br /></td></tr>
 <tr class="separator:a09b5ccd1d1db89a26bf53ad10a33f26f inherit pro_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8915d7c63f8e900d6f66b565b0d60a4 inherit pro_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top"><a id="aa8915d7c63f8e900d6f66b565b0d60a4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#aa8915d7c63f8e900d6f66b565b0d60a4">check_pre_solve</a> (double tint, double dt)</td></tr>
-<tr class="memdesc:aa8915d7c63f8e900d6f66b565b0d60a4 inherit pro_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks that a solve can be performed with given tend and dt values <br /></td></tr>
+<tr class="memitem:aa8915d7c63f8e900d6f66b565b0d60a4 inherit pro_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#aa8915d7c63f8e900d6f66b565b0d60a4">check_pre_solve</a> (double tint, double dt)</td></tr>
+<tr class="memdesc:aa8915d7c63f8e900d6f66b565b0d60a4 inherit pro_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks that a solve can be performed with given tend and dt values  <a href="class_ode_base.html#aa8915d7c63f8e900d6f66b565b0d60a4">More...</a><br /></td></tr>
 <tr class="separator:aa8915d7c63f8e900d6f66b565b0d60a4 inherit pro_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19ebece0012d08b455d32db1770562b8 inherit pro_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top"><a id="a19ebece0012d08b455d32db1770562b8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a19ebece0012d08b455d32db1770562b8">check_pre_snaps</a> (double dt, double *tsnap, unsigned long nsnap)</td></tr>
-<tr class="memdesc:a19ebece0012d08b455d32db1770562b8 inherit pro_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks that snap times are monotonically increasing and &gt; current time <br /></td></tr>
+<tr class="memitem:a19ebece0012d08b455d32db1770562b8 inherit pro_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a19ebece0012d08b455d32db1770562b8">check_pre_snaps</a> (double dt, double *tsnap, unsigned long nsnap)</td></tr>
+<tr class="memdesc:a19ebece0012d08b455d32db1770562b8 inherit pro_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks that snap times are monotonically increasing and &gt; current time  <a href="class_ode_base.html#a19ebece0012d08b455d32db1770562b8">More...</a><br /></td></tr>
 <tr class="separator:a19ebece0012d08b455d32db1770562b8 inherit pro_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_ode_base"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_ode_base')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_ode_base.html">OdeBase</a></td></tr>
 <tr class="memitem:a6d56fa68de1de52959e63e49e49842fa inherit pro_attribs_class_ode_base"><td class="memItemLeft" align="right" valign="top"><a id="a6d56fa68de1de52959e63e49e49842fa"></a>
@@ -300,6 +306,10 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#acca84b60b6e58424d194917874eb11ef">quiet_</a></td></tr>
 <tr class="memdesc:acca84b60b6e58424d194917874eb11ef inherit pro_attribs_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">whether stuff should be printed during a solve <br /></td></tr>
 <tr class="separator:acca84b60b6e58424d194917874eb11ef inherit pro_attribs_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84cd80762ea8f22c72768ec3a2eb8a55 inherit pro_attribs_class_ode_base"><td class="memItemLeft" align="right" valign="top"><a id="a84cd80762ea8f22c72768ec3a2eb8a55"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a84cd80762ea8f22c72768ec3a2eb8a55">silent_snap_</a></td></tr>
+<tr class="memdesc:a84cd80762ea8f22c72768ec3a2eb8a55 inherit pro_attribs_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">whether to skip writing the solution vector to file when snapping <br /></td></tr>
+<tr class="separator:a84cd80762ea8f22c72768ec3a2eb8a55 inherit pro_attribs_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cfad357aaf61f0feb3abc0a15980a8d inherit pro_attribs_class_ode_base"><td class="memItemLeft" align="right" valign="top"><a id="a7cfad357aaf61f0feb3abc0a15980a8d"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a7cfad357aaf61f0feb3abc0a15980a8d">prescribe_adapt_</a></td></tr>
 <tr class="memdesc:a7cfad357aaf61f0feb3abc0a15980a8d inherit pro_attribs_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">boolean determining if prescribed adapting is on <br /></td></tr>

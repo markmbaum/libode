@@ -27,7 +27,8 @@ var searchData=
   ['get_5fprescribe_5fadapt_50',['get_prescribe_adapt',['../class_ode_base.html#af1153cb69f77ee8999d61d471aec685a',1,'OdeBase']]],
   ['get_5fquiet_51',['get_quiet',['../class_ode_base.html#af183c2ce27bd99a225169a3e4ef889b3',1,'OdeBase']]],
   ['get_5freltol_52',['get_reltol',['../class_ode_adaptive.html#ac879dba4ce99ce89a31659651ed12f9f',1,'OdeAdaptive']]],
-  ['get_5fsol_53',['get_sol',['../class_ode_base.html#aa9d029250df8648b6752c0569691bfbf',1,'OdeBase::get_sol()'],['../class_ode_base.html#a85ff6a18002b05dfec03ec87579af6ca',1,'OdeBase::get_sol(unsigned long i)']]],
-  ['get_5ft_54',['get_t',['../class_ode_base.html#aa72bd44eb4be0cc7af954ebc620fb2ed',1,'OdeBase']]],
-  ['get_5ftol_5fnewton_55',['get_tol_Newton',['../class_ode_newton.html#a676dd8b13cba2a18557b852d7f3256ee',1,'OdeNewton']]]
+  ['get_5fsilent_5fsnap_53',['get_silent_snap',['../class_ode_base.html#a375db3b3aa6ba11532c9bf0c61388623',1,'OdeBase']]],
+  ['get_5fsol_54',['get_sol',['../class_ode_base.html#aa9d029250df8648b6752c0569691bfbf',1,'OdeBase::get_sol()'],['../class_ode_base.html#a85ff6a18002b05dfec03ec87579af6ca',1,'OdeBase::get_sol(unsigned long i)']]],
+  ['get_5ft_55',['get_t',['../class_ode_base.html#aa72bd44eb4be0cc7af954ebc620fb2ed',1,'OdeBase']]],
+  ['get_5ftol_5fnewton_56',['get_tol_Newton',['../class_ode_newton.html#a676dd8b13cba2a18557b852d7f3256ee',1,'OdeNewton']]]
 ];

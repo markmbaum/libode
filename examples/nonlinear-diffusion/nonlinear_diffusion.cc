@@ -7,7 +7,7 @@
 int main () {
 
     //number of spatial cells
-    int nx = 500;
+    int nx = 1000;
     //domain length
     double L = 0.5;
     //integration time

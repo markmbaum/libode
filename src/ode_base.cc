@@ -8,6 +8,8 @@ OdeBase::OdeBase (unsigned long neq, bool need_jac) {
     name_ = "ode";
     //whether stuff should be printed during a solve
     quiet_ = false;
+    //!whether to skip writing the solution vector to file when snapping
+    silent_snap_ = false;
     //boolean determining if prescribed adapting is on
     prescribe_adapt_ = false;
     //number of equations/variables in ode system
@@ -122,14 +124,21 @@ void OdeBase::step (double dt) {
 
 void OdeBase::snap (std::string dirout, long isnap, double tsnap) {
 
-    //output filename
-    std::string fnout = dirout + "/" + name_ + "_snap_" + int_to_string(isnap);
-    //write output
-    ode_write(fnout.data(), sol_, neq_);
-    //progress report
-    if (!quiet_) printf("    snap %li written\n", isnap);
-    //do any extra snapping stuff
-    after_snap(dirout, isnap, tsnap);
+    if (silent_snap_) {
+        //progress report
+        if (!quiet_) printf("    snap %li reached\n", isnap);
+        //do any extra snapping stuff
+        after_snap(dirout, isnap, tsnap);
+    } else {
+        //output filename
+        std::string fnout = dirout + "/" + name_ + "_snap_" + int_to_string(isnap);
+        //write output
+        ode_write(fnout.data(), sol_, neq_);
+        //progress report
+        if (!quiet_) printf("    snap %li written\n", isnap);
+        //do any extra snapping stuff
+        after_snap(dirout, isnap, tsnap);
+    }
 }
 
 bool OdeBase::solve_done (double dt, double tend) {

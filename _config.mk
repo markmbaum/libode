@@ -15,7 +15,7 @@ flags=-Wall -Wextra -pedantic -O3 # <--- GNU compiler flags
 #flags=-Wall -O3 # <--- Intel compiler flags
 
 #-------------------------------------------------------------------------------
-#provide directory names (these probably shouldn't be changed)
+#local directory names (don't change these!)
 
 #source code directory
 ds=src

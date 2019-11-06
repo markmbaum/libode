@@ -1,6 +1,7 @@
 from numpy import *
 from os import listdir
 from os.path import join
+from scipy.interpolate import CubicSpline
 import matplotlib.pyplot as plt
 
 #read the output files
@@ -21,7 +22,11 @@ fig.tight_layout()
 
 fig, ax = plt.subplots(1,1)
 y = array([max(abs(diff(i))) for i in u])
-ax.plot(t, y/y.max(), '.:')
+y /= y.max()
+ax.plot(t, y, 'k.')
+tt = linspace(t.min(), t.max(), 1000)
+yy = CubicSpline(t, y)(tt)
+ax.plot(tt, yy, 'k', zorder=-1)
 ax.set_xlabel('Maximum Slope Magnitude (Normalized)')
 ax.set_ylabel('$t$')
 
@@ -32,7 +37,7 @@ for i in range(len(u)):
 #ax.legend()
 ax.set_xlabel('$x$')
 ax.set_ylabel('$u$')
-ax.set_title("Nonlinear Diffusion Equation\n$\partial_t u =  u^{3} \cdot \partial_{xx}u$")
+ax.set_title("Nonlinear Diffusion Equation\n$u_t =  u^{3} \cdot u_{xx}$")
 fig.tight_layout()
 
 plt.show()
