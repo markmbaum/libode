@@ -3,7 +3,7 @@
 #include "ode_euler.h"
 
 OdeEuler::OdeEuler (unsigned long neq) :
-    OdeBase(neq, false),
+    OdeAdaptive(neq, false),
     OdeRK (neq, 1) {
 
     method_ = "Euler";

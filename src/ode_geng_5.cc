@@ -56,7 +56,7 @@ void NewtonGeng5::J_Newton (double *x, double **J) {
 //------------------------------------------------------------------------------
 
 OdeGeng5::OdeGeng5 (unsigned long neq) :
-    OdeBase (neq, true),
+    OdeAdaptive (neq, true),
     OdeIRK (neq, 3) {
 
     method_ = "Geng5";

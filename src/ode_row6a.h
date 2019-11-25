@@ -4,14 +4,14 @@
 //! \file ode_row6a.h
 
 #include "ode_linalg.h"
-#include "ode_base.h"
+#include "ode_adaptive.h"
 #include "ode_rosenbrock.h"
 
 //!6th order, A-stable Rosenbrock method
 /*!
     + Kaps, Peter, and Gerhard Wanner. "A study of Rosenbrock-type methods of high order." Numerische Mathematik 38.2 (1981): 279-298.
 */
-class OdeROW6A : public OdeBase, private OdeRosenbrock {
+class OdeROW6A : public OdeAdaptive, private OdeRosenbrock {
 
     public:
         //!constructs

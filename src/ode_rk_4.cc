@@ -3,7 +3,7 @@
 #include "ode_rk_4.h"
 
 OdeRK4::OdeRK4 (unsigned long neq) :
-    OdeBase (neq, false),
+    OdeAdaptive (neq, false),
     OdeRK (neq, 4),
     OdeERK (neq) {
 

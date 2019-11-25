@@ -3,6 +3,7 @@ A nonlinear diffusion equation in 1D
 */
 
 #include <cmath>
+#include <cstdio>
 
 template<class Integrator>
 class NonlinearDiffusion : public Integrator {
@@ -10,6 +11,8 @@ class NonlinearDiffusion : public Integrator {
         NonlinearDiffusion (int nx_, double L_) : Integrator (nx_), nx(nx_), L(L_) {
             h = L/double(nx);
             d = new double[nx-1];
+            for (int i=0; i<nx-1; i++)
+                d[i] = INFINITY;
             xc = new double[nx];
             for (int i=0; i<nx; i++)
                 xc[i] = h/2.0 + i*h;
@@ -56,13 +59,13 @@ class NonlinearDiffusion : public Integrator {
             }
         }
 
-        double prescribe_adapt_dt () {
+        double dt_adapt () {
             //compute maximum current diffusion equation
             double dmax = 0;
             for (int i=0; i<nx-1; i++)
                 if ( d[i] > dmax )
                     dmax = d[i];
             //return the largest stable time step, with a little extra room
-            return ( 0.4*(h*h/dmax) );
+            return ( 0.45*(h*h/dmax) );
         }
 };

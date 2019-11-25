@@ -56,7 +56,7 @@ void NewtonGauss6::J_Newton (double *x, double **J) {
 //------------------------------------------------------------------------------
 
 OdeGauss6::OdeGauss6 (unsigned long neq) :
-    OdeBase (neq, true),
+    OdeAdaptive (neq, true),
     OdeIRK (neq, 3) {
 
     method_ = "Gauss6";

@@ -3,7 +3,7 @@
 
 //! \file ode_lobatto_iiic_6.h
 
-#include "ode_base.h"
+#include "ode_adaptive.h"
 #include "ode_irk.h"
 #include "ode_newton_bridge.h"
 
@@ -29,7 +29,7 @@ class NewtonLobattoIIIC6 : public OdeNewtonIRK<OdeLobattoIIIC6> {
 /*!
     + Hairer, E. & Wanner, G. Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems. (Springer, 1996)
 */
-class OdeLobattoIIIC6 : public OdeBase, private OdeIRK {
+class OdeLobattoIIIC6 : public OdeAdaptive, private OdeIRK {
     //friends!
     friend class OdeNewtonBridge<OdeLobattoIIIC6>;
     friend class OdeNewtonIRK<OdeLobattoIIIC6>;

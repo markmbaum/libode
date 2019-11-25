@@ -2,6 +2,7 @@ var hierarchy =
 [
     [ "OdeBase", "class_ode_base.html", [
       [ "OdeAdaptive", "class_ode_adaptive.html", [
+        [ "OdeBackwardEuler", "class_ode_backward_euler.html", null ],
         [ "OdeEmbedded", "class_ode_embedded.html", [
           [ "OdeDoPri54", "class_ode_do_pri54.html", null ],
           [ "OdeDoPri87", "class_ode_do_pri87.html", null ],
@@ -13,18 +14,17 @@ var hierarchy =
           [ "OdeVern65", "class_ode_vern65.html", null ],
           [ "OdeVern76", "class_ode_vern76.html", null ],
           [ "OdeVern98", "class_ode_vern98.html", null ]
-        ] ]
-      ] ],
-      [ "OdeBackwardEuler", "class_ode_backward_euler.html", null ],
-      [ "OdeEuler", "class_ode_euler.html", null ],
-      [ "OdeGauss6", "class_ode_gauss6.html", null ],
-      [ "OdeGeng5", "class_ode_geng5.html", null ],
-      [ "OdeLobattoIIIC6", "class_ode_lobatto_i_i_i_c6.html", null ],
-      [ "OdeRadauIIA5", "class_ode_radau_i_i_a5.html", null ],
-      [ "OdeRK4", "class_ode_r_k4.html", null ],
-      [ "OdeROW6A", "class_ode_r_o_w6_a.html", null ],
-      [ "OdeSsp3", "class_ode_ssp3.html", null ],
-      [ "OdeTrapz", "class_ode_trapz.html", null ]
+        ] ],
+        [ "OdeEuler", "class_ode_euler.html", null ],
+        [ "OdeGauss6", "class_ode_gauss6.html", null ],
+        [ "OdeGeng5", "class_ode_geng5.html", null ],
+        [ "OdeLobattoIIIC6", "class_ode_lobatto_i_i_i_c6.html", null ],
+        [ "OdeRadauIIA5", "class_ode_radau_i_i_a5.html", null ],
+        [ "OdeRK4", "class_ode_r_k4.html", null ],
+        [ "OdeROW6A", "class_ode_r_o_w6_a.html", null ],
+        [ "OdeSsp3", "class_ode_ssp3.html", null ],
+        [ "OdeTrapz", "class_ode_trapz.html", null ]
+      ] ]
     ] ],
     [ "OdeERK", "class_ode_e_r_k.html", [
       [ "OdeDoPri54", "class_ode_do_pri54.html", null ],

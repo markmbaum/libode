@@ -56,7 +56,7 @@ void NewtonLobattoIIIC6::J_Newton (double *x, double **J) {
 //------------------------------------------------------------------------------
 
 OdeLobattoIIIC6::OdeLobattoIIIC6 (unsigned long neq) :
-    OdeBase (neq, true),
+    OdeAdaptive (neq, true),
     OdeIRK (neq, 4) {
 
     method_ = "LobattoIIIC6";

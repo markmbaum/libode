@@ -55,10 +55,9 @@ Each solver has a `step` method that can be used to integrate a single step with
 
 \subsection subsec_padapt Flexibly Adapt the Time Step
 
-The adaptive solvers automatically choose time steps by comparing the solution for a single step with that of an embedded, lower order solution for the step and computing an error estimate. The algorithm for this is well described in the books referenced above. If, however, there is another way that the time step should be chosen for a system, a new selection method can be used with any of the solvers. If the `prescribe_adapt` flag for an integrator class is `true`, each of the `solve_fixed()` functions will request a new time step from the virtual `prescribe_adapt_dt()` function. This function must be implemented by the integrator class.
+The adaptive solvers automatically choose time steps by comparing the solution for a single step with that of an embedded, lower order solution for the step and computing an error estimate. The algorithm for this is well described in the books referenced above. If, however, there is another way that the time step should be chosen for a system, a new selection method can be used with any of the solvers. If the virtual function `dt_adapt()` is overridden, it will be used to select the time step in the `solve_adaptive()` functions.
 
-Such flexibility might be useful in lots of cases, considering it allows the step size to be chosen by any method at all. Specifically though, it has been used to set the time step based on the stability threshold of PDE discretizations. The time step of explicit methods for PDEs might be limited by the CFL condition for advection or the von Neumann condition for simple diffusion schemes. Prescribing the adaptive time step based on these conditions could provide huge speed boosts.
-
+Such flexibility might be useful in lots of cases, considering it allows the step size to be chosen by any method at all. Specifically though, it has been used to set the time step based on the stability threshold of PDE discretizations. The time step of explicit methods for PDEs might be limited by the CFL condition for advection or the von Neumann condition for simple diffusion schemes. Prescribing the adaptive time step based on these conditions, then using `solve_adaptive()`, could provide huge speed boosts.
 */
 
 #ifndef ODE_BASE_H_
@@ -102,13 +101,14 @@ class OdeBase {
         bool get_quiet () { return(quiet_); }
         //!gets whether to skip writing the solution vector to file when snapping
         bool get_silent_snap () { return(silent_snap_); }
-        //!gets the boolean determining if prescribed adapting is on
-        bool get_prescribe_adapt () { return(prescribe_adapt_); }
         //!gets the size of the ODE system
         unsigned long get_neq () { return(neq_); }
         //!gets the current value of the independent variable
+        /*!
+        The value of the independent variable is provided as a convenience and is used internally to track integration progress, but is only precisely accurate in between steps. Libode solves systems in autonomous form. If the independent variable is needed during a step, an extra variable must be added to the system of ODEs to represent it. The corresponding extra ODE is always one. For example, if the independent variable is t for time, the extra ODE states dt/dt = 1.
+        */
         double get_t () { return(t_); }
-        //!gets the most recent time step size
+        //!gets the most recent or current time step size
         double get_dt () { return(dt_); }
         //!gets the solution array
         double *get_sol () { return(sol_); }
@@ -135,23 +135,22 @@ class OdeBase {
         void set_quiet (bool quiet) { quiet_ = quiet; }
         //!sets whether to skip writing the solution vector to file when snapping
         void set_silent_snap (bool silent_snap) { silent_snap_ = silent_snap; }
-        //!sets the boolean determining if prescribed adapting is on
-        void set_prescribe_adapt (bool prescribe_adapt) { prescribe_adapt_ = prescribe_adapt; }
         //!sets the number of steps after which the solution is checked for integrity
         void set_icheck (unsigned long icheck) { icheck_ = icheck; }
 
         //----------------
         //solver functions
 
-        //!increments the step counter and the time, checks the solution integrity if needed, stores the time step in the object, and executes after_step()
-        void step (double dt);
+        //!increments the step counter and the time, checks the solution integrity if needed, stores the time step in the object, and executes after_step() if extra is true
+        void step (double dt, bool extra=true);
 
         //!integrates for a specified duration of independent variable without output
         /*!
         \param[in] tint total integration time
         \param[in] dt time step size
+        \param[in] extras whether to call all the extra functions (before_solve, after_step, ...)
         */
-        void solve_fixed (double tint, double dt);
+        void solve_fixed (double tint, double dt, bool extras=true);
 
         //!lots of output, solves and stores every "inter" point along the way
         /*!
@@ -160,7 +159,7 @@ class OdeBase {
         \param[in] dirout output directory (must already exist)
         \param[in] inter interval of steps to store and output
         */
-        void solve_fixed (double tint, double dt, const char *dirout, int inter);
+        void solve_fixed (double tint, double dt, const char *dirout, int inter=1);
 
         //!solves and writes evenly spaced snapshots
         /*!
@@ -187,20 +186,15 @@ class OdeBase {
         */
         void reset (double t, double *sol);
 
-        //!computes the next time step for prescribed adaptive fixed solving
-        /*!
-        \return dt the next time step size to use
-        */
-        virtual double prescribe_adapt_dt ();
-
     protected:
 
         //!integrates without output or any counters, trackers, extra functions...
         /*!
         \param[in] tint total integration time
         \param[in] dt time step size
+        \param[in] extra whether to call after_step()
         */
-        void solve_fixed_ (double tint, double dt);
+        void solve_fixed_ (double tint, double dt, bool extra=true);
 
         //----------------------
         //basic solver variables
@@ -215,8 +209,6 @@ class OdeBase {
         bool quiet_;
         //!whether to skip writing the solution vector to file when snapping
         bool silent_snap_;
-        //!boolean determining if prescribed adapting is on
-        bool prescribe_adapt_;
         //!number of equations in the system of ODEs
         unsigned long neq_;
         //!time, initialized to zero

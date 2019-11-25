@@ -56,7 +56,7 @@ void NewtonRadauIIA5::J_Newton (double *x, double **J) {
 //------------------------------------------------------------------------------
 
 OdeRadauIIA5::OdeRadauIIA5 (unsigned long neq) :
-    OdeBase (neq, true),
+    OdeAdaptive (neq, true),
     OdeIRK (neq, 3) {
 
     method_ = "RadauIIA5";

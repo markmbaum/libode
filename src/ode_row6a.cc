@@ -3,7 +3,7 @@
 #include "ode_row6a.h"
 
 OdeROW6A::OdeROW6A (unsigned long neq) :
-    OdeBase (neq, true),
+    OdeAdaptive (neq, true),
     OdeRosenbrock (neq, 6) {
 
     method_ = "ROW6A";

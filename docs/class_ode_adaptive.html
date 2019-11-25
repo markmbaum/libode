@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('class_ode_adaptive.html','');});
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_ode_adaptive-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">OdeAdaptive Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">OdeAdaptive Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -106,18 +106,18 @@ Inheritance diagram for OdeAdaptive:</div>
  <div class="center">
   <img src="class_ode_adaptive.png" usemap="#OdeAdaptive_map" alt=""/>
   <map id="OdeAdaptive_map" name="OdeAdaptive_map">
-<area href="class_ode_base.html" title="Lowest base class for all solvers." alt="OdeBase" shape="rect" coords="0,0,95,24"/>
-<area href="class_ode_embedded.html" title="Base clase implementing methods for embedded Runge-Kutta error estimation." alt="OdeEmbedded" shape="rect" coords="0,112,95,136"/>
-<area href="class_ode_do_pri54.html" title="Popular explicit 5/4 pair from Dormand &amp; Prince." alt="OdeDoPri54" shape="rect" coords="105,168,200,192"/>
-<area href="class_ode_do_pri87.html" title="Explicit 8/7 pair from Dormand &amp; Prince." alt="OdeDoPri87" shape="rect" coords="105,224,200,248"/>
-<area href="class_ode_g_r_k4_a.html" title="Fourth-order, A-stable, adaptive Rosenbrock method from Kaps and Rentrop." alt="OdeGRK4A" shape="rect" coords="105,280,200,304"/>
-<area href="class_ode_r_k43.html" title="This class implements a 3rd and 4th order method with the FSAL (first same as last) property." alt="OdeRK43" shape="rect" coords="105,336,200,360"/>
-<area href="class_ode_r_k_c_k.html" title="Explicit 5/4 pair, also with 3rd, 2nd, and 1st order embedded methods, from Cash &amp; Karp." alt="OdeRKCK" shape="rect" coords="105,392,200,416"/>
-<area href="class_ode_r_k_f32.html" title="2nd and 3rd order solver developed by Fehlberg" alt="OdeRKF32" shape="rect" coords="105,448,200,472"/>
-<area href="class_ode_s_d_i_r_k43.html" title="L-stable 4/3 SDIRK pair." alt="OdeSDIRK43" shape="rect" coords="105,504,200,528"/>
-<area href="class_ode_vern65.html" title="Jim Verner&#39;s &quot;most efficient&quot; 6/5 pair." alt="OdeVern65" shape="rect" coords="105,560,200,584"/>
-<area href="class_ode_vern76.html" title="Jim Verner&#39;s &quot;most efficient&quot; 7/6 pair." alt="OdeVern76" shape="rect" coords="105,616,200,640"/>
-<area href="class_ode_vern98.html" title="Jim Verner&#39;s &quot;most efficient&quot; 9/8 pair." alt="OdeVern98" shape="rect" coords="105,672,200,696"/>
+<area href="class_ode_base.html" title="Lowest base class for all solvers." alt="OdeBase" shape="rect" coords="0,0,122,24"/>
+<area href="class_ode_backward_euler.html" title="Backward Euler&#39;s method, unconditionally stable but relatively inaccurate." alt="OdeBackwardEuler" shape="rect" coords="132,112,254,136"/>
+<area href="class_ode_embedded.html" title="Base clase implementing methods for embedded Runge-Kutta error estimation." alt="OdeEmbedded" shape="rect" coords="132,168,254,192"/>
+<area href="class_ode_euler.html" title="The simplest runge kutta method, forward Euler&#39;s." alt="OdeEuler" shape="rect" coords="132,224,254,248"/>
+<area href="class_ode_gauss6.html" title="The sixth-order, A-stable, fully-implicit Gauss-Legendre method with 3 stages." alt="OdeGauss6" shape="rect" coords="132,280,254,304"/>
+<area href="class_ode_geng5.html" title="The fifth-order, symplectic, fully-implicit Geng integrator with 3 stages." alt="OdeGeng5" shape="rect" coords="132,336,254,360"/>
+<area href="class_ode_lobatto_i_i_i_c6.html" title="The sixth-order, L-stable, fully-implicit Lobatto IIIC method with 4 stages." alt="OdeLobattoIIIC6" shape="rect" coords="132,392,254,416"/>
+<area href="class_ode_radau_i_i_a5.html" title="The fifth-order, L-stable, fully-implicit Radau IIA method with 3 stages." alt="OdeRadauIIA5" shape="rect" coords="132,448,254,472"/>
+<area href="class_ode_r_k4.html" title="The classic Runge-Kutta 4th order method." alt="OdeRK4" shape="rect" coords="132,504,254,528"/>
+<area href="class_ode_r_o_w6_a.html" title="6th order, A-stable Rosenbrock method" alt="OdeROW6A" shape="rect" coords="132,560,254,584"/>
+<area href="class_ode_ssp3.html" title="Strong stability preserving method of order 3." alt="OdeSsp3" shape="rect" coords="132,616,254,640"/>
+<area href="class_ode_trapz.html" title="Second order, explicit trapezoidal rule." alt="OdeTrapz" shape="rect" coords="132,672,254,696"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -162,9 +162,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_adaptive.html#aab55939d3af52148cf6216149dede825">set_dtmax</a> (double dtmax)</td></tr>
 <tr class="memdesc:aab55939d3af52148cf6216149dede825"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the maximum allowable time step <br /></td></tr>
 <tr class="separator:aab55939d3af52148cf6216149dede825"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98cfe7f27d7039c5e848416ffcbb706b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_adaptive.html#a98cfe7f27d7039c5e848416ffcbb706b">solve_adaptive</a> (double tint, double dt0)</td></tr>
-<tr class="memdesc:a98cfe7f27d7039c5e848416ffcbb706b"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrates for a specified duration of independent variable without output  <a href="class_ode_adaptive.html#a98cfe7f27d7039c5e848416ffcbb706b">More...</a><br /></td></tr>
-<tr class="separator:a98cfe7f27d7039c5e848416ffcbb706b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad60185f29099b8649419f42fd85e114f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_adaptive.html#ad60185f29099b8649419f42fd85e114f">solve_adaptive</a> (double tint, double dt0, bool extras=true)</td></tr>
+<tr class="memdesc:ad60185f29099b8649419f42fd85e114f"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrates for a specified duration of independent variable without output  <a href="class_ode_adaptive.html#ad60185f29099b8649419f42fd85e114f">More...</a><br /></td></tr>
+<tr class="separator:ad60185f29099b8649419f42fd85e114f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e06aedb45e0b78b3ecbee227687f962"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_adaptive.html#a7e06aedb45e0b78b3ecbee227687f962">solve_adaptive</a> (double tint, double dt0, const char *dirout, int inter)</td></tr>
 <tr class="memdesc:a7e06aedb45e0b78b3ecbee227687f962"><td class="mdescLeft">&#160;</td><td class="mdescRight">lots of output, solves and stores every "inter" point along the way  <a href="class_ode_adaptive.html#a7e06aedb45e0b78b3ecbee227687f962">More...</a><br /></td></tr>
 <tr class="separator:a7e06aedb45e0b78b3ecbee227687f962"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -202,17 +202,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a375db3b3aa6ba11532c9bf0c61388623">get_silent_snap</a> ()</td></tr>
 <tr class="memdesc:a375db3b3aa6ba11532c9bf0c61388623 inherit pub_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets whether to skip writing the solution vector to file when snapping <br /></td></tr>
 <tr class="separator:a375db3b3aa6ba11532c9bf0c61388623 inherit pub_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1153cb69f77ee8999d61d471aec685a inherit pub_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top"><a id="af1153cb69f77ee8999d61d471aec685a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#af1153cb69f77ee8999d61d471aec685a">get_prescribe_adapt</a> ()</td></tr>
-<tr class="memdesc:af1153cb69f77ee8999d61d471aec685a inherit pub_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the boolean determining if prescribed adapting is on <br /></td></tr>
-<tr class="separator:af1153cb69f77ee8999d61d471aec685a inherit pub_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29e7843cb15ffc56d10bb6d5040c3d49 inherit pub_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top"><a id="a29e7843cb15ffc56d10bb6d5040c3d49"></a>
 unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a29e7843cb15ffc56d10bb6d5040c3d49">get_neq</a> ()</td></tr>
 <tr class="memdesc:a29e7843cb15ffc56d10bb6d5040c3d49 inherit pub_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the size of the ODE system <br /></td></tr>
 <tr class="separator:a29e7843cb15ffc56d10bb6d5040c3d49 inherit pub_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa72bd44eb4be0cc7af954ebc620fb2ed inherit pub_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top"><a id="aa72bd44eb4be0cc7af954ebc620fb2ed"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#aa72bd44eb4be0cc7af954ebc620fb2ed">get_t</a> ()</td></tr>
-<tr class="memdesc:aa72bd44eb4be0cc7af954ebc620fb2ed inherit pub_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the current value of the independent variable <br /></td></tr>
+<tr class="memitem:aa72bd44eb4be0cc7af954ebc620fb2ed inherit pub_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#aa72bd44eb4be0cc7af954ebc620fb2ed">get_t</a> ()</td></tr>
+<tr class="memdesc:aa72bd44eb4be0cc7af954ebc620fb2ed inherit pub_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the current value of the independent variable  <a href="class_ode_base.html#aa72bd44eb4be0cc7af954ebc620fb2ed">More...</a><br /></td></tr>
 <tr class="separator:aa72bd44eb4be0cc7af954ebc620fb2ed inherit pub_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a737e037f4c000a4c774a179187bc21f7 inherit pub_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top"><a id="a737e037f4c000a4c774a179187bc21f7"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a737e037f4c000a4c774a179187bc21f7">get_dt</a> ()</td></tr>
@@ -266,24 +261,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a0b971f7335b7a0a7b200caa552ff34e8">set_silent_snap</a> (bool silent_snap)</td></tr>
 <tr class="memdesc:a0b971f7335b7a0a7b200caa552ff34e8 inherit pub_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets whether to skip writing the solution vector to file when snapping <br /></td></tr>
 <tr class="separator:a0b971f7335b7a0a7b200caa552ff34e8 inherit pub_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0664d6924e6df97f94c3c045884351d1 inherit pub_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top"><a id="a0664d6924e6df97f94c3c045884351d1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a0664d6924e6df97f94c3c045884351d1">set_prescribe_adapt</a> (bool prescribe_adapt)</td></tr>
-<tr class="memdesc:a0664d6924e6df97f94c3c045884351d1 inherit pub_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the boolean determining if prescribed adapting is on <br /></td></tr>
-<tr class="separator:a0664d6924e6df97f94c3c045884351d1 inherit pub_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fa30c0f17747d56c6c33131078c974e inherit pub_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top"><a id="a2fa30c0f17747d56c6c33131078c974e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a2fa30c0f17747d56c6c33131078c974e">set_icheck</a> (unsigned long icheck)</td></tr>
 <tr class="memdesc:a2fa30c0f17747d56c6c33131078c974e inherit pub_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the number of steps after which the solution is checked for integrity <br /></td></tr>
 <tr class="separator:a2fa30c0f17747d56c6c33131078c974e inherit pub_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c1fa9a791c0d4d1ca5b69008ceabcd7 inherit pub_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top"><a id="a7c1fa9a791c0d4d1ca5b69008ceabcd7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a7c1fa9a791c0d4d1ca5b69008ceabcd7">step</a> (double dt)</td></tr>
-<tr class="memdesc:a7c1fa9a791c0d4d1ca5b69008ceabcd7 inherit pub_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">increments the step counter and the time, checks the solution integrity if needed, stores the time step in the object, and executes <a class="el" href="class_ode_base.html#a939cb7f178f718443c676d874b0106b4" title="does any extra stuff after each step">after_step()</a> <br /></td></tr>
-<tr class="separator:a7c1fa9a791c0d4d1ca5b69008ceabcd7 inherit pub_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a3f38c473c7e49bc6c61810ef09d4c7 inherit pub_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a6a3f38c473c7e49bc6c61810ef09d4c7">solve_fixed</a> (double tint, double dt)</td></tr>
-<tr class="memdesc:a6a3f38c473c7e49bc6c61810ef09d4c7 inherit pub_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrates for a specified duration of independent variable without output  <a href="class_ode_base.html#a6a3f38c473c7e49bc6c61810ef09d4c7">More...</a><br /></td></tr>
-<tr class="separator:a6a3f38c473c7e49bc6c61810ef09d4c7 inherit pub_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc7b10c0d899f9e05fcc287f1949c814 inherit pub_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#afc7b10c0d899f9e05fcc287f1949c814">solve_fixed</a> (double tint, double dt, const char *dirout, int inter)</td></tr>
-<tr class="memdesc:afc7b10c0d899f9e05fcc287f1949c814 inherit pub_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">lots of output, solves and stores every "inter" point along the way  <a href="class_ode_base.html#afc7b10c0d899f9e05fcc287f1949c814">More...</a><br /></td></tr>
-<tr class="separator:afc7b10c0d899f9e05fcc287f1949c814 inherit pub_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6e4000804cb8bd4851d476ce9a71e06 inherit pub_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top"><a id="ad6e4000804cb8bd4851d476ce9a71e06"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#ad6e4000804cb8bd4851d476ce9a71e06">step</a> (double dt, bool extra=true)</td></tr>
+<tr class="memdesc:ad6e4000804cb8bd4851d476ce9a71e06 inherit pub_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">increments the step counter and the time, checks the solution integrity if needed, stores the time step in the object, and executes <a class="el" href="class_ode_base.html#a939cb7f178f718443c676d874b0106b4" title="does any extra stuff after each step">after_step()</a> if extra is true <br /></td></tr>
+<tr class="separator:ad6e4000804cb8bd4851d476ce9a71e06 inherit pub_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cc25aa91153d6e1bc918a899694d6b6 inherit pub_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a8cc25aa91153d6e1bc918a899694d6b6">solve_fixed</a> (double tint, double dt, bool extras=true)</td></tr>
+<tr class="memdesc:a8cc25aa91153d6e1bc918a899694d6b6 inherit pub_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrates for a specified duration of independent variable without output  <a href="class_ode_base.html#a8cc25aa91153d6e1bc918a899694d6b6">More...</a><br /></td></tr>
+<tr class="separator:a8cc25aa91153d6e1bc918a899694d6b6 inherit pub_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af07a932a647150212cb9554c34ad72c4 inherit pub_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#af07a932a647150212cb9554c34ad72c4">solve_fixed</a> (double tint, double dt, const char *dirout, int inter=1)</td></tr>
+<tr class="memdesc:af07a932a647150212cb9554c34ad72c4 inherit pub_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">lots of output, solves and stores every "inter" point along the way  <a href="class_ode_base.html#af07a932a647150212cb9554c34ad72c4">More...</a><br /></td></tr>
+<tr class="separator:af07a932a647150212cb9554c34ad72c4 inherit pub_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c5a93572d9d4b2abd73a7fe5967c1b0 inherit pub_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a8c5a93572d9d4b2abd73a7fe5967c1b0">solve_fixed</a> (double tint, double dt, unsigned long nsnap, const char *dirout)</td></tr>
 <tr class="memdesc:a8c5a93572d9d4b2abd73a7fe5967c1b0 inherit pub_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">solves and writes evenly spaced snapshots  <a href="class_ode_base.html#a8c5a93572d9d4b2abd73a7fe5967c1b0">More...</a><br /></td></tr>
 <tr class="separator:a8c5a93572d9d4b2abd73a7fe5967c1b0 inherit pub_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -293,43 +284,40 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a7738598d3f815149cd2d0f7aab2f45ff inherit pub_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a7738598d3f815149cd2d0f7aab2f45ff">reset</a> (double t, double *sol)</td></tr>
 <tr class="memdesc:a7738598d3f815149cd2d0f7aab2f45ff inherit pub_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">reset to a specified time and initial condition array  <a href="class_ode_base.html#a7738598d3f815149cd2d0f7aab2f45ff">More...</a><br /></td></tr>
 <tr class="separator:a7738598d3f815149cd2d0f7aab2f45ff inherit pub_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc0f0eefc04928e876f5f0e137c2288e inherit pub_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#adc0f0eefc04928e876f5f0e137c2288e">prescribe_adapt_dt</a> ()</td></tr>
-<tr class="memdesc:adc0f0eefc04928e876f5f0e137c2288e inherit pub_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the next time step for prescribed adaptive fixed solving  <a href="class_ode_base.html#adc0f0eefc04928e876f5f0e137c2288e">More...</a><br /></td></tr>
-<tr class="separator:adc0f0eefc04928e876f5f0e137c2288e inherit pub_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a16ff9dbee69392ff007d05e96151c67b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_adaptive.html#a16ff9dbee69392ff007d05e96151c67b">solve_adaptive_</a> (double tint, double dt0)</td></tr>
-<tr class="memdesc:a16ff9dbee69392ff007d05e96151c67b"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrates without output or any counters, trackers, extra functions...  <a href="class_ode_adaptive.html#a16ff9dbee69392ff007d05e96151c67b">More...</a><br /></td></tr>
-<tr class="separator:a16ff9dbee69392ff007d05e96151c67b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad220853a35387884ea168f3cf5f65e20"><td class="memItemLeft" align="right" valign="top"><a id="ad220853a35387884ea168f3cf5f65e20"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_adaptive.html#ad220853a35387884ea168f3cf5f65e20">adapt</a> (double abstol, double reltol)=0</td></tr>
-<tr class="memdesc:ad220853a35387884ea168f3cf5f65e20"><td class="mdescLeft">&#160;</td><td class="mdescRight">executes whatever calculations need to be performed for adapting, including a determination of whether a step is rejected and a calculation of the next time step size <br /></td></tr>
-<tr class="separator:ad220853a35387884ea168f3cf5f65e20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafde6a0a5d5839f55832f7e9a7b3c83b"><td class="memItemLeft" align="right" valign="top"><a id="aafde6a0a5d5839f55832f7e9a7b3c83b"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_adaptive.html#aafde6a0a5d5839f55832f7e9a7b3c83b">is_rejected</a> ()=0</td></tr>
-<tr class="memdesc:aafde6a0a5d5839f55832f7e9a7b3c83b"><td class="mdescLeft">&#160;</td><td class="mdescRight">retreives a bool determining whether a step is accepted/rejected <br /></td></tr>
-<tr class="separator:aafde6a0a5d5839f55832f7e9a7b3c83b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add33d8aaaa342f0b69c8faf4cb25fa85"><td class="memItemLeft" align="right" valign="top"><a id="add33d8aaaa342f0b69c8faf4cb25fa85"></a>
-virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_adaptive.html#add33d8aaaa342f0b69c8faf4cb25fa85">dt_adapt</a> ()=0</td></tr>
-<tr class="memdesc:add33d8aaaa342f0b69c8faf4cb25fa85"><td class="mdescLeft">&#160;</td><td class="mdescRight">retrieves the best time step for the next step <br /></td></tr>
-<tr class="separator:add33d8aaaa342f0b69c8faf4cb25fa85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7713c0c23f63f1b1725fd68c0a13a1b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_adaptive.html#a7713c0c23f63f1b1725fd68c0a13a1b3">solve_adaptive_</a> (double tint, double dt0, bool extra=true)</td></tr>
+<tr class="memdesc:a7713c0c23f63f1b1725fd68c0a13a1b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrates without output or any counters, trackers, extra functions...  <a href="class_ode_adaptive.html#a7713c0c23f63f1b1725fd68c0a13a1b3">More...</a><br /></td></tr>
+<tr class="separator:a7713c0c23f63f1b1725fd68c0a13a1b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a662dbc75b25a8b0e68c25ffa8c9ed38b"><td class="memItemLeft" align="right" valign="top"><a id="a662dbc75b25a8b0e68c25ffa8c9ed38b"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_adaptive.html#a662dbc75b25a8b0e68c25ffa8c9ed38b">adapt</a> (double abstol, double reltol)</td></tr>
+<tr class="memdesc:a662dbc75b25a8b0e68c25ffa8c9ed38b"><td class="mdescLeft">&#160;</td><td class="mdescRight">executes whatever calculations need to be performed for adapting, including a determination of whether a step is rejected and a calculation of the next time step size <br /></td></tr>
+<tr class="separator:a662dbc75b25a8b0e68c25ffa8c9ed38b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ecc96ae66583cabd8385924478d8379"><td class="memItemLeft" align="right" valign="top"><a id="a9ecc96ae66583cabd8385924478d8379"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_adaptive.html#a9ecc96ae66583cabd8385924478d8379">is_rejected</a> ()</td></tr>
+<tr class="memdesc:a9ecc96ae66583cabd8385924478d8379"><td class="mdescLeft">&#160;</td><td class="mdescRight">retreives a bool determining whether a step is accepted/rejected, false by default <br /></td></tr>
+<tr class="separator:a9ecc96ae66583cabd8385924478d8379"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9622877a98be36e0e06087dab68d987"><td class="memItemLeft" align="right" valign="top"><a id="aa9622877a98be36e0e06087dab68d987"></a>
+virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_adaptive.html#aa9622877a98be36e0e06087dab68d987">dt_adapt</a> ()</td></tr>
+<tr class="memdesc:aa9622877a98be36e0e06087dab68d987"><td class="mdescLeft">&#160;</td><td class="mdescRight">retrieves the best time step for the next step <br /></td></tr>
+<tr class="separator:aa9622877a98be36e0e06087dab68d987"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab21d425b30301f3bb304fc8c2caa6d69"><td class="memItemLeft" align="right" valign="top"><a id="ab21d425b30301f3bb304fc8c2caa6d69"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_adaptive.html#ab21d425b30301f3bb304fc8c2caa6d69">solve_done_adaptive</a> (double tend)</td></tr>
 <tr class="memdesc:ab21d425b30301f3bb304fc8c2caa6d69"><td class="mdescLeft">&#160;</td><td class="mdescRight">determines whether an adaptive solve is finished <br /></td></tr>
 <tr class="separator:ab21d425b30301f3bb304fc8c2caa6d69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af402d649fd45ec1828034250d71509ce"><td class="memItemLeft" align="right" valign="top"><a id="af402d649fd45ec1828034250d71509ce"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_adaptive.html#af402d649fd45ec1828034250d71509ce">step_adaptive_</a> (double dt)</td></tr>
-<tr class="memdesc:af402d649fd45ec1828034250d71509ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">texecutes a single time and calls all necessary adapting functions <br /></td></tr>
-<tr class="separator:af402d649fd45ec1828034250d71509ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d8df1ebc87f14789e9a81a023c93429"><td class="memItemLeft" align="right" valign="top"><a id="a2d8df1ebc87f14789e9a81a023c93429"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_adaptive.html#a2d8df1ebc87f14789e9a81a023c93429">step_adaptive_</a> (double dt, bool extra=true)</td></tr>
+<tr class="memdesc:a2d8df1ebc87f14789e9a81a023c93429"><td class="mdescLeft">&#160;</td><td class="mdescRight">executes a single time and calls all necessary adapting functions <br /></td></tr>
+<tr class="separator:a2d8df1ebc87f14789e9a81a023c93429"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a903b7bb68a4ca8119e666bb0502a05"><td class="memItemLeft" align="right" valign="top"><a id="a9a903b7bb68a4ca8119e666bb0502a05"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_adaptive.html#a9a903b7bb68a4ca8119e666bb0502a05">dt_adapt_</a> (double tend)</td></tr>
-<tr class="memdesc:a9a903b7bb68a4ca8119e666bb0502a05"><td class="mdescLeft">&#160;</td><td class="mdescRight">wrapper around <a class="el" href="class_ode_adaptive.html#add33d8aaaa342f0b69c8faf4cb25fa85" title="retrieves the best time step for the next step">dt_adapt()</a> to perform additional checks <br /></td></tr>
+<tr class="memdesc:a9a903b7bb68a4ca8119e666bb0502a05"><td class="mdescLeft">&#160;</td><td class="mdescRight">wrapper around <a class="el" href="class_ode_adaptive.html#aa9622877a98be36e0e06087dab68d987" title="retrieves the best time step for the next step">dt_adapt()</a> to perform additional checks <br /></td></tr>
 <tr class="separator:a9a903b7bb68a4ca8119e666bb0502a05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_class_ode_base"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_ode_base')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_ode_base.html">OdeBase</a></td></tr>
-<tr class="memitem:a2c860f875765c934c6f1c349c7339256 inherit pro_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a2c860f875765c934c6f1c349c7339256">solve_fixed_</a> (double tint, double dt)</td></tr>
-<tr class="memdesc:a2c860f875765c934c6f1c349c7339256 inherit pro_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrates without output or any counters, trackers, extra functions...  <a href="class_ode_base.html#a2c860f875765c934c6f1c349c7339256">More...</a><br /></td></tr>
-<tr class="separator:a2c860f875765c934c6f1c349c7339256 inherit pro_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6e04761151d322f7c2f5bb50ce3ae22 inherit pro_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#aa6e04761151d322f7c2f5bb50ce3ae22">solve_fixed_</a> (double tint, double dt, bool extra=true)</td></tr>
+<tr class="memdesc:aa6e04761151d322f7c2f5bb50ce3ae22 inherit pro_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrates without output or any counters, trackers, extra functions...  <a href="class_ode_base.html#aa6e04761151d322f7c2f5bb50ce3ae22">More...</a><br /></td></tr>
+<tr class="separator:aa6e04761151d322f7c2f5bb50ce3ae22 inherit pro_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02d1c6edf23a1d18c01b75df33a6f022 inherit pro_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a02d1c6edf23a1d18c01b75df33a6f022">ode_fun</a> (double *solin, double *fout)=0</td></tr>
 <tr class="memdesc:a02d1c6edf23a1d18c01b75df33a6f022 inherit pro_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluates the system of ODEs in autonomous form and must be defined by a derived class  <a href="class_ode_base.html#a02d1c6edf23a1d18c01b75df33a6f022">More...</a><br /></td></tr>
 <tr class="separator:a02d1c6edf23a1d18c01b75df33a6f022 inherit pro_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -444,7 +432,7 @@ unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="
 <tr class="separator:a25f5a6866e2513c768ad1f5ff047c460 inherit pro_attribs_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c74f7e0ec51eadf63a27904e89d4f50 inherit pro_attribs_class_ode_base"><td class="memItemLeft" align="right" valign="top"><a id="a1c74f7e0ec51eadf63a27904e89d4f50"></a>
 unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a1c74f7e0ec51eadf63a27904e89d4f50">neval_</a></td></tr>
-<tr class="memdesc:a1c74f7e0ec51eadf63a27904e89d4f50 inherit pro_attribs_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">function evaluation counter, must be incremented in <a class="el" href="class_ode_base.html#a7c1fa9a791c0d4d1ca5b69008ceabcd7" title="increments the step counter and the time, checks the solution integrity if needed,...">step()</a> when defined <br /></td></tr>
+<tr class="memdesc:a1c74f7e0ec51eadf63a27904e89d4f50 inherit pro_attribs_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">function evaluation counter, must be incremented in <a class="el" href="class_ode_base.html#ad6e4000804cb8bd4851d476ce9a71e06" title="increments the step counter and the time, checks the solution integrity if needed,...">step()</a> when defined <br /></td></tr>
 <tr class="separator:a1c74f7e0ec51eadf63a27904e89d4f50 inherit pro_attribs_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acff05437c7f37ea34efcfe8575b6dfdb inherit pro_attribs_class_ode_base"><td class="memItemLeft" align="right" valign="top"><a id="acff05437c7f37ea34efcfe8575b6dfdb"></a>
 unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#acff05437c7f37ea34efcfe8575b6dfdb">icheck_</a></td></tr>
@@ -566,12 +554,12 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ode__adaptive_8cc_source.html#l00137">137</a> of file <a class="el" href="ode__adaptive_8cc_source.html">ode_adaptive.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ode__adaptive_8cc_source.html#l00141">141</a> of file <a class="el" href="ode__adaptive_8cc_source.html">ode_adaptive.cc</a>.</p>
 
 </div>
 </div>
-<a id="a98cfe7f27d7039c5e848416ffcbb706b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98cfe7f27d7039c5e848416ffcbb706b">&#9670;&nbsp;</a></span>solve_adaptive() <span class="overload">[2/4]</span></h2>
+<a id="ad60185f29099b8649419f42fd85e114f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad60185f29099b8649419f42fd85e114f">&#9670;&nbsp;</a></span>solve_adaptive() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -586,7 +574,13 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>dt0</em>&#160;</td>
+          <td class="paramname"><em>dt0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>extras</em> = <code>true</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -601,11 +595,12 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">tint</td><td>total integration time </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">dt0</td><td>initial time step size </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">extras</td><td>whether to call all the extra functions (before_solve, after_step, ...) </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ode__adaptive_8cc_source.html#l00040">40</a> of file <a class="el" href="ode__adaptive_8cc_source.html">ode_adaptive.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ode__adaptive_8cc_source.html#l00043">43</a> of file <a class="el" href="ode__adaptive_8cc_source.html">ode_adaptive.cc</a>.</p>
 
 </div>
 </div>
@@ -658,7 +653,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ode__adaptive_8cc_source.html#l00054">54</a> of file <a class="el" href="ode__adaptive_8cc_source.html">ode_adaptive.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ode__adaptive_8cc_source.html#l00059">59</a> of file <a class="el" href="ode__adaptive_8cc_source.html">ode_adaptive.cc</a>.</p>
 
 </div>
 </div>
@@ -711,12 +706,12 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ode__adaptive_8cc_source.html#l00122">122</a> of file <a class="el" href="ode__adaptive_8cc_source.html">ode_adaptive.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ode__adaptive_8cc_source.html#l00127">127</a> of file <a class="el" href="ode__adaptive_8cc_source.html">ode_adaptive.cc</a>.</p>
 
 </div>
 </div>
-<a id="a16ff9dbee69392ff007d05e96151c67b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16ff9dbee69392ff007d05e96151c67b">&#9670;&nbsp;</a></span>solve_adaptive_()</h2>
+<a id="a7713c0c23f63f1b1725fd68c0a13a1b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7713c0c23f63f1b1725fd68c0a13a1b3">&#9670;&nbsp;</a></span>solve_adaptive_()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -734,7 +729,13 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>dt0</em>&#160;</td>
+          <td class="paramname"><em>dt0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>extra</em> = <code>true</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -754,11 +755,12 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">tint</td><td>total integration time </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">dt0</td><td>initial time step size </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">extra</td><td>whether to call <a class="el" href="class_ode_base.html#a939cb7f178f718443c676d874b0106b4" title="does any extra stuff after each step">after_step()</a> </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ode__adaptive_8cc_source.html#l00023">23</a> of file <a class="el" href="ode__adaptive_8cc_source.html">ode_adaptive.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ode__adaptive_8cc_source.html#l00026">26</a> of file <a class="el" href="ode__adaptive_8cc_source.html">ode_adaptive.cc</a>.</p>
 
 </div>
 </div>

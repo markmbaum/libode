@@ -106,17 +106,18 @@ Inheritance diagram for OdeBase:</div>
  <div class="center">
   <img src="class_ode_base.png" usemap="#OdeBase_map" alt=""/>
   <map id="OdeBase_map" name="OdeBase_map">
-<area href="class_ode_adaptive.html" title="Base class implementing solver functions with adaptive time steps." alt="OdeAdaptive" shape="rect" coords="132,56,254,80"/>
+<area href="class_ode_adaptive.html" title="Base class implementing solver functions with adaptive time steps." alt="OdeAdaptive" shape="rect" coords="0,56,122,80"/>
 <area href="class_ode_backward_euler.html" title="Backward Euler&#39;s method, unconditionally stable but relatively inaccurate." alt="OdeBackwardEuler" shape="rect" coords="132,112,254,136"/>
-<area href="class_ode_euler.html" title="The simplest runge kutta method, forward Euler&#39;s." alt="OdeEuler" shape="rect" coords="132,168,254,192"/>
-<area href="class_ode_gauss6.html" title="The sixth-order, A-stable, fully-implicit Gauss-Legendre method with 3 stages." alt="OdeGauss6" shape="rect" coords="132,224,254,248"/>
-<area href="class_ode_geng5.html" title="The fifth-order, symplectic, fully-implicit Geng integrator with 3 stages." alt="OdeGeng5" shape="rect" coords="132,280,254,304"/>
-<area href="class_ode_lobatto_i_i_i_c6.html" title="The sixth-order, L-stable, fully-implicit Lobatto IIIC method with 4 stages." alt="OdeLobattoIIIC6" shape="rect" coords="132,336,254,360"/>
-<area href="class_ode_radau_i_i_a5.html" title="The fifth-order, L-stable, fully-implicit Radau IIA method with 3 stages." alt="OdeRadauIIA5" shape="rect" coords="132,392,254,416"/>
-<area href="class_ode_r_k4.html" title="The classic Runge-Kutta 4th order method." alt="OdeRK4" shape="rect" coords="132,448,254,472"/>
-<area href="class_ode_r_o_w6_a.html" title="6th order, A-stable Rosenbrock method" alt="OdeROW6A" shape="rect" coords="132,504,254,528"/>
-<area href="class_ode_ssp3.html" title="Strong stability preserving method of order 3." alt="OdeSsp3" shape="rect" coords="132,560,254,584"/>
-<area href="class_ode_trapz.html" title="Second order, explicit trapezoidal rule." alt="OdeTrapz" shape="rect" coords="132,616,254,640"/>
+<area href="class_ode_embedded.html" title="Base clase implementing methods for embedded Runge-Kutta error estimation." alt="OdeEmbedded" shape="rect" coords="132,168,254,192"/>
+<area href="class_ode_euler.html" title="The simplest runge kutta method, forward Euler&#39;s." alt="OdeEuler" shape="rect" coords="132,224,254,248"/>
+<area href="class_ode_gauss6.html" title="The sixth-order, A-stable, fully-implicit Gauss-Legendre method with 3 stages." alt="OdeGauss6" shape="rect" coords="132,280,254,304"/>
+<area href="class_ode_geng5.html" title="The fifth-order, symplectic, fully-implicit Geng integrator with 3 stages." alt="OdeGeng5" shape="rect" coords="132,336,254,360"/>
+<area href="class_ode_lobatto_i_i_i_c6.html" title="The sixth-order, L-stable, fully-implicit Lobatto IIIC method with 4 stages." alt="OdeLobattoIIIC6" shape="rect" coords="132,392,254,416"/>
+<area href="class_ode_radau_i_i_a5.html" title="The fifth-order, L-stable, fully-implicit Radau IIA method with 3 stages." alt="OdeRadauIIA5" shape="rect" coords="132,448,254,472"/>
+<area href="class_ode_r_k4.html" title="The classic Runge-Kutta 4th order method." alt="OdeRK4" shape="rect" coords="132,504,254,528"/>
+<area href="class_ode_r_o_w6_a.html" title="6th order, A-stable Rosenbrock method" alt="OdeROW6A" shape="rect" coords="132,560,254,584"/>
+<area href="class_ode_ssp3.html" title="Strong stability preserving method of order 3." alt="OdeSsp3" shape="rect" coords="132,616,254,640"/>
+<area href="class_ode_trapz.html" title="Second order, explicit trapezoidal rule." alt="OdeTrapz" shape="rect" coords="132,672,254,696"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -149,17 +150,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a375db3b3aa6ba11532c9bf0c61388623">get_silent_snap</a> ()</td></tr>
 <tr class="memdesc:a375db3b3aa6ba11532c9bf0c61388623"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets whether to skip writing the solution vector to file when snapping <br /></td></tr>
 <tr class="separator:a375db3b3aa6ba11532c9bf0c61388623"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1153cb69f77ee8999d61d471aec685a"><td class="memItemLeft" align="right" valign="top"><a id="af1153cb69f77ee8999d61d471aec685a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#af1153cb69f77ee8999d61d471aec685a">get_prescribe_adapt</a> ()</td></tr>
-<tr class="memdesc:af1153cb69f77ee8999d61d471aec685a"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the boolean determining if prescribed adapting is on <br /></td></tr>
-<tr class="separator:af1153cb69f77ee8999d61d471aec685a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29e7843cb15ffc56d10bb6d5040c3d49"><td class="memItemLeft" align="right" valign="top"><a id="a29e7843cb15ffc56d10bb6d5040c3d49"></a>
 unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a29e7843cb15ffc56d10bb6d5040c3d49">get_neq</a> ()</td></tr>
 <tr class="memdesc:a29e7843cb15ffc56d10bb6d5040c3d49"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the size of the ODE system <br /></td></tr>
 <tr class="separator:a29e7843cb15ffc56d10bb6d5040c3d49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa72bd44eb4be0cc7af954ebc620fb2ed"><td class="memItemLeft" align="right" valign="top"><a id="aa72bd44eb4be0cc7af954ebc620fb2ed"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#aa72bd44eb4be0cc7af954ebc620fb2ed">get_t</a> ()</td></tr>
-<tr class="memdesc:aa72bd44eb4be0cc7af954ebc620fb2ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the current value of the independent variable <br /></td></tr>
+<tr class="memitem:aa72bd44eb4be0cc7af954ebc620fb2ed"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#aa72bd44eb4be0cc7af954ebc620fb2ed">get_t</a> ()</td></tr>
+<tr class="memdesc:aa72bd44eb4be0cc7af954ebc620fb2ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the current value of the independent variable  <a href="class_ode_base.html#aa72bd44eb4be0cc7af954ebc620fb2ed">More...</a><br /></td></tr>
 <tr class="separator:aa72bd44eb4be0cc7af954ebc620fb2ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a737e037f4c000a4c774a179187bc21f7"><td class="memItemLeft" align="right" valign="top"><a id="a737e037f4c000a4c774a179187bc21f7"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a737e037f4c000a4c774a179187bc21f7">get_dt</a> ()</td></tr>
@@ -213,24 +209,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a0b971f7335b7a0a7b200caa552ff34e8">set_silent_snap</a> (bool silent_snap)</td></tr>
 <tr class="memdesc:a0b971f7335b7a0a7b200caa552ff34e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets whether to skip writing the solution vector to file when snapping <br /></td></tr>
 <tr class="separator:a0b971f7335b7a0a7b200caa552ff34e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0664d6924e6df97f94c3c045884351d1"><td class="memItemLeft" align="right" valign="top"><a id="a0664d6924e6df97f94c3c045884351d1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a0664d6924e6df97f94c3c045884351d1">set_prescribe_adapt</a> (bool prescribe_adapt)</td></tr>
-<tr class="memdesc:a0664d6924e6df97f94c3c045884351d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the boolean determining if prescribed adapting is on <br /></td></tr>
-<tr class="separator:a0664d6924e6df97f94c3c045884351d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fa30c0f17747d56c6c33131078c974e"><td class="memItemLeft" align="right" valign="top"><a id="a2fa30c0f17747d56c6c33131078c974e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a2fa30c0f17747d56c6c33131078c974e">set_icheck</a> (unsigned long icheck)</td></tr>
 <tr class="memdesc:a2fa30c0f17747d56c6c33131078c974e"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the number of steps after which the solution is checked for integrity <br /></td></tr>
 <tr class="separator:a2fa30c0f17747d56c6c33131078c974e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c1fa9a791c0d4d1ca5b69008ceabcd7"><td class="memItemLeft" align="right" valign="top"><a id="a7c1fa9a791c0d4d1ca5b69008ceabcd7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a7c1fa9a791c0d4d1ca5b69008ceabcd7">step</a> (double dt)</td></tr>
-<tr class="memdesc:a7c1fa9a791c0d4d1ca5b69008ceabcd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">increments the step counter and the time, checks the solution integrity if needed, stores the time step in the object, and executes <a class="el" href="class_ode_base.html#a939cb7f178f718443c676d874b0106b4" title="does any extra stuff after each step">after_step()</a> <br /></td></tr>
-<tr class="separator:a7c1fa9a791c0d4d1ca5b69008ceabcd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a3f38c473c7e49bc6c61810ef09d4c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a6a3f38c473c7e49bc6c61810ef09d4c7">solve_fixed</a> (double tint, double dt)</td></tr>
-<tr class="memdesc:a6a3f38c473c7e49bc6c61810ef09d4c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrates for a specified duration of independent variable without output  <a href="class_ode_base.html#a6a3f38c473c7e49bc6c61810ef09d4c7">More...</a><br /></td></tr>
-<tr class="separator:a6a3f38c473c7e49bc6c61810ef09d4c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc7b10c0d899f9e05fcc287f1949c814"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#afc7b10c0d899f9e05fcc287f1949c814">solve_fixed</a> (double tint, double dt, const char *dirout, int inter)</td></tr>
-<tr class="memdesc:afc7b10c0d899f9e05fcc287f1949c814"><td class="mdescLeft">&#160;</td><td class="mdescRight">lots of output, solves and stores every "inter" point along the way  <a href="class_ode_base.html#afc7b10c0d899f9e05fcc287f1949c814">More...</a><br /></td></tr>
-<tr class="separator:afc7b10c0d899f9e05fcc287f1949c814"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6e4000804cb8bd4851d476ce9a71e06"><td class="memItemLeft" align="right" valign="top"><a id="ad6e4000804cb8bd4851d476ce9a71e06"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#ad6e4000804cb8bd4851d476ce9a71e06">step</a> (double dt, bool extra=true)</td></tr>
+<tr class="memdesc:ad6e4000804cb8bd4851d476ce9a71e06"><td class="mdescLeft">&#160;</td><td class="mdescRight">increments the step counter and the time, checks the solution integrity if needed, stores the time step in the object, and executes <a class="el" href="class_ode_base.html#a939cb7f178f718443c676d874b0106b4" title="does any extra stuff after each step">after_step()</a> if extra is true <br /></td></tr>
+<tr class="separator:ad6e4000804cb8bd4851d476ce9a71e06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cc25aa91153d6e1bc918a899694d6b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a8cc25aa91153d6e1bc918a899694d6b6">solve_fixed</a> (double tint, double dt, bool extras=true)</td></tr>
+<tr class="memdesc:a8cc25aa91153d6e1bc918a899694d6b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrates for a specified duration of independent variable without output  <a href="class_ode_base.html#a8cc25aa91153d6e1bc918a899694d6b6">More...</a><br /></td></tr>
+<tr class="separator:a8cc25aa91153d6e1bc918a899694d6b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af07a932a647150212cb9554c34ad72c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#af07a932a647150212cb9554c34ad72c4">solve_fixed</a> (double tint, double dt, const char *dirout, int inter=1)</td></tr>
+<tr class="memdesc:af07a932a647150212cb9554c34ad72c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">lots of output, solves and stores every "inter" point along the way  <a href="class_ode_base.html#af07a932a647150212cb9554c34ad72c4">More...</a><br /></td></tr>
+<tr class="separator:af07a932a647150212cb9554c34ad72c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c5a93572d9d4b2abd73a7fe5967c1b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a8c5a93572d9d4b2abd73a7fe5967c1b0">solve_fixed</a> (double tint, double dt, unsigned long nsnap, const char *dirout)</td></tr>
 <tr class="memdesc:a8c5a93572d9d4b2abd73a7fe5967c1b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">solves and writes evenly spaced snapshots  <a href="class_ode_base.html#a8c5a93572d9d4b2abd73a7fe5967c1b0">More...</a><br /></td></tr>
 <tr class="separator:a8c5a93572d9d4b2abd73a7fe5967c1b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -240,15 +232,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a7738598d3f815149cd2d0f7aab2f45ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a7738598d3f815149cd2d0f7aab2f45ff">reset</a> (double t, double *sol)</td></tr>
 <tr class="memdesc:a7738598d3f815149cd2d0f7aab2f45ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">reset to a specified time and initial condition array  <a href="class_ode_base.html#a7738598d3f815149cd2d0f7aab2f45ff">More...</a><br /></td></tr>
 <tr class="separator:a7738598d3f815149cd2d0f7aab2f45ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc0f0eefc04928e876f5f0e137c2288e"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#adc0f0eefc04928e876f5f0e137c2288e">prescribe_adapt_dt</a> ()</td></tr>
-<tr class="memdesc:adc0f0eefc04928e876f5f0e137c2288e"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the next time step for prescribed adaptive fixed solving  <a href="class_ode_base.html#adc0f0eefc04928e876f5f0e137c2288e">More...</a><br /></td></tr>
-<tr class="separator:adc0f0eefc04928e876f5f0e137c2288e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a2c860f875765c934c6f1c349c7339256"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a2c860f875765c934c6f1c349c7339256">solve_fixed_</a> (double tint, double dt)</td></tr>
-<tr class="memdesc:a2c860f875765c934c6f1c349c7339256"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrates without output or any counters, trackers, extra functions...  <a href="class_ode_base.html#a2c860f875765c934c6f1c349c7339256">More...</a><br /></td></tr>
-<tr class="separator:a2c860f875765c934c6f1c349c7339256"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6e04761151d322f7c2f5bb50ce3ae22"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#aa6e04761151d322f7c2f5bb50ce3ae22">solve_fixed_</a> (double tint, double dt, bool extra=true)</td></tr>
+<tr class="memdesc:aa6e04761151d322f7c2f5bb50ce3ae22"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrates without output or any counters, trackers, extra functions...  <a href="class_ode_base.html#aa6e04761151d322f7c2f5bb50ce3ae22">More...</a><br /></td></tr>
+<tr class="separator:aa6e04761151d322f7c2f5bb50ce3ae22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02d1c6edf23a1d18c01b75df33a6f022"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a02d1c6edf23a1d18c01b75df33a6f022">ode_fun</a> (double *solin, double *fout)=0</td></tr>
 <tr class="memdesc:a02d1c6edf23a1d18c01b75df33a6f022"><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluates the system of ODEs in autonomous form and must be defined by a derived class  <a href="class_ode_base.html#a02d1c6edf23a1d18c01b75df33a6f022">More...</a><br /></td></tr>
 <tr class="separator:a02d1c6edf23a1d18c01b75df33a6f022"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -346,7 +335,7 @@ unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="
 <tr class="separator:a25f5a6866e2513c768ad1f5ff047c460"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c74f7e0ec51eadf63a27904e89d4f50"><td class="memItemLeft" align="right" valign="top"><a id="a1c74f7e0ec51eadf63a27904e89d4f50"></a>
 unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a1c74f7e0ec51eadf63a27904e89d4f50">neval_</a></td></tr>
-<tr class="memdesc:a1c74f7e0ec51eadf63a27904e89d4f50"><td class="mdescLeft">&#160;</td><td class="mdescRight">function evaluation counter, must be incremented in <a class="el" href="class_ode_base.html#a7c1fa9a791c0d4d1ca5b69008ceabcd7" title="increments the step counter and the time, checks the solution integrity if needed,...">step()</a> when defined <br /></td></tr>
+<tr class="memdesc:a1c74f7e0ec51eadf63a27904e89d4f50"><td class="mdescLeft">&#160;</td><td class="mdescRight">function evaluation counter, must be incremented in <a class="el" href="class_ode_base.html#ad6e4000804cb8bd4851d476ce9a71e06" title="increments the step counter and the time, checks the solution integrity if needed,...">step()</a> when defined <br /></td></tr>
 <tr class="separator:a1c74f7e0ec51eadf63a27904e89d4f50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acff05437c7f37ea34efcfe8575b6dfdb"><td class="memItemLeft" align="right" valign="top"><a id="acff05437c7f37ea34efcfe8575b6dfdb"></a>
 unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#acff05437c7f37ea34efcfe8575b6dfdb">icheck_</a></td></tr>
@@ -373,7 +362,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <div class="textblock"><p>Lowest base class for all solvers. </p>
 <p>This is the deepest base class, upon which all integrators and other base classes are built. It provides basic variables like the solution array, the independent variable, and a string defining the integrator's name. It implements the solve_fixed function for integrating with a fixed time step. When constructing, it will allocate space for a Jacobian matrix if the need_jac flag is true. </p>
 
-<p class="definition">Definition at line <a class="el" href="ode__base_8h_source.html#l00080">80</a> of file <a class="el" href="ode__base_8h_source.html">ode_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ode__base_8h_source.html#l00079">79</a> of file <a class="el" href="ode__base_8h_source.html">ode_base.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aacdf86d5554b13574f5a7fe4cb6b7ccb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aacdf86d5554b13574f5a7fe4cb6b7ccb">&#9670;&nbsp;</a></span>OdeBase()</h2>
@@ -448,7 +437,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ode__base_8cc_source.html#l00343">343</a> of file <a class="el" href="ode__base_8cc_source.html">ode_base.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ode__base_8cc_source.html#l00333">333</a> of file <a class="el" href="ode__base_8cc_source.html">ode_base.cc</a>.</p>
 
 </div>
 </div>
@@ -502,7 +491,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ode__base_8cc_source.html#l00348">348</a> of file <a class="el" href="ode__base_8cc_source.html">ode_base.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ode__base_8cc_source.html#l00338">338</a> of file <a class="el" href="ode__base_8cc_source.html">ode_base.cc</a>.</p>
 
 </div>
 </div>
@@ -538,7 +527,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ode__base_8cc_source.html#l00338">338</a> of file <a class="el" href="ode__base_8cc_source.html">ode_base.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ode__base_8cc_source.html#l00328">328</a> of file <a class="el" href="ode__base_8cc_source.html">ode_base.cc</a>.</p>
 
 </div>
 </div>
@@ -640,6 +629,36 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="ode__base_8cc_source.html#l00164">164</a> of file <a class="el" href="ode__base_8cc_source.html">ode_base.cc</a>.</p>
+
+</div>
+</div>
+<a id="aa72bd44eb4be0cc7af954ebc620fb2ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa72bd44eb4be0cc7af954ebc620fb2ed">&#9670;&nbsp;</a></span>get_t()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double OdeBase::get_t </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>gets the current value of the independent variable </p>
+<p>The value of the independent variable is provided as a convenience and is used internally to track integration progress, but is only precisely accurate in between steps. Libode solves systems in autonomous form. If the independent variable is needed during a step, an extra variable must be added to the system of ODEs to represent it. The corresponding extra ODE is always one. For example, if the independent variable is t for time, the extra ODE states dt/dt = 1. </p>
+
+<p class="definition">Definition at line <a class="el" href="ode__base_8h_source.html#l00110">110</a> of file <a class="el" href="ode__base_8h_source.html">ode_base.h</a>.</p>
 
 </div>
 </div>
@@ -829,36 +848,6 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 
 </div>
 </div>
-<a id="adc0f0eefc04928e876f5f0e137c2288e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc0f0eefc04928e876f5f0e137c2288e">&#9670;&nbsp;</a></span>prescribe_adapt_dt()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double OdeBase::prescribe_adapt_dt </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>computes the next time step for prescribed adaptive fixed solving </p>
-<dl class="section return"><dt>Returns</dt><dd>dt the next time step size to use </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="ode__base_8cc_source.html#l00331">331</a> of file <a class="el" href="ode__base_8cc_source.html">ode_base.cc</a>.</p>
-
-</div>
-</div>
 <a id="a7738598d3f815149cd2d0f7aab2f45ff"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7738598d3f815149cd2d0f7aab2f45ff">&#9670;&nbsp;</a></span>reset()</h2>
 
@@ -894,7 +883,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ode__base_8cc_source.html#l00322">322</a> of file <a class="el" href="ode__base_8cc_source.html">ode_base.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ode__base_8cc_source.html#l00317">317</a> of file <a class="el" href="ode__base_8cc_source.html">ode_base.cc</a>.</p>
 
 </div>
 </div>
@@ -1049,12 +1038,12 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ode__base_8cc_source.html#l00291">291</a> of file <a class="el" href="ode__base_8cc_source.html">ode_base.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ode__base_8cc_source.html#l00286">286</a> of file <a class="el" href="ode__base_8cc_source.html">ode_base.cc</a>.</p>
 
 </div>
 </div>
-<a id="a6a3f38c473c7e49bc6c61810ef09d4c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a3f38c473c7e49bc6c61810ef09d4c7">&#9670;&nbsp;</a></span>solve_fixed() <span class="overload">[2/4]</span></h2>
+<a id="a8cc25aa91153d6e1bc918a899694d6b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cc25aa91153d6e1bc918a899694d6b6">&#9670;&nbsp;</a></span>solve_fixed() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1069,7 +1058,13 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>dt</em>&#160;</td>
+          <td class="paramname"><em>dt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>extras</em> = <code>true</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1084,16 +1079,17 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">tint</td><td>total integration time </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">dt</td><td>time step size </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">extras</td><td>whether to call all the extra functions (before_solve, after_step, ...) </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ode__base_8cc_source.html#l00199">199</a> of file <a class="el" href="ode__base_8cc_source.html">ode_base.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ode__base_8cc_source.html#l00195">195</a> of file <a class="el" href="ode__base_8cc_source.html">ode_base.cc</a>.</p>
 
 </div>
 </div>
-<a id="afc7b10c0d899f9e05fcc287f1949c814"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc7b10c0d899f9e05fcc287f1949c814">&#9670;&nbsp;</a></span>solve_fixed() <span class="overload">[3/4]</span></h2>
+<a id="af07a932a647150212cb9554c34ad72c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af07a932a647150212cb9554c34ad72c4">&#9670;&nbsp;</a></span>solve_fixed() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1120,7 +1116,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>inter</em>&#160;</td>
+          <td class="paramname"><em>inter</em> = <code>1</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1141,7 +1137,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ode__base_8cc_source.html#l00214">214</a> of file <a class="el" href="ode__base_8cc_source.html">ode_base.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ode__base_8cc_source.html#l00211">211</a> of file <a class="el" href="ode__base_8cc_source.html">ode_base.cc</a>.</p>
 
 </div>
 </div>
@@ -1194,12 +1190,12 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ode__base_8cc_source.html#l00274">274</a> of file <a class="el" href="ode__base_8cc_source.html">ode_base.cc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ode__base_8cc_source.html#l00269">269</a> of file <a class="el" href="ode__base_8cc_source.html">ode_base.cc</a>.</p>
 
 </div>
 </div>
-<a id="a2c860f875765c934c6f1c349c7339256"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c860f875765c934c6f1c349c7339256">&#9670;&nbsp;</a></span>solve_fixed_()</h2>
+<a id="aa6e04761151d322f7c2f5bb50ce3ae22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6e04761151d322f7c2f5bb50ce3ae22">&#9670;&nbsp;</a></span>solve_fixed_()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1217,7 +1213,13 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>dt</em>&#160;</td>
+          <td class="paramname"><em>dt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>extra</em> = <code>true</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1237,6 +1239,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">tint</td><td>total integration time </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">dt</td><td>time step size </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">extra</td><td>whether to call <a class="el" href="class_ode_base.html#a939cb7f178f718443c676d874b0106b4" title="does any extra stuff after each step">after_step()</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -1270,7 +1273,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </div><div class="memdoc">
 
 <p>advances a single time step (without changing counters or the time) and must be defined in the derived class implementing the solver/method </p>
-<p>This is a virtual function overridden by the class which implements the stepping algorightm. It should never be used outside of the wrapper <a class="el" href="class_ode_base.html#a7c1fa9a791c0d4d1ca5b69008ceabcd7" title="increments the step counter and the time, checks the solution integrity if needed,...">step()</a> function, and this wrapper should always be used instead. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This is a virtual function overridden by the class which implements the stepping algorightm. It should never be used outside of the wrapper <a class="el" href="class_ode_base.html#ad6e4000804cb8bd4851d476ce9a71e06" title="increments the step counter and the time, checks the solution integrity if needed,...">step()</a> function, and this wrapper should always be used instead. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">dt</td><td>time step size </td></tr>
   </table>

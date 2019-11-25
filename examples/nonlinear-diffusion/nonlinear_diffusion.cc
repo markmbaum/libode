@@ -11,9 +11,7 @@ int main () {
     //domain length
     double L = 0.5;
     //integration time
-    double tint = 1e-1;
-    //time step
-    double dt = tint/1e5;
+    double tint = 2e-1;
 
     //create system
     NonlinearDiffusion<OdeTrapz> sys(nx, L);
@@ -23,8 +21,7 @@ int main () {
     for (int i=0; i<nx; i++) sys.set_sol(i, 0.1 + 0.9*exp(-sys.xc[i]*sys.xc[i]*50));
 
     //integrate
-    sys.set_prescribe_adapt(true);
-    sys.solve_fixed(tint, dt, 15, "out");
+    sys.solve_adaptive(tint, tint*1e-9, 15, "out");
     printf("%llu steps\n", sys.get_nstep());
 
     //write the grid to file

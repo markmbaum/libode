@@ -3,7 +3,7 @@
 
 //! \file ode_radau_iia_5.h
 
-#include "ode_base.h"
+#include "ode_adaptive.h"
 #include "ode_irk.h"
 #include "ode_newton_bridge.h"
 
@@ -29,7 +29,7 @@ class NewtonRadauIIA5 : public OdeNewtonIRK<OdeRadauIIA5> {
 /*!
     + Hairer, E. & Wanner, G. Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems. (Springer, 1996)
 */
-class OdeRadauIIA5 : public OdeBase, private OdeIRK {
+class OdeRadauIIA5 : public OdeAdaptive, private OdeIRK {
     //friends!
     friend class OdeNewtonBridge<OdeRadauIIA5>;
     friend class OdeNewtonIRK<OdeRadauIIA5>;

@@ -3,7 +3,7 @@
 #include "ode_ssp_3.h"
 
 OdeSsp3::OdeSsp3 (unsigned long neq) :
-    OdeBase (neq, false),
+    OdeAdaptive (neq, false),
     OdeRK (neq, 3),
     OdeERK (neq) {
 

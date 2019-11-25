@@ -3,7 +3,7 @@
 
 //! \file ode_backward_euler.h
 
-#include "ode_base.h"
+#include "ode_adaptive.h"
 #include "ode_irk.h"
 #include "ode_newton_bridge.h"
 
@@ -27,7 +27,7 @@ class NewtonBackwardEuler : public OdeNewtonIRK<OdeBackwardEuler> {
 
 //!Backward Euler's method, unconditionally stable but relatively inaccurate
 /*! + https://en.wikipedia.org/wiki/Backward_Euler_method */
-class OdeBackwardEuler : public OdeBase, private OdeIRK {
+class OdeBackwardEuler : public OdeAdaptive, private OdeIRK {
     //friends!
     friend class OdeNewtonBridge<OdeBackwardEuler>;
     friend class OdeNewtonIRK<OdeBackwardEuler>;

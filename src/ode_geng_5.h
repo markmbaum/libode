@@ -3,7 +3,7 @@
 
 //! \file ode_geng_5.h
 
-#include "ode_base.h"
+#include "ode_adaptive.h"
 #include "ode_irk.h"
 #include "ode_newton_bridge.h"
 
@@ -26,7 +26,7 @@ class NewtonGeng5 : public OdeNewtonIRK<OdeGeng5> {
 };
 
 //!The fifth-order, symplectic, fully-implicit Geng integrator with 3 stages
-class OdeGeng5 : public OdeBase, private OdeIRK {
+class OdeGeng5 : public OdeAdaptive, private OdeIRK {
     //friends!
     friend class OdeNewtonBridge<OdeGeng5>;
     friend class OdeNewtonIRK<OdeGeng5>;

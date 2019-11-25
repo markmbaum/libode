@@ -20,7 +20,10 @@ OdeAdaptive::~OdeAdaptive () {
     delete [] solprev_;
 }
 
-void OdeAdaptive::solve_adaptive_ (double tint, double dt0) {
+//---------------------------------------
+//integration with adaptive time stepping
+
+void OdeAdaptive::solve_adaptive_ (double tint, double dt0, bool extra) {
 
     //store the time step
     double dt = dt0;
@@ -31,24 +34,26 @@ void OdeAdaptive::solve_adaptive_ (double tint, double dt0) {
     //solve to the stopping time
     while ( !solve_done_adaptive(tend) ) {
         //take a step, which might be rejected
-        step_adaptive_(dt);
+        step_adaptive_(dt, extra);
         //compute a new time step
         dt = dt_adapt_(tend);
     }
 }
 
-void OdeAdaptive::solve_adaptive (double tint, double dt0) {
+void OdeAdaptive::solve_adaptive (double tint, double dt0, bool extras) {
 
     //checks
     check_pre_solve(tint, dt0);
-    //extra initial things
-    before_solve();
-    //stopping time
-    double tend = t_ + tint;
-    //solve
-    solve_adaptive_(tend, dt0);
-    //extra completion things (to be overridden in derived class)
-    after_solve();
+    if (extras) {
+        //extra initial things
+        before_solve();
+        //solve
+        solve_adaptive_(tint, dt0, true);
+        //extra completion things (to be overridden in derived class)
+        after_solve();
+    } else {
+        solve_adaptive_(tint, dt0, false);
+    }
 }
 
 void OdeAdaptive::solve_adaptive (double tint, double dt0, const char *dirout, int inter) {
@@ -120,7 +125,6 @@ void OdeAdaptive::solve_adaptive (double tint, double dt0, const char *dirout, i
 }
 
 void OdeAdaptive::solve_adaptive (double tint, double dt0, unsigned long nsnap, const char *dirout) {
-
     //checks
     check_pre_solve(tint, dt0);
     //stopping time
@@ -134,7 +138,7 @@ void OdeAdaptive::solve_adaptive (double tint, double dt0, unsigned long nsnap, 
     delete [] tsnap;
 }
 
-void OdeAdaptive::solve_adaptive(double dt0, double *tsnap, unsigned long nsnap, const char *dirout) {
+void OdeAdaptive::solve_adaptive (double dt0, double *tsnap, unsigned long nsnap, const char *dirout) {
 
     //checks
     check_pre_snaps(dt0, tsnap, nsnap);
@@ -166,6 +170,21 @@ void OdeAdaptive::solve_adaptive(double dt0, double *tsnap, unsigned long nsnap,
     dirout_ = "";
 }
 
+//--------------
+//adapting stuff
+
+void OdeAdaptive::adapt (double abstol, double reltol) {
+    (void)abstol;
+    (void)reltol;
+}
+
+bool OdeAdaptive::is_rejected () { return(false); }
+
+double OdeAdaptive::dt_adapt () {
+    ode_print_exit("An adaptive solving method was called without a time step choosing algorithm implemented! You must at least implement the dt_adapt() function to use solve_adaptive().");
+    return(1);
+}
+
 bool OdeAdaptive::solve_done_adaptive (double tend) {
 
     if ( ode_is_close(t_, tend, 1e-13) || (t_ >= tend) )
@@ -173,7 +192,10 @@ bool OdeAdaptive::solve_done_adaptive (double tend) {
     return(false);
 }
 
-bool OdeAdaptive::step_adaptive_ (double dt) {
+//--------------
+//wrappers
+
+bool OdeAdaptive::step_adaptive_ (double dt, bool extra) {
 
     //store the current solution in case the step is rejected
     memcpy(solprev_, sol_, neq_*sizeof(double));
@@ -199,7 +221,7 @@ bool OdeAdaptive::step_adaptive_ (double dt) {
         //check for nans and infs
         if (nstep_ % icheck_ == 0) check_sol_integrity();
         //do any extra stuff
-        after_step(t_);
+        if (extra) after_step(t_);
         //return success
         return(true);
     }

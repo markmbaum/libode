@@ -3,7 +3,7 @@
 
 //! \file ode_ssp_3.h
 
-#include "ode_base.h"
+#include "ode_adaptive.h"
 #include "ode_rk.h"
 #include "ode_erk.h"
 
@@ -11,7 +11,7 @@
 /*!
     + C. W. Shu and S. Osher, Effcient implementation of essentially nonoscillatory shock-capturing schemes, J. Comput. Phys., 77, 1988, pp. 439-471.
 */
-class OdeSsp3 : public OdeBase, private OdeRK, private OdeERK {
+class OdeSsp3 : public OdeAdaptive, private OdeRK, private OdeERK {
 
     public:
         //!constructs

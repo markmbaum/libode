@@ -3,7 +3,7 @@
 #include "ode_trapz.h"
 
 OdeTrapz::OdeTrapz (unsigned long neq) :
-    OdeBase (neq, false),
+    OdeAdaptive (neq, false),
     OdeRK (neq, 2),
     OdeERK (neq) {
 

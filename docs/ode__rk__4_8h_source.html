@@ -94,12 +94,12 @@ $(document).ready(function(){initNavTree('ode__rk__4_8h_source.html','');});
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ODE_RK4_H_</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ode__base_8h.html">ode_base.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ode__adaptive_8h.html">ode_adaptive.h</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ode__rk_8h.html">ode_rk.h</a>&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ode__erk_8h.html">ode_erk.h</a>&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_ode_r_k4.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_ode_r_k4.html">OdeRK4</a> : <span class="keyword">public</span> <a class="code" href="class_ode_base.html">OdeBase</a>, <span class="keyword">private</span> <a class="code" href="class_ode_r_k.html">OdeRK</a>, <span class="keyword">private</span> <a class="code" href="class_ode_e_r_k.html">OdeERK</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_ode_r_k4.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_ode_r_k4.html">OdeRK4</a> : <span class="keyword">public</span> <a class="code" href="class_ode_adaptive.html">OdeAdaptive</a>, <span class="keyword">private</span> <a class="code" href="class_ode_r_k.html">OdeRK</a>, <span class="keyword">private</span> <a class="code" href="class_ode_e_r_k.html">OdeERK</a> {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
@@ -120,11 +120,11 @@ $(document).ready(function(){initNavTree('ode__rk__4_8h_source.html','');});
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_ode_r_k4_html_a1596bba1e802a932840bfc4fc0ad25c2"><div class="ttname"><a href="class_ode_r_k4.html#a1596bba1e802a932840bfc4fc0ad25c2">OdeRK4::OdeRK4</a></div><div class="ttdeci">OdeRK4(unsigned long neq)</div><div class="ttdoc">constructs</div><div class="ttdef"><b>Definition:</b> <a href="ode__rk__4_8cc_source.html#l00005">ode_rk_4.cc:5</a></div></div>
-<div class="ttc" id="aclass_ode_base_html"><div class="ttname"><a href="class_ode_base.html">OdeBase</a></div><div class="ttdoc">Lowest base class for all solvers.</div><div class="ttdef"><b>Definition:</b> <a href="ode__base_8h_source.html#l00080">ode_base.h:80</a></div></div>
+<div class="ttc" id="aode__adaptive_8h_html"><div class="ttname"><a href="ode__adaptive_8h.html">ode_adaptive.h</a></div></div>
 <div class="ttc" id="aclass_ode_e_r_k_html"><div class="ttname"><a href="class_ode_e_r_k.html">OdeERK</a></div><div class="ttdoc">Base class with space for temporary solutions moving through RK stages.</div><div class="ttdef"><b>Definition:</b> <a href="ode__erk_8h_source.html#l00007">ode_erk.h:7</a></div></div>
+<div class="ttc" id="aclass_ode_adaptive_html"><div class="ttname"><a href="class_ode_adaptive.html">OdeAdaptive</a></div><div class="ttdoc">Base class implementing solver functions with adaptive time steps.</div><div class="ttdef"><b>Definition:</b> <a href="ode__adaptive_8h_source.html#l00028">ode_adaptive.h:28</a></div></div>
 <div class="ttc" id="aode__rk_8h_html"><div class="ttname"><a href="ode__rk_8h.html">ode_rk.h</a></div></div>
 <div class="ttc" id="aclass_ode_r_k_html"><div class="ttname"><a href="class_ode_r_k.html">OdeRK</a></div><div class="ttdoc">Provides space for stage slope values.</div><div class="ttdef"><b>Definition:</b> <a href="ode__rk_8h_source.html#l00007">ode_rk.h:7</a></div></div>
-<div class="ttc" id="aode__base_8h_html"><div class="ttname"><a href="ode__base_8h.html">ode_base.h</a></div></div>
 <div class="ttc" id="aclass_ode_r_k4_html"><div class="ttname"><a href="class_ode_r_k4.html">OdeRK4</a></div><div class="ttdoc">The classic Runge-Kutta 4th order method.</div><div class="ttdef"><b>Definition:</b> <a href="ode__rk__4_8h_source.html#l00014">ode_rk_4.h:14</a></div></div>
 <div class="ttc" id="aode__erk_8h_html"><div class="ttname"><a href="ode__erk_8h.html">ode_erk.h</a></div></div>
 <!-- start footer part -->

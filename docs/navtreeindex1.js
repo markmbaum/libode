@@ -1,8 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"class_ode_trapz.html#a5ab18f5a5c646f08b0b445b3237a3bf8":[2,0,33,0],
-"class_ode_vern65.html":[2,0,34],
-"class_ode_vern65.html#aa6d4054daeeac3adfcbda991acf0d84e":[2,0,34,0],
 "class_ode_vern76.html":[2,0,35],
 "class_ode_vern76.html#a0607c1b287c788fbd69297aa4fb561db":[2,0,35,0],
 "class_ode_vern98.html":[2,0,36],

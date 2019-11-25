@@ -65,8 +65,9 @@ class OdeAdaptive : public OdeBase {
         /*!
         \param[in] tint total integration time
         \param[in] dt0 initial time step size
+        \param[in] extras whether to call all the extra functions (before_solve, after_step, ...)
         */
-        void solve_adaptive (double tint, double dt0);
+        void solve_adaptive (double tint, double dt0, bool extras=true);
 
         //!lots of output, solves and stores every "inter" point along the way
         /*!
@@ -101,8 +102,9 @@ class OdeAdaptive : public OdeBase {
         /*!
         \param[in] tint total integration time
         \param[in] dt0 initial time step size
+        \param[in] extra whether to call after_step()
         */
-        void solve_adaptive_ (double tint, double dt0);
+        void solve_adaptive_ (double tint, double dt0, bool extra=true);
 
         //------------------------
         //basic adaptive variables
@@ -117,18 +119,18 @@ class OdeAdaptive : public OdeBase {
         double dtmax_;
 
         //!executes whatever calculations need to be performed for adapting, including a determination of whether a step is rejected and a calculation of the next time step size
-        virtual void adapt (double abstol, double reltol) = 0;
-        //!retreives a bool determining whether a step is accepted/rejected
-        virtual bool is_rejected () = 0;
+        virtual void adapt (double abstol, double reltol);
+        //!retreives a bool determining whether a step is accepted/rejected, false by default
+        virtual bool is_rejected ();
         //!retrieves the best time step for the next step
-        virtual double dt_adapt () = 0;
+        virtual double dt_adapt ();
 
         //!determines whether an adaptive solve is finished
         bool solve_done_adaptive (double tend);
 
         //wrappers
-        //!texecutes a single time and calls all necessary adapting functions
-        bool step_adaptive_ (double dt);
+        //!executes a single time and calls all necessary adapting functions
+        bool step_adaptive_ (double dt, bool extra=true);
         //!wrapper around dt_adapt() to perform additional checks
         double dt_adapt_ (double tend);
 

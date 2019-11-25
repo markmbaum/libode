@@ -3,7 +3,7 @@
 
 //! \file ode_gauss_6.h
 
-#include "ode_base.h"
+#include "ode_adaptive.h"
 #include "ode_irk.h"
 #include "ode_newton_bridge.h"
 
@@ -29,7 +29,7 @@ class NewtonGauss6 : public OdeNewtonIRK<OdeGauss6> {
 /*!
     + https://en.wikipedia.org/wiki/Gauss%E2%80%93Legendre_method
 */
-class OdeGauss6 : public OdeBase, private OdeIRK {
+class OdeGauss6 : public OdeAdaptive, private OdeIRK {
     //friends!
     friend class OdeNewtonBridge<OdeGauss6>;
     friend class OdeNewtonIRK<OdeGauss6>;

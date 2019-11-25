@@ -3,12 +3,12 @@
 
 //! \file ode_trapz.h
 
-#include "ode_base.h"
+#include "ode_adaptive.h"
 #include "ode_rk.h"
 #include "ode_erk.h"
 
 //!Second order, explicit trapezoidal rule
-class OdeTrapz : public OdeBase, private OdeRK, private OdeERK {
+class OdeTrapz : public OdeAdaptive, private OdeRK, private OdeERK {
 
     public:
         //!constructs

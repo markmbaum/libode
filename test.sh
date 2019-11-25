@@ -16,3 +16,5 @@ cd scripts
 python plot_${test}.py
 #back to home dir
 cd ..
+#clear the output directory
+python clean.py out

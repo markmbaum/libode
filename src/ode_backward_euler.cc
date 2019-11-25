@@ -42,7 +42,7 @@ void NewtonBackwardEuler::J_Newton (double *x, double **J) {
 //------------------------------------------------------------------------------
 
 OdeBackwardEuler::OdeBackwardEuler (unsigned long neq) :
-    OdeBase (neq, true),
+    OdeAdaptive (neq, true),
     OdeIRK (neq, 1) {
 
     method_ = "BackwardEuler";

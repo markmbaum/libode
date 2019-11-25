@@ -80,9 +80,9 @@ Each solver has a `step()` method that can be used to integrate a single step wi
 
 ### Flexibly Adapt the Time Step
 
-The adaptive solvers choose time steps by comparing the solution for a single step with that of an embedded, lower order solution for the step. The algorithm for this is well described in the books referenced above. If, however, there is another way that the time step should be chosen, a new selection method can be used with any of the solvers. If the `prescribed_adaptive` flag for an integrator class is `true`, each of the `solve_fixed()` functions will request a new time step from the virtual `prescribed_adaptive_dt()` function. This function must be implemented by the integrator class.
+The adaptive solvers automatically choose time steps by comparing the solution for a single step with that of an embedded, lower order solution for the step and computing an error estimate. The algorithm for this is well described in the books referenced above. If, however, there is another way that the time step should be chosen for a system, a new selection method can be used with any of the solvers. If the virtual function `dt_adapt()` is overridden, it will be used to select the time step in the `solve_adaptive()` functions.
 
-Such flexibility might be useful in lots of cases, considering it allows the step size to be chosen by any method at all. Specifically though, it has been used to set the time step based on the stability threshold of PDE discretizations. The time step of explicit methods for PDEs might be limited by the CFL condition for advection or the von Neumann condition for simple diffusion schemes. Prescribing the adaptive time step based on these conditions could provide huge speed boosts. The `nonlinear-diffusion` example integrator provides an example of this.
+Such flexibility might be useful in lots of cases, considering it allows the step size to be chosen by any method at all. Specifically though, it has been used to set the time step based on the stability threshold of PDE discretizations. The time step of explicit methods for PDEs might be limited by the CFL condition for advection or the von Neumann condition for simple diffusion schemes. Prescribing the adaptive time step based on these conditions, then using `solve_adaptive()`, could provide huge speed boosts.
 
 ## Examples
 

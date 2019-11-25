@@ -10,8 +10,6 @@ OdeBase::OdeBase (unsigned long neq, bool need_jac) {
     quiet_ = false;
     //!whether to skip writing the solution vector to file when snapping
     silent_snap_ = false;
-    //boolean determining if prescribed adapting is on
-    prescribe_adapt_ = false;
     //number of equations/variables in ode system
     neq_ = neq;
     //time starts at zero unless modified
@@ -103,20 +101,20 @@ void OdeBase::ode_jac_ (double *solin, double **Jout) {
     nJac_++;
 }
 
-void OdeBase::step (double dt) {
+void OdeBase::step (double dt, bool extra) {
 
     //store the time step for access in derived classes
     dt_ = dt;
-    //call the basic stepper
+    //call the bare stepper
     step_(dt);
-    //increment the time
+    //increment the time, a convenience variable
     t_ += dt;
     //increment the counter
     nstep_++;
     //check for nans and infs
     if (nstep_ % icheck_ == 0) check_sol_integrity();
     //do any extra stuff
-    after_step(t_);
+    if (extra) after_step(t_);
 }
 
 //--------------
@@ -182,33 +180,30 @@ void OdeBase::check_pre_snaps (double dt, double *tsnap, unsigned long nsnap) {
 //----------------
 //solver functions
 
-void OdeBase::solve_fixed_ (double tint, double dt) {
+void OdeBase::solve_fixed_ (double tint, double dt, bool extra) {
 
     //stopping time
     double tend = t_ + tint;
     //solve to within a time step of tend
-    while ( !solve_done(dt, tend) ) {
-        step(dt);
-        //get a new time step if it is prescribed
-        if (prescribe_adapt_) dt = prescribe_adapt_dt();
-    }
+    while ( !solve_done(dt, tend) ) step(dt, extra);
     //solve a fractional time step to finish
     step(tend - t_);
 }
 
-void OdeBase::solve_fixed (double tint, double dt) {
-
+void OdeBase::solve_fixed (double tint, double dt, bool extras) {
 
     //checks
     check_pre_solve(tint, dt);
-    //extra initial things (to be overridden in derived class)
-    before_solve();
-    //stopping time
-    double tend = t_ + tint;
-    //solve
-    solve_fixed_(tend, dt);
-    //extra completion things (to be overridden in derived class)
-    after_solve();
+    if (extras) {
+        //extra initial things (to be overridden in derived class)
+        before_solve();
+        //solve
+        solve_fixed_(tint, dt, true);
+        //extra completion things (to be overridden in derived class)
+        after_solve();
+    } else {
+        solve_fixed_(tint, dt, false);
+    }
 }
 
 void OdeBase::solve_fixed (double tint, double dt, const char* dirout, int inter) {
@@ -240,8 +235,6 @@ void OdeBase::solve_fixed (double tint, double dt, const char* dirout, int inter
     while ( !solve_done(dt, tend) ) {
         //take a step
         step(dt);
-        //get a new time step if it is prescribed
-        if (prescribe_adapt_) dt = prescribe_adapt_dt();
         //capture values
         if ( j % inter == 0 ) {
             after_capture(t_);
@@ -327,11 +320,6 @@ void OdeBase::reset (double t, double *sol) {
 
 //------
 //extras
-
-double OdeBase::prescribe_adapt_dt () {
-    ode_print_exit("the prescribe_adapt_dt() function wasn't overridden, so it can't be used.");
-    return(NAN);
-}
 
 void OdeBase::before_solve () { /* virtual, left to derived class */ }
 

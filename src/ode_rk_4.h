@@ -3,7 +3,7 @@
 
 //! \file ode_rk_4.h
 
-#include "ode_base.h"
+#include "ode_adaptive.h"
 #include "ode_rk.h"
 #include "ode_erk.h"
 
@@ -11,7 +11,7 @@
 /*!
     + http://mathworld.wolfram.com/Runge-KuttaMethod.html
 */
-class OdeRK4 : public OdeBase, private OdeRK, private OdeERK {
+class OdeRK4 : public OdeAdaptive, private OdeRK, private OdeERK {
 
     public:
         //!constructs
