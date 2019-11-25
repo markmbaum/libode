@@ -217,28 +217,27 @@ void OdeBase::solve_fixed (double tint, double dt, const char* dirout, int inter
     check_pre_solve(tint, dt);
     if (inter < 1) ode_print_exit("inter must be greater than or equal to 1");
     //indices
-    unsigned long i, j, sto;
+    unsigned long i, j;
     //output file strings
     std::string fnout;
     dirout_ = dirout;
     //stopping time
     double tend = t_ + tint;
-    //number of steps to be taken
-    unsigned long nste = (unsigned long)(ceil((tend - t_)/dt)) + 1,
-                       nsto = (unsigned long)(ceil((tend - t_)/(dt*inter))) + 1;
-    //output arrays
-    double *tout = new double[nsto],
-           *solout = new double[neq_*nsto];
+
+    //output vectors
+    std::vector<double> tout;
+    std::vector< std::vector<double> > solout;
+    solout.resize(neq_);
 
     //extra initial things
     before_solve();
 
     //store values at time zero
-    for (i=0; i<neq_; i++) solout[i*nsto] = sol_[i];
-    tout[0] = t_;
+    for (i=0; i<neq_; i++) solout[i].push_back( sol_[i] );
+    tout.push_back( t_ );
     //solve while storing solution values
-    sto = 1;
-    for (j=1; j<nste-1; j++) {
+    j = 0;
+    while ( !solve_done(dt, tend) ) {
         //take a step
         step(dt);
         //get a new time step if it is prescribed
@@ -246,31 +245,27 @@ void OdeBase::solve_fixed (double tint, double dt, const char* dirout, int inter
         //capture values
         if ( j % inter == 0 ) {
             after_capture(t_);
-            for (i=0; i<neq_; i++) solout[i*nsto+sto] = sol_[i];
-            tout[sto] = t_;
-            sto++;
+            for (i=0; i<neq_; i++) solout[i].push_back( sol_[i] );
+            tout.push_back( t_ );
         }
+        j++;
     }
     //take a final step
     step(tend - t_);
     //store final values
-    for (i=0; i<neq_; i++) solout[i*nsto+sto] = sol_[i];
-    tout[sto] = t_;
+    for (i=0; i<neq_; i++) solout[i].push_back( sol_[i] );
+    tout.push_back( t_ );
 
     //write output
     for (i=0; i<neq_; i++) {
         fnout = dirout_ + "/" + name_ + "_" + ode_int_to_string(i);
-        ode_write(fnout.data(), solout + i*nsto, nsto);
+        ode_write(fnout.c_str(), solout[i].data(), solout[i].size());
     }
     fnout = dirout_ + "/" + name_ + "_t";
-    ode_write(fnout.data(), tout, nsto);
+    ode_write(fnout.c_str(), tout.data(), tout.size());
 
     //extra completion things (to be overridden in derived class)
     after_solve();
-
-    //free up the output arrays
-    delete [] tout;
-    delete [] solout;
 
     //clear output directory
     dirout_ = "";

@@ -65,6 +65,7 @@ Such flexibility might be useful in lots of cases, considering it allows the ste
 #define ODE_BASE_H_
 
 #include <string>
+#include <vector>
 #include <cstdio>
 #include <cstdlib>
 #include <cmath>

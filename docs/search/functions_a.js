@@ -1,11 +1,12 @@
 var searchData=
 [
-  ['ode_5fback_5fsub_430',['ode_back_sub',['../ode__linalg_8cc.html#ac52a9d2fe1e82e03f6a5d9b2a56a4cc6',1,'ode_back_sub(double **U, double *b, int n, double *out):&#160;ode_linalg.cc'],['../ode__linalg_8h.html#ac52a9d2fe1e82e03f6a5d9b2a56a4cc6',1,'ode_back_sub(double **U, double *b, int n, double *out):&#160;ode_linalg.cc']]],
-  ['ode_5fcheck_5fwrite_431',['ode_check_write',['../ode__io_8cc.html#abafc72c7c8fcf024a26f53c8515b3f31',1,'ode_check_write(const char *fn):&#160;ode_io.cc'],['../ode__io_8h.html#abafc72c7c8fcf024a26f53c8515b3f31',1,'ode_check_write(const char *fn):&#160;ode_io.cc']]],
-  ['ode_5fcrout_5fforw_5fsub_432',['ode_crout_forw_sub',['../ode__linalg_8cc.html#a8c3ece3d06a9a409508ce0f2463a7336',1,'ode_crout_forw_sub(double **L, double *b, int *p, int n, double *out):&#160;ode_linalg.cc'],['../ode__linalg_8h.html#a8c3ece3d06a9a409508ce0f2463a7336',1,'ode_crout_forw_sub(double **L, double *b, int *p, int n, double *out):&#160;ode_linalg.cc']]],
-  ['ode_5fcrout_5flu_433',['ode_crout_LU',['../ode__linalg_8cc.html#a8b99761e7b8b0d26146922ed3a7ef002',1,'ode_crout_LU(double **A, int n, int *p):&#160;ode_linalg.cc'],['../ode__linalg_8h.html#a8b99761e7b8b0d26146922ed3a7ef002',1,'ode_crout_LU(double **A, int n, int *p):&#160;ode_linalg.cc']]],
-  ['ode_5ffun_434',['ode_fun',['../class_ode_base.html#a02d1c6edf23a1d18c01b75df33a6f022',1,'OdeBase']]],
-  ['ode_5ffun_5f_435',['ode_fun_',['../class_ode_base.html#aa8091c31642f638d0662af8c721f1a56',1,'OdeBase']]],
+  ['ode_5fback_5fsub_429',['ode_back_sub',['../ode__linalg_8cc.html#ac52a9d2fe1e82e03f6a5d9b2a56a4cc6',1,'ode_back_sub(double **U, double *b, int n, double *out):&#160;ode_linalg.cc'],['../ode__linalg_8h.html#ac52a9d2fe1e82e03f6a5d9b2a56a4cc6',1,'ode_back_sub(double **U, double *b, int n, double *out):&#160;ode_linalg.cc']]],
+  ['ode_5fcheck_5fwrite_430',['ode_check_write',['../ode__io_8cc.html#abafc72c7c8fcf024a26f53c8515b3f31',1,'ode_check_write(const char *fn):&#160;ode_io.cc'],['../ode__io_8h.html#abafc72c7c8fcf024a26f53c8515b3f31',1,'ode_check_write(const char *fn):&#160;ode_io.cc']]],
+  ['ode_5fcrout_5fforw_5fsub_431',['ode_crout_forw_sub',['../ode__linalg_8cc.html#a8c3ece3d06a9a409508ce0f2463a7336',1,'ode_crout_forw_sub(double **L, double *b, int *p, int n, double *out):&#160;ode_linalg.cc'],['../ode__linalg_8h.html#a8c3ece3d06a9a409508ce0f2463a7336',1,'ode_crout_forw_sub(double **L, double *b, int *p, int n, double *out):&#160;ode_linalg.cc']]],
+  ['ode_5fcrout_5flu_432',['ode_crout_LU',['../ode__linalg_8cc.html#a8b99761e7b8b0d26146922ed3a7ef002',1,'ode_crout_LU(double **A, int n, int *p):&#160;ode_linalg.cc'],['../ode__linalg_8h.html#a8b99761e7b8b0d26146922ed3a7ef002',1,'ode_crout_LU(double **A, int n, int *p):&#160;ode_linalg.cc']]],
+  ['ode_5ffun_433',['ode_fun',['../class_ode_base.html#a02d1c6edf23a1d18c01b75df33a6f022',1,'OdeBase']]],
+  ['ode_5ffun_5f_434',['ode_fun_',['../class_ode_base.html#aa8091c31642f638d0662af8c721f1a56',1,'OdeBase']]],
+  ['ode_5fint_5fto_5fstring_435',['ode_int_to_string',['../ode__io_8cc.html#a40d9f671483bcba3e35d4c74cb60a417',1,'ode_int_to_string(long i):&#160;ode_io.cc'],['../ode__io_8h.html#a40d9f671483bcba3e35d4c74cb60a417',1,'ode_int_to_string(long i):&#160;ode_io.cc']]],
   ['ode_5fis_5fclose_436',['ode_is_close',['../ode__util_8cc.html#a912c0393a91a5825cb612ca9d7770356',1,'ode_is_close(double a, double b, double thresh):&#160;ode_util.cc'],['../ode__util_8h.html#a912c0393a91a5825cb612ca9d7770356',1,'ode_is_close(double a, double b, double thresh):&#160;ode_util.cc']]],
   ['ode_5fjac_437',['ode_jac',['../class_ode_base.html#af6ad75c31ab0f0bbadc01da0ee5c46d9',1,'OdeBase']]],
   ['ode_5fjac_5f_438',['ode_jac_',['../class_ode_base.html#a194ef3a2a26c15bbc7c65d6b8bed12c8',1,'OdeBase']]],
