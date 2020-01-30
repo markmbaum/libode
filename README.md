@@ -8,7 +8,7 @@ Several of the solvers and much more detail on the methods can be found in these
 * Hairer, E., Nørsett, S. P. & Wanner, G. Solving Ordinary Differential Equations I: Nonstiff Problems. (Springer-Verlag, 1987).
 * Hairer, E. & Wanner, G. Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems. (Springer, 1996).
 
-The table below lists all the solvers and gives some basic information about them. Papers and/or links to the derivation or original publication of the solvers are often copied in the source headers for the solvers and included in the documentation. Some work still needs to be done, and a list of things to implement is in the `todo.txt` file.
+The table below lists all the solvers and gives some basic information about them. Papers and/or links to the derivation or original publication of the solvers are often copied in the source headers for the solvers and are included in the documentation. Some work still needs to be done, and a list of things to implement is in the `todo.txt` file.
 
 Method | Class Name | (ex/im)plicit | adaptive? | stages | order | stability
  --- | --- | --- | --- | --- | --- | ---
@@ -39,7 +39,7 @@ SDIRK 4(3) | `OdeSDIRK43` | implicit | yes | 4 | 4 | L
 
 First, before any of the `libode` classes can be compiled, you must copy the `_config.mk` file to `config.mk` and edit that file to specify the compiler settings you'd like the Makefile to use. This shouldn't be complicated. If you are using a current version of the GNU C++ compiler (g++), the contents of the template config file can likely be used without modification. There are also commented lines for use with the Intel C++ compiler (icpc), if that is available. To compile all the classes, simply run `make` in the top directory.
 
-The Makefile compiles all of the necessary code into the `obj` folder, then archives it in the `bin` directory as a file called `libode.a`. To use the solvers, you can link `libode.a` (in the `bin` directory) or the object files directly (in the `obj` directory) when compiling your derived class. You must also the the header files in the `src` directory, as there is not a single header file for the library. All of the classes have their header file name displayed in the documentation. Linking the solver classes requires something like
+The Makefile compiles all of the necessary code into the `obj` folder, then archives it in the `bin` directory as a file called `libode.a`. To use the solvers, you can link `libode.a` (in the `bin` directory) or the object files directly (in the `obj` directory) when compiling your derived class. You must also include the appropriate header files from the `src` directory, as there is not a single header file for the library. All of the classes have their header file name displayed in the documentation. Linking the solver classes requires something like
 
 `-I<path>/libode/src -L<path>/libode/bin -lode`
 
@@ -82,7 +82,7 @@ Each solver has a `step()` method that can be used to integrate a single step wi
 
 The adaptive solvers automatically choose time steps by comparing the solution for a single step with that of an embedded, lower order solution for the step and computing an error estimate. The algorithm for this is well described in the books referenced above. If, however, there is another way that the time step should be chosen for a system, a new selection method can be used with any of the solvers. If the virtual function `dt_adapt()` is overridden, it will be used to select the time step in the `solve_adaptive()` functions.
 
-Such flexibility might be useful in lots of cases, considering it allows the step size to be chosen by any method at all. Specifically though, it has been used to set the time step based on the stability threshold of PDE discretizations. The time step of explicit methods for PDEs might be limited by the CFL condition for advection or the von Neumann condition for simple diffusion schemes. Prescribing the adaptive time step based on these conditions, then using `solve_adaptive()`, could provide huge speed boosts.
+Such flexibility might be useful in lots of cases. It allows the step size to be chosen in any way at all. It's mainly been used to set the time step based on the stability threshold of PDE discretizations. The time step of explicit methods for PDEs might be limited by the CFL condition for advection or the von Neumann condition for simple diffusion schemes. Prescribing the adaptive time step based on these conditions, then using `solve_adaptive()`, could provide huge speed boosts.
 
 ## Examples
 

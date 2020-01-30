@@ -1,6 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"class_ode_vern76.html":[2,0,35],
 "class_ode_vern76.html#a0607c1b287c788fbd69297aa4fb561db":[2,0,35,0],
 "class_ode_vern98.html":[2,0,36],
 "class_ode_vern98.html#a78bc4169f784f806b399a3dddc564853":[2,0,36,0],

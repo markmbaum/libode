@@ -161,7 +161,8 @@ void OdeAdaptive::solve_adaptive (double dt0, double *tsnap, unsigned long nsnap
         dt = dt_adapt_(INFINITY);
     }
     //write the snap times
-    ode_write((dirout_ + "/" + name_ + "_snap_t").data(), tsnap, nsnap);
+    if ( !silent_snap_ )
+        ode_write((dirout_ + "/" + name_ + "_snap_t").data(), tsnap, nsnap);
 
     //extra completion things (to be overridden in derived class)
     after_solve();

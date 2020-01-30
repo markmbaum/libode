@@ -56,7 +56,6 @@ var class_ode_base =
     [ "neval_", "class_ode_base.html#a1c74f7e0ec51eadf63a27904e89d4f50", null ],
     [ "nJac_", "class_ode_base.html#a7670d990bcc64e57c7ddeb8eafc40251", null ],
     [ "nstep_", "class_ode_base.html#a25f5a6866e2513c768ad1f5ff047c460", null ],
-    [ "prescribe_adapt_", "class_ode_base.html#a7cfad357aaf61f0feb3abc0a15980a8d", null ],
     [ "quiet_", "class_ode_base.html#acca84b60b6e58424d194917874eb11ef", null ],
     [ "reljacdel_", "class_ode_base.html#a0fe649817eede448c6ae137fb568ddfe", null ],
     [ "silent_snap_", "class_ode_base.html#a84cd80762ea8f22c72768ec3a2eb8a55", null ],
