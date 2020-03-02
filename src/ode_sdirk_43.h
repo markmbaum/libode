@@ -43,8 +43,9 @@ class OdeSDIRK43 : public OdeEmbedded, private OdeRK {
         //!destructs
         ~OdeSDIRK43 ();
 
-        //!returns the solver'sNewton system object
-        NewtonSDIRK43 get_newton () { return(*newton_); }
+        //!returns a pointer to the solver's Newton system object
+        NewtonSDIRK43 *get_newton () { return(newton_); }
+
     private:
         double gam;
         double **a;

@@ -45,8 +45,9 @@ class OdeGauss6 : public OdeAdaptive, private OdeIRK {
         //!destructs
         ~OdeGauss6 ();
 
-        //!returns the solver'sNewton system object
-        NewtonGauss6 get_newton () { return(*newton_); }
+        //!returns a pointer to the solver's Newton system object
+        NewtonGauss6 *get_newton () { return(newton_); }
+
     private:
         double **a;
         double *b;

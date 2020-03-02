@@ -42,8 +42,8 @@ class OdeBackwardEuler : public OdeAdaptive, private OdeIRK {
         //!destructs
         ~OdeBackwardEuler ();
 
-        //!returns the solver'sNewton system object
-        NewtonBackwardEuler get_newton () { return(*newton_); }
+        //!returns a pointer to the solver's Newton system object
+        NewtonBackwardEuler *get_newton () { return(newton_); }
 
     private:
         double **a;

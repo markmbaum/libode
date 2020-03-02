@@ -20,7 +20,7 @@ flags=-Wall -Wextra -pedantic -O3 # <--- GNU compiler flags
 #source code directory
 ds=src
 #test code directory
-dt=test
+dt=tests
 #compiled object directory
 do=obj
 #compiled executable directory

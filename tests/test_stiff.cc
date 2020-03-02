@@ -19,8 +19,8 @@ int main () {
     printf("%llu steps\n", sys.get_nstep());
     printf("%llu rejected steps\n", sys.get_nrej());
     printf("%llu ODE Jacobian evaluations\n", sys.get_nJac());
-    printf("%lu Newton JLU updates (LU decompositions)\n", sys.get_newton().get_nJLU());
-    printf("%lu Newton LU solves (matrix equation solves)\n", sys.get_newton().get_n_solve_LU());
+    printf("%lu Newton JLU updates (LU decompositions)\n", sys.get_newton()->get_nJLU());
+    printf("%lu Newton LU solves (matrix equation solves)\n", sys.get_newton()->get_n_solve_LU());
 
     return(0);
 }

@@ -41,8 +41,9 @@ class OdeGeng5 : public OdeAdaptive, private OdeIRK {
         //!destructs
         ~OdeGeng5 ();
 
-        //!returns the solver'sNewton system object
-        NewtonGeng5 get_newton () { return(*newton_); }
+        //!returns a pointer to the solver's Newton system object
+        NewtonGeng5 *get_newton () { return(newton_); }
+
     private:
         double **a;
         double *b;
