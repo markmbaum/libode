@@ -105,7 +105,7 @@ Inheritance diagram for OdeEuler:</div>
   <img src="class_ode_euler.png" usemap="#OdeEuler_map" alt=""/>
   <map id="OdeEuler_map" name="OdeEuler_map">
 <area href="class_ode_adaptive.html" title="Base class implementing solver functions with adaptive time steps." alt="OdeAdaptive" shape="rect" coords="0,56,86,80"/>
-<area href="class_ode_r_k.html" title="Provides space for stage slope values." alt="OdeRK" shape="rect" coords="96,56,182,80"/>
+<area href="class_ode_r_k.html" title="Provides space for stage slope values, an array of arrays for k values." alt="OdeRK" shape="rect" coords="96,56,182,80"/>
 <area href="class_ode_base.html" title="Lowest base class for all solvers." alt="OdeBase" shape="rect" coords="0,0,86,24"/>
   </map>
 </div></div>
@@ -277,14 +277,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a7738598d3f815149cd2d0f7aab2f45ff inherit pub_methods_class_ode_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a7738598d3f815149cd2d0f7aab2f45ff">reset</a> (double t, double *sol)</td></tr>
 <tr class="memdesc:a7738598d3f815149cd2d0f7aab2f45ff inherit pub_methods_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">reset to a specified time and initial condition array  <a href="class_ode_base.html#a7738598d3f815149cd2d0f7aab2f45ff">More...</a><br /></td></tr>
 <tr class="separator:a7738598d3f815149cd2d0f7aab2f45ff inherit pub_methods_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_class_ode_r_k"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_ode_r_k')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_ode_r_k.html">OdeRK</a></td></tr>
-<tr class="memitem:a15e77484455484fc55eacb02e7391691 inherit pub_methods_class_ode_r_k"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_r_k.html#a15e77484455484fc55eacb02e7391691">OdeRK</a> (unsigned long neq, int nk)</td></tr>
-<tr class="memdesc:a15e77484455484fc55eacb02e7391691 inherit pub_methods_class_ode_r_k"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructs  <a href="class_ode_r_k.html#a15e77484455484fc55eacb02e7391691">More...</a><br /></td></tr>
-<tr class="separator:a15e77484455484fc55eacb02e7391691 inherit pub_methods_class_ode_r_k"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8069507bb782475a8cad7946b7c7d252 inherit pub_methods_class_ode_r_k"><td class="memItemLeft" align="right" valign="top"><a id="a8069507bb782475a8cad7946b7c7d252"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_r_k.html#a8069507bb782475a8cad7946b7c7d252">~OdeRK</a> ()</td></tr>
-<tr class="memdesc:a8069507bb782475a8cad7946b7c7d252 inherit pub_methods_class_ode_r_k"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructs <br /></td></tr>
-<tr class="separator:a8069507bb782475a8cad7946b7c7d252 inherit pub_methods_class_ode_r_k"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -447,15 +439,6 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_base.html#a0fe649817eede448c6ae137fb568ddfe">reljacdel_</a></td></tr>
 <tr class="memdesc:a0fe649817eede448c6ae137fb568ddfe inherit pro_attribs_class_ode_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">relative adjustment fraction for numerical Jacobian,`` if needed <br /></td></tr>
 <tr class="separator:a0fe649817eede448c6ae137fb568ddfe inherit pro_attribs_class_ode_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_class_ode_r_k"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_ode_r_k')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_ode_r_k.html">OdeRK</a></td></tr>
-<tr class="memitem:ade9e4b6ab6212add6dd1ba2e95691fae inherit pro_attribs_class_ode_r_k"><td class="memItemLeft" align="right" valign="top"><a id="ade9e4b6ab6212add6dd1ba2e95691fae"></a>
-double **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_r_k.html#ade9e4b6ab6212add6dd1ba2e95691fae">k_</a></td></tr>
-<tr class="memdesc:ade9e4b6ab6212add6dd1ba2e95691fae inherit pro_attribs_class_ode_r_k"><td class="mdescLeft">&#160;</td><td class="mdescRight">stage evaluations <br /></td></tr>
-<tr class="separator:ade9e4b6ab6212add6dd1ba2e95691fae inherit pro_attribs_class_ode_r_k"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae38440c50819dd472ec68d7f8cf8a0b5 inherit pro_attribs_class_ode_r_k"><td class="memItemLeft" align="right" valign="top"><a id="ae38440c50819dd472ec68d7f8cf8a0b5"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_r_k.html#ae38440c50819dd472ec68d7f8cf8a0b5">nk_</a></td></tr>
-<tr class="memdesc:ae38440c50819dd472ec68d7f8cf8a0b5 inherit pro_attribs_class_ode_r_k"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of stages, or k vectors <br /></td></tr>
-<tr class="separator:ae38440c50819dd472ec68d7f8cf8a0b5 inherit pro_attribs_class_ode_r_k"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The simplest runge kutta method, forward Euler's. </p>

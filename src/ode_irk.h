@@ -3,7 +3,7 @@
 
 //! \file ode_irk.h
 
-//!Provides a large vector containing the slope values of all stages with pointers to each of the individual stages.
+//!Provides a large vector containing the slope values of all stages with pointers to each of the individual stages
 class OdeIRK {
     public:
         //!constructs

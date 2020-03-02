@@ -3,7 +3,7 @@
 
 //! \file ode_rk.h
 
-//!Provides space for stage slope values
+//!Provides space for stage slope values, an array of arrays for k values
 class OdeRK {
 
     public:

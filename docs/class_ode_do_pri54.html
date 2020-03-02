@@ -105,8 +105,8 @@ Inheritance diagram for OdeDoPri54:</div>
   <img src="class_ode_do_pri54.png" usemap="#OdeDoPri54_map" alt=""/>
   <map id="OdeDoPri54_map" name="OdeDoPri54_map">
 <area href="class_ode_embedded.html" title="Base clase implementing methods for embedded Runge-Kutta error estimation." alt="OdeEmbedded" shape="rect" coords="0,112,95,136"/>
-<area href="class_ode_r_k.html" title="Provides space for stage slope values." alt="OdeRK" shape="rect" coords="105,112,200,136"/>
-<area href="class_ode_e_r_k.html" title="Base class with space for temporary solutions moving through RK stages." alt="OdeERK" shape="rect" coords="210,112,305,136"/>
+<area href="class_ode_r_k.html" title="Provides space for stage slope values, an array of arrays for k values." alt="OdeRK" shape="rect" coords="105,112,200,136"/>
+<area href="class_ode_e_r_k.html" title="Base class providing space for temporary solutions moving through RK stages." alt="OdeERK" shape="rect" coords="210,112,305,136"/>
 <area href="class_ode_adaptive.html" title="Base class implementing solver functions with adaptive time steps." alt="OdeAdaptive" shape="rect" coords="0,56,95,80"/>
 <area href="class_ode_base.html" title="Lowest base class for all solvers." alt="OdeBase" shape="rect" coords="0,0,95,24"/>
   </map>
@@ -327,14 +327,14 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_embedded.html#a7754829a40bf5240bcb1ce2f618feb64">adapt</a> (double abstol, double reltol)</td></tr>
 <tr class="memdesc:a7754829a40bf5240bcb1ce2f618feb64 inherit pro_methods_class_ode_embedded"><td class="mdescLeft">&#160;</td><td class="mdescRight">does the calculations to determine isrej and dtopt <br /></td></tr>
 <tr class="separator:a7754829a40bf5240bcb1ce2f618feb64 inherit pro_methods_class_ode_embedded"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e18fd2842c434ca254d6bbe614a8847 inherit pro_methods_class_ode_embedded"><td class="memItemLeft" align="right" valign="top"><a id="a1e18fd2842c434ca254d6bbe614a8847"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_embedded.html#a1e18fd2842c434ca254d6bbe614a8847">is_rejected</a> ()</td></tr>
-<tr class="memdesc:a1e18fd2842c434ca254d6bbe614a8847 inherit pro_methods_class_ode_embedded"><td class="mdescLeft">&#160;</td><td class="mdescRight">simply returns isrej <br /></td></tr>
-<tr class="separator:a1e18fd2842c434ca254d6bbe614a8847 inherit pro_methods_class_ode_embedded"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d5a2ffae248746cff9c60a62c5b146a inherit pro_methods_class_ode_embedded"><td class="memItemLeft" align="right" valign="top"><a id="a1d5a2ffae248746cff9c60a62c5b146a"></a>
-virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_embedded.html#a1d5a2ffae248746cff9c60a62c5b146a">dt_adapt</a> ()</td></tr>
-<tr class="memdesc:a1d5a2ffae248746cff9c60a62c5b146a inherit pro_methods_class_ode_embedded"><td class="mdescLeft">&#160;</td><td class="mdescRight">simply returns dtopt <br /></td></tr>
-<tr class="separator:a1d5a2ffae248746cff9c60a62c5b146a inherit pro_methods_class_ode_embedded"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac688bc238b2ff6ebc79456322fff4d2a inherit pro_methods_class_ode_embedded"><td class="memItemLeft" align="right" valign="top"><a id="ac688bc238b2ff6ebc79456322fff4d2a"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_embedded.html#ac688bc238b2ff6ebc79456322fff4d2a">is_rejected</a> ()</td></tr>
+<tr class="memdesc:ac688bc238b2ff6ebc79456322fff4d2a inherit pro_methods_class_ode_embedded"><td class="mdescLeft">&#160;</td><td class="mdescRight">simply returns isrej <br /></td></tr>
+<tr class="separator:ac688bc238b2ff6ebc79456322fff4d2a inherit pro_methods_class_ode_embedded"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d382767b46fe444f53fa170fd143dfc inherit pro_methods_class_ode_embedded"><td class="memItemLeft" align="right" valign="top"><a id="a8d382767b46fe444f53fa170fd143dfc"></a>
+virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_embedded.html#a8d382767b46fe444f53fa170fd143dfc">dt_adapt</a> ()</td></tr>
+<tr class="memdesc:a8d382767b46fe444f53fa170fd143dfc inherit pro_methods_class_ode_embedded"><td class="mdescLeft">&#160;</td><td class="mdescRight">simply returns dtopt <br /></td></tr>
+<tr class="separator:a8d382767b46fe444f53fa170fd143dfc inherit pro_methods_class_ode_embedded"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_class_ode_adaptive"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_ode_adaptive')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_ode_adaptive.html">OdeAdaptive</a></td></tr>
 <tr class="memitem:a7713c0c23f63f1b1725fd68c0a13a1b3 inherit pro_methods_class_ode_adaptive"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ode_adaptive.html#a7713c0c23f63f1b1725fd68c0a13a1b3">solve_adaptive_</a> (double tint, double dt0, bool extra=true)</td></tr>
 <tr class="memdesc:a7713c0c23f63f1b1725fd68c0a13a1b3 inherit pro_methods_class_ode_adaptive"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrates without output or any counters, trackers, extra functions...  <a href="class_ode_adaptive.html#a7713c0c23f63f1b1725fd68c0a13a1b3">More...</a><br /></td></tr>

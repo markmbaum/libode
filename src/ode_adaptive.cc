@@ -117,9 +117,6 @@ void OdeAdaptive::solve_adaptive (double tint, double dt0, const char *dirout, i
     //extra completion things (to be overridden in derived class)
     after_solve();
 
-    //free the array of output vectors
-    delete [] solout;
-
     //clear output directory
     dirout_ = "";
 }

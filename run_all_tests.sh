@@ -6,15 +6,13 @@ Python scripts.
 
 function test {
     echo ""
+    python clean.py out
     echo "--- RUNNING TEST:" ${1} "---"
     ./bin/test_${1}.exe
     cd scripts
     python plot_${1}.py
     cd ..
-    python clean.py out
 }
-
-python clean.py
 
 make tests
 

@@ -59,3 +59,13 @@ void OdeEmbedded::adapt (double abstol, double reltol) {
     //determine the next time step
     dtopt_ = facopt(err)*dt_;
 }
+
+bool OdeEmbedded::is_rejected () {
+    //simply return the value set in the adapt() function
+    return( isrej_ );
+}
+
+double OdeEmbedded::dt_adapt () {
+    //simply return the value set in the adapt() function
+    return( dtopt_ );
+}

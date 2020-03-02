@@ -10,7 +10,7 @@
 /*!
     + https://en.wikipedia.org/wiki/Euler_method
 */
-class OdeEuler : public OdeAdaptive, public OdeRK {
+class OdeEuler : public OdeAdaptive, private OdeRK {
     public:
         //!constructs
         /*!

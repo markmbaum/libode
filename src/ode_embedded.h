@@ -61,9 +61,9 @@ class OdeEmbedded : public OdeAdaptive {
         //!does the calculations to determine isrej and dtopt
         virtual void adapt (double abstol, double reltol);
         //!simply returns isrej
-        virtual bool is_rejected () { return( isrej_ ); }
+        virtual bool is_rejected ();
         //!simply returns dtopt
-        virtual double dt_adapt () { return( dtopt_ ); }
+        virtual double dt_adapt ();
 
     private:
         //!order of the LOWER order solution used for error estimation

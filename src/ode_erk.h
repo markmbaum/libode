@@ -3,7 +3,7 @@
 
 //! \file ode_erk.h
 
-//!Base class with space for temporary solutions moving through RK stages
+//!Base class providing space for temporary solutions moving through RK stages
 class OdeERK {
 
     public:

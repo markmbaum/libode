@@ -24,7 +24,7 @@ class OdeNewtonBridge : public OdeNewton {
         OdeNewtonBridge (unsigned long neq, unsigned long nnew, Integrator *integrator)
             : OdeNewton (nnew) {
 
-            //make the Newton iteration limit quite high
+            //make the default Newton iteration limit quite high
             set_iter_Newton(10000);
 
             //store pointers to the ODE solver object and its members

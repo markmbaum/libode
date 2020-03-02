@@ -8,7 +8,7 @@ PROJECT_NAME           = libode
 PROJECT_NUMBER         =
 PROJECT_BRIEF          = "A variety of explicit and implicit single-step ODE integrators as C++ classes"
 PROJECT_LOGO           =
-OUTPUT_DIRECTORY       = C:\Users\mab0328\Documents\code\libode\docs
+OUTPUT_DIRECTORY       = docs
 CREATE_SUBDIRS         = NO
 ALLOW_UNICODE_NAMES    = NO
 OUTPUT_LANGUAGE        = English
@@ -116,7 +116,7 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 # Configuration options related to the input files
 #---------------------------------------------------------------------------
-INPUT                  = C:\Users\mab0328\Documents\code\libode\src
+INPUT                  = src
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          = *.c \
                          *.cc \
