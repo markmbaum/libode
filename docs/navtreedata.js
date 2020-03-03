@@ -23,7 +23,10 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "libode", "index.html", [
-    [ "Compiling", "index.html#sec_compiling", null ],
+    [ "Compiling", "index.html#sec_compiling", [
+      [ "Short Instructions", "index.html#sec_compiling_short", null ],
+      [ "Longer Instructions", "index.html#sec_compiling_long", null ]
+    ] ],
     [ "Using the Solvers", "index.html#sec_usage", [
       [ "Define a Class", "index.html#subsec_classes", null ],
       [ "Call an Integration Function", "index.html#subsec_integrate", null ],

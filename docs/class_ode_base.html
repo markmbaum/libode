@@ -358,7 +358,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <div class="textblock"><p>Lowest base class for all solvers. </p>
 <p>This is the deepest base class, upon which all integrators and other base classes are built. It provides basic variables like the solution array, the independent variable, and a string defining the integrator's name. It implements the solve_fixed function for integrating with a fixed time step. When constructing, it will allocate space for a Jacobian matrix if the need_jac flag is true. </p>
 
-<p class="definition">Definition at line <a class="el" href="ode__base_8h_source.html#l00083">83</a> of file <a class="el" href="ode__base_8h_source.html">ode_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ode__base_8h_source.html#l00095">95</a> of file <a class="el" href="ode__base_8h_source.html">ode_base.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aacdf86d5554b13574f5a7fe4cb6b7ccb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aacdf86d5554b13574f5a7fe4cb6b7ccb">&#9670;&nbsp;</a></span>OdeBase()</h2>
@@ -654,7 +654,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <p>gets the current value of the independent variable </p>
 <p>The value of the independent variable is provided as a convenience and is used internally to track integration progress, but is only precisely accurate in between steps. Libode solves systems in autonomous form. If the independent variable is needed during a step, an extra variable must be added to the system of ODEs to represent it. The corresponding extra ODE is always one. For example, if the independent variable is t for time, the extra ODE states dt/dt = 1. </p>
 
-<p class="definition">Definition at line <a class="el" href="ode__base_8h_source.html#l00114">114</a> of file <a class="el" href="ode__base_8h_source.html">ode_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ode__base_8h_source.html#l00126">126</a> of file <a class="el" href="ode__base_8h_source.html">ode_base.h</a>.</p>
 
 </div>
 </div>

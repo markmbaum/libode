@@ -35,7 +35,17 @@ SDIRK 4(3) | `OdeSDIRK43` | implicit | yes | 4 | 4 | L
 
 ## Compiling
 
-`libode` is meant to provide simple and easy access to class-based ODE solvers without dependencies or specialized compiling processes. The library is free-standing and there is only one step to take before compiling. Consequently, the library is also slim on features and doesn't provide things like sparse matrices and dense output. For many systems of ODEs, though, `libode` should make it easy to build an integrator and enjoy the speed of C++ and [openmp](https://en.wikipedia.org/wiki/OpenMP) without the headaches of large, complex packages.
+#### Short Instructions
+
+1. Copy the `_config.mk` file to `config.mk`
+2. Edit any of the compiler settings in your new `config.mk` file as necessary (specify which compiler to use and any compiling flags you want)
+3. Run `make` in the top directory where the Makefile is
+4. Run the `run_all_tests.sh` and `run_all_examples.sh` scripts to check that things are working (Python with numpy and matplotlib are needed for plotting)
+5. Create derived classes and link to the library with `-I<path>/libode/src -L<path>/libode/bin -lode`, replacing `<path>` with the path to the directory above `libode` on your computer
+
+#### Longer Instructions
+
+`libode` is meant to provide straightforward access to class-based ODE solvers without dependencies or specialized compiling processes. The library is free-standing and there is only one step to take before simply running the Makefile and being done with it. Consequently, the library is also slim on features and doesn't provide things like sparse matrices and dense output. For many systems of ODEs, though, `libode` should make it easy to build an integrator and enjoy the speed of C++ and [openmp](https://en.wikipedia.org/wiki/OpenMP) without the headaches of large, complex packages.
 
 First, before any of the `libode` classes can be compiled, you must copy the `_config.mk` file to `config.mk` and edit that file to specify the compiler settings you'd like the Makefile to use. This shouldn't be complicated. If you are using a current version of the GNU C++ compiler (g++), the contents of the template config file can likely be used without modification. There are also commented lines for use with the Intel C++ compiler (icpc), if that is available. To compile all the classes, simply run `make` in the top directory.
 
@@ -49,7 +59,7 @@ Test programs are compiled with `make tests` and they can all be run in sequence
 
 ## Using the Solvers
 
-### Define a Class
+#### Define a Class
 
 To integrate a specific system of ODEs, a new class must be created to inherit from one of the solver classes. This new inheriting class must
 1. Define the system of ODEs to be solved by implementing the `ode_fun()` function. This is a virtual function in the base classes. Once it is implemented, it can be used by the stepping and solving functions.
@@ -58,9 +68,9 @@ To integrate a specific system of ODEs, a new class must be created to inherit f
 
 For flexibility, the derived class could be a template, so that the solver/method can be chosen when the class is constructed. Other than defining the system of equations and setting initial conditions, the derived class can store whatever information and implement whatever other methods are necessary. This could be something simple like an extra function for setting initial conditions. It could, however, comprise any other system that needs to run on top of an ODE solver, like the spatial discretization of a big PDE solver.
 
-### Call an Integration Function
+#### Call an Integration Function
 
-Each solver has a `step()` method that can be used to integrate a single step with a specified step size. Each solver class also has a `solve_fixed()` method and, if it's an adaptive class, a `solve_adaptive()` method. These functions return nothing and both have the same four call signatures:
+Each solver has a `step()` method that can be used to integrate a single step with a specified step size. Each solver class also has a `solve_fixed()` method and, if its `dt_adapt()` function is implemented, a `solve_adaptive()` method. These functions return nothing and both have the same four call signatures:
 
 1. `void solve_fixed (double tint, double dt)`
 
@@ -78,11 +88,13 @@ Each solver has a `step()` method that can be used to integrate a single step wi
 
    Integrates and writes snapshots at the times specified in `tsnap` into the directory `dirout`.
 
-### Flexibly Adapt the Time Step
+If these functions aren't enough, you can always write your own loop and call the `step()` function directly.
+
+#### Flexibly Adapt the Time Step
 
 The adaptive solvers automatically choose time steps by comparing the solution for a single step with that of an embedded, lower order solution for the step and computing an error estimate. The algorithm for this is well described in the books referenced above. If, however, there is another way that the time step should be chosen for a system, a new selection algorithm can be used with any of the solvers. If the virtual function `dt_adapt()` is overridden, it will be used to select the time step in the `solve_adaptive()` functions.
 
-Rejecting an adaptive step is easy. During an adaptive solve, the virtual `is_rejected()` function is called after every step. If it returns `true`, the step is rejected. If it returns `false`, the step is accepted. Either way, `dt_adapt()` computes the next time step size and the solver proceeds. So, at minimum, an adaptive solver with time step rejection needs to have its `dt_adapt()` and `is_rejected()` functions implemented. The embedded Runge-Kutta methods have these functions pre-implemented, but the can be overridden. If you want to compute the next time step and determine whether the step is rejected all at once, the virtual `adapt()` function can be implemented to compute and store the next time step and a boolean for rejection. Then `dt_adapt()` and `is_rejected()` need to be implemented to simply return those stored values. This is how the embedded Runge-Kutta methods are structured.
+Rejecting an adaptive step is easy. During an adaptive solve, the virtual `is_rejected()` function is called after every step. If it returns `true`, the step is rejected. If it returns `false`, the step is accepted. Either way, `dt_adapt()` computes the next time step size and the solver proceeds. So, at minimum, an adaptive solver with time step rejection needs to have its `dt_adapt()` and `is_rejected()` functions implemented. The embedded Runge-Kutta methods have these functions pre-implemented, but they can be overridden. If you want to compute the next time step and determine whether the step is rejected all at once, the virtual `adapt()` function can be implemented to compute and store the next time step and store a boolean for rejection. Then `dt_adapt()` and `is_rejected()` need to be implemented to simply return those stored values. This is how the embedded Runge-Kutta methods are structured.
 
 Such flexibility might be useful in lots of cases, considering it allows the step size to be chosen by any method at all. Specifically though, it has been used to set the time step based on the stability threshold of PDE discretizations. The time step of explicit methods for PDEs might be limited by the CFL condition for advection or the von Neumann condition for simple diffusion schemes. Prescribing the adaptive time step based on these conditions, then using `solve_adaptive()`, could provide huge speed boosts.
 

@@ -33,6 +33,8 @@ var NAVTREEINDEX1 =
 "hierarchy.html":[2,2],
 "index.html":[],
 "index.html#sec_compiling":[0],
+"index.html#sec_compiling_long":[0,1],
+"index.html#sec_compiling_short":[0,0],
 "index.html#sec_usage":[1],
 "index.html#subsec_classes":[1,0],
 "index.html#subsec_integrate":[1,1],
