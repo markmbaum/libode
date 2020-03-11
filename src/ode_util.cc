@@ -14,8 +14,6 @@ double ode_min2 (double a, double b) {
 
 bool ode_is_close (double a, double b, double thresh) {
 
-    //check equality
-    if (a == b) return(true);
     //get magnitudes
     double absa = fabs(a);
     double absb = fabs(b);

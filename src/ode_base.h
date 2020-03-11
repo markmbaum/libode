@@ -2,9 +2,11 @@
 /*!
 \mainpage libode
 
-libode is a library of C++ classes for solving systems of ordinary differential equations in autonomous form. All of the solvers are single-step, Runge-Kutta-like methods. There are explicit, adaptive solvers up to the ninth order. The repository also includes Rosenbrock methods, a singly-diagonal implicit Runge-Kutta (SDIRK) method, and several fully implicit Runge-Kutta methods. However, only a few of the implicit methods have solid adaptive time steppers at this point. With the current collection of solvers and features, `libode` is well suited to any non-stiff systems and to stiff systems that are tightly coupled and have a known Jacobian (ones that don't require sparse or banded matrix routines).
+Easy to compile, fast ODE integrators as C++ classes
 
-The classes were originally styled after Chris Rycroft's [example classes](https://github.com/chr1shr/am225_examples/tree/master/1a_ode_solvers). Their structure makes it easy to build a templated integrator on top of an arbitrary solver class and easily switch the solver/method. Implicit methods can be given a function for the ODE system's Jacobian or, if none is provided, the Jacobian is estimated using finite differences.
+`libode` is a library of C++ classes for solving systems of ordinary differential equations in autonomous form. All of the solvers are single-step, Runge-Kutta-like methods. There are explicit, adaptive solvers up to the ninth order. The repository also includes Rosenbrock methods, a singly-diagonal implicit Runge-Kutta (SDIRK) method, and several fully implicit Runge-Kutta methods. However, only a few of the implicit methods have solid adaptive time steppers at this point. With the current collection of solvers and features, `libode` is well suited to any non-stiff system and to stiff systems that are tightly coupled and have a known Jacobian (ones that don't require sparse or banded matrix routines).
+
+The classes were originally styled after [Chris Rycroft](https://people.seas.harvard.edu/~chr/)'s [example classes](https://github.com/chr1shr/am225_examples/tree/master/1a_ode_solvers). Their structure makes it easy to build a templated integrator on top of an arbitrary solver class and easily switch the solver/method. Implicit methods can be given a function for the ODE system's Jacobian or, if none is provided, the Jacobian is estimated using finite differences.
 
 Several of the solvers and much more detail on the methods can be found in these amazing books:
 + Hairer, E., Nørsett, S. P. & Wanner, G. Solving Ordinary Differential Equations I: Nonstiff Problems. (Springer-Verlag, 1987).
@@ -14,11 +16,12 @@ Several of the solvers and much more detail on the methods can be found in these
 
 \subsection sec_compiling_short Short Instructions
 
-1. Copy the `_config.mk` file to `config.mk`
-2. Edit any of the compiler settings in your new `config.mk` file as necessary (specify which compiler to use and any compiling flags you want)
-3. Run `make` in the top directory where the Makefile is
-4. Run the `run_all_tests.sh` and `run_all_examples.sh` scripts to check that things are working (Python with numpy and matplotlib are needed for plotting)
-5. Create derived classes and link to the library with `-I<path>/libode/src -L<path>/libode/bin -lode`, replacing `<path>` with the path to the directory above `libode` on your computer
+1. Copy the `_config.mk` file to `config.mk`.
+2. Edit any of the compiler settings in your new `config.mk` file as necessary (specify which compiler to use and any compiling flags you want).
+3. Run `make` in the top directory where the Makefile is.
+4. If anything weird happens, tell me.
+5. Execute the `run_all_tests.sh` script to check that things are working (Python with numpy and matplotlib are needed for plotting). If you want, also execute `run_all_examples.sh` to run some example solvers.
+6. Create derived classes and link to the library with `-I<path>/libode/src -L<path>/libode/bin -lode`, replacing `<path>` with the path to the directory above `libode` on your computer.
 
 \subsection sec_compiling_long Longer Instructions
 
@@ -71,9 +74,11 @@ If these functions aren't enough, you could always write your own loop calling t
 
 The adaptive solvers automatically choose time steps by comparing the solution for a single step with that of an embedded, lower order solution for the step and computing an error estimate. The algorithm for this is well described in the books referenced above. If, however, there is another way that the time step should be chosen for a system, a new selection algorithm can be used with any of the solvers. If the virtual function `dt_adapt()` is overridden, it will be used to select the time step in the `solve_adaptive()` functions.
 
-Rejecting an adaptive step is easy. During an adaptive solve, the virtual `is_rejected()` function is called after every step. If it returns `true`, the step is rejected. If it returns `false`, the step is accepted. Either way, `dt_adapt()` computes the next time step size and the solver proceeds. So, at minimum, an adaptive solver with time step rejection needs to have its `dt_adapt()` and `is_rejected()` functions implemented. The embedded Runge-Kutta methods have these functions pre-implemented, but they can be overridden. If you want to compute the next time step and determine whether the step is rejected all at once, the virtual `adapt()` function can be implemented to compute and store the next time step and store a boolean for rejection. Then `dt_adapt()` and `is_rejected()` need to be implemented to simply return those stored values. This is how the embedded Runge-Kutta methods are structured.
+Rejecting an adaptive step is easy. During an adaptive solve, the virtual `is_rejected()` function is called after every step. If it returns `true`, the step is rejected. If it returns `false`, the step is accepted. Either way, `dt_adapt()` computes the next time step size and the solver proceeds. So, at minimum, an adaptive solver with time step rejection needs to have its `dt_adapt()` and `is_rejected()` functions implemented. The embedded Runge-Kutta methods have these functions built in, but they can be overridden.
 
-Such flexibility might be useful in lots of cases, considering it allows the step size to be chosen by any method at all. Specifically though, it has been used to set the time step based on the stability threshold of PDE discretizations. The time step of explicit methods for PDEs might be limited by the CFL condition for advection or the von Neumann condition for simple diffusion schemes. Prescribing the adaptive time step based on these conditions, then using `solve_adaptive()`, could provide huge speed boosts.
+If it's easier to compute the next time step and determine whether the step is rejected all at once, the virtual `adapt()` function can be implemented. It should store the next time step and store a boolean for rejection. Then `dt_adapt()` and `is_rejected()` simply return those stored values. This is how the embedded Runge-Kutta methods are structured because the same information determines the next step size and rejection/acceptance of the current step.
+
+This structure is useful because allows the step size to be chosen any way you choose. Specifically though, it has been used to set the time step based on the stability threshold of PDE discretizations. For example, the time step of explicit methods for PDEs might be limited by the CFL condition for advection or the von Neumann condition for simple diffusion schemes. Prescribing the adaptive time step based on these conditions, then using `solve_adaptive()`, can provide huge speed boosts.
 */
 
 #ifndef ODE_BASE_H_
@@ -102,7 +107,7 @@ class OdeBase {
         */
         OdeBase (unsigned long neq, bool need_jac);
         //!destructs
-        ~OdeBase ();
+        virtual ~OdeBase ();
 
         //-------------------
         //getters and setters
@@ -121,7 +126,7 @@ class OdeBase {
         unsigned long get_neq () { return(neq_); }
         //!gets the current value of the independent variable
         /*!
-        The value of the independent variable is provided as a convenience and is used internally to track integration progress, but is only precisely accurate in between steps. Libode solves systems in autonomous form. If the independent variable is needed during a step, an extra variable must be added to the system of ODEs to represent it. The corresponding extra ODE is always one. For example, if the independent variable is t for time, the extra ODE states dt/dt = 1.
+        The value of the independent variable is provided as a convenience and is used internally to track integration progress, but is <b>not precisely accurate during steps</b>. Libode solves systems in autonomous form. If the independent variable is needed during a step, an extra variable must be added to the system of ODEs to represent it. The corresponding extra ODE is always one. For example, if the independent variable is t for time, the extra ODE states dt/dt = 1.
         */
         double get_t () { return(t_); }
         //!gets the most recent or current time step size
@@ -131,13 +136,13 @@ class OdeBase {
         //!gets an element of the solution array
         double get_sol (unsigned long i) { return(sol_[i]); }
         //!gets the total number of steps taken
-        unsigned long long get_nstep () { return(nstep_); }
+        long long get_nstep () { return(nstep_); }
         //!gets the total number of ODE system evaluation
-        unsigned long long get_neval () { return(neval_); }
+        long long get_neval () { return(neval_); }
         //!gets the number of steps after which the solution is checked for integrity
-        unsigned long long get_icheck () { return(icheck_); }
+        long long get_icheck () { return(icheck_); }
         //!gets the total number of Jacobian evaluations performed
-        unsigned long long get_nJac () { return(nJac_); }
+        long long get_nJac () { return(nJac_); }
 
         //!sets an element of the solution array
         void set_sol (unsigned long i, double x) { sol_[i] = x; }
@@ -234,15 +239,15 @@ class OdeBase {
         //!array for the solution, changing over time
         double *sol_;
         //!number of time steps
-        unsigned long long nstep_;
+        long long nstep_;
         //!function evaluation counter, must be incremented in step() when defined
-        unsigned long long neval_;
+        long long neval_;
         //!interval of steps after which to check for nans and infs (zero to ignore)
-        unsigned long long icheck_;
-        //!storage for the ODE system's Jacobian matrix
+        long long icheck_;
+        //!storage for the ODE system's Jacobian matrix, only allocated for the methods that need it
         double **Jac_;
         //!counter for jacobian evaluations
-        unsigned long long nJac_;
+        long long nJac_;
         //!absolute adjustment fraction for numerical Jacobian, if needed
         double absjacdel_;
         //!relative adjustment fraction for numerical Jacobian,`` if needed

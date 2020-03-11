@@ -7,7 +7,7 @@ var class_ode_adaptive =
     [ "dt_adapt_", "class_ode_adaptive.html#a9a903b7bb68a4ca8119e666bb0502a05", null ],
     [ "get_abstol", "class_ode_adaptive.html#aa5e27507ec849b99787dee60672d669b", null ],
     [ "get_dtmax", "class_ode_adaptive.html#ac43581a0c4b7dd149d8c071172bd5ee3", null ],
-    [ "get_nrej", "class_ode_adaptive.html#adfc7314f22e8f83cde6b3003976d1cd3", null ],
+    [ "get_nrej", "class_ode_adaptive.html#a9cec093fab9d109064dde8b17328c7c6", null ],
     [ "get_reltol", "class_ode_adaptive.html#ac879dba4ce99ce89a31659651ed12f9f", null ],
     [ "is_rejected", "class_ode_adaptive.html#a9ecc96ae66583cabd8385924478d8379", null ],
     [ "set_abstol", "class_ode_adaptive.html#a362f692ff97463426c143a1913aa0c29", null ],
@@ -23,6 +23,6 @@ var class_ode_adaptive =
     [ "step_adaptive_", "class_ode_adaptive.html#a2d8df1ebc87f14789e9a81a023c93429", null ],
     [ "abstol_", "class_ode_adaptive.html#ae43301e99d8380ae1a2931421302c5f6", null ],
     [ "dtmax_", "class_ode_adaptive.html#ac5030dfa077ac22d42c55b80d1c821d4", null ],
-    [ "nrej_", "class_ode_adaptive.html#ac838892b942d896cc9199d3856ecf67e", null ],
+    [ "nrej_", "class_ode_adaptive.html#adccd93e99da7732875e98827dc98d449", null ],
     [ "reltol_", "class_ode_adaptive.html#a47b3f3f1dc7c3d082794937c2d3398b3", null ]
 ];

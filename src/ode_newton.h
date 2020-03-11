@@ -22,7 +22,7 @@ class OdeNewton {
         */
         OdeNewton (unsigned long n);
         //!destructs
-        ~OdeNewton ();
+        virtual ~OdeNewton ();
 
         //-------------------
         //getters and setters

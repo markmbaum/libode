@@ -7,7 +7,7 @@ int main () {
     //choose an integration time
     double tint = 4;
     //time step
-    double dt = 0.01;
+    double dt = 0.001;
     //choose which system and solver to use
     Osc1<OdeBackwardEuler> sys;
 

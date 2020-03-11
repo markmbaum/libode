@@ -1,47 +1,50 @@
 # libode
 
-This repo contains a collection of C++ classes for solving systems of ordinary differential equations (ODEs) in autonomous form. Documentation can be found [here](https://wordsworthgroup.github.io/libode/). All of the solvers are single-step, Runge-Kutta-like methods. There are explicit, adaptive solvers up to the ninth order. The repository also includes Rosenbrock methods, a singly-diagonal implicit Runge-Kutta (SDIRK) method, and several fully implicit Runge-Kutta methods. However, only a few of the implicit methods have solid adaptive time steppers at this point. With the current collection of solvers and features, `libode` is well suited to any non-stiff systems and to stiff systems that are tightly coupled and have a known Jacobian (ones that don't require sparse or banded matrix routines).
+Easy to compile, fast ODE integrators as C++ classes
 
-The classes were originally styled after Chris Rycroft's [example classes](https://github.com/chr1shr/am225_examples/tree/master/1a_ode_solvers). Their structure makes it easy to build a templated integrator on top of an arbitrary solver class and easily switch the solver/method. Implicit methods can be given a function for the ODE system's Jacobian or, if none is provided, the Jacobian is estimated using finite differences.
+This repo contains a collection of C++ classes for solving systems of ordinary differential equations (ODEs) in autonomous form. Documentation is [here](https://wordsworthgroup.github.io/libode/). All of the solvers are single-step, Runge-Kutta-like methods. There are explicit, adaptive solvers up to the ninth order. The repository also includes Rosenbrock methods, a singly-diagonal implicit Runge-Kutta (SDIRK) method, and several fully implicit Runge-Kutta methods. However, only a few of the implicit methods have solid adaptive time steppers at this point. With the current collection of solvers and features, `libode` is well suited to any non-stiff systems and to stiff systems that are tightly coupled and have a known Jacobian (ones that don't require sparse or banded matrix routines).
+
+The classes were originally styled after [Chris Rycroft](https://people.seas.harvard.edu/~chr/)'s [example classes](https://github.com/chr1shr/am225_examples/tree/master/1a_ode_solvers). Their structure makes it easy to build a templated integrator on top of an arbitrary solver class and easily switch the solver/method. Implicit methods can be given a function for the ODE system's Jacobian or, if none is provided, the Jacobian is estimated using finite differences.
 
 Several of the solvers and much more detail on the methods can be found in these amazing books:
 * Hairer, E., Nørsett, S. P. & Wanner, G. Solving Ordinary Differential Equations I: Nonstiff Problems. (Springer-Verlag, 1987).
 * Hairer, E. & Wanner, G. Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems. (Springer, 1996).
 
-The table below lists all the solvers and gives some basic information about them. Papers and/or links to the derivation or original publication of the solvers are often copied in the headers for the solver classes and included in the documentation. Some work still needs to be done to make the implicit methods genuinely useful, and a list of things to implement is in the `todo.txt` file.
+The table below lists all the solvers and gives some basic information about them. Papers and/or links to the derivation or original publication of the methods are often copied in the headers for the solver classes and included in the documentation. Some work still needs to be done to make the implicit methods genuinely useful, and a list of things to implement is in the `todo.txt` file.
 
-Method | Class Name | (ex/im)plicit | adaptive? | stages | order | stability
- --- | --- | --- | --- | --- | --- | ---
-Forward Euler | `OdeEuler` | explicit | no | 1 | 1
-Trapezoidal Rule | `OdeTrapz` | explicit | no | 2 | 2
-Strong Stability-Preserving, Order 3 | `OdeSsp3` | explicit | no | 3 | 3
-Runge-Kutta-Fehlberg (3)2 | `OdeRKF32` | explicit | yes | 3 | 3
-RK4 | `OdeRK4` | explicit | no | 4 | 4
-Runge-Kutta (4)3 | `OdeRK43` | explicit | yes | 5 | 4
-Cash-Karp | `OdeRKCK` | explicit | yes | 6 | 5
-Dormand-Prince (5)4 | `OdeDoPri54` | explicit | yes | 7 | 5
-Jim Verner's "most efficent" (6)5 | `OdeVern65` | explicit | yes | 9 | 6
-Jim Verner's "most efficent" (7)6 | `OdeVern76` | explicit | yes | 10 | 7
-Dormand-Prince (8)7 | `OdeDoPri87` | explicit | yes | 13 | 8
-Jim Verner's "most efficent" (9)8 | `OdeVern98` | explicit | yes | 16 | 9
-Rosenbrock 4(3) | `OdeGRK4A` | implicit | yes | 4 | 4 | A
-Rosenbrock 6 | `OdeROW6A` | implicit | no | 6 | 6 | A
-Backward Euler | `OdeBackwardEuler` | implicit | no | 1 | 1 | L
-Gauss 6th Order | `OdeGauss6` | implicit | not yet | 3 | 6 | A
-Lobatto IIIC 6th Order | `OdeLobattoIIIC6` | implicit | not yet | 4 | 6 | L
-Radau IIA 5th Order | `OdeRadauIIA5` | implicit | not yet | 3 | 5 | L
-Geng's Symplectic 5th Order | `OdeGeng5` | implicit | no | 3 | 5 | A?
-SDIRK 4(3) | `OdeSDIRK43` | implicit | yes | 4 | 4 | L
+Method | Class Name | Header File | (ex/im)plicit | adaptive? | stages | order | stability
+ --- | --- | --- | --- | --- | --- | --- | ---
+Forward Euler | `OdeEuler` | `ode_euler.h` | explicit | no | 1 | 1
+Trapezoidal Rule | `OdeTrapz` | `ode_trapz.h` | explicit | no | 2 | 2
+Strong Stability-Preserving, Order 3 | `OdeSsp3` | `ode_ssp_3.h` | explicit | no | 3 | 3
+Runge-Kutta-Fehlberg (3)2 | `OdeRKF32`| `ode_rkf_32.h` | explicit | yes | 3 | 3
+RK4 | `OdeRK4` | `ode_rk_4.h` | explicit | no | 4 | 4
+Runge-Kutta (4)3 | `OdeRK43`| `ode_rk_43.h` | explicit | yes | 5 | 4
+Cash-Karp | `OdeRKCK` | `ode_rkck.h` | explicit | yes | 6 | 5
+Dormand-Prince (5)4 | `OdeDoPri54`| `ode_dopri_54.h` | explicit | yes | 7 | 5
+Jim Verner's "most efficent" (6)5 | `OdeVern65` | `ode_vern_65.h` | explicit | yes | 9 | 6
+Jim Verner's "most efficent" (7)6 | `OdeVern76` | `ode_vern_76.h` | explicit | yes | 10 | 7
+Dormand-Prince (8)7 | `OdeDoPri87` | `ode_dopri_87.h` | explicit | yes | 13 | 8
+Jim Verner's "most efficent" (9)8 | `OdeVern98` | `ode_vern_98.h` | explicit | yes | 16 | 9
+Rosenbrock 4(3) | `OdeGRK4A` | `ode_grk4a.h` | implicit | yes | 4 | 4 | A
+Rosenbrock 6 | `OdeROW6A` | `ode_row6a.h` | implicit | no | 6 | 6 | A
+Backward Euler | `OdeBackwardEuler` | `ode_backward_euler.h` | implicit | no | 1 | 1 | L
+Gauss 6th Order | `OdeGauss6` | `ode_gauss_6.h` | implicit | not yet | 3 | 6 | A
+Lobatto IIIC 6th Order | `OdeLobattoIIIC6` | `ode_lobatto_iiic_6.h` | implicit | not yet | 4 | 6 | L
+Radau IIA 5th Order | `OdeRadauIIA5` | `ode_radau_iia_5.h` | implicit | not yet | 3 | 5 | L
+Geng's Symplectic 5th Order | `OdeGeng5` | `ode_geng_5.h` | implicit | no | 3 | 5 | A?
+SDIRK 4(3) | `OdeSDIRK43` | `ode_sdirk_43.h` | implicit | yes | 4 | 4 | L
 
 ## Compiling
 
 #### Short Instructions
 
-1. Copy the `_config.mk` file to `config.mk`
-2. Edit any of the compiler settings in your new `config.mk` file as necessary (specify which compiler to use and any compiling flags you want)
-3. Run `make` in the top directory where the Makefile is
-4. Run the `run_all_tests.sh` and `run_all_examples.sh` scripts to check that things are working (Python with numpy and matplotlib are needed for plotting)
-5. Create derived classes and link to the library with `-I<path>/libode/src -L<path>/libode/bin -lode`, replacing `<path>` with the path to the directory above `libode` on your computer
+1. Copy the `_config.mk` file to `config.mk`.
+2. Edit any of the compiler settings in your new `config.mk` file as necessary (specify which compiler to use and any compiling flags you want).
+3. Run `make` in the top directory where the Makefile is.
+4. If anything weird happens, tell me.
+5. Execute the `run_all_tests.sh` script to check that things are working (Python with numpy and matplotlib are needed for plotting). If you want, also execute `run_all_examples.sh` to run some example solvers.
+6. Create derived classes and link to the library with `-I<path>/libode/src -L<path>/libode/bin -lode`, replacing `<path>` with the path to the directory above `libode` on your computer.
 
 #### Longer Instructions
 
@@ -56,6 +59,10 @@ The Makefile compiles all of the necessary code into the `obj` folder, then arch
 when compiling derived code, with `<path>` replaced by path elements leading to the libode directory. For some examples of how to link a derived class to `libode` and create a program to run integrations, see the examples folder.
 
 Test programs are compiled with `make tests` and they can all be run in sequence with the `run_all_tests.sh` script (which uses Python to plot the test results).
+
+## Examples
+
+Several example programs for interesting/famous systems of ODEs are in the "examples" folder. In each of the example directories, the programs can be compiled, executed, and plotted simply by running the `run.sh` script (assuming the `config.mk` file is set up for compiling and an up-to-date version of Python is installed on your computer). These programs are good examples of how to put everything together and use the solvers. To run all the examples in sequence and look at the plotted results, run the `run_all_examples.sh` script.
 
 ## Using the Solvers
 
@@ -78,7 +85,7 @@ Each solver has a `step()` method that can be used to integrate a single step wi
 
 2. `void solve_fixed (double tint, double dt, const char *dirout, int inter)`
 
-   Integrates for a duration of `tint` using time step (or initial time step) `dt` and writes solution values after every `inter` steps to the directory `dirout`. For example, if `inter` is one, the solution at every step is written to file. If `inter` is two, every other step is written.
+   Integrates for a duration of `tint` using time step (or initial time step) `dt` and writes solution values after every `inter` steps to the directory `dirout`. For example, if `inter` is one, the solution at every step is stored then written to file after the integration finishes. If `inter` is two, every other step is written.
 
 3. `void solve_fixed (double tint, double dt, unsigned long nsnap, const char *dirout)`
 
@@ -88,23 +95,21 @@ Each solver has a `step()` method that can be used to integrate a single step wi
 
    Integrates and writes snapshots at the times specified in `tsnap` into the directory `dirout`.
 
-If these functions aren't enough, you can always write your own loop and call the `step()` function directly.
+If these functions aren't enough, you can always write your own and call the `step()` function directly.
 
 #### Flexibly Adapt the Time Step
 
 The adaptive solvers automatically choose time steps by comparing the solution for a single step with that of an embedded, lower order solution for the step and computing an error estimate. The algorithm for this is well described in the books referenced above. If, however, there is another way that the time step should be chosen for a system, a new selection algorithm can be used with any of the solvers. If the virtual function `dt_adapt()` is overridden, it will be used to select the time step in the `solve_adaptive()` functions.
 
-Rejecting an adaptive step is easy. During an adaptive solve, the virtual `is_rejected()` function is called after every step. If it returns `true`, the step is rejected. If it returns `false`, the step is accepted. Either way, `dt_adapt()` computes the next time step size and the solver proceeds. So, at minimum, an adaptive solver with time step rejection needs to have its `dt_adapt()` and `is_rejected()` functions implemented. The embedded Runge-Kutta methods have these functions pre-implemented, but they can be overridden. If you want to compute the next time step and determine whether the step is rejected all at once, the virtual `adapt()` function can be implemented to compute and store the next time step and store a boolean for rejection. Then `dt_adapt()` and `is_rejected()` need to be implemented to simply return those stored values. This is how the embedded Runge-Kutta methods are structured.
+Rejecting an adaptive step is easy. During an adaptive solve, the virtual `is_rejected()` function is called after every step. If it returns `true`, the step is rejected. If it returns `false`, the step is accepted. Either way, `dt_adapt()` computes the next time step size and the solver proceeds. So, at minimum, an adaptive solver with time step rejection needs to have its `dt_adapt()` and `is_rejected()` functions implemented. The embedded Runge-Kutta methods have these functions built in, but they can be overridden.
 
-Such flexibility might be useful in lots of cases, considering it allows the step size to be chosen by any method at all. Specifically though, it has been used to set the time step based on the stability threshold of PDE discretizations. The time step of explicit methods for PDEs might be limited by the CFL condition for advection or the von Neumann condition for simple diffusion schemes. Prescribing the adaptive time step based on these conditions, then using `solve_adaptive()`, could provide huge speed boosts.
+If it's easier to compute the next time step and determine whether the step is rejected all at once, the virtual `adapt()` function can be implemented. It should store the next time step and store a boolean for rejection. Then `dt_adapt()` and `is_rejected()` simply return those stored values. This is how the embedded Runge-Kutta methods are structured because the same information determines the next step size and rejection/acceptance of the current step.
 
-## Examples
-
-Several example programs for interesting/famous systems of ODEs are in the "examples" folder. In each of the example directories, the programs can be compiled, executed, and plotted simply by running the `run.sh` script (assuming the `config.mk` file is set up for compiling and an up-to-date version of Python is installed on your computer). These programs are good examples of how to put everything together and use the solvers. To run all the examples in sequence and look at the plotted results, run the `run_all_examples.sh` script.
+This structure is useful because allows the step size to be chosen any way you choose. Specifically though, it has been used to set the time step based on the stability threshold of PDE discretizations. For example, the time step of explicit methods for PDEs might be limited by the CFL condition for advection or the von Neumann condition for simple diffusion schemes. Prescribing the adaptive time step based on these conditions, then using `solve_adaptive()`, can provide huge speed boosts.
 
 ## Testing
 
-The convergence and accuracy of all the solvers have been tested using a few programs with source files in the "test" directory and executables named `bin/test_*`. Python scripts to plot the output of these programs are named `scripts/plot_*`. All these tests can be compiled, run, and plotted with the `run_all_tests.sh` script. Individual tests can be run through the `test.sh` script. For example,
+The convergence and accuracy of all the solvers have been tested using a few programs with source files in the "tests" directory and executables named `bin/test_*`. Python scripts to plot the output of these programs are named `scripts/plot_*`. All these tests can be compiled, run, and plotted with the `run_all_tests.sh` script. Individual tests can be run through the `test.sh` script. For example,
 ```
 ./test.sh adapt
 ```

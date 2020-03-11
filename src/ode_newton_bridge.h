@@ -53,7 +53,7 @@ class OdeNewtonBridge : public OdeNewton {
         //!ODE system size
         unsigned long neq_;
         //!Newton system size
-        double nnew_;
+        unsigned long nnew_;
         //!storage of a pointer to the solver class
         Integrator *integrator_;
         //!pointer to the solver's solution vector

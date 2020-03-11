@@ -45,7 +45,7 @@ OdeBase::OdeBase (unsigned long neq, bool need_jac) {
 OdeBase::~OdeBase () {
     delete [] sol_;
     if (need_jac_) {
-        for (unsigned long long i=0; i<neq_; i++) delete [] Jac_[i];
+        for (unsigned long i=0; i<neq_; i++) delete [] Jac_[i];
         delete [] Jac_;
         delete [] f_;
         delete [] g_;

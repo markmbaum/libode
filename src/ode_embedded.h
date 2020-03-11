@@ -5,6 +5,7 @@
 
 #include <cmath>
 
+#include "ode_io.h"
 #include "ode_util.h"
 #include "ode_adaptive.h"
 
@@ -20,24 +21,32 @@ class OdeEmbedded : public OdeAdaptive {
         */
         OdeEmbedded (unsigned long neq, bool need_jac, int lowerord);
         //!destructs
-        ~OdeEmbedded ();
+        virtual ~OdeEmbedded ();
 
         //-------------------
         //getters and setters
 
         //!gets safety factor applied to time step selection
         double get_facsafe () { return(facsafe_); }
-        //!gets minimum allowable fraction change in time step
+        //!gets minimum allowable fraction change in time step (a number <1)
         double get_facmin () { return(facmin_); }
-        //!gets maximum allowable fraction change in time step
+        //!gets maximum allowable fraction change in time step (a number >1)
         double get_facmax () { return(facmax_); }
 
         //!sets safety factor applied to time step selection
         void set_facsafe (double facsafe) { facsafe_ = facsafe; }
-        //!sets minimum allowable fraction change in time step
-        void set_facmin (double facmin) { facmin_ = facmin; }
-        //!sets maximum allowable fraction change in time step
-        void set_facmax (double facmax) { facmax_ = facmax; }
+        //!sets minimum allowable fraction change in time step (a number <1)
+        void set_facmin (double facmin) {
+            if ( facmin >= 1.0 )
+                ode_print_exit("facmin must be a number less than 1 in set_facmin()");
+            facmin_ = facmin;
+        }
+        //!sets maximum allowable fraction change in time step (a number >1)
+        void set_facmax (double facmax) {
+            if ( facmax <= 1.0 )
+                ode_print_exit("facmax must be a number greater than 1 in set_facmax()");
+            facmax_ = facmax;
+        }
 
     protected:
 

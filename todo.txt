@@ -10,6 +10,4 @@ things to immediately address, given the time...
 
 * Look into extra steps taken when snapping in an adaptive solves.
 
-* Compiler warnings with long long datatypes with old g++ versions
-
-* Tridiagonal matrix support
+* Tridiagonal matrix support?

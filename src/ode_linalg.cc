@@ -45,7 +45,7 @@ void ode_crout_LU (double **A, int n, int *p) {
             }
         }
         //if all elements are zero, the matrix is singular
-        if ( m == 0.0 ) {
+        if ( !(fabs(m) > 0.0) ) {
             printf("\nLINALG FAILURE: the matrix is singular\n\n");
             exit(EXIT_FAILURE);
         }

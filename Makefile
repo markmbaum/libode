@@ -2,6 +2,18 @@
 include config.mk
 
 #-------------------------------------------------------------------------------
+#local directory names
+
+#source code directory
+ds=src
+#test code directory
+dt=tests
+#compiled object directory
+do=obj
+#compiled executable directory
+db=bin
+
+#-------------------------------------------------------------------------------
 #stuff to compile
 
 #modules with support functions or classes
