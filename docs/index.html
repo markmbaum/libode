@@ -31,7 +31,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">libode
    </div>
-   <div id="projectbrief">A variety of explicit and implicit single-step ODE integrators as C++ classes</div>
+   <div id="projectbrief">Easy to compile, fast ODE integrators as C++ classes</div>
   </td>
  </tr>
  </tbody>
@@ -90,24 +90,68 @@ $(document).ready(function(){initNavTree('index.html','');});
 <div class="title">libode </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Easy to compile, fast ODE integrators as C++ classes</p>
-<p><code>libode</code> is a library of C++ classes for solving systems of ordinary differential equations in autonomous form. All of the solvers are single-step, Runge-Kutta-like methods. There are explicit, adaptive solvers up to the ninth order. The repository also includes Rosenbrock methods, a singly-diagonal implicit Runge-Kutta (SDIRK) method, and several fully implicit Runge-Kutta methods. However, only a few of the implicit methods have solid adaptive time steppers at this point. With the current collection of solvers and features, <code>libode</code> is well suited to any non-stiff system and to stiff systems that are tightly coupled and have a known Jacobian (ones that don't require sparse or banded matrix routines).</p>
+<div class="textblock"><p><code>libode</code> is a library of C++ classes for solving systems of ordinary differential equations in autonomous form. All of the solvers are single-step, Runge-Kutta-like methods. There are explicit, adaptive solvers up to the ninth order. The repository also includes Rosenbrock methods, a singly-diagonal implicit Runge-Kutta (SDIRK) method, and several fully implicit Runge-Kutta methods. However, only a few of the implicit methods have solid adaptive time steppers at this point. With the current collection of solvers and features, <code>libode</code> is well suited to any non-stiff system and to stiff systems that are tightly coupled and have a known Jacobian (ones that don't require sparse or banded matrix routines).</p>
 <p>The classes were originally styled after <a href="https://people.seas.harvard.edu/~chr/">Chris Rycroft</a>'s <a href="https://github.com/chr1shr/am225_examples/tree/master/1a_ode_solvers">example classes</a>. Their structure makes it easy to build a templated integrator on top of an arbitrary solver class and easily switch the solver/method. Implicit methods can be given a function for the ODE system's Jacobian or, if none is provided, the Jacobian is estimated using finite differences.</p>
 <p>Several of the solvers and much more detail on the methods can be found in these amazing books:</p><ul>
 <li>Hairer, E., Nørsett, S. P. &amp; Wanner, G. Solving Ordinary Differential Equations I: Nonstiff Problems. (Springer-Verlag, 1987).</li>
 <li>Hairer, E. &amp; Wanner, G. Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems. (Springer, 1996).</li>
 </ul>
+<p>The table below lists all the solvers and gives some basic information about them. Papers and/or links to the derivation or original publication of the methods are often copied in the headers for the solver classes and included in the documentation. Some work still needs to be done to make the implicit methods genuinely useful, and a list of things to implement is in the <code>todo.txt</code> file.</p>
+<table class="doxtable">
+<tr>
+<th>Method </th><th>Class Name </th><th>Header File </th><th>(ex/im)plicit </th><th>adaptive? </th><th>stages </th><th>order </th><th>stability </th></tr>
+<tr>
+<td>Forward Euler</td><td><code><a class="el" href="class_ode_euler.html" title="The simplest runge kutta method, forward Euler&#39;s.">OdeEuler</a></code></td><td><code><a class="el" href="ode__euler_8h.html">ode_euler.h</a></code></td><td>explicit</td><td>no</td><td>1</td><td>1</td><td></td></tr>
+<tr>
+<td>Trapezoidal Rule</td><td><code><a class="el" href="class_ode_trapz.html" title="Second order, explicit trapezoidal rule.">OdeTrapz</a></code></td><td><code><a class="el" href="ode__trapz_8h.html">ode_trapz.h</a></code></td><td>explicit</td><td>no</td><td>2</td><td>2</td><td></td></tr>
+<tr>
+<td>Strong Stability-Preserving, Order 3</td><td><code><a class="el" href="class_ode_ssp3.html" title="Strong stability preserving method of order 3.">OdeSsp3</a></code></td><td><code><a class="el" href="ode__ssp__3_8h.html">ode_ssp_3.h</a></code></td><td>explicit</td><td>no</td><td>3</td><td>3</td><td></td></tr>
+<tr>
+<td>Runge-Kutta-Fehlberg (3)2</td><td><code><a class="el" href="class_ode_r_k_f32.html" title="2nd and 3rd order solver developed by Fehlberg">OdeRKF32</a></code></td><td><code><a class="el" href="ode__rkf__32_8h.html">ode_rkf_32.h</a></code></td><td>explicit</td><td>yes</td><td>3</td><td>3</td><td></td></tr>
+<tr>
+<td>RK4</td><td><code><a class="el" href="class_ode_r_k4.html" title="The classic Runge-Kutta 4th order method.">OdeRK4</a></code></td><td><code><a class="el" href="ode__rk__4_8h.html">ode_rk_4.h</a></code></td><td>explicit</td><td>no</td><td>4</td><td>4</td><td></td></tr>
+<tr>
+<td>Runge-Kutta (4)3</td><td><code><a class="el" href="class_ode_r_k43.html" title="This class implements a 3rd and 4th order method with the FSAL (first same as last) property.">OdeRK43</a></code></td><td><code><a class="el" href="ode__rk__43_8h.html">ode_rk_43.h</a></code></td><td>explicit</td><td>yes</td><td>5</td><td>4</td><td></td></tr>
+<tr>
+<td>Cash-Karp</td><td><code><a class="el" href="class_ode_r_k_c_k.html" title="Explicit 5/4 pair, also with 3rd, 2nd, and 1st order embedded methods, from Cash &amp; Karp.">OdeRKCK</a></code></td><td><code><a class="el" href="ode__rkck_8h.html">ode_rkck.h</a></code></td><td>explicit</td><td>yes</td><td>6</td><td>5</td><td></td></tr>
+<tr>
+<td>Dormand-Prince (5)4</td><td><code><a class="el" href="class_ode_do_pri54.html" title="Popular explicit 5/4 pair from Dormand &amp; Prince.">OdeDoPri54</a></code></td><td><code><a class="el" href="ode__dopri__54_8h.html">ode_dopri_54.h</a></code></td><td>explicit</td><td>yes</td><td>7</td><td>5</td><td></td></tr>
+<tr>
+<td>Jim Verner's "most efficent" (6)5</td><td><code><a class="el" href="class_ode_vern65.html" title="Jim Verner&#39;s &quot;most efficient&quot; 6/5 pair.">OdeVern65</a></code></td><td><code><a class="el" href="ode__vern__65_8h.html">ode_vern_65.h</a></code></td><td>explicit</td><td>yes</td><td>9</td><td>6</td><td></td></tr>
+<tr>
+<td>Jim Verner's "most efficent" (7)6</td><td><code><a class="el" href="class_ode_vern76.html" title="Jim Verner&#39;s &quot;most efficient&quot; 7/6 pair.">OdeVern76</a></code></td><td><code><a class="el" href="ode__vern__76_8h.html">ode_vern_76.h</a></code></td><td>explicit</td><td>yes</td><td>10</td><td>7</td><td></td></tr>
+<tr>
+<td>Dormand-Prince (8)7</td><td><code><a class="el" href="class_ode_do_pri87.html" title="Explicit 8/7 pair from Dormand &amp; Prince.">OdeDoPri87</a></code></td><td><code><a class="el" href="ode__dopri__87_8h.html">ode_dopri_87.h</a></code></td><td>explicit</td><td>yes</td><td>13</td><td>8</td><td></td></tr>
+<tr>
+<td>Jim Verner's "most efficent" (9)8</td><td><code><a class="el" href="class_ode_vern98.html" title="Jim Verner&#39;s &quot;most efficient&quot; 9/8 pair.">OdeVern98</a></code></td><td><code><a class="el" href="ode__vern__98_8h.html">ode_vern_98.h</a></code></td><td>explicit</td><td>yes</td><td>16</td><td>9</td><td></td></tr>
+<tr>
+<td>Rosenbrock 4(3)</td><td><code><a class="el" href="class_ode_g_r_k4_a.html" title="Fourth-order, A-stable, adaptive Rosenbrock method from Kaps and Rentrop.">OdeGRK4A</a></code></td><td><code><a class="el" href="ode__grk4a_8h.html">ode_grk4a.h</a></code></td><td>implicit</td><td>yes</td><td>4</td><td>4</td><td>A </td></tr>
+<tr>
+<td>Rosenbrock 6</td><td><code><a class="el" href="class_ode_r_o_w6_a.html" title="6th order, A-stable Rosenbrock method">OdeROW6A</a></code></td><td><code><a class="el" href="ode__row6a_8h.html">ode_row6a.h</a></code></td><td>implicit</td><td>no</td><td>6</td><td>6</td><td>A </td></tr>
+<tr>
+<td>Backward Euler</td><td><code><a class="el" href="class_ode_backward_euler.html" title="Backward Euler&#39;s method, unconditionally stable but relatively inaccurate.">OdeBackwardEuler</a></code></td><td><code><a class="el" href="ode__backward__euler_8h.html">ode_backward_euler.h</a></code></td><td>implicit</td><td>no</td><td>1</td><td>1</td><td>L </td></tr>
+<tr>
+<td>Gauss 6th Order</td><td><code><a class="el" href="class_ode_gauss6.html" title="The sixth-order, A-stable, fully-implicit Gauss-Legendre method with 3 stages.">OdeGauss6</a></code></td><td><code><a class="el" href="ode__gauss__6_8h.html">ode_gauss_6.h</a></code></td><td>implicit</td><td>not yet</td><td>3</td><td>6</td><td>A </td></tr>
+<tr>
+<td>Lobatto IIIC 6th Order</td><td><code><a class="el" href="class_ode_lobatto_i_i_i_c6.html" title="The sixth-order, L-stable, fully-implicit Lobatto IIIC method with 4 stages.">OdeLobattoIIIC6</a></code></td><td><code><a class="el" href="ode__lobatto__iiic__6_8h.html">ode_lobatto_iiic_6.h</a></code></td><td>implicit</td><td>not yet</td><td>4</td><td>6</td><td>L </td></tr>
+<tr>
+<td>Radau IIA 5th Order</td><td><code><a class="el" href="class_ode_radau_i_i_a5.html" title="The fifth-order, L-stable, fully-implicit Radau IIA method with 3 stages.">OdeRadauIIA5</a></code></td><td><code><a class="el" href="ode__radau__iia__5_8h.html">ode_radau_iia_5.h</a></code></td><td>implicit</td><td>not yet</td><td>3</td><td>5</td><td>L </td></tr>
+<tr>
+<td>Geng's Symplectic 5th Order</td><td><code><a class="el" href="class_ode_geng5.html" title="The fifth-order, symplectic, fully-implicit Geng integrator with 3 stages.">OdeGeng5</a></code></td><td><code><a class="el" href="ode__geng__5_8h.html">ode_geng_5.h</a></code></td><td>implicit</td><td>no</td><td>3</td><td>5</td><td>A? </td></tr>
+<tr>
+<td>SDIRK 4(3)</td><td><code><a class="el" href="class_ode_s_d_i_r_k43.html" title="L-stable 4/3 SDIRK pair.">OdeSDIRK43</a></code></td><td><code><a class="el" href="ode__sdirk__43_8h.html">ode_sdirk_43.h</a></code></td><td>implicit</td><td>yes</td><td>4</td><td>4</td><td>L </td></tr>
+</table>
 <h1><a class="anchor" id="sec_compiling"></a>
 Compiling</h1>
 <h2><a class="anchor" id="sec_compiling_short"></a>
 Short Instructions</h2>
 <ol type="1">
-<li>Copy the <code>_config.mk</code> file to <code>config.mk</code></li>
-<li>Edit any of the compiler settings in your new <code>config.mk</code> file as necessary (specify which compiler to use and any compiling flags you want)</li>
-<li>Run <code>make</code> in the top directory where the Makefile is</li>
+<li>Copy the <code>_config.mk</code> file to <code>config.mk</code>.</li>
+<li>Edit any of the compiler settings in your new <code>config.mk</code> file as necessary (specify which compiler to use and any compiling flags you want).</li>
+<li>Run <code>make</code> in the top directory where the Makefile is.</li>
 <li>If anything weird happens, tell me.</li>
-<li>Run the <code>run_all_tests.sh</code> and <code>run_all_examples.sh</code> scripts to check that things are working (Python with numpy and matplotlib are needed for plotting)</li>
-<li>Create derived classes and link to the library with <code>-I&lt;path&gt;/libode/src -L&lt;path&gt;/libode/bin -lode</code>, replacing <code>&lt;path&gt;</code> with the path to the directory above <code>libode</code> on your computer</li>
+<li>Execute the <code>run_all_tests.sh</code> script to check that things are working (Python with numpy and matplotlib are needed for plotting). If you want, also execute <code>run_all_examples.sh</code> to run some example solvers.</li>
+<li>Create derived classes and link to the library with <code>-I&lt;path&gt;/libode/src -L&lt;path&gt;/libode/bin -lode</code>, replacing <code>&lt;path&gt;</code> with the path to the directory above <code>libode</code> on your computer.</li>
 </ol>
 <h2><a class="anchor" id="sec_compiling_long"></a>
 Longer Instructions</h2>
@@ -147,10 +191,10 @@ Call an Integration Function</h2>
 <p>If these functions aren't enough, you could always write your own loop calling the <code>step()</code> function directly.</p>
 <h2><a class="anchor" id="subsec_padapt"></a>
 Flexibly Adapt the Time Step</h2>
-<p>The adaptive solvers automatically choose time steps by comparing the solution for a single step with that of an embedded, lower order solution for the step and computing an error estimate. The algorithm for this is well described in the books referenced above. If, however, there is another way that the time step should be chosen for a system, a new selection algorithm can be used with any of the solvers. If the virtual function <code>dt_adapt()</code> is overridden, it will be used to select the time step in the <code>solve_adaptive()</code> functions.</p>
+<p>Some of the solvers have built-in adaptive time steppers. They automatically choose time steps by comparing the solution for a single step with that of an embedded, lower order solution for the step and computing an error estimate. The algorithm for this is well described in the books referenced above. If, however, there is another way that the time step should be chosen for a system, a new selection algorithm can be used with <b>any</b> of the solvers. If the virtual function <code>dt_adapt()</code> is overridden, it will be used to select the time step in the <code>solve_adaptive()</code> functions.</p>
 <p>Rejecting an adaptive step is easy. During an adaptive solve, the virtual <code>is_rejected()</code> function is called after every step. If it returns <code>true</code>, the step is rejected. If it returns <code>false</code>, the step is accepted. Either way, <code>dt_adapt()</code> computes the next time step size and the solver proceeds. So, at minimum, an adaptive solver with time step rejection needs to have its <code>dt_adapt()</code> and <code>is_rejected()</code> functions implemented. The embedded Runge-Kutta methods have these functions built in, but they can be overridden.</p>
 <p>If it's easier to compute the next time step and determine whether the step is rejected all at once, the virtual <code>adapt()</code> function can be implemented. It should store the next time step and store a boolean for rejection. Then <code>dt_adapt()</code> and <code>is_rejected()</code> simply return those stored values. This is how the embedded Runge-Kutta methods are structured because the same information determines the next step size and rejection/acceptance of the current step.</p>
-<p>This structure is useful because allows the step size to be chosen any way you choose. Specifically though, it has been used to set the time step based on the stability threshold of PDE discretizations. For example, the time step of explicit methods for PDEs might be limited by the CFL condition for advection or the von Neumann condition for simple diffusion schemes. Prescribing the adaptive time step based on these conditions, then using <code>solve_adaptive()</code>, can provide huge speed boosts. </p>
+<p>The point is to make time step selection totally flexible if the embedded Runge-Kutta algorithm isn't suitable. For example, this flexibility has been used to set the time step based on stability thresholds of PDE discretizations like the CFL condition for advection or the von Neumann condition for simple diffusion schemes. Prescribing the adaptive time step based on these conditions, then using <code>solve_adaptive()</code>, can provide huge speed boosts. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->

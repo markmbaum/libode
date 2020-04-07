@@ -111,7 +111,7 @@ class OdeNewton {
         void JLU (double *x);
         //wrapper around LU solving routine for counting solves
         void solve_LU_(double **LU, int *p, double *b, int n, double *out);
-        //function for checking solution integrity (nans and infs)
+        //function for checking solution integrity (can't have NAN or INFINITY)
         int check_integrity (double *x);
 };
 

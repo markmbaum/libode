@@ -2,8 +2,6 @@
 /*!
 \mainpage libode
 
-Easy to compile, fast ODE integrators as C++ classes
-
 `libode` is a library of C++ classes for solving systems of ordinary differential equations in autonomous form. All of the solvers are single-step, Runge-Kutta-like methods. There are explicit, adaptive solvers up to the ninth order. The repository also includes Rosenbrock methods, a singly-diagonal implicit Runge-Kutta (SDIRK) method, and several fully implicit Runge-Kutta methods. However, only a few of the implicit methods have solid adaptive time steppers at this point. With the current collection of solvers and features, `libode` is well suited to any non-stiff system and to stiff systems that are tightly coupled and have a known Jacobian (ones that don't require sparse or banded matrix routines).
 
 The classes were originally styled after [Chris Rycroft](https://people.seas.harvard.edu/~chr/)'s [example classes](https://github.com/chr1shr/am225_examples/tree/master/1a_ode_solvers). Their structure makes it easy to build a templated integrator on top of an arbitrary solver class and easily switch the solver/method. Implicit methods can be given a function for the ODE system's Jacobian or, if none is provided, the Jacobian is estimated using finite differences.
@@ -11,6 +9,32 @@ The classes were originally styled after [Chris Rycroft](https://people.seas.har
 Several of the solvers and much more detail on the methods can be found in these amazing books:
 + Hairer, E., Nørsett, S. P. & Wanner, G. Solving Ordinary Differential Equations I: Nonstiff Problems. (Springer-Verlag, 1987).
 + Hairer, E. & Wanner, G. Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems. (Springer, 1996).
+
+The table below lists all the solvers and gives some basic information about them. Papers and/or links to the derivation or original publication of the methods are often copied in the headers for the solver classes and included in the documentation. Some work still needs to be done to make the implicit methods genuinely useful, and a list of things to implement is in the `todo.txt` file.
+
+<table>
+<tr><th>Method <th> Class Name <th> Header File <th> (ex/im)plicit <th> adaptive? <th> stages <th> order <th> stability
+<tr><td>Forward Euler<td>`OdeEuler`<td>`ode_euler.h`<td>explicit<td>no<td>1<td>1<td>
+<tr><td>Trapezoidal Rule<td>`OdeTrapz`<td>`ode_trapz.h`<td>explicit<td>no<td>2<td>2<td>
+<tr><td>Strong Stability-Preserving, Order 3<td>`OdeSsp3`<td>`ode_ssp_3.h`<td>explicit<td>no<td>3<td>3<td>
+    <tr><td>Runge-Kutta-Fehlberg (3)2<td>`OdeRKF32`<td>`ode_rkf_32.h`<td>explicit<td>yes<td>3<td>3<td>
+<tr><td>RK4<td>`OdeRK4`<td>`ode_rk_4.h`<td>explicit<td>no<td>4<td>4<td>
+<tr><td>Runge-Kutta (4)3<td>`OdeRK43`<td>`ode_rk_43.h`<td>explicit<td>yes<td>5<td>4<td>
+<tr><td>Cash-Karp<td>`OdeRKCK`<td>`ode_rkck.h`<td>explicit<td>yes<td>6<td>5<td>
+<tr><td>Dormand-Prince (5)4<td>`OdeDoPri54`<td>`ode_dopri_54.h`<td>explicit<td>yes<td>7<td>5<td>
+<tr><td>Jim Verner's "most efficent" (6)5<td>`OdeVern65`<td>`ode_vern_65.h`<td>explicit<td>yes<td>9<td>6<td>
+<tr><td>Jim Verner's "most efficent" (7)6<td>`OdeVern76`<td>`ode_vern_76.h`<td>explicit<td>yes<td>10<td>7<td>
+<tr><td>Dormand-Prince (8)7<td>`OdeDoPri87`<td>`ode_dopri_87.h`<td>explicit<td>yes<td>13<td>8<td>
+<tr><td>Jim Verner's "most efficent" (9)8<td>`OdeVern98`<td>`ode_vern_98.h`<td>explicit<td>yes<td>16<td>9<td>
+<tr><td>Rosenbrock 4(3)<td>`OdeGRK4A`<td>`ode_grk4a.h`<td>implicit<td>yes<td>4<td>4<td>A
+<tr><td>Rosenbrock 6<td>`OdeROW6A`<td>`ode_row6a.h`<td>implicit<td>no<td>6<td>6<td>A
+<tr><td>Backward Euler<td>`OdeBackwardEuler`<td>`ode_backward_euler.h`<td>implicit<td>no<td>1<td>1<td>L
+<tr><td>Gauss 6th Order<td>`OdeGauss6`<td>`ode_gauss_6.h`<td>implicit<td>not yet<td>3<td>6<td>A
+<tr><td>Lobatto IIIC 6th Order<td>`OdeLobattoIIIC6`<td>`ode_lobatto_iiic_6.h`<td>implicit<td>not yet<td>4<td>6<td>L
+<tr><td>Radau IIA 5th Order<td>`OdeRadauIIA5`<td>`ode_radau_iia_5.h`<td>implicit<td>not yet<td>3<td>5<td>L
+<tr><td>Geng's Symplectic 5th Order<td>`OdeGeng5`<td>`ode_geng_5.h`<td>implicit<td>no<td>3<td>5<td>A?
+<tr><td>SDIRK 4(3)<td>`OdeSDIRK43`<td>`ode_sdirk_43.h`<td>implicit<td>yes<td>4<td>4<td>L
+</table>
 
 \section sec_compiling Compiling
 
@@ -72,13 +96,13 @@ If these functions aren't enough, you could always write your own loop calling t
 
 \subsection subsec_padapt Flexibly Adapt the Time Step
 
-The adaptive solvers automatically choose time steps by comparing the solution for a single step with that of an embedded, lower order solution for the step and computing an error estimate. The algorithm for this is well described in the books referenced above. If, however, there is another way that the time step should be chosen for a system, a new selection algorithm can be used with any of the solvers. If the virtual function `dt_adapt()` is overridden, it will be used to select the time step in the `solve_adaptive()` functions.
+Some of the solvers have built-in adaptive time steppers. They automatically choose time steps by comparing the solution for a single step with that of an embedded, lower order solution for the step and computing an error estimate. The algorithm for this is well described in the books referenced above. If, however, there is another way that the time step should be chosen for a system, a new selection algorithm can be used with **any** of the solvers. If the virtual function `dt_adapt()` is overridden, it will be used to select the time step in the `solve_adaptive()` functions.
 
 Rejecting an adaptive step is easy. During an adaptive solve, the virtual `is_rejected()` function is called after every step. If it returns `true`, the step is rejected. If it returns `false`, the step is accepted. Either way, `dt_adapt()` computes the next time step size and the solver proceeds. So, at minimum, an adaptive solver with time step rejection needs to have its `dt_adapt()` and `is_rejected()` functions implemented. The embedded Runge-Kutta methods have these functions built in, but they can be overridden.
 
 If it's easier to compute the next time step and determine whether the step is rejected all at once, the virtual `adapt()` function can be implemented. It should store the next time step and store a boolean for rejection. Then `dt_adapt()` and `is_rejected()` simply return those stored values. This is how the embedded Runge-Kutta methods are structured because the same information determines the next step size and rejection/acceptance of the current step.
 
-This structure is useful because allows the step size to be chosen any way you choose. Specifically though, it has been used to set the time step based on the stability threshold of PDE discretizations. For example, the time step of explicit methods for PDEs might be limited by the CFL condition for advection or the von Neumann condition for simple diffusion schemes. Prescribing the adaptive time step based on these conditions, then using `solve_adaptive()`, can provide huge speed boosts.
+The point is to make time step selection totally flexible if the embedded Runge-Kutta algorithm isn't suitable. For example, this flexibility has been used to set the time step based on stability thresholds of PDE discretizations like the CFL condition for advection or the von Neumann condition for simple diffusion schemes. Prescribing the adaptive time step based on these conditions, then using `solve_adaptive()`, can provide huge speed boosts.
 */
 
 #ifndef ODE_BASE_H_
@@ -228,7 +252,7 @@ class OdeBase {
         std::string dirout_;
         //!whether stuff should be printed during a solve
         bool quiet_;
-        //!whether to skip writing the solution vector to file when snapping
+        //!whether to skip writing the solution vector to file when snapping but still execute after_snap()
         bool silent_snap_;
         //!number of equations in the system of ODEs
         unsigned long neq_;
