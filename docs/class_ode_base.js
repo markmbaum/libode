@@ -36,6 +36,7 @@ var class_ode_base =
     [ "set_silent_snap", "class_ode_base.html#a0b971f7335b7a0a7b200caa552ff34e8", null ],
     [ "set_sol", "class_ode_base.html#a4e9069884313afbbc0d6af7aec7da257", null ],
     [ "set_sol", "class_ode_base.html#a452938fbe76c69cdd07aadf5c6620560", null ],
+    [ "set_t", "class_ode_base.html#a028f7035c480fe733eeff28361db77d2", null ],
     [ "snap", "class_ode_base.html#a802c9bcfb6b4a61dc6e38ddb424a6124", null ],
     [ "solve_done", "class_ode_base.html#a3675875f1fb07d8990483d291ed50746", null ],
     [ "solve_fixed", "class_ode_base.html#aa1edb428348b5a2d3daa05f7bfae2372", null ],

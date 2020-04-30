@@ -58,10 +58,11 @@ class OdeNewton {
         //!Solve the system of equations
         /*!Solve for a root of the function f_Newton using the jacobian J_Newton, both of which must be implemented in derived classes
         \param x initial guess for the root and final value at root
-        \return success code, which is zero for success and
-            1. too many iterations
-            2. solution contains nan(s)
-            3. solution contains inf(s)*/
+        \return success code, which takes values
+            0. success!
+            1. failure...too many iterations
+            2. failure...solution contains nan(s)
+            3. failure...solution contains inf(s)*/
         int solve_Newton (double *x);
 
     protected:
@@ -91,9 +92,9 @@ class OdeNewton {
         unsigned long iter_Newton_;
         //number of iterations after which the Jacobian is updated and redecomposed
         int iJLU_;
-        //number of times Jac is updated
+        //number of times Jac has been updated
         unsigned long nJLU_;
-        //number of times the LU decomposed matrix is used to solve a matrix eq
+        //number of times the LU decomposed matrix has been used to solve a matrix eq
         unsigned long n_solve_LU_;
         //iteration interval for checking solution integrity
         unsigned long icheck_;

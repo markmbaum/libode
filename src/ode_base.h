@@ -4,7 +4,7 @@
 
 `libode` is a library of C++ classes for solving systems of ordinary differential equations in autonomous form. All of the solvers are single-step, Runge-Kutta-like methods. There are explicit, adaptive solvers up to the ninth order. The repository also includes Rosenbrock methods, a singly-diagonal implicit Runge-Kutta (SDIRK) method, and several fully implicit Runge-Kutta methods. However, only a few of the implicit methods have solid adaptive time steppers at this point. With the current collection of solvers and features, `libode` is well suited to any non-stiff system and to stiff systems that are tightly coupled and have a known Jacobian (ones that don't require sparse or banded matrix routines).
 
-The classes were originally styled after [Chris Rycroft](https://people.seas.harvard.edu/~chr/)'s [example classes](https://github.com/chr1shr/am225_examples/tree/master/1a_ode_solvers). Their structure makes it easy to build a templated integrator on top of an arbitrary solver class and easily switch the solver/method. Implicit methods can be given a function for the ODE system's Jacobian or, if none is provided, the Jacobian is estimated using finite differences.
+The classes were originally styled after [Chris Rycroft](https://people.seas.harvard.edu/~chr/)'s [example classes](https://github.com/chr1shr/am225_examples/tree/master/1a_ode_solvers). Their structure makes it easy to build a templated integrator on top of an arbitrary solver class and switch the solver/method. Implicit methods can be given a function for the ODE system's Jacobian or, if none is provided, the Jacobian is estimated using finite differences.
 
 Several of the solvers and much more detail on the methods can be found in these amazing books:
 + Hairer, E., Nørsett, S. P. & Wanner, G. Solving Ordinary Differential Equations I: Nonstiff Problems. (Springer-Verlag, 1987).
@@ -53,7 +53,7 @@ The table below lists all the solvers and gives some basic information about the
 
 First, before any of the `libode` classes can be compiled, you must copy the `_config.mk` file to `config.mk` and edit that file to specify the compiler settings you'd like the Makefile to use. This shouldn't be complicated. If you are using a current version of the GNU C++ compiler (g++), the contents of the template config file can likely be used without modification. There are also commented lines for use with the Intel C++ compiler (icpc), if that is available. To compile all the classes, simply run `make` in the top directory.
 
-The Makefile compiles all of the necessary code into the `obj` folder, then archives it in the `bin` directory as a file called `libode.a`. To use the solvers, you can link `libode.a` (in the `bin` directory) or the object files directly (in the `obj` directory) when compiling your derived class. You must also the the header files in the `src` directory, as there is not a single header file for the library. All of the classes have their header file name displayed in the documentation. Linking the solver classes requires something like
+The Makefile compiles all of the necessary code into the `obj` folder, then archives it in the `bin` directory as a file called `libode.a`. To use the solvers, you can link `libode.a` (in the `bin` directory) or the object files directly (in the `obj` directory) when compiling your derived class. You must also the the header files in the `src` directory, as there is not a single header file for the library. All of the classes have their header file name displayed in the documentation and in the table above. Linking the solver classes requires something like
 
 `-I<path>/libode/src -L<path>/libode/bin -lode`
 
@@ -66,9 +66,9 @@ Test programs are compiled with `make tests` and they can all be run in sequence
 \subsection subsec_classes Define a Class
 
 To integrate a specific system of ODEs, a new class must be created to inherit from one of the solver classes. This new inheriting class must
-1. Define the system of ODEs to be solved by implementing the `ode_fun()` function. This is a virtual function in the base classes. Once it is implemented, it can be used by the stepping and solving functions.
+1. Define the system of ODEs to be solved by implementing the `ode_fun()` function. This is a virtual function in the base classes. Once implemented, it's used by the stepping and solving functions.
 2. Set initial conditions using the `set_sol()` function.
-3. Optionally implement the `ode_jac()` function for implicit methods. This is also a virtual function in the base classes. If it's not overridden, a finite-difference estimate of the Jacobian is used.
+3. Optionally implement the `ode_jac()` function for implicit methods. This is also a virtual function in the base classes. If it's not overridden but is needed, a (crude) finite-difference estimate of the Jacobian is used.
 
 For flexibility, the derived class could be a template, so that the solver/method can be chosen when the class is constructed. Other than defining the system of equations and setting initial conditions, the derived class can store whatever information and implement whatever other methods are necessary. This could be something simple like an extra function for setting initial conditions. It could, however, comprise any other system that needs to run on top of an ODE solver, like the spatial discretization of a big PDE solver.
 
@@ -155,9 +155,10 @@ class OdeBase {
         double get_t () { return(t_); }
         //!gets the most recent or current time step size
         double get_dt () { return(dt_); }
-        //!gets the solution array
+        //!gets a pointer to the whole solution array
         double *get_sol () { return(sol_); }
         //!gets an element of the solution array
+        /*!\param[in] i index of element to get (sol[i])*/
         double get_sol (unsigned long i) { return(sol_[i]); }
         //!gets the total number of steps taken
         long long get_nstep () { return(nstep_); }
@@ -168,9 +169,17 @@ class OdeBase {
         //!gets the total number of Jacobian evaluations performed
         long long get_nJac () { return(nJac_); }
 
+        //!sets the "time," or independent variable used to track progress
+        /*!Because libode solves system in autonomous form, the "time" `t` is just an internal tracker for the integrating functions. See `get_t()`. Nevertheless, this function will set the internal value of the integrator's `t` variable.*/
+        void set_t (double t) { t_ = t; }
         //!sets an element of the solution array
+        /*!
+        \param[in] i index of solution element to set
+        \param[in] x value to copy into sol[i]
+        */
         void set_sol (unsigned long i, double x) { sol_[i] = x; }
         //!copies an array into the solution array
+        /*!\param[in] sol an array of length `neq` to copy into the solution vector*/
         void set_sol (double *sol) { for(unsigned long i=0; i<neq_; i++) sol_[i] = sol[i]; }
         //!sets the name of the ODE system
         void set_name (std::string name) { name_ = name; }
@@ -274,7 +283,7 @@ class OdeBase {
         long long nJac_;
         //!absolute adjustment fraction for numerical Jacobian, if needed
         double absjacdel_;
-        //!relative adjustment fraction for numerical Jacobian,`` if needed
+        //!relative adjustment fraction for numerical Jacobian, if needed
         double reljacdel_;
 
         //---------------------------

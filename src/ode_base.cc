@@ -58,10 +58,7 @@ OdeBase::~OdeBase () {
 void OdeBase::ode_jac (double *solin, double **Jout) {
 
     //check space was allocated for Jacobian
-    if ( !need_jac_ ) {
-        printf("the Jacobian matrix wasn't allocated for whichever solver was chosen (need_jac_ == false)");
-        exit(EXIT_FAILURE);
-    }
+    if ( !need_jac_ ) ode_print_exit("the Jacobian matrix wasn't allocated for whichever solver was chosen (need_jac_ == false)");
 
     unsigned long i,j;
     double delsol;
@@ -162,7 +159,7 @@ void OdeBase::check_sol_integrity () {
 void OdeBase::check_pre_solve (double tint, double dt) {
 
     //shouldn't be solving backward
-    if (tint <= 0.0) ode_print_exit("tend must be greater than the current solver time");
+    if (tint <= 0.0) ode_print_exit("tint must be greater than zero");
     //shouldn't be solving backward
     if (dt <= 0.0) ode_print_exit("dt must be greater than or equal to 0");
 }
