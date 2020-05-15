@@ -354,7 +354,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <div class="textblock"><p>Lowest base class for all solvers. </p>
 <p>This is the deepest base class, upon which all integrators and other base classes are built. It provides basic variables like the solution array, the independent variable, and a string defining the integrator's name. It implements the solve_fixed function for integrating with a fixed time step. When constructing, it will allocate space for a Jacobian matrix if the need_jac flag is true. </p>
 
-<p class="definition">Definition at line <a class="el" href="ode__base_8h_source.html#l00124">124</a> of file <a class="el" href="ode__base_8h_source.html">ode_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ode__base_8h_source.html#l00150">150</a> of file <a class="el" href="ode__base_8h_source.html">ode_base.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aacdf86d5554b13574f5a7fe4cb6b7ccb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aacdf86d5554b13574f5a7fe4cb6b7ccb">&#9670;&nbsp;</a></span>OdeBase()</h2>
@@ -656,7 +656,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ode__base_8h_source.html#l00162">162</a> of file <a class="el" href="ode__base_8h_source.html">ode_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ode__base_8h_source.html#l00188">188</a> of file <a class="el" href="ode__base_8h_source.html">ode_base.h</a>.</p>
 
 </div>
 </div>
@@ -686,7 +686,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <p>gets the current value of the independent variable </p>
 <p>The value of the independent variable is provided as a convenience and is used internally to track integration progress, but is <b>not precisely accurate during steps</b>. Libode solves systems in autonomous form. If the independent variable is needed during a step, an extra variable must be added to the system of ODEs to represent it. The corresponding extra ODE is always one. For example, if the independent variable is t for time, the extra ODE states dt/dt = 1. </p>
 
-<p class="definition">Definition at line <a class="el" href="ode__base_8h_source.html#l00155">155</a> of file <a class="el" href="ode__base_8h_source.html">ode_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ode__base_8h_source.html#l00181">181</a> of file <a class="el" href="ode__base_8h_source.html">ode_base.h</a>.</p>
 
 </div>
 </div>
@@ -947,7 +947,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ode__base_8h_source.html#l00183">183</a> of file <a class="el" href="ode__base_8h_source.html">ode_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ode__base_8h_source.html#l00209">209</a> of file <a class="el" href="ode__base_8h_source.html">ode_base.h</a>.</p>
 
 </div>
 </div>
@@ -994,7 +994,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ode__base_8h_source.html#l00180">180</a> of file <a class="el" href="ode__base_8h_source.html">ode_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ode__base_8h_source.html#l00206">206</a> of file <a class="el" href="ode__base_8h_source.html">ode_base.h</a>.</p>
 
 </div>
 </div>
@@ -1025,7 +1025,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <p>sets the "time," or independent variable used to track progress </p>
 <p>Because libode solves system in autonomous form, the "time" <code>t</code> is just an internal tracker for the integrating functions. See <code><a class="el" href="class_ode_base.html#aa72bd44eb4be0cc7af954ebc620fb2ed" title="gets the current value of the independent variable">get_t()</a></code>. Nevertheless, this function will set the internal value of the integrator's <code>t</code> variable. </p>
 
-<p class="definition">Definition at line <a class="el" href="ode__base_8h_source.html#l00174">174</a> of file <a class="el" href="ode__base_8h_source.html">ode_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ode__base_8h_source.html#l00200">200</a> of file <a class="el" href="ode__base_8h_source.html">ode_base.h</a>.</p>
 
 </div>
 </div>

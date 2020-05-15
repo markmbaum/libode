@@ -2,7 +2,7 @@
 
 Easy to compile, fast ODE integrators as C++ classes
 
-This repo contains a collection of C++ classes for solving systems of ordinary differential equations (ODEs) in autonomous form. Documentation is [here](https://wordsworthgroup.github.io/libode/). All of the solvers are single-step, Runge-Kutta-like methods. There are explicit, adaptive solvers up to the ninth order. The repository also includes Rosenbrock methods, a singly-diagonal implicit Runge-Kutta (SDIRK) method, and several fully implicit Runge-Kutta methods. However, only a few of the implicit methods have solid adaptive time steppers at this point. With the current collection of solvers and features, `libode` is well suited to any non-stiff systems and to stiff systems that are tightly coupled and have a known Jacobian (ones that don't require sparse or banded matrix routines).
+This repo contains a collection of C++ classes for solving systems of ordinary differential equations (ODEs) in autonomous form. Documentation is [here](https://wordsworthgroup.github.io/libode/). All of the solvers are single-step, Runge-Kutta-like methods. There are explicit, adaptive solvers up to the ninth order. The repository also includes Rosenbrock methods, a singly-diagonal implicit Runge-Kutta (SDIRK) method, and several fully implicit Runge-Kutta methods. However, only a few of the implicit methods have solid adaptive time steppers at this point. With the current collection of solvers and features, `libode` is well suited to any non-stiff systems and to stiff systems that are tightly coupled and have a known Jacobian (ones that don't require sparse or banded matrix routines). It's been useful for solving the same system a huge number of times with varying parameters, when the speed advantage of parallel C++ might be worth it.
 
 The classes were originally styled after [Chris Rycroft](https://people.seas.harvard.edu/~chr/)'s [example classes](https://github.com/chr1shr/am225_examples/tree/master/1a_ode_solvers). Their structure makes it easy to build a templated integrator on top of an arbitrary solver class and switch the solver/method. Implicit methods can be given a function for the ODE system's Jacobian or, if none is provided, the Jacobian is estimated using finite differences.
 
@@ -10,9 +10,9 @@ Several of the solvers and much more detail on the methods can be found in these
 * Hairer, E., Nørsett, S. P. & Wanner, G. Solving Ordinary Differential Equations I: Nonstiff Problems. (Springer-Verlag, 1987).
 * Hairer, E. & Wanner, G. Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems. (Springer, 1996).
 
-The table below lists all the solvers and gives some basic information about them. Papers and/or links to the derivation or original publication of the methods are often copied in the headers for the solver classes and included in the documentation. Some work still needs to be done to make the implicit methods genuinely useful, and a list of things to implement is in the `todo.txt` file.
+The table below lists all the solvers and gives some basic information about them. All of the solvers can be used with a custom time step selection function, but those with a built-in adaptive capability are indicated below. Papers and/or links to the derivation or original publication of the methods are often copied in the headers for the solver classes and included in the documentation. Some work still needs to be done to make the implicit methods genuinely useful, and a list of things to implement is in the `todo.txt` file.
 
-Method | Class Name | Header File | (ex/im)plicit | adaptive? | stages | order | stability
+Method | Class Name | Header File | (ex/im)plicit | built-in adaptive? | stages | order | stability
  --- | --- | --- | --- | --- | --- | --- | ---
 Forward Euler | `OdeEuler` | `ode_euler.h` | explicit | no | 1 | 1
 Trapezoidal Rule | `OdeTrapz` | `ode_trapz.h` | explicit | no | 2 | 2
@@ -79,9 +79,9 @@ For flexibility, the derived class could be a template, so that the solver/metho
 
 Each solver has a `step()` method that can be used to integrate a single step with a specified step size. Each solver class also has a `solve_fixed()` method and, if its `dt_adapt()` function is implemented, a `solve_adaptive()` method. These functions return nothing and both have the same four call signatures:
 
-1. `void solve_fixed (double tint, double dt)`
+1. `void solve_fixed (double tint, double dt, bool extras)`
 
-   Simply advances the solution for a specified length of the independent variable. The independent variable is assumed to be time, so `tint` is the integration time and `dt` is the time step to use (or the initial time step for adaptive solves).
+   Simply advances the solution for a specified length of the independent variable. The independent variable is assumed to be time, so `tint` is the integration time and `dt` is the time step to use (or the initial time step for adaptive solves). The `extra` argument switches on/off the "extra" functions, which are discussed below.
 
 2. `void solve_fixed (double tint, double dt, const char *dirout, int inter)`
 
@@ -97,6 +97,8 @@ Each solver has a `step()` method that can be used to integrate a single step wi
 
 If these functions aren't enough, you can always write your own and call the `step()` function directly.
 
+**All output files** are written as double precision (64 bit) binary files. These can easily be read by, for example, python's `numpy.fromfile` function or matlab's `fread` function. Then the results can be analyzed and plotted.
+
 #### Flexibly Adapt the Time Step
 
 Some of the solvers have built-in adaptive time steppers. They automatically choose time steps by comparing the solution for a single step with that of an embedded, lower order solution for the step and computing an error estimate. The algorithm for this is well described in the books referenced above. If, however, there is another way that the time step should be chosen for a system, a new selection algorithm can be used with **any** of the solvers. If the virtual function `dt_adapt()` is overridden, it will be used to select the time step in the `solve_adaptive()` functions.
@@ -106,6 +108,32 @@ Rejecting an adaptive step is easy. During an adaptive solve, the virtual `is_re
 If it's easier to compute the next time step and determine whether the step is rejected all at once, the virtual `adapt()` function can be implemented. It should store the next time step and store a boolean for rejection. Then `dt_adapt()` and `is_rejected()` simply return those stored values. This is how the embedded Runge-Kutta methods are structured because the same information determines the next step size and rejection/acceptance of the current step.
 
 The point is to make time step selection totally flexible if the embedded Runge-Kutta algorithm isn't suitable. For example, this flexibility has been used to set the time step based on stability thresholds of PDE discretizations like the CFL condition for advection or the von Neumann condition for simple diffusion schemes. Prescribing the adaptive time step based on these conditions, then using `solve_adaptive()`, can provide huge speed boosts.
+
+#### "Extra" Functions During Solves
+
+There is a straightforward way to supplement the built-in solver functions and execute extra code at different points during solves. There are five "extra" functions, which are empty virtual functions that can be overridden by the derived class:
+
+1. `before_solve ()`
+
+   Executed at the beginning of any `solve_fixed()`/`solve_adaptive()` call.
+
+2. `after_step (double t)`
+
+   Executed after every step while the solve function is running. The `t` input is the current "time" of the system, or the value of the independent variable. Although the system must be in autonomous form, the classes track the independent variable as a convenience.
+
+3. `after_capture (double t)`
+
+   Executed each time the state of the system is captured during the second version of `solve_fixed()`/`solve_adaptive()` above (the one with the `inter` argument). This function is similar to `after_step()`, but if the output interval is greater than one, it is only called when output is stored. The `t` input is the current "time" of the system, or the value of the independent variable. Although the system must be in autonomous form, the classes track the independent variable as a convenience.
+
+4. `after_snap (std::string dirout, long isnap, double t)`
+
+   Executed after every snapshot in the solver functions that use snapshot output (call signatures 3 and 4 above). `dirout` is the output directory and `isnap` is the snapshot count (starting from 0). The `t` input is the current "time" of the system, or the value of the independent variable.
+
+5. `after_solve ()`
+
+   Executed at the end of any `solve_fixed()`/`solve_adaptive()` call.
+
+These functions are meant to be very general. They can be used to implement a customized output/storage procedure, print updates, set and reset system variables, or anything else. If they are not overridden, they will do nothing.
 
 ## Testing
 

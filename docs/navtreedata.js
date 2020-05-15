@@ -30,7 +30,8 @@ var NAVTREE =
     [ "Using the Solvers", "index.html#sec_usage", [
       [ "Define a Class", "index.html#subsec_classes", null ],
       [ "Call an Integration Function", "index.html#subsec_integrate", null ],
-      [ "Flexibly Adapt the Time Step", "index.html#subsec_padapt", null ]
+      [ "Flexibly Adapt the Time Step", "index.html#subsec_padapt", null ],
+      [ "\"Extra\" Functions During Solves", "index.html#extra", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],

@@ -2,7 +2,7 @@
 /*!
 \mainpage libode
 
-`libode` is a library of C++ classes for solving systems of ordinary differential equations in autonomous form. All of the solvers are single-step, Runge-Kutta-like methods. There are explicit, adaptive solvers up to the ninth order. The repository also includes Rosenbrock methods, a singly-diagonal implicit Runge-Kutta (SDIRK) method, and several fully implicit Runge-Kutta methods. However, only a few of the implicit methods have solid adaptive time steppers at this point. With the current collection of solvers and features, `libode` is well suited to any non-stiff system and to stiff systems that are tightly coupled and have a known Jacobian (ones that don't require sparse or banded matrix routines).
+`libode` is a library of C++ classes for solving systems of ordinary differential equations in autonomous form. All of the solvers are single-step, Runge-Kutta-like methods. There are explicit, adaptive solvers up to the ninth order. The repository also includes Rosenbrock methods, a singly-diagonal implicit Runge-Kutta (SDIRK) method, and several fully implicit Runge-Kutta methods. However, only a few of the implicit methods have solid adaptive time steppers at this point. With the current collection of solvers and features, `libode` is well suited to any non-stiff system and to stiff systems that are tightly coupled and have a known Jacobian (ones that don't require sparse or banded matrix routines). It's been useful for solving the same system a huge number of times with varying parameters, when the speed advantage of parallel C++ might be worth it.
 
 The classes were originally styled after [Chris Rycroft](https://people.seas.harvard.edu/~chr/)'s [example classes](https://github.com/chr1shr/am225_examples/tree/master/1a_ode_solvers). Their structure makes it easy to build a templated integrator on top of an arbitrary solver class and switch the solver/method. Implicit methods can be given a function for the ODE system's Jacobian or, if none is provided, the Jacobian is estimated using finite differences.
 
@@ -10,10 +10,10 @@ Several of the solvers and much more detail on the methods can be found in these
 + Hairer, E., Nørsett, S. P. & Wanner, G. Solving Ordinary Differential Equations I: Nonstiff Problems. (Springer-Verlag, 1987).
 + Hairer, E. & Wanner, G. Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems. (Springer, 1996).
 
-The table below lists all the solvers and gives some basic information about them. Papers and/or links to the derivation or original publication of the methods are often copied in the headers for the solver classes and included in the documentation. Some work still needs to be done to make the implicit methods genuinely useful, and a list of things to implement is in the `todo.txt` file.
+The table below lists all the solvers and gives some basic information about them. All of the solvers can be used with a custom time step selection function, but those with a built-in adaptive capability are indicated below. Papers and/or links to the derivation or original publication of the methods are often copied in the headers for the solver classes and included in the documentation. Some work still needs to be done to make the implicit methods genuinely useful, and a list of things to implement is in the `todo.txt` file.
 
 <table>
-<tr><th>Method <th> Class Name <th> Header File <th> (ex/im)plicit <th> adaptive? <th> stages <th> order <th> stability
+<tr><th>Method <th> Class Name <th> Header File <th> (ex/im)plicit <th> built-in adaptive? <th> stages <th> order <th> stability
 <tr><td>Forward Euler<td>`OdeEuler`<td>`ode_euler.h`<td>explicit<td>no<td>1<td>1<td>
 <tr><td>Trapezoidal Rule<td>`OdeTrapz`<td>`ode_trapz.h`<td>explicit<td>no<td>2<td>2<td>
 <tr><td>Strong Stability-Preserving, Order 3<td>`OdeSsp3`<td>`ode_ssp_3.h`<td>explicit<td>no<td>3<td>3<td>
@@ -53,7 +53,7 @@ The table below lists all the solvers and gives some basic information about the
 
 First, before any of the `libode` classes can be compiled, you must copy the `_config.mk` file to `config.mk` and edit that file to specify the compiler settings you'd like the Makefile to use. This shouldn't be complicated. If you are using a current version of the GNU C++ compiler (g++), the contents of the template config file can likely be used without modification. There are also commented lines for use with the Intel C++ compiler (icpc), if that is available. To compile all the classes, simply run `make` in the top directory.
 
-The Makefile compiles all of the necessary code into the `obj` folder, then archives it in the `bin` directory as a file called `libode.a`. To use the solvers, you can link `libode.a` (in the `bin` directory) or the object files directly (in the `obj` directory) when compiling your derived class. You must also the the header files in the `src` directory, as there is not a single header file for the library. All of the classes have their header file name displayed in the documentation and in the table above. Linking the solver classes requires something like
+The Makefile compiles all of the necessary code into the `obj` folder, then archives it in the `bin` directory as a file called `libode.a`. To use the solvers, you can link `libode.a` (in the `bin` directory) or the object files directly (in the `obj` directory) when compiling your derived class. You must also include the header files in the `src` directory, as there is not a single header file for the library. All of the classes have their header file name displayed in the documentation and in the table above. Linking the solver classes requires something like
 
 `-I<path>/libode/src -L<path>/libode/bin -lode`
 
@@ -103,6 +103,32 @@ Rejecting an adaptive step is easy. During an adaptive solve, the virtual `is_re
 If it's easier to compute the next time step and determine whether the step is rejected all at once, the virtual `adapt()` function can be implemented. It should store the next time step and store a boolean for rejection. Then `dt_adapt()` and `is_rejected()` simply return those stored values. This is how the embedded Runge-Kutta methods are structured because the same information determines the next step size and rejection/acceptance of the current step.
 
 The point is to make time step selection totally flexible if the embedded Runge-Kutta algorithm isn't suitable. For example, this flexibility has been used to set the time step based on stability thresholds of PDE discretizations like the CFL condition for advection or the von Neumann condition for simple diffusion schemes. Prescribing the adaptive time step based on these conditions, then using `solve_adaptive()`, can provide huge speed boosts.
+
+\subsection extra "Extra" Functions During Solves
+
+There is a straightforward way to supplement the built-in solver functions and execute extra code at different points during solves. There are five "extra" functions, which are empty virtual functions that can be overridden by the derived class:
+
+1. `before_solve ()`
+
+   Executed at the beginning of any `solve_fixed()`/`solve_adaptive()` call.
+
+2. `after_step (double t)`
+
+   Executed after every step while the solve function is running. The `t` input is the current "time" of the system, or the value of the independent variable. Although the system must be in autonomous form, the classes track the independent variable as a convenience.
+
+3. `after_capture (double t)`
+
+   Executed each time the state of the system is captured during the second version of `solve_fixed()`/`solve_adaptive()` above (the one with the `inter` argument). This function is similar to `after_step()`, but if the output interval is greater than one, it is only called when output is stored. The `t` input is the current "time" of the system, or the value of the independent variable. Although the system must be in autonomous form, the classes track the independent variable as a convenience.
+
+4. `after_snap (std::string dirout, long isnap, double t)`
+
+   Executed after every snapshot in the solver functions that use snapshot output (call signatures 3 and 4 above). `dirout` is the output directory and `isnap` is the snapshot count (starting from 0). The `t` input is the current "time" of the system, or the value of the independent variable.
+
+5. `after_solve ()`
+
+   Executed at the end of any `solve_fixed()`/`solve_adaptive()` call.
+
+These functions are meant to be very general. They can be used to implement a customized output/storage procedure, print updates, set and reset system variables, or anything else. If they are not overridden, they will do nothing.
 */
 
 #ifndef ODE_BASE_H_

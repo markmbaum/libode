@@ -33,6 +33,7 @@ var NAVTREEINDEX1 =
 "globals_func.html":[3,1,1],
 "hierarchy.html":[2,2],
 "index.html":[],
+"index.html#extra":[1,3],
 "index.html#sec_compiling":[0],
 "index.html#sec_compiling_long":[0,1],
 "index.html#sec_compiling_short":[0,0],
