@@ -21,7 +21,8 @@ int main () {
     tsnap[4] = 4.9;
 
     printf("Solving system '%s' with method '%s'\n",
-        sys.get_name(), sys.get_method());
+        sys.get_name(),
+        sys.get_method());
 
     /* solve with evenly spaced snaps */
     //sys.solve_adaptive(tint, dt, nsnap, "out");
@@ -29,8 +30,9 @@ int main () {
     /* solve with snap times from tsnap */
     sys.solve_adaptive(dt, tsnap, nsnap, "out");
 
-    printf("%llu function evaluations, %llu steps\n",
-        sys.get_neval(), sys.get_nstep());
+    printf("%lu function evaluations, %lu steps\n",
+        (unsigned long)sys.get_neval(),
+        (unsigned long)sys.get_nstep());
 
     delete [] tsnap;
     return(0);

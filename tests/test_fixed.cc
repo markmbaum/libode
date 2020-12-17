@@ -12,10 +12,12 @@ int main () {
     Osc1<OdeBackwardEuler> sys;
 
     printf("Solving system '%s' with method '%s'\n",
-        sys.get_name(), sys.get_method());
+        sys.get_name(),
+        sys.get_method());
     sys.solve_fixed(tint, dt, "out", 1);
-    printf("%llu function evaluations, %llu steps\n",
-        sys.get_neval(), sys.get_nstep());
+    printf("%lu function evaluations, %lu steps\n",
+        (unsigned long)sys.get_neval(),
+        (unsigned long)sys.get_nstep());
 
     return(0);
 }
