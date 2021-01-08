@@ -31,8 +31,8 @@ int main () {
     sys.solve_adaptive(dt, tsnap, nsnap, "out");
 
     printf("%lu function evaluations, %lu steps\n",
-        (unsigned long)sys.get_neval(),
-        (unsigned long)sys.get_nstep());
+        sys.get_neval(),
+        sys.get_nstep());
 
     delete [] tsnap;
     return(0);

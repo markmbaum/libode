@@ -187,13 +187,13 @@ class OdeBase {
         /*!\param[in] i index of element to get (sol[i])*/
         double get_sol (unsigned long i) { return(sol_[i]); }
         //!gets the total number of steps taken
-        long long get_nstep () { return(nstep_); }
+        long unsigned get_nstep () { return(nstep_); }
         //!gets the total number of ODE system evaluation
-        long long get_neval () { return(neval_); }
+        long unsigned get_neval () { return(neval_); }
         //!gets the number of steps after which the solution is checked for integrity
-        long long get_icheck () { return(icheck_); }
+        long unsigned get_icheck () { return(icheck_); }
         //!gets the total number of Jacobian evaluations performed
-        long long get_nJac () { return(nJac_); }
+        long unsigned get_nJac () { return(nJac_); }
 
         //!sets the "time," or independent variable used to track progress
         /*!Because libode solves system in autonomous form, the "time" `t` is just an internal tracker for the integrating functions. See `get_t()`. Nevertheless, this function will set the internal value of the integrator's `t` variable.*/
@@ -298,15 +298,15 @@ class OdeBase {
         //!array for the solution, changing over time
         double *sol_;
         //!number of time steps
-        long long nstep_;
+        long unsigned nstep_;
         //!function evaluation counter, must be incremented in step() when defined
-        long long neval_;
+        long unsigned neval_;
         //!interval of steps after which to check for nans and infs (zero to ignore)
-        long long icheck_;
+        long unsigned icheck_;
         //!storage for the ODE system's Jacobian matrix, only allocated for the methods that need it
         double **Jac_;
         //!counter for jacobian evaluations
-        long long nJac_;
+        long unsigned nJac_;
         //!absolute adjustment fraction for numerical Jacobian, if needed
         double absjacdel_;
         //!relative adjustment fraction for numerical Jacobian, if needed

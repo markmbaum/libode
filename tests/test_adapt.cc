@@ -14,10 +14,10 @@ int main () {
     printf("Solving system '%s' with method '%s'\n",
         sys.get_name(), sys.get_method());
     sys.solve_adaptive(tint, tint/10.0, "out", 1);
-    printf("%d function evaluations, %d steps, %d rejected steps\n",
-        int(sys.get_neval()),
-        int(sys.get_nstep()),
-        int(sys.get_nrej()));
+    printf("%lu function evaluations, %lu steps, %lu rejected steps\n",
+        sys.get_neval(),
+        sys.get_nstep(),
+        sys.get_nrej());
 
     return(0);
 }

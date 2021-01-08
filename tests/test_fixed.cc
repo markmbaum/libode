@@ -16,8 +16,8 @@ int main () {
         sys.get_method());
     sys.solve_fixed(tint, dt, "out", 1);
     printf("%lu function evaluations, %lu steps\n",
-        (unsigned long)sys.get_neval(),
-        (unsigned long)sys.get_nstep());
+        sys.get_neval(),
+        sys.get_nstep());
 
     return(0);
 }

@@ -21,7 +21,7 @@
 #source code directory
 ds=src
 #test code directory
-dt=test
+dt=tests
 #compiled object directory
 do=obj
 #compiled executable directory
@@ -105,7 +105,7 @@ NB=ode_newton_bridge
 all: $(db)/libode.a
 
 #target for everything including tests
-test: all $(exe)
+tests: all $(exe)
 
 #-------------------------------------------------------------------------------
 #compile objects

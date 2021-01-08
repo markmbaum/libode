@@ -41,7 +41,7 @@ class OdeAdaptive : public OdeBase {
         //getters and setters
 
         //!gets the count of rejected steps
-        long long get_nrej () { return(nrej_); }
+        long unsigned get_nrej () { return(nrej_); }
         //!gets the absolute error tolerance
         double get_abstol () { return(abstol_); }
         //!gets the relative error tolerance
@@ -110,7 +110,7 @@ class OdeAdaptive : public OdeBase {
         //basic adaptive variables
 
         //!counter for rejected steps
-        long long nrej_;
+        long unsigned nrej_;
         //!absolute error tolerance
         double abstol_;
         //!absolute error tolerance
