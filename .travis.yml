@@ -2,12 +2,11 @@ language: cpp
 os:
     - linux
     - osx
-    - windows
 env:
     global:
-        - OMP_NUM_THREADS=4
         - CFLAGS="-Wall -Wextra -pedantic -O3"
 compiler:
     - g++
+    - clang++
 script:
     - "make clean && make && make tests && chmod a+x run_tests.sh && ./run_tests.sh"

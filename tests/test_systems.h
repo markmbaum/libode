@@ -158,9 +158,6 @@ class StiffCliff : public Integrator {
             this->set_sol(1, 0.0);
             this->set_sol(2, 0.0);
         }
-        void initial_conditions (double *sol0) {
-
-        }
         void ode_fun (double *solin, double *fout) {
             double y1 = solin[0], y2 = solin[1], x = solin[2];
             fout[0] = -fac*(cos(x)*y1 + sin(x)*y2 + 1.0);

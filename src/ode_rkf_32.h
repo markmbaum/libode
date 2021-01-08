@@ -23,7 +23,7 @@ class OdeRKF32 : public OdeEmbedded, private OdeRK, private OdeERK {
         //coefficents of tableau
         double c2, a21,
                c3, a31, a32,
-                    b1,  b2, b3,
+                    b1,  b2,
                     d1,  d2, d3;
 };
 
