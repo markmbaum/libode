@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/189592373.svg)](https://zenodo.org/badge/latestdoi/189592373)
 [![Build Status](https://travis-ci.com/wordsworthgroup/libode.svg?branch=master)](https://travis-ci.com/wordsworthgroup/libode)
-[![codecov](https://codecov.io/gh/wordsworthgroup/libode/branch/master/graph/badge.svg?token=PCVBFN9SGA)](https://codecov.io/gh/wordsworthgroup/libode)
+[![docs](https://img.shields.io/badge/docs-stable-blue)](https://wordsworthgroup.github.io/libode/)
 
 Easy to compile, fast ODE integrators as C++ classes
 
