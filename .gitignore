@@ -41,7 +41,4 @@ out/*
 # References/documents, some of which probably shouldn't be distributed without permission
 ref/*
 
-# Makefile configuration
-config.mk
-
 !**/.keep

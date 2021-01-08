@@ -31,12 +31,14 @@ void test_sys (T sys) {
     printf("  y0 error = %12e", y0er);
     if ( y0er > tol ) {
         printf(" <---- DANGER!!!\n");
+        exit(EXIT_FAILURE);
     } else {
         printf("\n");
     }
     printf("  y1 error = %12e", y1er);
     if ( y1er > tol ) {
         printf(" <---- DANGER!!!\n");
+        exit(EXIT_FAILURE);
     } else {
         printf("\n");
     }

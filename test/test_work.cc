@@ -31,7 +31,7 @@ void test_work (T sys, double tint, double frac, double dtmax, double dtmin) {
     std::vector<double> y1err, y2err, neval;
     double *ic = new double[sys.get_neq()];
 
-    printf("%s\n", sys.get_method());
+    printf("  %s\n", sys.get_method());
 
     for (unsigned long i=0; i<sys.get_neq(); i++) ic[i] = sys.get_sol(i);
 
@@ -58,6 +58,7 @@ int main () {
     //fraction time step reduction
     double frac = 0.9;
 
+    printf("finished:\n");
     test_work(Osc2<OdeEuler>(), tint, frac, 5e-4, 1e-6);
     test_work(Osc2<OdeTrapz>(), tint, frac, 3e-2, 1e-5);
     test_work(Osc2<OdeSsp3>(), tint, frac, 3e-2, 3e-5);

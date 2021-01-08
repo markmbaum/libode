@@ -1,6 +1,8 @@
 # libode
 
 [![DOI](https://zenodo.org/badge/189592373.svg)](https://zenodo.org/badge/latestdoi/189592373)
+[![Build Status](https://travis-ci.com/wordsworthgroup/libode.svg?branch=master)](https://travis-ci.com/wordsworthgroup/libode)
+[![codecov](https://codecov.io/gh/wordsworthgroup/libode/branch/master/graph/badge.svg?token=PCVBFN9SGA)](https://codecov.io/gh/wordsworthgroup/libode)
 
 Easy to compile, fast ODE integrators as C++ classes
 
@@ -12,7 +14,7 @@ Several of the solvers and much more detail on the methods can be found in these
 * Hairer, E., Nørsett, S. P. & Wanner, G. Solving Ordinary Differential Equations I: Nonstiff Problems. (Springer-Verlag, 1987).
 * Hairer, E. & Wanner, G. Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems. (Springer, 1996).
 
-The table below lists all the solvers and gives some basic information about them. All of the solvers can be used with a custom time step selection function, but those with a built-in adaptive capability are indicated below. Papers and/or links to the derivation or original publication of the methods are often copied in the headers for the solver classes and included in the documentation. Some work still needs to be done to make the implicit methods genuinely useful, and a list of things to implement is in the `todo.txt` file.
+The table below lists all the solvers and gives some basic information about them. All of the solvers can be used with a custom time step selection function, but those with a built-in adaptive capability are indicated below. Papers and/or links to the derivation or original publication of the methods are often copied in the headers for the solver classes and included in the documentation. Some work still needs to be done to make the implicit methods genuinely useful, and a list of things to implement is in the `TODO.md` file.
 
 Method | Class Name | Header File | (ex/im)plicit | built-in adaptive? | stages | order | stability
  --- | --- | --- | --- | --- | --- | --- | ---

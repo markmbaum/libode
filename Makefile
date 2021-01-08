@@ -1,6 +1,31 @@
-#configuration file, which specifies compiler, flags, paths, etc.
-include config.mk
+#-------------------------------------------------------------------------------
+#choose a compiler, otherwise environment variable is used
 
+#CXX=g++ # <--- GNU C++ compiler
+#CXX=icpc # <--- Intel C++ compiler
+
+#-------------------------------------------------------------------------------
+#choose compilation flags, otherwise environment variable is used
+
+#CFLAGS=-Wall -Wextra -pedantic -O3 # <--- GNU compiler flags
+#CFLAGS=-w2 -O3 # <--- Intel compiler flags
+
+#-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+# SHOULD HAVE NO NEED TO CHANGE ANYTHING BELOW HERE
+
+#-------------------------------------------------------------------------------
+#local directory names
+
+#source code directory
+ds=src
+#test code directory
+dt=test
+#compiled object directory
+do=obj
+#compiled executable directory
+db=bin
 
 #-------------------------------------------------------------------------------
 #stuff to compile
@@ -80,45 +105,45 @@ NB=ode_newton_bridge
 all: $(db)/libode.a
 
 #target for everything including tests
-tests: all $(exe)
+test: all $(exe)
 
 #-------------------------------------------------------------------------------
 #compile objects
 
 #auxils, the support functions and stuff don't have complicated dependencies
 $(aux): $(do)/%.o: $(ds)/%.cc $(ds)/%.h
-	$(cxx) $(flags) -o $@ -c $<
+	$(CXX) $(CFLAGS) -o $@ -c $<
 
 #OdeNewton
 $(do)/$(N).o: $(ds)/$(N).cc $(ds)/$(N).h $(ds)/$(NB).h $(do)/ode_linalg.o
-	$(cxx) $(flags) -o $@ -c $< -I$(ds)
+	$(CXX) $(CFLAGS) -o $@ -c $< -I$(ds)
 
 #OdeBase
 $(do)/$(B).o: $(ds)/$(B).cc $(ds)/$(B).h $(do)/ode_io.o $(do)/ode_util.o
-	$(cxx) $(flags) -o $@ -c $< -I$(ds)
+	$(CXX) $(CFLAGS) -o $@ -c $< -I$(ds)
 #OdeAdaptive
 $(do)/$(BA).o: $(ds)/$(BA).cc $(ds)/$(BA).h $(do)/$(B).o $(do)/ode_io.o $(do)/ode_util.o
-	$(cxx) $(flags) -o $@ -c $< -I$(ds)
+	$(CXX) $(CFLAGS) -o $@ -c $< -I$(ds)
 
 #OdeRK
 $(do)/$(BRK).o: $(ds)/$(BRK).cc $(ds)/$(BRK).h
-	$(cxx) $(flags) -o $@ -c $< -I$(ds)
+	$(CXX) $(CFLAGS) -o $@ -c $< -I$(ds)
 #OdeERK
 $(do)/$(BERK).o: $(ds)/$(BERK).cc $(ds)/$(BERK).h
-	$(cxx) $(flags) -o $@ -c $< -I$(ds)
+	$(CXX) $(CFLAGS) -o $@ -c $< -I$(ds)
 #OdeIRK
 $(do)/$(BIRK).o: $(ds)/$(BIRK).cc $(ds)/$(BIRK).h
-	$(cxx) $(flags) -o $@ -c $< -I$(ds)
+	$(CXX) $(CFLAGS) -o $@ -c $< -I$(ds)
 #OdeEmbedded
 $(do)/$(BE).o: $(ds)/$(BE).cc $(ds)/$(BE).h $(do)/$(BA).o $(do)/ode_util.o
-	$(cxx) $(flags) -o $@ -c $< -I$(ds)
+	$(CXX) $(CFLAGS) -o $@ -c $< -I$(ds)
 #OdeRosenbrock
 $(do)/$(BR).o: $(ds)/$(BR).cc $(ds)/$(BR).h $(do)/ode_linalg.o
-	$(cxx) $(flags) -o $@ -c $< -I$(ds)
+	$(CXX) $(CFLAGS) -o $@ -c $< -I$(ds)
 
 #solver classes can all just depend on the base classes
 $(sol): $(do)/%.o: $(ds)/%.cc $(ds)/%.h $(bas)
-	$(cxx) $(flags) -o $@ -c $< -I$(ds)
+	$(CXX) $(CFLAGS) -o $@ -c $< -I$(ds)
 
 #-------------------------------------------------------------------------------
 #create library of solvers from the compiled objects
@@ -130,13 +155,15 @@ $(db)/libode.a: $(bas) $(sol) $(aux)
 #compile test programs
 
 $(exe): $(db)/%.exe: $(dt)/%.cc $(sol) $(bas) $(aux) $(dt)/test_systems.h
-	$(cxx) $(flags) -o $@ $< -I$(ds) -L$(db) -lode
+	$(CXX) $(CFLAGS) -o $@ $< -I$(ds) -L$(db) -lode
 
 #-------------------------------------------------------------------------------
 #auxil things
 
 #target to remove all the compiled files
 clean:
-	rm  $(do)/*.o $(db)/*.exe $(db)/*.a
+	-rm $(do)/*.o
+	-rm $(db)/*.exe
+	-rm $(db)/*.a
 
 .PHONY: clean
