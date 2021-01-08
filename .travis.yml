@@ -10,4 +10,4 @@ env:
 compiler:
     - g++
 script:
-    - "make clean && make && make tests && ./run_tests.sh"
+    - "make clean && make && make tests && chmod a+x run_tests.sh && ./run_tests.sh"
