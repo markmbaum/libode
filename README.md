@@ -10,11 +10,11 @@ This repo contains a collection of C++ classes for solving systems of ordinary d
 
 The classes were originally styled after [Chris Rycroft](https://people.seas.harvard.edu/~chr/)'s [example classes](https://github.com/chr1shr/am225_examples/tree/master/1a_ode_solvers). Their structure makes it easy to build a templated integrator on top of an arbitrary solver class and switch the solver/method. Implicit methods can be given a function for the ODE system's Jacobian or, if none is provided, the Jacobian is estimated using finite differences.
 
-Several of the solvers and much more detail on the methods can be found in these amazing books:
+Several of the solvers and lots of details on the methods can be found in these amazing books:
 * Hairer, E., Nørsett, S. P. & Wanner, G. Solving Ordinary Differential Equations I: Nonstiff Problems. (Springer-Verlag, 1987).
 * Hairer, E. & Wanner, G. Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems. (Springer, 1996).
 
-The table below lists all the solvers and gives some basic information about them. All of the solvers can be used with a custom time step selection function, but those with a built-in adaptive capability are indicated below. Papers and/or links to the derivation or original publication of the methods are often copied in the headers for the solver classes and included in the documentation. Some work still needs to be done to make the implicit methods genuinely useful, and a list of things to implement is in the `TODO.md` file.
+The table below lists all the solvers and gives some basic information about them. All of the solvers can be used with a customized time step selection function, but those with a built-in adaptive capability are indicated below. Papers and/or links to the derivation or original publication of the methods are often copied in the headers for the solver classes and included in the documentation. Some work still needs to be done to make the implicit methods genuinely useful, and a list of things to implement is in the `todo.md` file.
 
 Method | Class Name | Header File | (ex/im)plicit | built-in adaptive? | stages | order | stability
  --- | --- | --- | --- | --- | --- | --- | ---
@@ -43,11 +43,11 @@ SDIRK 4(3) | `OdeSDIRK43` | `ode_sdirk_43.h` | implicit | yes | 4 | 4 | L
 
 #### Short Instructions
 
-1. Copy the `_config.mk` file to `config.mk`.
-2. Edit any of the compiler settings in your new `config.mk` file as necessary (specify which compiler to use and any compiling flags you want).
-3. Run `make` in the top directory where the Makefile is.
-4. If anything weird happens, tell me.
-5. Execute the `run_all_tests.sh` script to check that things are working (Python with numpy and matplotlib are needed for plotting). If you want, also execute `run_all_examples.sh` to run some example solvers.
+1. Set your compiler and flags by defining `CXX` and `CFLAGS` environment variables or by uncommenting and editing those variables in the config.mk file.
+2. Run `make` in the top directory where the Makefile is.
+3. If anything weird happens, tell me.
+4. Run `make tests` and execute the `run_tests.sh` script to check that things are working.
+5. If you want, also execute `run_examples.sh` to run some example solvers (Python with numpy and matplotlib are needed for plotting). To do this, you must have the `CXX` and `CFLAGS` variables active in the config.mk file.
 6. Create derived classes and link to the library with `-I<path>/libode/src -L<path>/libode/bin -lode`, replacing `<path>` with the path to the directory above `libode` on your computer.
 
 #### Longer Instructions
@@ -62,11 +62,11 @@ The Makefile compiles all of the necessary code into the `obj` folder, then arch
 
 when compiling derived code, with `<path>` replaced by path elements leading to the libode directory. For some examples of how to link a derived class to `libode` and create a program to run integrations, see the examples folder.
 
-Test programs are compiled with `make tests` and they can all be run in sequence with the `run_all_tests.sh` script (which uses Python to plot the test results).
+Test programs are compiled with `make tests` and they can all be run in sequence with the `run_tests.sh` script.
 
 ## Examples
 
-Several example programs for interesting/famous systems of ODEs are in the "examples" folder. In each of the example directories, the programs can be compiled, executed, and plotted simply by running the `run.sh` script (assuming the `config.mk` file is set up for compiling and an up-to-date version of Python is installed on your computer). These programs are good examples of how to put everything together and use the solvers. To run all the examples in sequence and look at the plotted results, run the `run_all_examples.sh` script.
+Several example programs for interesting/famous systems of ODEs are in the examples folder. In each of the example directories, the programs can be compiled, executed, and plotted simply by running the `run.sh` script (assuming the `config.mk` file is set up and an up-to-date version of Python is installed on your computer with numpy, scipy, and matplotlib). These programs are good examples of how to put everything together and use the solvers. To run all the examples in sequence and look at the plotted results, run the `run_examples.sh` script.
 
 ## Using the Solvers
 

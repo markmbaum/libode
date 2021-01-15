@@ -1,18 +1,20 @@
+#name of example
+name=lorentz
 #main libode directory
 dtop=../..
-
 #get configuration from the top directory config file
 include $(dtop)/config.mk
-
 #directory with header files
-I=-I$(dtop)/$(ds)
+I=-I$(dtop)/src
+#directory with libode library
+L=-L$(dtop)/bin
 
-all: libodemake lorentz.exe
+all: libodemake $(name).exe
 
 #rule for jumping to the libode makefile
 libodemake:
 	$(MAKE) -C $(dtop)
 
 #rule for compiling the integrator
-lorentz.exe: lorentz.cc lorentz.h libodemake
-	$(cxx) $(flags) -o $@ $< $(I) -L$(dtop)/$(db) -lode
+$(name).exe: $(name).cc $(name).h libodemake
+	$(CXX) $(CFLAGS) -o $@ $< $(I) $(L) -lode

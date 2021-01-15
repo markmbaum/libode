@@ -29,7 +29,7 @@ int main () {
     //integrate
     printf("integrating system '%s' with method '%s'...\n", sys.get_name(), sys.get_method());
     sys.solve_fixed(tend, dt, "out", 125);
-    printf("finished.\n%llu steps, %llu function evaluations\n",
+    printf("finished.\n%lu steps, %lu function evaluations\n",
         sys.get_nstep(), sys.get_neval());
 
     return(0);

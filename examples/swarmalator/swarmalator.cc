@@ -23,7 +23,7 @@ int main () {
 
     printf("integrating...\n");
     sys.solve_fixed(tend, dt, "out", 15);
-    printf("%llu function evaluations, %llu steps\n", sys.get_neval(), sys.get_nstep());
+    printf("%lu function evaluations, %lu steps\n", sys.get_neval(), sys.get_nstep());
 
     return(0);
 }

@@ -1,19 +1,6 @@
-#-------------------------------------------------------------------------------
-#choose a compiler, otherwise environment variable is used
+#you probably shouldn't need to edit anything in here
 
-#CXX=g++ # <--- GNU C++ compiler
-#CXX=icpc # <--- Intel C++ compiler
-
-#-------------------------------------------------------------------------------
-#choose compilation flags, otherwise environment variable is used
-
-#CFLAGS=-Wall -Wextra -pedantic -O3 # <--- GNU compiler flags
-#CFLAGS=-w2 -O3 # <--- Intel compiler flags
-
-#-------------------------------------------------------------------------------
-#-------------------------------------------------------------------------------
-#-------------------------------------------------------------------------------
-# SHOULD HAVE NO NEED TO CHANGE ANYTHING BELOW HERE
+-include config.mk
 
 #-------------------------------------------------------------------------------
 #local directory names

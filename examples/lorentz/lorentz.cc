@@ -24,7 +24,7 @@ int main () {
     printf("solving with '%s' method...\n", sys.get_method());
     sys.solve_fixed(tend, dt, "out", 1);
 
-    printf("%llu function evaluations, %llu steps\n", sys.get_neval(), sys.get_nstep());
+    printf("%lu function evaluations, %lu steps\n", sys.get_neval(), sys.get_nstep());
 
     return(0);
 }

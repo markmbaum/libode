@@ -22,7 +22,7 @@ int main () {
 
     //integrate
     sys.solve_adaptive(tint, tint*1e-9, 15, "out");
-    printf("%llu steps\n", sys.get_nstep());
+    printf("%lu steps\n", sys.get_nstep());
 
     //write the grid to file
     ode_write("out/x", sys.xc, nx);

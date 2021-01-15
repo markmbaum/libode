@@ -34,7 +34,7 @@ int main () {
     printf("integrating...\n");
     sys.solve_fixed(tend, dt, "out", 1);
     ode_write("out/star_H", sys.H.data(), sys.H.size());
-    printf("finished.\n%llu steps, %llu function evaluations\n",
+    printf("finished.\n%lu steps, %lu function evaluations\n",
         sys.get_nstep(), sys.get_neval());
 
     return(0);
