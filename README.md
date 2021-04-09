@@ -54,14 +54,14 @@ SDIRK 4(3) | `OdeSDIRK43` | `ode_sdirk_43.h` | implicit | yes | 4 | 4 | L
 
 `libode` is meant to provide straightforward access to class-based ODE solvers without dependencies or specialized compiling processes. The library is free-standing and there is only one step to take before simply running the Makefile and being done with it. Consequently, the library is also slim on features and doesn't provide things like sparse matrices and dense output. For many systems of ODEs, though, `libode` should make it easy to build an integrator and enjoy the speed of C++ and [openmp](https://en.wikipedia.org/wiki/OpenMP) without the headaches of large, complex packages.
 
-First, before any of the `libode` classes can be compiled, you must tell the Makefile which compiler and compiler flags to use. This can be done two ways. First, through the environment variables `CXX` and `CFLAGS`. For example, in the shell:
+First, before any of the `libode` classes can be compiled, you must tell the Makefile which compiler and compiler flags to use. This can be done two ways. First, you can set the environment variables `CXX` and `CFLAGS`. For example, in the shell:
 ```shell
 CXX=g++
 CFLAGS=-Wall -O3
 ```
-The Makefile will use the `g++` compiler and always include the `-Wall` and `-O3` flags. Second, you can uncomment and edit variables in the `config.mk` file. Editing `config.mk` is required if you want to run the `run_examples.sh` script, which solves and plots some example systems of ODEs.
+Then the Makefile will use the `g++` compiler and always include the `-Wall` and `-O3` flags. Second, you can uncomment and edit variables in the `config.mk` file.  Editing `config.mk` is required if you want to run the `run_examples.sh` script, which solves and plots some example systems of ODEs.
 
-Then simply run `make` and everything could compile.
+Then simply run `make` and everything should compile.
 
 The Makefile compiles all of the necessary code into the `obj` folder, then archives it in the `bin` directory as a file called `libode.a`. To use the solvers, you can link `libode.a` or the object files directly (in the `obj` directory) when compiling your derived class. You must also include the appropriate header files from the `src` directory, as there is no unified header file for the library. All of the classes have their header file name displayed in the documentation and in the table above. Linking the solver classes requires something like
 
