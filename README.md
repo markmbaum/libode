@@ -21,15 +21,15 @@ Method | Class Name | Header File | (ex/im)plicit | built-in adaptive? | stages 
 Forward Euler | `OdeEuler` | `ode_euler.h` | explicit | no | 1 | 1
 Trapezoidal Rule | `OdeTrapz` | `ode_trapz.h` | explicit | no | 2 | 2
 Strong Stability-Preserving, Order 3 | `OdeSsp3` | `ode_ssp_3.h` | explicit | no | 3 | 3
-Runge-Kutta-Fehlberg (3)2 | `OdeRKF32`| `ode_rkf_32.h` | explicit | yes | 3 | 3
+Runge-Kutta-Fehlberg 3(2) | `OdeRKF32`| `ode_rkf_32.h` | explicit | yes | 3 | 3
 RK4 | `OdeRK4` | `ode_rk_4.h` | explicit | no | 4 | 4
-Runge-Kutta (4)3 | `OdeRK43`| `ode_rk_43.h` | explicit | yes | 5 | 4
+Runge-Kutta 4(3) | `OdeRK43`| `ode_rk_43.h` | explicit | yes | 5 | 4
 Cash-Karp | `OdeRKCK` | `ode_rkck.h` | explicit | yes | 6 | 5
-Dormand-Prince (5)4 | `OdeDoPri54`| `ode_dopri_54.h` | explicit | yes | 7 | 5
-Jim Verner's "most efficent" (6)5 | `OdeVern65` | `ode_vern_65.h` | explicit | yes | 9 | 6
-Jim Verner's "most efficent" (7)6 | `OdeVern76` | `ode_vern_76.h` | explicit | yes | 10 | 7
-Dormand-Prince (8)7 | `OdeDoPri87` | `ode_dopri_87.h` | explicit | yes | 13 | 8
-Jim Verner's "most efficent" (9)8 | `OdeVern98` | `ode_vern_98.h` | explicit | yes | 16 | 9
+Dormand-Prince 5(4) | `OdeDoPri54`| `ode_dopri_54.h` | explicit | yes | 7 | 5
+Jim Verner's "most efficent" 6(5) | `OdeVern65` | `ode_vern_65.h` | explicit | yes | 9 | 6
+Jim Verner's "most efficent" 7(6) | `OdeVern76` | `ode_vern_76.h` | explicit | yes | 10 | 7
+Dormand-Prince 8(7) | `OdeDoPri87` | `ode_dopri_87.h` | explicit | yes | 13 | 8
+Jim Verner's "most efficent" 9(8) | `OdeVern98` | `ode_vern_98.h` | explicit | yes | 16 | 9
 Rosenbrock 4(3) | `OdeGRK4A` | `ode_grk4a.h` | implicit | yes | 4 | 4 | A
 Rosenbrock 6 | `OdeROW6A` | `ode_row6a.h` | implicit | no | 6 | 6 | A
 Backward Euler | `OdeBackwardEuler` | `ode_backward_euler.h` | implicit | no | 1 | 1 | L

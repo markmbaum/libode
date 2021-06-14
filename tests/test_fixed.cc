@@ -5,11 +5,11 @@
 int main () {
 
     //choose an integration time
-    double tint = 4;
+    double tint = 5;
     //time step
-    double dt = 0.001;
+    double dt = 0.05;
     //choose which system and solver to use
-    Osc1<OdeBackwardEuler> sys;
+    Osc1<OdeRadauIIA5> sys;
 
     printf("Solving system '%s' with method '%s'\n",
         sys.get_name(),

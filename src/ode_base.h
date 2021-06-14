@@ -17,15 +17,15 @@ The table below lists all the solvers and gives some basic information about the
 <tr><td>Forward Euler<td>`OdeEuler`<td>`ode_euler.h`<td>explicit<td>no<td>1<td>1<td>
 <tr><td>Trapezoidal Rule<td>`OdeTrapz`<td>`ode_trapz.h`<td>explicit<td>no<td>2<td>2<td>
 <tr><td>Strong Stability-Preserving, Order 3<td>`OdeSsp3`<td>`ode_ssp_3.h`<td>explicit<td>no<td>3<td>3<td>
-    <tr><td>Runge-Kutta-Fehlberg (3)2<td>`OdeRKF32`<td>`ode_rkf_32.h`<td>explicit<td>yes<td>3<td>3<td>
+    <tr><td>Runge-Kutta-Fehlberg 3(2)<td>`OdeRKF32`<td>`ode_rkf_32.h`<td>explicit<td>yes<td>3<td>3<td>
 <tr><td>RK4<td>`OdeRK4`<td>`ode_rk_4.h`<td>explicit<td>no<td>4<td>4<td>
-<tr><td>Runge-Kutta (4)3<td>`OdeRK43`<td>`ode_rk_43.h`<td>explicit<td>yes<td>5<td>4<td>
+<tr><td>Runge-Kutta 4(3)<td>`OdeRK43`<td>`ode_rk_43.h`<td>explicit<td>yes<td>5<td>4<td>
 <tr><td>Cash-Karp<td>`OdeRKCK`<td>`ode_rkck.h`<td>explicit<td>yes<td>6<td>5<td>
-<tr><td>Dormand-Prince (5)4<td>`OdeDoPri54`<td>`ode_dopri_54.h`<td>explicit<td>yes<td>7<td>5<td>
-<tr><td>Jim Verner's "most efficent" (6)5<td>`OdeVern65`<td>`ode_vern_65.h`<td>explicit<td>yes<td>9<td>6<td>
-<tr><td>Jim Verner's "most efficent" (7)6<td>`OdeVern76`<td>`ode_vern_76.h`<td>explicit<td>yes<td>10<td>7<td>
-<tr><td>Dormand-Prince (8)7<td>`OdeDoPri87`<td>`ode_dopri_87.h`<td>explicit<td>yes<td>13<td>8<td>
-<tr><td>Jim Verner's "most efficent" (9)8<td>`OdeVern98`<td>`ode_vern_98.h`<td>explicit<td>yes<td>16<td>9<td>
+<tr><td>Dormand-Prince 5(4)<td>`OdeDoPri54`<td>`ode_dopri_54.h`<td>explicit<td>yes<td>7<td>5<td>
+<tr><td>Jim Verner's "most efficent" 6(5)<td>`OdeVern65`<td>`ode_vern_65.h`<td>explicit<td>yes<td>9<td>6<td>
+<tr><td>Jim Verner's "most efficent" 7(6)<td>`OdeVern76`<td>`ode_vern_76.h`<td>explicit<td>yes<td>10<td>7<td>
+<tr><td>Dormand-Prince 8(7)<td>`OdeDoPri87`<td>`ode_dopri_87.h`<td>explicit<td>yes<td>13<td>8<td>
+<tr><td>Jim Verner's "most efficent" 9(8)<td>`OdeVern98`<td>`ode_vern_98.h`<td>explicit<td>yes<td>16<td>9<td>
 <tr><td>Rosenbrock 4(3)<td>`OdeGRK4A`<td>`ode_grk4a.h`<td>implicit<td>yes<td>4<td>4<td>A
 <tr><td>Rosenbrock 6<td>`OdeROW6A`<td>`ode_row6a.h`<td>implicit<td>no<td>6<td>6<td>A
 <tr><td>Backward Euler<td>`OdeBackwardEuler`<td>`ode_backward_euler.h`<td>implicit<td>no<td>1<td>1<td>L
