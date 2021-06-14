@@ -54,9 +54,16 @@ SDIRK 4(3) | `OdeSDIRK43` | `ode_sdirk_43.h` | implicit | yes | 4 | 4 | L
 
 `libode` is meant to provide straightforward access to class-based ODE solvers without dependencies or specialized compiling processes. The library is free-standing and there is only one step to take before simply running the Makefile and being done with it. Consequently, the library is also slim on features and doesn't provide things like sparse matrices and dense output. For many systems of ODEs, though, `libode` should make it easy to build an integrator and enjoy the speed of C++ and [openmp](https://en.wikipedia.org/wiki/OpenMP) without the headaches of large, complex packages.
 
-First, before any of the `libode` classes can be compiled, you must copy the `_config.mk` file to `config.mk` and edit that file to specify the compiler settings you'd like the Makefile to use. This shouldn't be complicated. If you are using a current version of the GNU C++ compiler (g++), the contents of the template config file can likely be used without modification. There are also commented lines for use with the Intel C++ compiler (icpc), if that is available. To compile all the classes, simply run `make` in the top directory.
+First, before any of the `libode` classes can be compiled, you must tell the Makefile which compiler and compiler flags to use. This can be done two ways. First, you can set the environment variables `CXX` and `CFLAGS`. For example, in the shell:
+```shell
+CXX=g++
+CFLAGS=-Wall -O3
+```
+Then the Makefile will use the `g++` compiler and always include the `-Wall` and `-O3` flags. Second, you can uncomment and edit variables in the `config.mk` file.  Editing `config.mk` is required if you want to run the `run_examples.sh` script, which solves and plots some example systems of ODEs.
 
-The Makefile compiles all of the necessary code into the `obj` folder, then archives it in the `bin` directory as a file called `libode.a`. To use the solvers, you can link `libode.a` (in the `bin` directory) or the object files directly (in the `obj` directory) when compiling your derived class. You must also include the appropriate header files from the `src` directory, as there is not a single header file for the library. All of the classes have their header file name displayed in the documentation and in the table above. Linking the solver classes requires something like
+Then simply run `make` and everything should compile.
+
+The Makefile compiles all of the necessary code into the `obj` folder, then archives it in the `bin` directory as a file called `libode.a`. To use the solvers, you can link `libode.a` or the object files directly (in the `obj` directory) when compiling your derived class. You must also include the appropriate header files from the `src` directory, as there is no unified header file for the library. All of the classes have their header file name displayed in the documentation and in the table above. Linking the solver classes requires something like
 
 `-I<path>/libode/src -L<path>/libode/bin -lode`
 
@@ -74,10 +81,10 @@ Several example programs for interesting/famous systems of ODEs are in the examp
 
 To integrate a specific system of ODEs, a new class must be created to inherit from one of the solver classes. This new inheriting class must
 1. Define the system of ODEs to be solved by implementing the `ode_fun()` function. This is a virtual function in the base classes. Once implemented, it's used by the stepping and solving functions.
-2. Set initial conditions using the `set_sol()` function.
+2. Set initial conditions using the `set_sol()` function. This can be done inside the new class's constructor, or not.
 3. Optionally implement the `ode_jac()` function for implicit methods. This is also a virtual function in the base classes. If it's not overridden but is needed, a (crude) finite-difference estimate of the Jacobian is used.
 
-For flexibility, the derived class could be a template, so that the solver/method can be chosen when the class is constructed. Other than defining the system of equations and setting initial conditions, the derived class can store whatever information and implement whatever other methods are necessary. This could be something simple like an extra function for setting initial conditions. It could, however, comprise any other system that needs to run on top of an ODE solver, like the spatial discretization of a big PDE solver.
+For flexibility, the derived class can be a template, so that the solver/method can be chosen when the class is constructed. Other than defining the system of equations and setting initial conditions, the derived class can store whatever information and implement whatever other methods are necessary. This could be something simple like an extra function for setting initial conditions. It could, however, comprise any other system that needs to run on top of an ODE solver, like the spatial discretization of a big PDE solver.
 
 #### Call an Integration Function
 
