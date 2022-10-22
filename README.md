@@ -1,5 +1,7 @@
 # libode
 
+![swarmalator](examples/swarmalator/swarmalator.gif)
+
 | Reference | Status | Docs |
 | --------- | ------ | ---- |
 | [![DOI](https://zenodo.org/badge/189592373.svg)](https://zenodo.org/badge/latestdoi/189592373) | [![Build Status](https://travis-ci.com/markmbaum/libode.svg?branch=master)](https://travis-ci.com/markmbaum/libode) | [![docs](https://img.shields.io/badge/docs-stable-blue)](https://markmbaum.github.io/libode/) |

@@ -23,18 +23,16 @@ out = [np.fromfile(fn).astype('float16') for fn in fns]
 nag = len(out)//3
 x, y, theta = out[:nag], out[nag:nag*2], out[nag*2:]
 x, y, theta = np.vstack(x), np.vstack(y), np.vstack(theta)
-#x, y, theta = x, y, theta
 nout = x.shape[1]
 
-fig, ax = plt.subplots(1,1)
-ax.set_xlim(x.min()*1.05, x.max()*1.05)
-ax.set_ylim(y.min()*1.05, y.max()*1.05)
-ax.set_aspect('equal')
-ax.grid(False)
-ax.set_xlabel("$x$")
-ax.set_ylabel("$y$")
-ax.set_title('Oscillators That Sync and Swarm')
-L = [ax.plot(x[i,0], y[i,0], '.', color=rgb(theta[i,0]), markersize=10)[0] for i in range(nag)]
+def setup_plot(title='Oscillators That Sync and Swarm'):
+    fig, ax = plt.subplots(1,1)
+    ax.set_xlim(x.min()*1.05, x.max()*1.05)
+    ax.set_ylim(y.min()*1.05, y.max()*1.05)
+    ax.set_aspect('equal')
+    ax.axis('off')
+    ax.set_title(title)
+    return fig, [ax.plot(x[i,0], y[i,0], '.', color=rgb(theta[i,0]), markersize=10)[0] for i in range(nag)]
 
 def init():
     return(L)
@@ -46,6 +44,11 @@ def animate(i):
         l.set_color(rgb(theta[j,i]))
     return(L)
 
-ani = animation.FuncAnimation(fig, animate, init_func=init, frames=nout, interval=0.01, blit=True)
-
+fig, L = setup_plot()
+ani = animation.FuncAnimation(fig, animate, init_func=init, frames=len(L), interval=0.01, blit=True)
 plt.show()
+
+#x, y, theta = x[:,::2], y[:,::2], theta[:,::2]
+fig, L = setup_plot('')
+ani = animation.FuncAnimation(fig, animate, init_func=init, frames=len(L), interval=1, blit=True)
+ani.save('swarmalator.gif', dpi=150)

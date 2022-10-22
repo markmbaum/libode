@@ -6,9 +6,9 @@
 int main () {
 
     //number of agents
-    int nagent = 100;
+    int nagent = 128;
     //choose an integration time
-    double tend = 50;
+    double tend = 100;
     //choose time step
     double dt = tend/5000;
 
@@ -17,8 +17,11 @@ int main () {
     sys.set_name("swarmalator");
 
     //coupling parameters
+    //uniform blob
     //sys.A = 1.0; sys.B = 1.0; sys.J = 0.5; sys.K = 0.5;
+    //static
     //sys.A = 1.0; sys.B = 1.0; sys.J = 0.3; sys.K = -0.2;
+    //circle
     sys.A = 1.0; sys.B = 1.0; sys.J = 1.0; sys.K = -0.2;
 
     printf("integrating...\n");
