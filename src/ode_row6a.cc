@@ -2,6 +2,8 @@
 
 #include "ode_row6a.h"
 
+namespace ode {
+
 OdeROW6A::OdeROW6A (unsigned long neq) :
     OdeAdaptive (neq, true),
     OdeRosenbrock (neq, 6) {
@@ -133,3 +135,5 @@ void OdeROW6A::step_ (double dt) {
                            + m5*k_[4][i]
                            + m6*k_[5][i]);
 }
+
+} // namespace ode

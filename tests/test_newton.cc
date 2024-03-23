@@ -2,6 +2,8 @@
 
 #include "ode_newton.h"
 
+using namespace ode;
+
 //function to find root of
 void f_f (double *x, double *y) {
     y[0] = 3*x[0] - cos(x[1]*x[2]) - 0.5;

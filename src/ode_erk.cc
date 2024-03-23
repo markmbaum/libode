@@ -2,6 +2,8 @@
 
 #include "ode_erk.h"
 
+namespace ode {
+
 OdeERK::OdeERK (unsigned long neq) {
 
     //temporary solution vector
@@ -12,3 +14,5 @@ OdeERK::OdeERK (unsigned long neq) {
 OdeERK::~OdeERK () {
     delete [] soltemp_;
 }
+
+} // namespace ode 

@@ -1,3 +1,6 @@
+
+namespace ode {
+
 template<class Integrator>
 class Lorentz : public Integrator {
 
@@ -31,3 +34,5 @@ class Lorentz : public Integrator {
             Jout[2][0] =       y; Jout[2][1] =     x; Jout[2][2] = -beta;
         }
 };
+
+} // namespace ode

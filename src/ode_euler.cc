@@ -2,6 +2,8 @@
 
 #include "ode_euler.h"
 
+namespace ode {
+
 OdeEuler::OdeEuler (unsigned long neq) :
     OdeAdaptive(neq, false),
     OdeRK (neq, 1) {
@@ -18,3 +20,5 @@ void OdeEuler::step_ (double dt) {
     //compute solution
     for (i=0; i<neq_; i++) sol_[i] += dt*k_[0][i];
 }
+
+} // namespace ode 

@@ -5,6 +5,8 @@
 
 #include "test_systems.h"
 
+using namespace ode;
+
 double y1exact (double t) {
 
     //oscillator 1

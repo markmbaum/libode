@@ -42,3 +42,19 @@ out/*
 ref/*
 
 !**/.keep
+.cache
+build
+build/*
+install
+install/*
+
+compile_commands.json
+
+*.sublime-*
+.kdev*
+.kdev4/*
+*.kdev4
+*.kdev3
+*.o
+*.vscode
+

@@ -2,6 +2,8 @@
 
 #include "ode_sdirk_43.h"
 
+namespace ode {
+
 void NewtonSDIRK43::f_Newton (double *x, double *y) {
 
     (void)x;
@@ -114,3 +116,5 @@ void OdeSDIRK43::step_ (double dt) {
                      + b[4]*k_[4][i]);
     }
 }
+
+} // namespace ode

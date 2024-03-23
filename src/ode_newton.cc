@@ -2,6 +2,8 @@
 
 #include "ode_newton.h"
 
+namespace ode {
+
 OdeNewton::OdeNewton (unsigned long n) {
 
     //size of system
@@ -121,3 +123,5 @@ int OdeNewton::solve_Newton (double *x) {
 
     return(0);
 }
+
+} // namespace ode

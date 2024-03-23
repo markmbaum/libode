@@ -2,6 +2,8 @@
 
 #include "ode_rkf_32.h"
 
+namespace ode {
+
 OdeRKF32::OdeRKF32 (unsigned long neq) :
     OdeEmbedded (neq, false, 2),
     OdeRK (neq, 3),
@@ -36,3 +38,5 @@ void OdeRKF32::step_ (double dt) {
         sol_[i] = sol_[i] + dt*(d1*k_[0][i] + d2*k_[1][i] + d3*k_[2][i]);
     }
 }
+
+} // namespace ode

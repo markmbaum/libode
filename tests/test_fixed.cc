@@ -2,6 +2,8 @@
 
 #include "test_systems.h"
 
+using namespace ode;
+
 int main () {
 
     //choose an integration time

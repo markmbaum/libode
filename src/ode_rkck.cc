@@ -2,6 +2,8 @@
 
 #include "ode_rkck.h"
 
+namespace ode {
+
 OdeRKCK::OdeRKCK (unsigned long neq) :
     OdeEmbedded (neq, false, 4),
     OdeRK (neq, 6),
@@ -71,3 +73,5 @@ void OdeRKCK::step_ (double dt) {
                               + b6*k_[5][i]);
     }
 }
+
+} // namespace ode

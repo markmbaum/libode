@@ -2,6 +2,8 @@
 
 #include "ode_linalg.h"
 
+namespace ode {
+
 void ode_crout_forw_sub (double **L, double *b, int *p, int n, double *out) {
 
     for (int i=0; i<n; i++) {
@@ -112,3 +114,5 @@ void ode_solve_tridiag (double **T, double *r, double *temp, int n, double *out)
     for (int i=n-2; i>=0; i--)
         out[i] -= temp[i+1]*out[i+1];
 }
+
+} // namespace ode

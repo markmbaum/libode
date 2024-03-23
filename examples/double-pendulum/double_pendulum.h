@@ -5,6 +5,9 @@
 
 #define pi 3.14159265358979323846264338327950288419716939937510582
 
+
+namespace ode {
+
 template<class Integrator>
 class DoublePendulum : public Integrator {
     public:
@@ -78,3 +81,5 @@ class DoublePendulum : public Integrator {
             ode_write("out/y2", y2.data(), y2.size());
         }
 };
+
+} // namespace ode

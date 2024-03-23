@@ -2,6 +2,8 @@
 
 #include "ode_backward_euler.h"
 
+namespace ode {
+
 void NewtonBackwardEuler::f_Newton (double *x, double *y) {
 
     (void)x; //supress unused variable warning
@@ -63,3 +65,5 @@ void OdeBackwardEuler::step_ (double dt) {
     //compute new solution
     for (i=0; i<neq_; i++) sol_[i] += dt*k_[0][i];
 }
+
+} // namespace ode

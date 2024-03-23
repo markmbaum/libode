@@ -2,6 +2,8 @@
 
 #include "ode_util.h"
 
+namespace ode {
+
 double ode_max2 (double a, double b) {
     if (a > b) return(a);
     return(b);
@@ -24,3 +26,5 @@ bool ode_is_close (double a, double b, double thresh) {
     //otherwise the numbers aren't close
     return(false);
 }
+
+} // namespace ode

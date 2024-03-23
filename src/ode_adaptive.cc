@@ -2,6 +2,8 @@
 
 #include "ode_adaptive.h"
 
+namespace ode {
+
 OdeAdaptive::OdeAdaptive (unsigned long neq, bool need_jac) :
     OdeBase (neq, need_jac) {
 
@@ -236,3 +238,5 @@ double OdeAdaptive::dt_adapt_ (double tend) {
 
     return(dt);
 }
+
+} // namespace ode

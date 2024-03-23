@@ -4,6 +4,8 @@
 #include "ode_trapz.h"
 #include "nonlinear_diffusion.h"
 
+using namespace ode;
+
 int main () {
 
     //number of spatial cells

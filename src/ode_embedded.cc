@@ -2,6 +2,8 @@
 
 #include "ode_embedded.h"
 
+namespace ode {
+
 OdeEmbedded::OdeEmbedded (unsigned long neq, bool need_jac, int lowerord) :
     OdeAdaptive (neq, need_jac) {
 
@@ -69,3 +71,5 @@ double OdeEmbedded::dt_adapt () {
     //simply return the value set in the adapt() function
     return( dtopt_ );
 }
+
+} // namespace ode 

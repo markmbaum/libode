@@ -2,6 +2,8 @@
 
 #include "ode_dopri_87.h"
 
+namespace ode {
+
 OdeDoPri87::OdeDoPri87 (unsigned long neq) :
     OdeEmbedded (neq, false, 7),
     OdeRK (neq, 13),
@@ -148,3 +150,5 @@ void OdeDoPri87::step_ (double dt) {
                               + b13*k_[12][i]);
     }
 }
+
+} // namespace ode 

@@ -3,6 +3,8 @@
 
 #include "ode_io.h"
 
+namespace ode {
+    
 template<class Integrator>
 class Star : public Integrator {
     public:
@@ -47,3 +49,5 @@ class Star : public Integrator {
         void before_solve () { H.clear(); H.push_back( Hamiltonian(q, p) ); }
         void after_step (double t) { (void)t; H.push_back( Hamiltonian(q, p) ); }
 };
+
+} // namespace ode

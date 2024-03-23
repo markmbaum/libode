@@ -4,6 +4,8 @@ Viscid Burger's equation with a simple finite-volume upwinding scheme
 
 #include <cmath>
 
+namespace ode {
+    
 template<class Integrator>
 class Burgers : public Integrator {
     public:
@@ -44,3 +46,5 @@ class Burgers : public Integrator {
             }
         }
 };
+
+} // namespace ode

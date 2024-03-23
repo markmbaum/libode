@@ -5,8 +5,12 @@
 #-------------------------------------------------------------------------------
 #local directory names
 
+# include directory
+di=include/ode
+
 #source code directory
 ds=src
+
 #test code directory
 dt=tests
 #compiled object directory
@@ -98,39 +102,40 @@ tests: all $(exe)
 #compile objects
 
 #auxils, the support functions and stuff don't have complicated dependencies
-$(aux): $(do)/%.o: $(ds)/%.cc $(ds)/%.h
-	$(CXX) $(CFLAGS) -o $@ -c $<
+$(aux): $(do)/%.o: $(ds)/%.cc $(di)/%.h
+	$(CXX) $(CFLAGS) -o $@ -c $< -I$(di)
 
 #OdeNewton
-$(do)/$(N).o: $(ds)/$(N).cc $(ds)/$(N).h $(ds)/$(NB).h $(do)/ode_linalg.o
-	$(CXX) $(CFLAGS) -o $@ -c $< -I$(ds)
+$(do)/$(N).o: $(ds)/$(N).cc $(di)/$(N).h $(di)/$(NB).h $(do)/ode_linalg.o
+	$(CXX) $(CFLAGS) -o $@ -c $< -I$(di)
 
 #OdeBase
-$(do)/$(B).o: $(ds)/$(B).cc $(ds)/$(B).h $(do)/ode_io.o $(do)/ode_util.o
-	$(CXX) $(CFLAGS) -o $@ -c $< -I$(ds)
+$(do)/$(B).o: $(ds)/$(B).cc $(di)/$(B).h $(do)/ode_io.o $(do)/ode_util.o
+	$(CXX) $(CFLAGS) -o $@ -c $< -I$(di)
+
 #OdeAdaptive
-$(do)/$(BA).o: $(ds)/$(BA).cc $(ds)/$(BA).h $(do)/$(B).o $(do)/ode_io.o $(do)/ode_util.o
-	$(CXX) $(CFLAGS) -o $@ -c $< -I$(ds)
+$(do)/$(BA).o: $(ds)/$(BA).cc $(di)/$(BA).h $(do)/$(B).o $(do)/ode_io.o $(do)/ode_util.o
+	$(CXX) $(CFLAGS) -o $@ -c $< -I$(di)
 
 #OdeRK
-$(do)/$(BRK).o: $(ds)/$(BRK).cc $(ds)/$(BRK).h
-	$(CXX) $(CFLAGS) -o $@ -c $< -I$(ds)
+$(do)/$(BRK).o: $(ds)/$(BRK).cc $(di)/$(BRK).h
+	$(CXX) $(CFLAGS) -o $@ -c $< -I$(di)
 #OdeERK
-$(do)/$(BERK).o: $(ds)/$(BERK).cc $(ds)/$(BERK).h
-	$(CXX) $(CFLAGS) -o $@ -c $< -I$(ds)
+$(do)/$(BERK).o: $(ds)/$(BERK).cc $(di)/$(BERK).h
+	$(CXX) $(CFLAGS) -o $@ -c $< -I$(di)
 #OdeIRK
-$(do)/$(BIRK).o: $(ds)/$(BIRK).cc $(ds)/$(BIRK).h
-	$(CXX) $(CFLAGS) -o $@ -c $< -I$(ds)
+$(do)/$(BIRK).o: $(ds)/$(BIRK).cc $(di)/$(BIRK).h
+	$(CXX) $(CFLAGS) -o $@ -c $< -I$(di)
 #OdeEmbedded
-$(do)/$(BE).o: $(ds)/$(BE).cc $(ds)/$(BE).h $(do)/$(BA).o $(do)/ode_util.o
-	$(CXX) $(CFLAGS) -o $@ -c $< -I$(ds)
+$(do)/$(BE).o: $(ds)/$(BE).cc $(di)/$(BE).h $(do)/$(BA).o $(do)/ode_util.o
+	$(CXX) $(CFLAGS) -o $@ -c $< -I$(di)
 #OdeRosenbrock
-$(do)/$(BR).o: $(ds)/$(BR).cc $(ds)/$(BR).h $(do)/ode_linalg.o
-	$(CXX) $(CFLAGS) -o $@ -c $< -I$(ds)
+$(do)/$(BR).o: $(ds)/$(BR).cc $(di)/$(BR).h $(do)/ode_linalg.o
+	$(CXX) $(CFLAGS) -o $@ -c $< -I$(di)
 
 #solver classes can all just depend on the base classes
-$(sol): $(do)/%.o: $(ds)/%.cc $(ds)/%.h $(bas)
-	$(CXX) $(CFLAGS) -o $@ -c $< -I$(ds)
+$(sol): $(do)/%.o: $(ds)/%.cc $(di)/%.h $(bas)
+	$(CXX) $(CFLAGS) -o $@ -c $< -I$(di)
 
 #-------------------------------------------------------------------------------
 #create library of solvers from the compiled objects
@@ -142,7 +147,7 @@ $(db)/libode.a: $(bas) $(sol) $(aux)
 #compile test programs
 
 $(exe): $(db)/%.exe: $(dt)/%.cc $(sol) $(bas) $(aux) $(dt)/test_systems.h
-	$(CXX) $(CFLAGS) -o $@ $< -I$(ds) -L$(db) -lode
+	$(CXX) $(CFLAGS) -o $@ $< -I$(di) -L$(db) -lode
 
 #-------------------------------------------------------------------------------
 #auxil things

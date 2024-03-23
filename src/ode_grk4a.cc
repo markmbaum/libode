@@ -2,6 +2,8 @@
 
 #include "ode_grk4a.h"
 
+namespace ode {
+
 OdeGRK4A::OdeGRK4A (unsigned long neq) :
     OdeEmbedded (neq, true, 3),
     OdeRosenbrock (neq, 4) {
@@ -103,3 +105,5 @@ void OdeGRK4A::step_ (double dt) {
                               + b4*k_[3][i]);
     }
 }
+
+} // namespace ode

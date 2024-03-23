@@ -3,6 +3,8 @@
 #include "ode_ssp_3.h"
 #include "swarmalator.h"
 
+using namespace ode;
+
 int main () {
 
     //number of agents

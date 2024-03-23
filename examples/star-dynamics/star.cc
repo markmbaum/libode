@@ -3,6 +3,8 @@
 #include "ode_geng_5.h"
 #include "star.h"
 
+using namespace ode;
+
 int main () {
 
     //create integrator

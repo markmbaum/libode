@@ -2,6 +2,8 @@
 
 #include "ode_dopri_54.h"
 
+namespace ode {
+
 OdeDoPri54::OdeDoPri54 (unsigned long neq) :
     OdeEmbedded (neq, false, 4),
     OdeRK (neq, 7),
@@ -82,3 +84,5 @@ void OdeDoPri54::step_ (double dt) {
                               + b6*k_[5][i]);
     }
 }
+
+} // namespace ode 

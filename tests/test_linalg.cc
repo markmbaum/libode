@@ -2,6 +2,8 @@
 
 #include "ode_linalg.h"
 
+using namespace ode;
+
 int main () {
 
     //size of system
