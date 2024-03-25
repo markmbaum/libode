@@ -2,6 +2,8 @@
 
 #include "ode_rk_4.h"
 
+namespace ode {
+
 OdeRK4::OdeRK4 (unsigned long neq) :
     OdeAdaptive (neq, false),
     OdeRK (neq, 4),
@@ -40,3 +42,5 @@ void OdeRK4::step_ (double dt) {
                                         + b3*k_[2][i]
                                         + b4*k_[3][i]);
 }
+
+} // namespace ode

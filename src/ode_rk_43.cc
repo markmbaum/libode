@@ -2,6 +2,8 @@
 
 #include "ode_rk_43.h"
 
+namespace ode {
+
 OdeRK43::OdeRK43 (unsigned long neq) :
     OdeEmbedded (neq, false, 3),
     OdeRK (neq, 5),
@@ -58,3 +60,5 @@ void OdeRK43::step_ (double dt) {
                               + b4*k_[3][i]);
     }
 }
+
+} // namespace ode

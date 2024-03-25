@@ -3,6 +3,8 @@
 #include "ode_gauss_6.h"
 #include "double_pendulum.h"
 
+using namespace ode;
+
 int main () {
 
     //create integrator

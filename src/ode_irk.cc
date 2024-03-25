@@ -2,6 +2,8 @@
 
 #include "ode_irk.h"
 
+namespace ode {
+
 OdeIRK::OdeIRK (unsigned long neq, int nk) {
 
     //store nk
@@ -17,3 +19,5 @@ OdeIRK::~OdeIRK () {
     delete [] k_;
     delete [] kall_;
 }
+
+} // namespace ode

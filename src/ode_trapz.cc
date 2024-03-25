@@ -2,6 +2,8 @@
 
 #include "ode_trapz.h"
 
+namespace ode {
+
 OdeTrapz::OdeTrapz (unsigned long neq) :
     OdeAdaptive (neq, false),
     OdeRK (neq, 2),
@@ -27,3 +29,5 @@ void OdeTrapz::step_ (double dt) {
     //------------------------------------------------------------------
     for (i=0; i<neq_; i++) sol_[i] = sol_[i] + dt*(b1*k_[0][i] + b2*k_[1][i]);
 }
+
+} // namespace ode

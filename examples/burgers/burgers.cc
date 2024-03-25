@@ -4,6 +4,8 @@
 #include "ode_trapz.h"
 #include "burgers.h"
 
+using namespace ode;
+
 int main () {
 
     //number of spatial cells

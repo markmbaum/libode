@@ -2,6 +2,8 @@
 
 #include "ode_vern_98.h"
 
+namespace ode {
+
 OdeVern98::OdeVern98 (unsigned long neq) :
     OdeEmbedded (neq, false, 8),
     OdeRK (neq, 16),
@@ -291,3 +293,5 @@ void OdeVern98::step_ (double dt) {
                               + b15*k_[14][i]);
     }
 }
+
+} // namespace ode

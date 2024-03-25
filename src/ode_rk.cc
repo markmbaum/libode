@@ -2,6 +2,8 @@
 
 #include "ode_rk.h"
 
+namespace ode {
+
 OdeRK::OdeRK (unsigned long neq, int nk) {
 
     //store number of stages
@@ -16,3 +18,5 @@ OdeRK::~OdeRK () {
     for (int i=0; i<nk_; i++) delete [] k_[i];
     delete [] k_;
 }
+
+} // namespace ode

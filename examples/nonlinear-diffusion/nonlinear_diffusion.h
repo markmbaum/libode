@@ -5,6 +5,8 @@ A nonlinear diffusion equation in 1D
 #include <cmath>
 #include <cstdio>
 
+namespace ode {
+
 template<class Integrator>
 class NonlinearDiffusion : public Integrator {
     public:
@@ -69,3 +71,5 @@ class NonlinearDiffusion : public Integrator {
             return ( 0.45*(h*h/dmax) );
         }
 };
+
+} // namespace ode

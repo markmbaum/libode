@@ -2,6 +2,8 @@
 
 #include "ode_io.h"
 
+namespace ode {
+
 void ode_check_write (const char *fn) {
 
     //try to open the file
@@ -28,3 +30,5 @@ std::string ode_int_to_string (long i) {
     std::string out = str.str();
     return(out);
 }
+
+} // namespace ode

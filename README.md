@@ -41,6 +41,8 @@ SDIRK 4(3) | `OdeSDIRK43` | `ode_sdirk_43.h` | implicit | yes | 4 | 4 | L
 
 ## Compiling
 
+### Compiling with Makefile
+
 #### Short Instructions
 
 1. Set your compiler and flags by defining `CXX` and `CFLAGS` environment variables or by uncommenting and editing those variables in the config.mk file.
@@ -48,7 +50,7 @@ SDIRK 4(3) | `OdeSDIRK43` | `ode_sdirk_43.h` | implicit | yes | 4 | 4 | L
 3. If anything weird happens, tell me.
 4. Run `make tests` and execute the `run_tests.sh` script to check that things are working.
 5. If you want, also execute `run_examples.sh` to run some example solvers (Python with numpy and matplotlib are needed for plotting). To do this, you must have the `CXX` and `CFLAGS` variables active in the config.mk file.
-6. Create derived classes and link to the library with `-I<path>/libode/src -L<path>/libode/bin -lode`, replacing `<path>` with the path to the directory above `libode` on your computer.
+6. Create derived classes and link to the library with `-I<path>/libode/include/ode -L<path>/libode/bin -lode`, replacing `<path>` with the path to the directory above `libode` on your computer.
 
 #### Longer Instructions
 
@@ -65,11 +67,43 @@ Then simply run `make` and everything should compile.
 
 The Makefile compiles all of the necessary code into the `obj` folder, then archives it in the `bin` directory as a file called `libode.a`. To use the solvers, you can link `libode.a` or the object files directly (in the `obj` directory) when compiling your derived class. You must also include the appropriate header files from the `src` directory, as there is no unified header file for the library. All of the classes have their header file name displayed in the documentation and in the table above. Linking the solver classes requires something like
 
-`-I<path>/libode/src -L<path>/libode/bin -lode`
+`-I<path>/libode/include/ode -L<path>/libode/bin -lode`
 
 when compiling derived code, with `<path>` replaced by path elements leading to the libode directory. For some examples of how to link a derived class to `libode` and create a program to run integrations, see the examples folder.
 
 Test programs are compiled with `make tests` and they can all be run in sequence with the `run_tests.sh` script.
+
+### Compiling with CMake
+
+Whe library can be built with [CMake](https://cmake.org) as well.
+You can start [CMake](https://cmake.org) with the following script
+```bash
+   .  run_cmake.sh
+```
+This script creates an folder `build`, compiles the library, installs it locally and creates a package.
+
+Here is an example of an file `CMakeLists.txt` to show how to use the **ode** library:
+
+```bash
+cmake_minimum_required(VERSION 3.15)
+project("ODETest" VERSION 0.9 DESCRIPTION "A project with the libode library")
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# It is a local prefix.
+# Comment it out if you want to use the default prefix.
+set(CMAKE_PREFIX_PATH "$ENV{HOME}/install")
+
+find_package(ode CONFIG REQUIRED)
+
+add_executable(${PROJECT_NAME})
+target_sources(${PROJECT_NAME}
+    PRIVATE
+        my_ode_test.cpp # These are the names of the source files.
+)
+target_link_libraries(${PROJECT_NAME} PRIVATE ode::ode)
+```
 
 ## Examples
 

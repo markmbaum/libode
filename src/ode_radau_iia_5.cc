@@ -2,6 +2,8 @@
 
 #include "ode_radau_iia_5.h"
 
+namespace ode {
+
 void NewtonRadauIIA5::f_Newton (double *x, double *y) {
 
     (void)x; //supress unused variable warning
@@ -96,3 +98,5 @@ void OdeRadauIIA5::step_ (double dt) {
                                         + b[1]*k_[1][i]
                                         + b[2]*k_[2][i]);
 }
+
+} // namespace ode

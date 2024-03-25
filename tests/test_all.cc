@@ -7,6 +7,8 @@ This program tests all the integrators on a simple test problem with known solut
 
 #include "test_systems.h"
 
+using namespace ode;
+
 template<class T>
 void test_sys (T sys) {
 

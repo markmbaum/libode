@@ -2,6 +2,8 @@
 
 #include "ode_geng_5.h"
 
+namespace ode {
+
 void NewtonGeng5::f_Newton (double *x, double *y) {
 
     (void)x; //supress unused variable warning
@@ -95,3 +97,5 @@ void OdeGeng5::step_ (double dt) {
                                         + b[1]*k_[1][i]
                                         + b[2]*k_[2][i]);
 }
+
+} // namespace ode

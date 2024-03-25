@@ -2,6 +2,8 @@
 
 #include "ode_vern_65.h"
 
+namespace ode {
+
 OdeVern65::OdeVern65 (unsigned long neq) :
     OdeEmbedded (neq, false, 5),
     OdeRK (neq, 9),
@@ -152,3 +154,5 @@ void OdeVern65::step_ (double dt) {
                               + b8*k_[7][i]);
     }
 }
+
+} // namespace ode

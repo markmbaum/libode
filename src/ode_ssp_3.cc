@@ -2,6 +2,8 @@
 
 #include "ode_ssp_3.h"
 
+namespace ode {
+
 OdeSsp3::OdeSsp3 (unsigned long neq) :
     OdeAdaptive (neq, false),
     OdeRK (neq, 3),
@@ -33,3 +35,5 @@ void OdeSsp3::step_ (double dt) {
     //store solution
     for (i=0; i<neq_; i++) sol_[i] += dt*(b1*k_[0][i] + b2*k_[1][i] + b3*k_[2][i]);
 }
+
+} // namespace ode

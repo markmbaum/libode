@@ -24,6 +24,8 @@
 #include "ode_geng_5.h"
 #include "ode_sdirk_43.h"
 
+namespace ode {
+    
 //Dahlquist test equation, the solution of which is just an exponential
 template<class Integrator>
 class Dahl : public Integrator {
@@ -174,5 +176,7 @@ class StiffCliff : public Integrator {
     private:
         double fac;
 };
+
+} // namespace ode 
 
 #endif

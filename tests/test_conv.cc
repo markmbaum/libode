@@ -4,6 +4,8 @@
 
 #include "test_systems.h"
 
+using namespace ode;
+
 //oscillator 1 equations
 double y1exact (double t) {
     //Dahl

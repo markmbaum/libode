@@ -3,6 +3,8 @@
 #include "ode_row6a.h"
 #include "lorentz.h"
 
+using namespace ode;
+
 int main () {
 
     //desired solution parameters

@@ -2,6 +2,8 @@
 
 #include "ode_base.h"
 
+namespace ode {
+
 OdeBase::OdeBase (unsigned long neq, bool need_jac) {
 
     //default system name
@@ -338,3 +340,5 @@ void OdeBase::after_snap (std::string dirout, long isnap, double t) {
 }
 
 void OdeBase::after_solve () { /* virtual, left to derived class */ }
+
+} // namespace ode

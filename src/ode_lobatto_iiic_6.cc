@@ -2,6 +2,8 @@
 
 #include "ode_lobatto_iiic_6.h"
 
+namespace ode {
+
 void NewtonLobattoIIIC6::f_Newton (double *x, double *y) {
 
     (void)x; //supress unused variable warning
@@ -98,3 +100,5 @@ void OdeLobattoIIIC6::step_ (double dt) {
                                         + b[2]*k_[2][i]
                                         + b[3]*k_[3][i]);
 }
+
+} // namespace ode

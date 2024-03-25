@@ -4,8 +4,10 @@ name=double_pendulum
 dtop=../..
 #get configuration from the top directory config file
 include $(dtop)/config.mk
+
 #directory with header files
-I=-I$(dtop)/src
+I=-I$(dtop)/include/ode
+
 #directory with libode library
 L=-L$(dtop)/bin
 

@@ -2,6 +2,8 @@
 
 #include "ode_rosenbrock.h"
 
+namespace ode {
+
 OdeRosenbrock::OdeRosenbrock (unsigned long neq, int nk) {
 
     //stage count
@@ -37,3 +39,5 @@ void OdeRosenbrock::prep_jac (double **Jac, unsigned long n, double dt, int *p) 
     }
     ode_crout_LU(Jac, n, p);
 }
+
+} // namespace ode
