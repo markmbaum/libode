@@ -1,11 +1,14 @@
 var searchData=
 [
-  ['a_0',['a',['../class_ode_newton_i_r_k.html#af44da1ab7d8d7a71395387bc9dd53123',1,'OdeNewtonIRK::a()'],['../class_ode_newton_s_d_i_r_k.html#aa53aa711d0eb506fd4cfae91a4f57206',1,'OdeNewtonSDIRK::a()']]],
-  ['absjacdel_5f_1',['absjacdel_',['../class_ode_base.html#a8861a0f06527ba07bc4f1981cc99fe3b',1,'OdeBase']]],
-  ['abstol_5f_2',['abstol_',['../class_ode_adaptive.html#ae43301e99d8380ae1a2931421302c5f6',1,'OdeAdaptive']]],
-  ['adapt_3',['adapt',['../class_ode_adaptive.html#a662dbc75b25a8b0e68c25ffa8c9ed38b',1,'OdeAdaptive::adapt()'],['../class_ode_embedded.html#a7754829a40bf5240bcb1ce2f618feb64',1,'OdeEmbedded::adapt()']]],
-  ['after_5fcapture_4',['after_capture',['../class_ode_base.html#a98a3a6700cefc37a6f875e665e43c72e',1,'OdeBase']]],
-  ['after_5fsnap_5',['after_snap',['../class_ode_base.html#ae3c90334d8e4353d94e0c92a41e64766',1,'OdeBase']]],
-  ['after_5fsolve_6',['after_solve',['../class_ode_base.html#a152c034e747fd693f58797c5ca50c793',1,'OdeBase']]],
-  ['after_5fstep_7',['after_step',['../class_ode_base.html#a939cb7f178f718443c676d874b0106b4',1,'OdeBase']]]
+  ['a_0',['a',['../classode_1_1_ode_newton_i_r_k.html#a8eb08f2524787484997fff4c6078e388',1,'ode::OdeNewtonIRK::a'],['../classode_1_1_ode_newton_s_d_i_r_k.html#a31e7a390f5961f1155f5f0bf6cac523f',1,'ode::OdeNewtonSDIRK::a']]],
+  ['a_20class_1',['Define a Class',['../index.html#subsec_classes',1,'']]],
+  ['absjacdel_5f_2',['absjacdel_',['../classode_1_1_ode_base.html#ac39de1178bd9e4fa52e94d0d2b3f2da4',1,'ode::OdeBase']]],
+  ['abstol_5f_3',['abstol_',['../classode_1_1_ode_adaptive.html#aa5ef9a3a8bdc97462afebba16927a875',1,'ode::OdeAdaptive']]],
+  ['adapt_4',['adapt',['../classode_1_1_ode_adaptive.html#ae5abe1304e51e9953c6304fafda824de',1,'ode::OdeAdaptive::adapt()'],['../classode_1_1_ode_embedded.html#ad1345dccf879c9353b04a7032eaac771',1,'ode::OdeEmbedded::adapt()']]],
+  ['adapt_20the_20time_20step_5',['Flexibly Adapt the Time Step',['../index.html#subsec_padapt',1,'']]],
+  ['after_5fcapture_6',['after_capture',['../classode_1_1_ode_base.html#a07a4ae52408db9f5148b79b9aaf2a027',1,'ode::OdeBase']]],
+  ['after_5fsnap_7',['after_snap',['../classode_1_1_ode_base.html#a562899797e5ed0c449d3c99e622e7fd3',1,'ode::OdeBase']]],
+  ['after_5fsolve_8',['after_solve',['../classode_1_1_ode_base.html#a5c891951f5859fcbd26255148b8b1043',1,'ode::OdeBase']]],
+  ['after_5fstep_9',['after_step',['../classode_1_1_ode_base.html#ae10e8fedd71b700ffdc0c418b896b138',1,'ode::OdeBase']]],
+  ['an_20integration_20function_10',['Call an Integration Function',['../index.html#subsec_integrate',1,'']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gam_530',['gam',['../class_ode_newton_s_d_i_r_k.html#aa2892e034d3b9b426c66f68cff34e082',1,'OdeNewtonSDIRK::gam()'],['../class_ode_rosenbrock.html#a78e6ee3df94411faa3f2001cd67af153',1,'OdeRosenbrock::gam()']]]
+  ['gam_0',['gam',['../classode_1_1_ode_newton_s_d_i_r_k.html#a4c466cbe906348bd8c6120b1da0ed8ff',1,'ode::OdeNewtonSDIRK::gam'],['../classode_1_1_ode_rosenbrock.html#a75531532d4110b762b82e970a9831c6a',1,'ode::OdeRosenbrock::gam']]]
 ];

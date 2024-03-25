@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['before_5fsolve_377',['before_solve',['../class_ode_base.html#ae59ac5b221232b8c6c120598f4744ce3',1,'OdeBase']]]
+  ['before_5fsolve_0',['before_solve',['../classode_1_1_ode_base.html#a5636ae6beaf60dd21e444c9480b57dc8',1,'ode::OdeBase']]]
 ];

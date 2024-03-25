@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['reset_474',['reset',['../class_ode_base.html#a7738598d3f815149cd2d0f7aab2f45ff',1,'OdeBase']]]
+  ['reset_0',['reset',['../classode_1_1_ode_base.html#ab36dcdc79673a540e2dbca8fcaa54e5c',1,'ode::OdeBase']]]
 ];

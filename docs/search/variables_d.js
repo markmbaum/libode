@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['silent_5fsnap_5f_551',['silent_snap_',['../class_ode_base.html#a84cd80762ea8f22c72768ec3a2eb8a55',1,'OdeBase']]],
-  ['sol_5f_552',['sol_',['../class_ode_base.html#af60cb3aa4f84aeb69e4119b511d7fcbb',1,'OdeBase::sol_()'],['../class_ode_newton_bridge.html#ad437e33bf4c2149a752df20bc57cd5fe',1,'OdeNewtonBridge::sol_()']]],
-  ['solemb_5f_553',['solemb_',['../class_ode_embedded.html#a6da8dbb1149e7a4a016f5b30ace47be0',1,'OdeEmbedded']]],
-  ['soltemp_5f_554',['soltemp_',['../class_ode_e_r_k.html#a45ef6771abf1a450ff880138d3d38439',1,'OdeERK::soltemp_()'],['../class_ode_newton_bridge.html#ae056613b9e59355e95ca019252f11438',1,'OdeNewtonBridge::soltemp_()'],['../class_ode_rosenbrock.html#a0a0ba7505c3c5c399da0fd94ba4d0cc3',1,'OdeRosenbrock::soltemp_()']]]
+  ['silent_5fsnap_5f_0',['silent_snap_',['../classode_1_1_ode_base.html#ac1e06ff1b4778e521192a36dd4106076',1,'ode::OdeBase']]],
+  ['sol_5f_1',['sol_',['../classode_1_1_ode_base.html#ad354f369c1f280b8970309ff74161d02',1,'ode::OdeBase::sol_'],['../classode_1_1_ode_newton_bridge.html#ace081cdbf0190a89c94495be5b338aa8',1,'ode::OdeNewtonBridge::sol_']]],
+  ['solemb_5f_2',['solemb_',['../classode_1_1_ode_embedded.html#a2be317be2e4d69977bcc9c7cc2104bcd',1,'ode::OdeEmbedded']]],
+  ['soltemp_5f_3',['soltemp_',['../classode_1_1_ode_e_r_k.html#ad4811515194759c88dd1b72259870af7',1,'ode::OdeERK::soltemp_'],['../classode_1_1_ode_newton_bridge.html#ad09d462e9f8312e06a058a5d1ba50ecc',1,'ode::OdeNewtonBridge::soltemp_'],['../classode_1_1_ode_rosenbrock.html#a4d80a9f6aac4eb191c9d0044c1b638ed',1,'ode::OdeRosenbrock::soltemp_']]]
 ];
