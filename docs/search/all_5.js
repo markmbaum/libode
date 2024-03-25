@@ -1,10 +1,13 @@
 var searchData=
 [
-  ['f_5fnewton_19',['f_Newton',['../class_ode_newton.html#a6d9f58342c10ed59b6c5b2d44e82b232',1,'OdeNewton']]],
-  ['facmax_5f_20',['facmax_',['../class_ode_embedded.html#a0d36a0a4ec988e8e64e6f4fb94229510',1,'OdeEmbedded']]],
-  ['facmin_5f_21',['facmin_',['../class_ode_embedded.html#afe835876258e48950acaf2b007af17a6',1,'OdeEmbedded']]],
-  ['facopt_22',['facopt',['../class_ode_embedded.html#a682295206b25f0cbc24f792e1cf5a591',1,'OdeEmbedded']]],
-  ['facsafe_5f_23',['facsafe_',['../class_ode_embedded.html#afe10f1f47fff99086612872bf3e7da1b',1,'OdeEmbedded']]],
-  ['ftemp_5f_24',['ftemp_',['../class_ode_newton_bridge.html#a8a67c9844ab69eb762d8e96b58a5463f',1,'OdeNewtonBridge']]],
-  ['fun_25',['fun',['../class_ode_newton_bridge.html#a45c56f5b70326f0524356fc2807efbd0',1,'OdeNewtonBridge']]]
+  ['f_5fnewton_0',['f_Newton',['../classode_1_1_ode_newton.html#aa6ac707cd2d8785b3385efb88fedab17',1,'ode::OdeNewton']]],
+  ['facmax_5f_1',['facmax_',['../classode_1_1_ode_embedded.html#a89fa84dcfd3f364944865806cd3aa8c7',1,'ode::OdeEmbedded']]],
+  ['facmin_5f_2',['facmin_',['../classode_1_1_ode_embedded.html#a52c5e14b6779e734d1b2cfc1b031fd51',1,'ode::OdeEmbedded']]],
+  ['facopt_3',['facopt',['../classode_1_1_ode_embedded.html#a94daead3c68bbca0ddffe60a19204624',1,'ode::OdeEmbedded']]],
+  ['facsafe_5f_4',['facsafe_',['../classode_1_1_ode_embedded.html#ae76f2fad00ca251b60bec3951acc45ec',1,'ode::OdeEmbedded']]],
+  ['flexibly_20adapt_20the_20time_20step_5',['Flexibly Adapt the Time Step',['../index.html#subsec_padapt',1,'']]],
+  ['ftemp_5f_6',['ftemp_',['../classode_1_1_ode_newton_bridge.html#a8d6764b716692ca4c18bede82ecb89ac',1,'ode::OdeNewtonBridge']]],
+  ['fun_7',['fun',['../classode_1_1_ode_newton_bridge.html#a434c42703fca37b82749f1a4e34e2dd5',1,'ode::OdeNewtonBridge']]],
+  ['function_8',['Call an Integration Function',['../index.html#subsec_integrate',1,'']]],
+  ['functions_20during_20solves_9',['&quot;Extra&quot; Functions During Solves',['../index.html#extra',1,'']]]
 ];

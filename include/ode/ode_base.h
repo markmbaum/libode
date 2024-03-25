@@ -14,26 +14,26 @@ The table below lists all the solvers and gives some basic information about the
 
 <table>
 <tr><th>Method <th> Class Name <th> Header File <th> (ex/im)plicit <th> built-in adaptive? <th> stages <th> order <th> stability
-<tr><td>Forward Euler<td>`OdeEuler`<td>`ode_euler.h`<td>explicit<td>no<td>1<td>1<td>
-<tr><td>Trapezoidal Rule<td>`OdeTrapz`<td>`ode_trapz.h`<td>explicit<td>no<td>2<td>2<td>
-<tr><td>Strong Stability-Preserving, Order 3<td>`OdeSsp3`<td>`ode_ssp_3.h`<td>explicit<td>no<td>3<td>3<td>
-    <tr><td>Runge-Kutta-Fehlberg 3(2)<td>`OdeRKF32`<td>`ode_rkf_32.h`<td>explicit<td>yes<td>3<td>3<td>
-<tr><td>RK4<td>`OdeRK4`<td>`ode_rk_4.h`<td>explicit<td>no<td>4<td>4<td>
-<tr><td>Runge-Kutta 4(3)<td>`OdeRK43`<td>`ode_rk_43.h`<td>explicit<td>yes<td>5<td>4<td>
-<tr><td>Cash-Karp<td>`OdeRKCK`<td>`ode_rkck.h`<td>explicit<td>yes<td>6<td>5<td>
-<tr><td>Dormand-Prince 5(4)<td>`OdeDoPri54`<td>`ode_dopri_54.h`<td>explicit<td>yes<td>7<td>5<td>
-<tr><td>Jim Verner's "most efficent" 6(5)<td>`OdeVern65`<td>`ode_vern_65.h`<td>explicit<td>yes<td>9<td>6<td>
-<tr><td>Jim Verner's "most efficent" 7(6)<td>`OdeVern76`<td>`ode_vern_76.h`<td>explicit<td>yes<td>10<td>7<td>
-<tr><td>Dormand-Prince 8(7)<td>`OdeDoPri87`<td>`ode_dopri_87.h`<td>explicit<td>yes<td>13<td>8<td>
-<tr><td>Jim Verner's "most efficent" 9(8)<td>`OdeVern98`<td>`ode_vern_98.h`<td>explicit<td>yes<td>16<td>9<td>
-<tr><td>Rosenbrock 4(3)<td>`OdeGRK4A`<td>`ode_grk4a.h`<td>implicit<td>yes<td>4<td>4<td>A
-<tr><td>Rosenbrock 6<td>`OdeROW6A`<td>`ode_row6a.h`<td>implicit<td>no<td>6<td>6<td>A
-<tr><td>Backward Euler<td>`OdeBackwardEuler`<td>`ode_backward_euler.h`<td>implicit<td>no<td>1<td>1<td>L
-<tr><td>Gauss 6th Order<td>`OdeGauss6`<td>`ode_gauss_6.h`<td>implicit<td>not yet<td>3<td>6<td>A
-<tr><td>Lobatto IIIC 6th Order<td>`OdeLobattoIIIC6`<td>`ode_lobatto_iiic_6.h`<td>implicit<td>not yet<td>4<td>6<td>L
-<tr><td>Radau IIA 5th Order<td>`OdeRadauIIA5`<td>`ode_radau_iia_5.h`<td>implicit<td>not yet<td>3<td>5<td>L
-<tr><td>Geng's Symplectic 5th Order<td>`OdeGeng5`<td>`ode_geng_5.h`<td>implicit<td>no<td>3<td>5<td>A?
-<tr><td>SDIRK 4(3)<td>`OdeSDIRK43`<td>`ode_sdirk_43.h`<td>implicit<td>yes<td>4<td>4<td>L
+<tr> <td> Forward Euler <td> `OdeEuler` <td> `ode_euler.h` <td> explicit <td> no <td> 1 <td> 1 <td>
+<tr> <td> Trapezoidal Rule <td> `OdeTrapz` <td> `ode_trapz.h` <td> explicit <td> no <td> 2 <td> 2 <td>
+<tr> <td> Strong Stability-Preserving, Order 3 <td> `OdeSsp3` <td> `ode_ssp_3.h` <td> explicit <td> no <td> 3 <td> 3 <td>
+    <tr> <td> Runge-Kutta-Fehlberg 3(2) <td> `OdeRKF32` <td> `ode_rkf_32.h` <td> explicit <td> yes <td> 3 <td> 3 <td>
+<tr> <td> RK4 <td> `OdeRK4` <td> `ode_rk_4.h` <td> explicit <td> no <td> 4 <td> 4 <td>
+<tr> <td> Runge-Kutta 4(3) <td> `OdeRK43` <td> `ode_rk_43.h` <td> explicit <td> yes <td> 5 <td> 4 <td>
+<tr> <td> Cash-Karp <td> `OdeRKCK` <td> `ode_rkck.h` <td> explicit <td> yes <td> 6 <td> 5 <td>
+<tr> <td> Dormand-Prince 5(4) <td> `OdeDoPri54` <td> `ode_dopri_54.h` <td> explicit <td> yes <td> 7 <td> 5 <td>
+<tr> <td> Jim Verner's "most efficent" 6(5) <td> `OdeVern65` <td> `ode_vern_65.h` <td> explicit <td> yes <td> 9 <td> 6 <td>
+<tr> <td> Jim Verner's "most efficent" 7(6) <td> `OdeVern76` <td> `ode_vern_76.h` <td> explicit <td> yes <td> 10 <td> 7 <td>
+<tr> <td> Dormand-Prince 8(7) <td> `OdeDoPri87` <td> `ode_dopri_87.h` <td> explicit <td> yes <td> 13 <td> 8 <td>
+<tr> <td> Jim Verner's "most efficent" 9(8) <td> `OdeVern98` <td> `ode_vern_98.h` <td> explicit <td> yes <td> 16 <td> 9 <td>
+<tr> <td> Rosenbrock 4(3) <td> `OdeGRK4A` <td> `ode_grk4a.h` <td> implicit <td> yes <td> 4 <td> 4 <td> A
+<tr> <td> Rosenbrock 6 <td> `OdeROW6A` <td> `ode_row6a.h` <td> implicit <td> no <td> 6 <td> 6 <td> A
+<tr> <td> Backward Euler <td> `OdeBackwardEuler` <td> `ode_backward_euler.h` <td> implicit <td> no <td> 1 <td> 1 <td> L
+<tr> <td> Gauss 6th Order <td> `OdeGauss6` <td> `ode_gauss_6.h` <td> implicit <td> not yet <td> 3 <td> 6 <td> A
+<tr> <td> Lobatto IIIC 6th Order <td> `OdeLobattoIIIC6` <td> `ode_lobatto_iiic_6.h` <td> implicit <td> not yet <td> 4 <td> 6 <td> L
+<tr> <td> Radau IIA 5th Order <td> `OdeRadauIIA5` <td> `ode_radau_iia_5.h` <td> implicit <td> not yet <td> 3 <td> 5 <td> L
+<tr> <td> Geng's Symplectic 5th Order <td> `OdeGeng5` <td> `ode_geng_5.h` <td> implicit <td> no <td> 3 <td> 5 <td> A?
+<tr> <td> SDIRK 4(3) <td> `OdeSDIRK43` <td> `ode_sdirk_43.h` <td> implicit <td> yes <td> 4 <td> 4 <td> L
 </table>
 
 \section sec_compiling Compiling
@@ -60,6 +60,38 @@ The Makefile compiles all of the necessary code into the `obj` folder, then arch
 when compiling derived code, with `<path>` replaced by path elements leading to the libode directory. For some examples of how to link a derived class to `libode` and create a program to run integrations, see the examples folder.
 
 Test programs are compiled with `make tests` and they can all be run in sequence with the `run_all_tests.sh` script (which uses Python to plot the test results).
+
+\subsection sec_compiling_cmake Compiling with CMake
+
+Whe library can be built with CMake as well.
+You can start CMake with the following script
+```bash
+   .  run_cmake.sh
+```
+This script creates an folder `build`, compiles the library, installs it locally and creates a package.
+
+Here is an example of an file `CMakeLists.txt` to show how to use the **ode** library:
+
+\code{bash}
+cmake_minimum_required(VERSION 3.15)
+project("ODETest" VERSION 0.9 DESCRIPTION "A project with the libode library")
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# It is a local prefix.
+# Comment it out if you want to use the default prefix.
+set(CMAKE_PREFIX_PATH "$ENV{HOME}/install")
+
+find_package(ode CONFIG REQUIRED)
+
+add_executable(${PROJECT_NAME})
+target_sources(${PROJECT_NAME}
+    PRIVATE
+        my_ode_test.cpp # These are the names of the source files.
+)
+target_link_libraries(${PROJECT_NAME} PRIVATE ode::ode)
+\endcode
 
 \section sec_usage Using the Solvers
 

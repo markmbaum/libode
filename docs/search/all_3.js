@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['dirout_5f_13',['dirout_',['../class_ode_base.html#a1a6ab7d3f9e76d90378c262c4aaffe1e',1,'OdeBase']]],
-  ['dt_5f_14',['dt_',['../class_ode_base.html#ae092cedcda70ddc87279bd408523ed29',1,'OdeBase::dt_()'],['../class_ode_newton_bridge.html#abc7bcafc92c8d0e696aec0149fe78cd4',1,'OdeNewtonBridge::dt_()']]],
-  ['dt_5fadapt_15',['dt_adapt',['../class_ode_adaptive.html#aa9622877a98be36e0e06087dab68d987',1,'OdeAdaptive::dt_adapt()'],['../class_ode_embedded.html#a8d382767b46fe444f53fa170fd143dfc',1,'OdeEmbedded::dt_adapt()']]],
-  ['dt_5fadapt_5f_16',['dt_adapt_',['../class_ode_adaptive.html#a9a903b7bb68a4ca8119e666bb0502a05',1,'OdeAdaptive']]],
-  ['dtmax_5f_17',['dtmax_',['../class_ode_adaptive.html#ac5030dfa077ac22d42c55b80d1c821d4',1,'OdeAdaptive']]]
+  ['define_20a_20class_0',['Define a Class',['../index.html#subsec_classes',1,'']]],
+  ['dirout_5f_1',['dirout_',['../classode_1_1_ode_base.html#aef21f73a7417cc807119a080dbc8a71b',1,'ode::OdeBase']]],
+  ['dt_5f_2',['dt_',['../classode_1_1_ode_base.html#a5e9ab2468b6de6e4e7febc72856af671',1,'ode::OdeBase::dt_'],['../classode_1_1_ode_newton_bridge.html#a6c4b7a6d6c5ff293ace3d7c0d2501de3',1,'ode::OdeNewtonBridge::dt_']]],
+  ['dt_5fadapt_3',['dt_adapt',['../classode_1_1_ode_adaptive.html#ad82930f0220ef151ea053a17ca8e5692',1,'ode::OdeAdaptive::dt_adapt()'],['../classode_1_1_ode_embedded.html#a1daf8843a1152ffe75300e9d32d9a353',1,'ode::OdeEmbedded::dt_adapt()']]],
+  ['dt_5fadapt_5f_4',['dt_adapt_',['../classode_1_1_ode_adaptive.html#a4c2f48f7823903e308ad47bd8e560cdb',1,'ode::OdeAdaptive']]],
+  ['dtmax_5f_5',['dtmax_',['../classode_1_1_ode_adaptive.html#a607cb93ffac3e7e2e32efca14298058c',1,'ode::OdeAdaptive']]],
+  ['during_20solves_6',['&quot;Extra&quot; Functions During Solves',['../index.html#extra',1,'']]]
 ];

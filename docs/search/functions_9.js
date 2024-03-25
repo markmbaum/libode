@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['newtonbackwardeuler_419',['NewtonBackwardEuler',['../class_newton_backward_euler.html#ae6b1f441a6095c8b7fe6e1bb6105dbd8',1,'NewtonBackwardEuler']]],
-  ['newtongauss6_420',['NewtonGauss6',['../class_newton_gauss6.html#a0a814370b895a4e14dd47b49e1184ac3',1,'NewtonGauss6']]],
-  ['newtongeng5_421',['NewtonGeng5',['../class_newton_geng5.html#aa77e9c4af0fff2f9832b3c8afe907e99',1,'NewtonGeng5']]],
-  ['newtonlobattoiiic6_422',['NewtonLobattoIIIC6',['../class_newton_lobatto_i_i_i_c6.html#ad9c0df815a8ce604f247af74bd814ae5',1,'NewtonLobattoIIIC6']]],
-  ['newtonradauiia5_423',['NewtonRadauIIA5',['../class_newton_radau_i_i_a5.html#a501337354448d3599fc32fca66d84e47',1,'NewtonRadauIIA5']]],
-  ['newtonsdirk43_424',['NewtonSDIRK43',['../class_newton_s_d_i_r_k43.html#afeed6c692fde12de34e693d8291df36e',1,'NewtonSDIRK43']]]
+  ['newtonbackwardeuler_0',['NewtonBackwardEuler',['../classode_1_1_newton_backward_euler.html#af563c150690b1999bd8f56ff550cac03',1,'ode::NewtonBackwardEuler']]],
+  ['newtongauss6_1',['NewtonGauss6',['../classode_1_1_newton_gauss6.html#a085a29d8bddb5b2867ed93331759f809',1,'ode::NewtonGauss6']]],
+  ['newtongeng5_2',['NewtonGeng5',['../classode_1_1_newton_geng5.html#a4436de9024612a5161a2e9db333db930',1,'ode::NewtonGeng5']]],
+  ['newtonlobattoiiic6_3',['NewtonLobattoIIIC6',['../classode_1_1_newton_lobatto_i_i_i_c6.html#af98bb0f083ea917561c2bf75f0a2f51a',1,'ode::NewtonLobattoIIIC6']]],
+  ['newtonradauiia5_4',['NewtonRadauIIA5',['../classode_1_1_newton_radau_i_i_a5.html#aadf2a7007f467660b7b02576f3127acf',1,'ode::NewtonRadauIIA5']]],
+  ['newtonsdirk43_5',['NewtonSDIRK43',['../classode_1_1_newton_s_d_i_r_k43.html#addb51a5188e8dea249cb9c907c4b97e8',1,'ode::NewtonSDIRK43']]]
 ];

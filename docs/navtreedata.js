@@ -27,13 +27,21 @@ var NAVTREE =
   [ "libode", "index.html", [
     [ "Compiling", "index.html#sec_compiling", [
       [ "Short Instructions", "index.html#sec_compiling_short", null ],
-      [ "Longer Instructions", "index.html#sec_compiling_long", null ]
+      [ "Longer Instructions", "index.html#sec_compiling_long", null ],
+      [ "Compiling with CMake", "index.html#sec_compiling_cmake", null ]
     ] ],
     [ "Using the Solvers", "index.html#sec_usage", [
       [ "Define a Class", "index.html#subsec_classes", null ],
       [ "Call an Integration Function", "index.html#subsec_integrate", null ],
       [ "Flexibly Adapt the Time Step", "index.html#subsec_padapt", null ],
       [ "\"Extra\" Functions During Solves", "index.html#extra", null ]
+    ] ],
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Functions", "namespacemembers_func.html", null ]
+      ] ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -46,11 +54,7 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ],
-      [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ]
-      ] ]
+      [ "File List", "files.html", "files_dup" ]
     ] ]
   ] ]
 ];
@@ -58,7 +62,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"class_ode_vern76.html"
+"classode_1_1_ode_embedded.html#aa9c891987f2ba29670787d8d1e7ce18c",
+"functions_o.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
