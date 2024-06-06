@@ -103,7 +103,7 @@ void OdeAdaptive::solve_adaptive (double tint, double dt0, const char *dirout, i
         }
     }
     //store the final time step if need be
-    if ( j-1 % inter != 0 ) {
+    if ( (j-1) % inter != 0 ) {
         for (i=0; i<neq_; i++) solout[i].push_back( sol_[i] );
         tout.push_back( t_ );
     }
@@ -119,6 +119,7 @@ void OdeAdaptive::solve_adaptive (double tint, double dt0, const char *dirout, i
     //extra completion things (to be overridden in derived class)
     after_solve();
 
+    delete[] solout;
     //clear output directory
     dirout_ = "";
 }
